@@ -8,11 +8,11 @@
 	#include <conio.h>
 	Game::Game()//главный цикл игры 
 	{
-
+		clock_t start = clock();
 		bool turn = true;
 		int coordAtack[2];
 		bool hitting = false;
-	//	thread timerThread(&Game::Timer, *this);
+		//thread timerThread(&Game::Timer, *this);
 		//timerThread.detach();
 		//	thread checkDestroyShips(&Game::NearCell, *this);
 		while (!EndOfComputerGame() && !EndOfYourGame())
@@ -23,61 +23,73 @@
 			if (turn)
 			{
 				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,14 });
+				cout << "At first write letter then number : ";
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,15 });
 				switch (_getch())
 				{
-				case 65:
-				{	cout << static_cast<char>(65);
+				case 97: //a
+				case 65: //A
+				{
+				cout << static_cast<char>(65);
 				coordAtack[0] = 0;
-				break;
-				}
-				case 66:
+				break;}
+				case 98: //b
+				case 66: //B
 				{	cout << static_cast<char>(66);
 				coordAtack[0] = 1;
 				break;
 				}
-				case 67:
+				case 99: //c
+				case 67: //C
 				{
 					cout << static_cast<char>(67);
 					coordAtack[0] = 2;
 					break;
 				}
-				case 68:
+				case 100: //d
+				case 68: //D
 				{
 					cout << static_cast<char>(68);
 					coordAtack[0] = 3;
 					break;
 				}
-				case 69:
+				case 101: //e
+				case 69: //E
 				{
 					cout << static_cast<char>(69);
 					coordAtack[0] = 4;
 					break;
 				}
-				case 70:
+				case 102: //f
+				case 70: // F
 				{
 					cout << static_cast<char>(70);
 					coordAtack[0] = 5;
 					break;
 				}
-				case 71:
+				case 103: // g
+				case 71: //G
 				{
 					cout << static_cast<char>(71);
 					coordAtack[0] = 6;
 					break;
 				}
-				case 72:
+				case 104: //h
+				case 72: //H
 				{
 					cout << static_cast<char>(72);
 					coordAtack[0] = 7;
 					break;
 				}
-				case 73:
+				case 105: //i
+				case 73: //I
 				{
 					cout << static_cast<char>(73);
 					coordAtack[0] = 8;
 					break;
 				}
-				case 74:
+				case 106: //j
+				case 74: //J
 				{
 					cout << static_cast<char>(74);
 					coordAtack[0] = 9;
@@ -233,7 +245,7 @@
 				}
 			}
 			system("cls");
-			cout << "Time: " << getSeconds() << "Your Ships : " << yourAliveShips << "Computer Ships : " << computerAliveShips;
+			cout << "Time: " << static_cast<int>((clock()-start) / CLOCKS_PER_SEC) / 60<< ":"<< static_cast<int>((clock() - start) / CLOCKS_PER_SEC) %60 << "Your Ships : " << yourAliveShips << "Computer Ships : " << computerAliveShips;
 		}
 	}
 	Game::~Game()
@@ -673,9 +685,9 @@
 				}
 				else 
 				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 1; i++)
+					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 2; i++)
 					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 3; j++)
+						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 2; j++)
 						{
 
 							p.SetField(i, j);
@@ -898,7 +910,6 @@
 					{
 						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 1; j++)
 						{
-
 							p.SetField(i, j);
 
 						}
@@ -906,9 +917,9 @@
 				}
 				else
 				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 1; i++)
+					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 2; i++)
 					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 4; j++)
+						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 3; j++)
 						{
 
 							p.SetField(i, j);
@@ -1099,10 +1110,14 @@
 			}
 			else if (item->GetY()[0] == 0)
 			{
-				for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 5; i++)
+				for (int i = item->GetX()[0] ; i < item->GetX()[0] + 6; i++)
 				{
-					for (int j = item->GetY()[0]; j < item->GetY()[0] + 2; j++)
+					for (int j = item->GetY()[0] ; j < item->GetY()[0] + 2; j++)
 					{
+
+						p.SetField(i, j);
+
+					}
 						if (item->GetX()[0] - item->GetX()[1] != 0)
 						{
 							p.SetField(i, j);
@@ -1118,10 +1133,10 @@
 			{
 				if (item->GetX()[0] - item->GetX()[1] != 0)
 				{
-				for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 5; i++)
-				{
-					for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 1; j++)
+					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 5; i++)
 					{
+						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 1; j++)
+						{
 						
 							p.SetField(i, j);
 						
@@ -1130,9 +1145,9 @@
 				}
 				else 
 				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 1; i++)
+					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 2; i++)
 					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 5; j++)
+						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 4; j++)
 						{
 
 							p.SetField(i, j);
