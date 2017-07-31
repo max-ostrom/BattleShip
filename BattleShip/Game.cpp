@@ -6,6 +6,15 @@
 	#include <algorithm>
 	#include <string>
 	#include <conio.h>
+	bool Game::IsKeyPressed(int key)
+{
+	const unsigned int MSB = 0x8000;
+	if (GetAsyncKeyState(key) && MSB)
+	{
+		return true;
+	}
+	return false;
+}
 	Game::Game()//главный цикл игры 
 	{
 		clock_t start = clock();
@@ -23,146 +32,170 @@
 			if (turn)
 			{
 				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,14 });
-				cout << "At first write letter then number : ";
+				cout << "At first write letter then number without Enter : "<<endl;
 				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,15 });
+				cout << "Enter - pause, any key to atack ship";
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,16 });
 				switch (_getch())
 				{
-				case 97: //a
-				case 65: //A
+				
+				case VK_RETURN: // enter
+								//pause
 				{
-				cout << static_cast<char>(65);
-				coordAtack[0] = 0;
-				break;}
-				case 98: //b
-				case 66: //B
-				{	cout << static_cast<char>(66);
-				coordAtack[0] = 1;
-				break;
-				}
-				case 99: //c
-				case 67: //C
-				{
-					cout << static_cast<char>(67);
-					coordAtack[0] = 2;
+					clock_t startPause = clock();
+					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 17,17 });
+					cout << "Pause, press space to continue, seconds :\t";
+					while (!IsKeyPressed(32))
+					{
+						SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 60,17 });
+						cout << static_cast<int>(clock() - startPause) / CLOCKS_PER_SEC;
+						Sleep(1000);
+					}
 					break;
 				}
-				case 100: //d
-				case 68: //D
-				{
-					cout << static_cast<char>(68);
-					coordAtack[0] = 3;
+				case 32:
+					
+				default:
+					switch (_getch())
+					{
+					case 97: //a
+					case 65: //A
+					{
+						cout << static_cast<char>(65);
+						coordAtack[0] = 0;
+						break; }
+					case 98: //b
+					case 66: //B
+					{	cout << static_cast<char>(66);
+					coordAtack[0] = 1;
 					break;
-				}
-				case 101: //e
-				case 69: //E
-				{
-					cout << static_cast<char>(69);
-					coordAtack[0] = 4;
-					break;
-				}
-				case 102: //f
-				case 70: // F
-				{
-					cout << static_cast<char>(70);
-					coordAtack[0] = 5;
-					break;
-				}
-				case 103: // g
-				case 71: //G
-				{
-					cout << static_cast<char>(71);
-					coordAtack[0] = 6;
-					break;
-				}
-				case 104: //h
-				case 72: //H
-				{
-					cout << static_cast<char>(72);
-					coordAtack[0] = 7;
-					break;
-				}
-				case 105: //i
-				case 73: //I
-				{
-					cout << static_cast<char>(73);
-					coordAtack[0] = 8;
-					break;
-				}
-				case 106: //j
-				case 74: //J
-				{
-					cout << static_cast<char>(74);
-					coordAtack[0] = 9;
-					break;
-				}
-				default: // пауза
-					coordAtack[0] = 0;
-					break;
-				}
-				switch (_getch())
-				{
-				case 49:
-				{	cout << static_cast<char>(49);
-				coordAtack[1] = 0;
-				break;
-				}
-				case 50:
-				{
-					cout << static_cast<char>(50);
-					coordAtack[1] = 1;
-					break;
-				}
-				case 51:
-				{
-					cout << static_cast<char>(51);
-					coordAtack[1] = 2;
-					break;
-				}
-				case 52:
-				{	cout << static_cast<char>(52);
-				coordAtack[1] = 3;
-				break;
-				}
-				case 53:
-				{
-					cout << static_cast<char>(53);
-					coordAtack[1] = 4;
-					break;
-				}
-				case 54:
-				{
-					cout << static_cast<char>(54);
-					coordAtack[1] = 5;
-					break;
-				}
-				case 55:
-				{
-					cout << static_cast<char>(55);
-					coordAtack[1] = 6;
-					break;
-				}
-				case 56:
-				{
-					cout << static_cast<char>(56);
-					coordAtack[1] = 7;
-					break;
-				}
-				case 57:
-				{
-					cout << static_cast<char>(57);
-					coordAtack[1] = 8;
-					break;
-				}
-				case 48:
-				{
-					cout << static_cast<char>(48);
-					coordAtack[1] = 9;
-					break;
-				}
-				default: {
+					}
+					case 99: //c
+					case 67: //C
+					{
+						cout << static_cast<char>(67);
+						coordAtack[0] = 2;
+						break;
+					}
+					case 100: //d
+					case 68: //D
+					{
+						cout << static_cast<char>(68);
+						coordAtack[0] = 3;
+						break;
+					}
+					case 101: //e
+					case 69: //E
+					{
+						cout << static_cast<char>(69);
+						coordAtack[0] = 4;
+						break;
+					}
+					case 102: //f
+					case 70: // F
+					{
+						cout << static_cast<char>(70);
+						coordAtack[0] = 5;
+						break;
+					}
+					case 103: // g
+					case 71: //G
+					{
+						cout << static_cast<char>(71);
+						coordAtack[0] = 6;
+						break;
+					}
+					case 104: //h
+					case 72: //H
+					{
+						cout << static_cast<char>(72);
+						coordAtack[0] = 7;
+						break;
+					}
+					case 105: //i
+					case 73: //I
+					{
+						cout << static_cast<char>(73);
+						coordAtack[0] = 8;
+						break;
+					}
+					case 106: //j
+					case 74: //J
+					{
+						cout << static_cast<char>(74);
+						coordAtack[0] = 9;
+						break;
+					}
+					default:
+						coordAtack[0] = 0;
+						break;
+					}
+					switch (_getch())
+					{
+					case 49:
+					{	cout << static_cast<char>(49);
 					coordAtack[1] = 0;
-					break; }
+					break;
+					}
+					case 50:
+					{
+						cout << static_cast<char>(50);
+						coordAtack[1] = 1;
+						break;
+					}
+					case 51:
+					{
+						cout << static_cast<char>(51);
+						coordAtack[1] = 2;
+						break;
+					}
+					case 52:
+					{	cout << static_cast<char>(52);
+					coordAtack[1] = 3;
+					break;
+					}
+					case 53:
+					{
+						cout << static_cast<char>(53);
+						coordAtack[1] = 4;
+						break;
+					}
+					case 54:
+					{
+						cout << static_cast<char>(54);
+						coordAtack[1] = 5;
+						break;
+					}
+					case 55:
+					{
+						cout << static_cast<char>(55);
+						coordAtack[1] = 6;
+						break;
+					}
+					case 56:
+					{
+						cout << static_cast<char>(56);
+						coordAtack[1] = 7;
+						break;
+					}
+					case 57:
+					{
+						cout << static_cast<char>(57);
+						coordAtack[1] = 8;
+						break;
+					}
+					case 48:
+					{
+						cout << static_cast<char>(48);
+						coordAtack[1] = 9;
+						break;
+					}
+					default: {
+						coordAtack[1] = 0;
+						break; }
+					}
 				}
+				
 				//		coordAtack[0] = 0;
 					//	coordAtack[1] = 0;
 				You_.SetEnemyField(coordAtack[0], coordAtack[1], Computer_);
@@ -321,126 +354,101 @@
 		return true;
 		return false;
 	}
-	void Game::NearCell(Ship* s,int x, int y)
-	{
-		bool isDestroy = true;
-		for (int i = 0; i < s->GetShipSize(); i++)
-		{
-			if (You_.GetField(s->GetX()[i], s->GetY()[i]) == 'X')
-				isDestroy = false;
-		}
-		if (isDestroy)
-		{
-			//FillNearestCell(s);
-		}
-		else 
-		{
-			if (s->GetShipSize() == 2)
-			{
-				if (x == 0 && s->GetY()[0] == 0)
-				{
-					if(You_.GetField(s->GetX()[0] + 1, s->GetY()[0]) == ' ')
-						You_.SetField(s->GetX()[0] + 1, s->GetY()[0] );
-					else if (You_.GetField(s->GetX()[0], s->GetY()[0] + 1) == ' ')
-						You_.SetField(s->GetX()[0] , s->GetY()[0] + 1);
-				}
-				else if (x == 9 && s->GetY()[0] == 0)
-				{
-					if (You_.GetField(x - 1, s->GetY()[0]) == ' ')
-						You_.SetField(x - 1, s->GetY()[0]);
-					else if (You_.GetField(x, s->GetY()[0] + 1) == ' ')
-						You_.SetField(x, s->GetY()[0] + 1);
-				}
-				else if (x == 0 && s->GetY()[1] == 9)
-				{
-					if (You_.GetField(x + 1, s->GetY()[0]) == ' ')
-						You_.SetField(x + 1, s->GetY()[0]);
-					else if (You_.GetField(x, s->GetY()[0] - 1) == ' ')
-						You_.SetField(x, s->GetY()[0] - 1);
-				}
-				else if (x == 9 && s->GetY()[1] == 9)
-				{
-					if (You_.GetField(x - 1, s->GetY()[0]) == ' ')
-						You_.SetField(x - 1, s->GetY()[0]);
-					else if (You_.GetField(x, s->GetY()[0] - 1) == ' ')
-						You_.SetField(x, s->GetY()[0] - 1);
-				}
-				else if (x == 0)
-				{
-					if (You_.GetField(x + 1, s->GetY()[0]) == ' ')
-						You_.SetField(x + 1, s->GetY()[0]);
-					else if (You_.GetField(x - 1, s->GetY()[0]) == ' ')
-						You_.SetField(x - 1, s->GetY()[0]);
-					else if (You_.GetField(x, s->GetY()[0] + 1) == ' ')
-						You_.SetField(x, s->GetY()[0] + 1);
-				}
-				else if (x == 9)
-				{
-					if (You_.GetField(x + 1, s->GetY()[0]) == ' ')
-						You_.SetField(x + 1, s->GetY()[0]);
-					else if (You_.GetField(x - 1, s->GetY()[0]) == ' ')
-						You_.SetField(x - 1, s->GetY()[0]);
-					else if (You_.GetField(x, s->GetY()[0] - 1) == ' ')
-						You_.SetField(x, s->GetY()[0] - 1);
-				}
-				else if (x == 9)
-				{
-					if (You_.GetField(x - 1, s->GetY()[0]) == ' ')
-						You_.SetField(x - 1, s->GetY()[0]);
-					else if (You_.GetField(x, s->GetY()[0] - 1) == ' ')
-						You_.SetField(x, s->GetY()[0] - 1);
-					else if (You_.GetField(x, s->GetY()[0] + 1) == ' ')
-						You_.SetField(x, s->GetY()[0] + 1);
-				}
-				else if (x == 0)
-				{
-					if (You_.GetField(x + 1, s->GetY()[0]) == ' ')
-						You_.SetField(x + 1, s->GetY()[0]);
-					else if (You_.GetField(x, s->GetY()[0] - 1) == ' ')
-						You_.SetField(x, s->GetY()[0] - 1);
-					else if(You_.GetField(x, s->GetY()[0] + 1) == ' ')
-						You_.SetField(x, s->GetY()[0] + 1);
-				}
-				else
-				{
-					if (You_.GetField(x - 1, s->GetY()[0]) == ' ')
-						You_.SetField(x - 1, s->GetY()[0]);
-					else if (You_.GetField(x + 1, s->GetY()[0] ) == ' ')
-						You_.SetField(x + 1, y);
-					else if (You_.GetField(x, y) == ' ')
-						You_.SetField(x, y - 1);
-					else if(You_.GetField(x, y +1 ) == ' ')
-						You_.SetField(x, y + 1);
-				}
-			}
-		
-		}
-	}
-	void Game::Timer()
-	{
-
-		while (!EndOfComputerGame() && !EndOfYourGame())
-		{
-			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,14 });
-			setSeconds(seconds++);
-			this_thread::sleep_for(chrono::seconds(1));
-			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),{15,0});
-			cout <<getSeconds()/60<< ':'<< getSeconds() %60;
-		}
-	
-	}
-	void Game::PauseTimer()
-	{
-		int seconds = 0;
-		while (true)
-		{
-			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,14 });
-			seconds++;
-			this_thread::sleep_for(chrono::seconds(1));
-			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 15,3 });
-			cout << seconds;
-		}
-	}
+	//void Game::NearCell(Ship* s,int x, int y)
+	//{
+	//	bool isDestroy = true;
+	//	for (int i = 0; i < s->GetShipSize(); i++)
+	//	{
+	//		if (You_.GetField(s->GetX()[i], s->GetY()[i]) == 'X')
+	//			isDestroy = false;
+	//	}
+	//	if (isDestroy)
+	//	{
+	//		//FillNearestCell(s);
+	//	}
+	//	else 
+	//	{
+	//		if (s->GetShipSize() == 2)
+	//		{
+	//			if (x == 0 && s->GetY()[0] == 0)
+	//			{
+	//				if(You_.GetField(s->GetX()[0] + 1, s->GetY()[0]) == ' ')
+	//					You_.SetField(s->GetX()[0] + 1, s->GetY()[0] );
+	//				else if (You_.GetField(s->GetX()[0], s->GetY()[0] + 1) == ' ')
+	//					You_.SetField(s->GetX()[0] , s->GetY()[0] + 1);
+	//			}
+	//			else if (x == 9 && s->GetY()[0] == 0)
+	//			{
+	//				if (You_.GetField(x - 1, s->GetY()[0]) == ' ')
+	//					You_.SetField(x - 1, s->GetY()[0]);
+	//				else if (You_.GetField(x, s->GetY()[0] + 1) == ' ')
+	//					You_.SetField(x, s->GetY()[0] + 1);
+	//			}
+	//			else if (x == 0 && s->GetY()[1] == 9)
+	//			{
+	//				if (You_.GetField(x + 1, s->GetY()[0]) == ' ')
+	//					You_.SetField(x + 1, s->GetY()[0]);
+	//				else if (You_.GetField(x, s->GetY()[0] - 1) == ' ')
+	//					You_.SetField(x, s->GetY()[0] - 1);
+	//			}
+	//			else if (x == 9 && s->GetY()[1] == 9)
+	//			{
+	//				if (You_.GetField(x - 1, s->GetY()[0]) == ' ')
+	//					You_.SetField(x - 1, s->GetY()[0]);
+	//				else if (You_.GetField(x, s->GetY()[0] - 1) == ' ')
+	//					You_.SetField(x, s->GetY()[0] - 1);
+	//			}
+	//			else if (x == 0)
+	//			{
+	//				if (You_.GetField(x + 1, s->GetY()[0]) == ' ')
+	//					You_.SetField(x + 1, s->GetY()[0]);
+	//				else if (You_.GetField(x - 1, s->GetY()[0]) == ' ')
+	//					You_.SetField(x - 1, s->GetY()[0]);
+	//				else if (You_.GetField(x, s->GetY()[0] + 1) == ' ')
+	//					You_.SetField(x, s->GetY()[0] + 1);
+	//			}
+	//			else if (x == 9)
+	//			{
+	//				if (You_.GetField(x + 1, s->GetY()[0]) == ' ')
+	//					You_.SetField(x + 1, s->GetY()[0]);
+	//				else if (You_.GetField(x - 1, s->GetY()[0]) == ' ')
+	//					You_.SetField(x - 1, s->GetY()[0]);
+	//				else if (You_.GetField(x, s->GetY()[0] - 1) == ' ')
+	//					You_.SetField(x, s->GetY()[0] - 1);
+	//			}
+	//			else if (x == 9)
+	//			{
+	//				if (You_.GetField(x - 1, s->GetY()[0]) == ' ')
+	//					You_.SetField(x - 1, s->GetY()[0]);
+	//				else if (You_.GetField(x, s->GetY()[0] - 1) == ' ')
+	//					You_.SetField(x, s->GetY()[0] - 1);
+	//				else if (You_.GetField(x, s->GetY()[0] + 1) == ' ')
+	//					You_.SetField(x, s->GetY()[0] + 1);
+	//			}
+	//			else if (x == 0)
+	//			{
+	//				if (You_.GetField(x + 1, s->GetY()[0]) == ' ')
+	//					You_.SetField(x + 1, s->GetY()[0]);
+	//				else if (You_.GetField(x, s->GetY()[0] - 1) == ' ')
+	//					You_.SetField(x, s->GetY()[0] - 1);
+	//				else if(You_.GetField(x, s->GetY()[0] + 1) == ' ')
+	//					You_.SetField(x, s->GetY()[0] + 1);
+	//			}
+	//			else
+	//			{
+	//				if (You_.GetField(x - 1, s->GetY()[0]) == ' ')
+	//					You_.SetField(x - 1, s->GetY()[0]);
+	//				else if (You_.GetField(x + 1, s->GetY()[0] ) == ' ')
+	//					You_.SetField(x + 1, y);
+	//				else if (You_.GetField(x, y) == ' ')
+	//					You_.SetField(x, y - 1);
+	//				else if(You_.GetField(x, y +1 ) == ' ')
+	//					You_.SetField(x, y + 1);
+	//			}
+	//		}
+	//	
+	//	}
+	//}
 	// WARNING 
 	// Апасность лучшее не залазить 
 	// не влезай убьёт
@@ -890,9 +898,9 @@
 				}
 				else
 				{
-					for (int i = item->GetX()[0] ; i < item->GetX()[0] + 2; i++)
+					for (int i = item->GetX()[0]-1 ; i < item->GetX()[0] + 2; i++)
 					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 4; j++)
+						for (int j = item->GetY()[0] ; j < item->GetY()[0] + 4; j++)
 						{
 
 							p.SetField(i, j);
@@ -1110,24 +1118,32 @@
 			}
 			else if (item->GetY()[0] == 0)
 			{
-				for (int i = item->GetX()[0] ; i < item->GetX()[0] + 6; i++)
+				if (item->GetX()[0] - item->GetX()[1] != 0)
 				{
-					for (int j = item->GetY()[0] ; j < item->GetY()[0] + 2; j++)
+					for (int i = item->GetX()[0]-1; i < item->GetX()[0] + 5; i++)
 					{
-
-						p.SetField(i, j);
-
-					}
-						if (item->GetX()[0] - item->GetX()[1] != 0)
+						for (int j = item->GetY()[0]; j < item->GetY()[0] + 2; j++)
 						{
+
 							p.SetField(i, j);
-						}
-						else
-						{
-							p.SetField(j, i);
+
 						}
 					}
 				}
+				else
+				{
+					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 2; i++)
+					{
+						for (int j = item->GetY()[0]; j < item->GetY()[0] + 5; j++)
+						{
+
+							p.SetField(i, j);
+
+						}
+					}
+				}
+					
+				
 			}
 			else if (item->GetY()[3] == 9)
 			{

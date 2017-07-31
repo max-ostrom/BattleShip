@@ -8,12 +8,11 @@ public:
 	void Reprintfield();
 	bool EndOfYourGame();
 	bool EndOfComputerGame();
-	void NearCell(Ship* s,int x, int y);
+	//void NearCell(Ship* s,int x, int y);
 	void setSeconds(int s) { seconds = s; }
 	int getSeconds() { return seconds; }
 private :
-	void Timer();
-	void PauseTimer();
+	bool Game::IsKeyPressed(int key);
 	void FillNearestCell(Ship* item, Player& You_);
 	int seconds = 0;
 	char choose_[7];
