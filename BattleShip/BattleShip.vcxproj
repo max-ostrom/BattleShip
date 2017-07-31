@@ -146,6 +146,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DoubleDeckShip.cpp" />
+    <ClCompile Include="FourDeckShip.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="SingleDeckShip.cpp" />
+    <ClCompile Include="ThreeDeckShip.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DoubleDeckShip.h" />
+    <ClInclude Include="FourDeckShip.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Ship.h" />
+    <ClInclude Include="SingleDeckShip.h" />
+    <ClInclude Include="ThreeDeckShip.h" />
+    <ClInclude Include="UnionHeader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
