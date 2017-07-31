@@ -278,6 +278,20 @@
 				}
 			}
 			system("cls");
+			char alf[11] = { "ABCDEFGHIJ" };
+			char numbers[12] = { " 1234567890" };
+			cout << "Computer ships"<<endl;
+			cout << numbers;
+			for (int i = 0; i < 10; i++)
+			{
+				cout << alf[i];
+				for (int j = 0; j < 10; j++)
+				{
+					cout << Computer_.GetField(i, j);
+				}
+				cout << endl;
+
+			}
 			cout << "Time: " << static_cast<int>((clock()-start) / CLOCKS_PER_SEC) / 60<< ":"<< static_cast<int>((clock() - start) / CLOCKS_PER_SEC) %60 << "Your Ships : " << yourAliveShips << "Computer Ships : " << computerAliveShips;
 		}
 	}
@@ -315,17 +329,8 @@
 			}	
 			cout << endl;
 		}
-		cout << numbers << endl;
-		for (int i = 0; i < 10; i++)
-		{
-			cout << alf[i];
-			for (int j = 0; j < 10; j++)
-			{
-				cout << Computer_.GetField(i, j);
-			}
-			cout << endl;
 	
-	}
+		
 	}
 	bool Game::EndOfYourGame()
 	{
