@@ -1,4 +1,5 @@
 #pragma once
-#include"Game.h"
-#include"Ship.h"
-#include"Player.h"
+#include"ThreeDeckShip.h"
+#include"SingleDeckShip.h"
+#include"FourDeckShip.h"
+#include"DoubleDeckShip.h"

@@ -1,34 +1,36 @@
 	#include "Game.h"
+
+
 	#include <Windows.h>
-	#include <thread>
-	#include<mutex>
 	#include <chrono>
-	#include <algorithm>
+	#include <thread>
 	#include <string>
 	#include <conio.h>
-	bool Game::IsKeyPressed(int key)
-{
+
+
+
+	bool Game::isKeyPressed(int key)
+	{
 	const unsigned int MSB = 0x8000;
 	if (GetAsyncKeyState(key) && MSB)
 	{
 		return true;
 	}
 	return false;
-}
+	}
+
+
+
 	Game::Game()//главный цикл игры 
 	{
-		clock_t start = clock();
+		clock_t startTime = clock();
 		bool turn = true;
-		int coordAtack[2];
-		bool hitting = false;
-		//thread timerThread(&Game::Timer, *this);
-		//timerThread.detach();
-		//	thread checkDestroyShips(&Game::NearCell, *this);
-		while (!EndOfComputerGame() && !EndOfYourGame())
+		int coordAtack[2]; // координаты атаки 
+		bool hitting = false; // попал ли комьютер 
+		while (!You_.isEndOfGame() && !Computer_.isEndOfGame())
 		{
-
-			system("cls");
-			Reprintfield();
+			
+			reprintField();
 			if (turn)
 			{
 				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,14 });
@@ -45,7 +47,7 @@
 					clock_t startPause = clock();
 					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 17,17 });
 					cout << "Pause, press space to continue, seconds :\t";
-					while (!IsKeyPressed(32))
+					while (!isKeyPressed(32)) // выход из паузы по пробелу
 					{
 						SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 60,17 });
 						cout << static_cast<int>(clock() - startPause) / CLOCKS_PER_SEC;
@@ -129,62 +131,63 @@
 					default:
 						coordAtack[0] = 0;
 						break;
-					}
+					} // первая координата атаки
+					// первая координата атаки
 					switch (_getch())
 					{
-					case 49:
+					case 49: //1
 					{	cout << static_cast<char>(49);
 					coordAtack[1] = 0;
 					break;
 					}
-					case 50:
+					case 50: //2
 					{
 						cout << static_cast<char>(50);
 						coordAtack[1] = 1;
 						break;
 					}
-					case 51:
+					case 51: //3
 					{
 						cout << static_cast<char>(51);
 						coordAtack[1] = 2;
 						break;
 					}
-					case 52:
+					case 52: //4
 					{	cout << static_cast<char>(52);
 					coordAtack[1] = 3;
 					break;
 					}
-					case 53:
+					case 53: //5
 					{
 						cout << static_cast<char>(53);
 						coordAtack[1] = 4;
 						break;
 					}
-					case 54:
+					case 54: //6
 					{
 						cout << static_cast<char>(54);
 						coordAtack[1] = 5;
 						break;
 					}
-					case 55:
+					case 55: //7
 					{
 						cout << static_cast<char>(55);
 						coordAtack[1] = 6;
 						break;
 					}
-					case 56:
+					case 56: //8
 					{
 						cout << static_cast<char>(56);
 						coordAtack[1] = 7;
 						break;
 					}
-					case 57:
+					case 57: //9
 					{
 						cout << static_cast<char>(57);
 						coordAtack[1] = 8;
 						break;
 					}
-					case 48:
+					case 48: //0
 					{
 						cout << static_cast<char>(48);
 						coordAtack[1] = 9;
@@ -193,25 +196,26 @@
 					default: {
 						coordAtack[1] = 0;
 						break; }
-					}
+					} //
+					// вторая координата атаки
 				}
 				
-				//		coordAtack[0] = 0;
-					//	coordAtack[1] = 0;
-				You_.SetEnemyField(coordAtack[0], coordAtack[1], Computer_);
-				Computer_.SetField(coordAtack[0], coordAtack[1]);
-				if (Computer_.GetField(coordAtack[0], coordAtack[1]) == '#')
+			
+				You_.setEnemyField(coordAtack[0], coordAtack[1], Computer_);
+				Computer_.setField(coordAtack[0], coordAtack[1]);
+				// ход игрока
+				if (Computer_.getField(coordAtack[0], coordAtack[1]) == '#')
 				{
-					if (Computer_.GetField(coordAtack[0], coordAtack[1]) == '#')
+					if (Computer_.getField(coordAtack[0], coordAtack[1]) == '#')
 					{
 						for each (auto var in Computer_.YourShips)
 						{
-							for (int i = 0; i < var->GetShipSize(); i++)
+							for (int i = 0; i < var->getShipSize(); i++)
 							{
-								if (var->GetX()[i] == coordAtack[0] && var->GetY()[i] == coordAtack[1])
+								if (var->getX()[i] == coordAtack[0] && var->getY()[i] == coordAtack[1])
 								{
 									//NearCell(var,coordAtack[0],coordAtack[1]);
-									FillNearestCell(var, Computer_);
+									Computer_.isShipAlive(var);
 								}
 							}
 
@@ -223,6 +227,7 @@
 						turn = false;
 					}
 				}
+				// ход компьютера
 				else
 				{
 					if (!hitting)
@@ -230,21 +235,21 @@
 						do {
 							coordAtack[0] = rand() % 10;
 							coordAtack[1] = rand() % 10;
-						} while (You_.GetEnemyField(coordAtack[0], coordAtack[1]) != ' ');
+						} while (You_.getEnemyField(coordAtack[0], coordAtack[1]) != ' ');
 					}
-					if (You_.GetEnemyField(coordAtack[0], coordAtack[1]) == ' ')
+					if (You_.getEnemyField(coordAtack[0], coordAtack[1]) == ' ')
 					{
-						You_.SetField(coordAtack[0], coordAtack[1]);
-						if (You_.GetField(coordAtack[0], coordAtack[1]) == '#')
+						You_.setField(coordAtack[0], coordAtack[1]);
+						if (You_.getField(coordAtack[0], coordAtack[1]) == '#')
 						{
 							for each (auto var in You_.YourShips)
 							{
-								for (int i = 0; i < var->GetShipSize(); i++)
+								for (int i = 0; i < var->getShipSize(); i++)
 								{
-									if (var->GetX()[i] == coordAtack[0] && var->GetY()[i] == coordAtack[1])
+									if (var->getX()[i] == coordAtack[0] && var->getY()[i] == coordAtack[1])
 									{
 										//NearCell(var,coordAtack[0],coordAtack[1]);
-										FillNearestCell(var, You_);
+										You_.isShipAlive(var);
 									}
 								}
 
@@ -258,47 +263,66 @@
 					}
 
 				}
-
+				endOfGame(startTime);
 			}
-			this_thread::sleep_for(chrono::seconds(2));
-			int yourAliveShips = 0;
-			for each (auto item in You_.YourShips)
-			{
-				if (item->IsAlive())
-				{
-					yourAliveShips++;
-				}
 			}
-			int computerAliveShips = 0;
-			for each (auto item in Computer_.YourShips)
-			{
-				if (item->IsAlive())
-				{
-					computerAliveShips++;
-				}
-			}
-			system("cls");
-			char alf[11] = { "ABCDEFGHIJ" };
-			char numbers[12] = { " 1234567890" };
-			cout << "Computer ships"<<endl;
-			cout << numbers;
-			for (int i = 0; i < 10; i++)
-			{
-				cout << alf[i];
-				for (int j = 0; j < 10; j++)
-				{
-					cout << Computer_.GetField(i, j);
-				}
-				cout << endl;
-
-			}
-			cout << "Time: " << static_cast<int>((clock()-start) / CLOCKS_PER_SEC) / 60<< ":"<< static_cast<int>((clock() - start) / CLOCKS_PER_SEC) %60 << "Your Ships : " << yourAliveShips << "Computer Ships : " << computerAliveShips;
-		}
 	}
-	Game::~Game()
+
+
+
+	void Game::endOfGame(clock_t startGame) 
 	{
+		this_thread::sleep_for(chrono::seconds(2));
+		// конец игры
+		int yourAliveShips = 0;
+		//подсчет живих кораблей игрока
+		for each (auto item in You_.YourShips)
+		{
+			if (item->isAlive())
+			{
+				yourAliveShips++;
+			}
+		}
+		int computerAliveShips = 0;
+		//подсчет живих кораблей комьютера
+		for each (auto item in Computer_.YourShips)
+		{
+			if (item->isAlive())
+			{
+				computerAliveShips++;
+			}
+		}
+		
+		
+		system("cls");
+		char alf[11] = { "ABCDEFGHIJ" };
+		char numbers[12] = { " 1234567890" };
+		cout << "Computer ships" << endl;
+		cout << numbers;
+		//отрисовка кораблей комьютера
+		for (int i = 0; i < 10; i++)
+		{
+			cout << alf[i];
+			for (int j = 0; j < 10; j++)
+			{
+				cout << Computer_.getField(i, j);
+			}
+			cout << endl;
+
+		}
+		// вывод времени игры и количества оставшихся кораблей
+		cout << "Time: "
+			<< static_cast<int>((clock() - startGame) / CLOCKS_PER_SEC) / 60
+			<< ":" 
+			<< static_cast<int>((clock() - startGame) / CLOCKS_PER_SEC) % 60 
+			<< "Your Ships : " << yourAliveShips 
+			<< "Computer Ships : " << computerAliveShips;
 	}
-	void Game::Reprintfield() // поток перерисовывающий поля
+
+
+
+
+	void Game::reprintField() // поток перерисовывающий поля
 	{
 	
 		
@@ -312,7 +336,7 @@
 			cout << alf[i];
 			for (int j = 0; j < 10; j++)
 			{
-				cout << You_.GetField(i, j);
+				cout << You_.getField(i, j);
 			}
 			cout << endl;
 		}
@@ -322,44 +346,18 @@
 			cout << alf[i];
 			for (int j = 0; j < 10; j++)
 			{
-				if (Computer_.GetField(i, j) == 'X')
+				if (Computer_.getField(i, j) == 'X')
 					cout << " ";
 				else
-					cout << Computer_.GetField(i, j);
+					cout << Computer_.getField(i, j);
 			}	
 			cout << endl;
 		}
 	
 		
 	}
-	bool Game::EndOfYourGame()
-	{
-		for (int i = 0; i < 10; i++)
-		{
-			for (int j = 0; j < 10; j++)
-			{
-				if (You_.GetField(i,j)=='X')
-					return false;
-			
-			}
-		}
-		return true;
-	}
-	bool Game::EndOfComputerGame()
-	{
-		for (int i = 0; i < 10; i++)
-		{
-			for (int j = 0; j < 10; j++)
-			{
-				if (Computer_.GetField(i, j) == 'X')
-					return false;
-
-			}
-		}
-		return true;
-		return false;
-	}
-	//void Game::NearCell(Ship* s,int x, int y)
+	
+	//void Game::NearCell(IShip* s,int x, int y)
 	//{
 	//	bool isDestroy = true;
 	//	for (int i = 0; i < s->GetShipSize(); i++)
@@ -454,808 +452,3 @@
 	//	
 	//	}
 	//}
-	// WARNING 
-	// Апасность лучшее не залазить 
-	// не влезай убьёт
-	void Game::FillNearestCell(Ship* item, Player& p)
-	{	// забиваем соседние клетки однопалубного корабля
-		if (item->GetShipSize() == 1)
-		{
-			item->Destroy();
-			if (item->GetX()[0] == 0 && item->GetY()[0] == 0)
-			{
-				for (int i = 0; i < 2; i++)
-				{
-					for (int j = 0; j < 2; j++)
-					{
-						p.SetField(i, j);
-					}
-				}
-			}
-			else if (item->GetX()[0] == 9 && item->GetY()[0] == 0)
-			{
-				for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 1; i++)
-				{
-					for (int j = item->GetY()[0]; j < item->GetY()[0] + 2; j++)
-					{
-						p.SetField(i, j);
-					}
-				}
-			}
-			else if (item->GetX()[0] == 0 && item->GetY()[0] == 9)
-			{
-				for (int i = item->GetX()[0]; i < item->GetX()[0] + 2; i++)
-				{
-					for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 1; j++)
-					{
-						p.SetField(i, j);
-					}
-				}
-			}
-			else if (item->GetX()[0] == 9 && item->GetY()[0] == 9)
-			{
-				for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 1; i++)
-				{
-					for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 1; j++)
-					{
-						p.SetField(i, j);
-					}
-				}
-			}
-			else if (item->GetY()[0] == 0)
-			{
-				for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 2; i++)
-				{
-					for (int j = item->GetY()[0]; j < item->GetY()[0] + 2; j++)
-					{
-						p.SetField(i, j);
-					}
-				}
-			}
-			else if (item->GetY()[0] == 9)
-			{
-				for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 2; i++)
-				{
-					for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 1; j++)
-					{
-						p.SetField(i, j);
-					}
-				}
-			}
-			else if (item->GetX()[0] == 9)
-			{
-				for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 1; i++)
-				{
-					for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 2; j++)
-					{
-						p.SetField(i, j);
-					}
-				}
-			}
-			else if (item->GetX()[0] == 9)
-			{
-				for (int i = item->GetX()[0]; i < item->GetX()[0] + 2; i++)
-				{
-					for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 2; j++)
-					{
-						p.SetField(i, j);
-					}
-				}
-			}
-			else
-				for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 2; i++)
-				{
-					for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 2; j++)
-					{
-						p.SetField(i, j);
-					}
-				}
-
-
-
-		}
-		// забиваем соседние клетки двухпалубного корабля
-		if (item->GetShipSize() == 2 
-			&& p.GetField(item->GetX()[0], item->GetY()[0]) == '#' 
-			&& p.GetField(item->GetX()[1], item->GetY()[1]) == '#')
-		{
-
-			item->Destroy();
-			//угол
-			if (item->GetX()[0] == 0 && item->GetY()[0] == 0)
-			{
-				for (int i = 0; i < 3; i++)
-				{
-					for (int j = 0; j < 2; j++)
-					{
-						if (item->GetX()[0] - item->GetX()[1] != 0)
-						{
-							p.SetField(i, j);
-						}
-						else
-						{
-							p.SetField(j, i);
-						}
-					}
-				}
-			}
-			//угол
-			else if (item->GetX()[1] == 9 && item->GetY()[0] == 0)
-			{
-				if (item->GetX()[0] - item->GetX()[1] != 0)
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 2; i++)
-					{
-						for (int j = item->GetY()[0]; j < item->GetY()[0] + 2; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-				else 
-				{
-					for (int i = item->GetX()[0] ; i < item->GetX()[0] + 2; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 2; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-			}
-			//угол
-			else if (item->GetX()[0] == 0 && item->GetY()[1] == 9)
-			{
-				if (item->GetX()[0] - item->GetX()[1] != 0)
-				{
-					for (int i = item->GetX()[0]; i < item->GetX()[0] + 3; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 1; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-				else 
-				{
-					for (int i = item->GetX()[0]-1; i < item->GetX()[0] + 1; i++)
-					{
-						for (int j = item->GetY()[0] ; j < item->GetY()[0] + 3; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-			}
-			//угол
-			else if (item->GetX()[1] == 9 && item->GetY()[1] == 9)
-			{
-				for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 2; i++)
-				{
-					for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 1; j++)
-					{
-						if (item->GetX()[0] - item->GetX()[1] != 0)
-						{
-							p.SetField(i, j);
-						}
-						else
-						{
-							p.SetField(j, i);
-						}
-					}
-				}
-			}
-			//стенка
-			else if (item->GetY()[0] == 0)
-			{
-				if (item->GetX()[0] - item->GetX()[1] != 0)
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 3; i++)
-					{
-						for (int j = item->GetY()[0]; j < item->GetY()[0] + 2; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-				else
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 2; i++)
-					{
-						for (int j = item->GetY()[0]; j < item->GetY()[0] + 3; j++)
-						{
-							p.SetField(i, j);
-
-						}
-					}
-				}
-				
-			}
-			//стенка
-			else if (item->GetY()[1] == 9)
-			{
-				if (item->GetX()[0] - item->GetX()[1] != 0)
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 3; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 1; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-				else 
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 2; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 2; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-			}
-			//стенка
-			else if (item->GetX()[1] == 9)
-			{
-				if (item->GetX()[0] - item->GetX()[1] != 0)
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 2; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 2; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-				else 
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 2; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 3; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-			}
-			//стенка
-			else if (item->GetX()[0] == 0)
-			{
-				if (item->GetX()[0] - item->GetX()[1] != 0)
-				{
-					for (int i = item->GetX()[0] ; i < item->GetX()[0] + 3; i++)
-					{
-						for (int j = item->GetY()[0]-1 ; j < item->GetY()[0] + 2; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-				else 
-				{
-					for (int i = item->GetX()[0]   ; i < item->GetX()[0] + 2; i++)
-					{
-						for (int j = item->GetY()[0] -1 ; j < item->GetY()[0] + 3; j++)
-						{
-							p.SetField(i, j);
-
-						}
-					}
-				}
-			}
-			else 
-			{
-				if (item->GetX()[0] - item->GetX()[1] != 0)
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 3; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 2; j++)
-						{
-
-							p.SetField(i, j);
-						}
-					}
-				}
-				else 
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 2; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 3; j++)
-						{
-
-							p.SetField(i, j);
-						}
-					}
-				}
-			}
-
-		}
-		// забиваем соседние клетки трёхпалубного корабля
-		if (item->GetShipSize() == 3
-			&& p.GetField(item->GetX()[0], item->GetY()[0]) == '#'
-			&& p.GetField(item->GetX()[1], item->GetY()[1]) == '#'
-			&& p.GetField(item->GetX()[2], item->GetY()[2]) == '#')
-		{
-
-			item->Destroy();
-			if (item->GetX()[0] == 0 && item->GetY()[0] == 0)
-			{
-				for (int i = 0; i < 4; i++)
-				{
-					for (int j = 0; j < 2; j++)
-					{
-						if (item->GetX()[0] - item->GetX()[1] != 0)
-						{
-							p.SetField(i, j);
-						}
-						else
-						{
-							p.SetField(j, i);
-						}
-					}
-				}
-			}
-			else if (item->GetX()[2] == 9 && item->GetY()[0] == 0)
-			{
-				if (item->GetX()[0] - item->GetX()[1] != 0)
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 3; i++)
-					{
-						for (int j = item->GetY()[0]; j < item->GetY()[0] + 2; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-				else 
-				{
-					for (int i = item->GetX()[0] ; i < item->GetX()[0] + 2; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 3; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-			}
-			else if (item->GetX()[0] == 0 && item->GetY()[2] == 9)
-			{
-				if (item->GetX()[0] - item->GetX()[1] != 0)
-				{
-					for (int i = item->GetX()[0]; i < item->GetX()[0] + 4; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 1; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-				else 
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 1; i++)
-					{
-						for (int j = item->GetY()[0] ; j < item->GetY()[0] + 4; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-			}
-			else if (item->GetX()[2] == 9 && item->GetY()[1] == 9)
-			{
-				for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 3; i++)
-				{
-					for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 1; j++)
-					{
-						if (item->GetX()[0] - item->GetX()[1] != 0)
-						{
-							p.SetField(i, j);
-						}
-						else
-						{
-							p.SetField(j, i);
-						}
-					}
-				}
-			}
-			else if (item->GetY()[0] == 0)
-			{
-				if (item->GetX()[0] - item->GetX()[1] != 0)
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 4; i++)
-					{
-						for (int j = item->GetY()[0]; j < item->GetY()[0] + 2; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-				else
-				{
-					for (int i = item->GetX()[0]-1 ; i < item->GetX()[0] + 2; i++)
-					{
-						for (int j = item->GetY()[0] ; j < item->GetY()[0] + 4; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-			}
-			else if (item->GetY()[2] == 9)
-			{
-
-				if (item->GetX()[0] - item->GetX()[1] != 0)
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 4; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 1; j++)
-						{
-							p.SetField(i, j);
-
-						}
-					}
-				}
-				else
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 2; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 3; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-			}
-			else if (item->GetX()[2] == 9)
-			{
-				if (item->GetX()[0] - item->GetX()[1] != 0)
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 3; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 2; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-				else 
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 2; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 3; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-			}
-			else if (item->GetX()[0] == 0)
-			{
-				if (item->GetX()[0] - item->GetX()[1] != 0)
-				{
-					for (int i = item->GetX()[0]; i < item->GetX()[0] + 4; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 2; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-				else
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 2; i++)
-					{
-						for (int j = item->GetY()[0] ; j < item->GetY()[0] + 4; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-			}
-			else 
-			{
-				if (item->GetX()[0] - item->GetX()[1] != 0)
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 4; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 2; j++)
-						{
-
-							p.SetField(i, j);
-						}
-
-					}
-				}
-				else 
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 2; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 4; j++)
-						{
-
-							p.SetField(i, j);
-						}
-
-					}
-				}
-			}
-		}
-		
-		// забиваем соседние клетки четырёхпалубного корабля
-		if (item->GetShipSize() == 4
-			&& p.GetField(item->GetX()[0], item->GetY()[0]) == '#'
-			&& p.GetField(item->GetX()[1], item->GetY()[1]) == '#'
-			&& p.GetField(item->GetX()[2], item->GetY()[2]) == '#'
-			&& p.GetField(item->GetX()[3], item->GetY()[3]) == '#')
-		{
-
-			item->Destroy();
-			if (item->GetX()[0] == 0 && item->GetY()[0] == 0)
-			{
-				for (int i = 0; i < 6; i++)
-				{
-					for (int j = 0; j < 2; j++)
-					{
-						if (item->GetX()[0] - item->GetX()[1] != 0)
-						{
-							p.SetField(i, j);
-						}
-						else
-						{
-							p.SetField(j, i);
-						}
-					}
-				}
-			}
-			else if (item->GetX()[3] == 9 && item->GetY()[0] == 0)
-			{
-				if (item->GetX()[0] - item->GetX()[1] != 0)
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 5; i++)
-					{
-						for (int j = item->GetY()[0]; j < item->GetY()[0] + 2; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-				else 
-				{
-					for (int i = item->GetX()[0] ; i < item->GetX()[0] + 2; i++)
-					{
-						for (int j = item->GetY()[0] -1 ; j < item->GetY()[0] + 5; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-			}
-			else if (item->GetX()[0] == 0 && item->GetY()[3] == 9)
-			{
-				if (item->GetX()[0] - item->GetX()[1] != 0)
-				{
-					for (int i = item->GetX()[0]; i < item->GetX()[0] + 5; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 1; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-				else 
-				{
-					for (int i = item->GetX()[0]-1; i < item->GetX()[0] + 1; i++)
-					{
-						for (int j = item->GetY()[0] ; j < item->GetY()[0] + 5; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-			}
-			else if (item->GetX()[3] == 9 && item->GetY()[3] == 9)
-			{
-				for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 5; i++)
-				{
-					for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 1; j++)
-					{
-						if (item->GetX()[0] - item->GetX()[1] != 0)
-						{
-							p.SetField(i, j);
-						}
-						else
-						{
-							p.SetField(j, i);
-						}
-					}
-				}
-			}
-			else if (item->GetY()[0] == 0)
-			{
-				if (item->GetX()[0] - item->GetX()[1] != 0)
-				{
-					for (int i = item->GetX()[0]-1; i < item->GetX()[0] + 5; i++)
-					{
-						for (int j = item->GetY()[0]; j < item->GetY()[0] + 2; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-				else
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 2; i++)
-					{
-						for (int j = item->GetY()[0]; j < item->GetY()[0] + 5; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-					
-				
-			}
-			else if (item->GetY()[3] == 9)
-			{
-				if (item->GetX()[0] - item->GetX()[1] != 0)
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 5; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 1; j++)
-						{
-						
-							p.SetField(i, j);
-						
-					}
-				}
-				}
-				else 
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 2; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 4; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-			}
-			else if (item->GetX()[3] == 9 )
-			{
-				if (item->GetX()[0] - item->GetX()[1] != 0)
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 5; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 2; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-				else 
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 2; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 5; j++)
-						{
-
-							p.SetField(i, j);
-
-						}
-					}
-				}
-			}
-			else if (item->GetX()[0] == 0)
-			{
-				if (item->GetX()[0] - item->GetX()[1] != 0)
-				{
-					for (int i = item->GetX()[0]; i < item->GetX()[0] + 5; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 2; j++)
-						{
-
-							p.SetField(i, j);
-
-
-						}
-					}
-				}
-				else 
-				{
-					for (int i = item->GetX()[0]; i < item->GetX()[0] + 2; i++)
-					{
-						for (int j = item->GetY()[0]-1 ; j < item->GetY()[0] + 5; j++)
-						{
-
-							p.SetField(i, j);
-
-
-						}
-					}
-				}
-			}
-			else
-			{
-				if (item->GetX()[0] - item->GetX()[1] != 0)
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 5; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 2; j++)
-						{
-							p.SetField(i, j);
-						}
-					}
-				}
-				else
-				{
-					for (int i = item->GetX()[0] - 1; i < item->GetX()[0] + 2; i++)
-					{
-						for (int j = item->GetY()[0] - 1; j < item->GetY()[0] + 5; j++)
-						{
-							p.SetField(i, j);
-						}
-					}
-				}
-		}
-		}
-
-	}

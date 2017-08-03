@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Factory">
+      <UniqueIdentifier>{f74e6fd6-3808-4164-bc70-ff2e11b80995}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Ships">
+      <UniqueIdentifier>{36c96b15-b94b-45cd-8ab9-869827cd833e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Ships">
+      <UniqueIdentifier>{4f21231c-7e82-4e22-a2ad-458c1d8903fe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -21,20 +30,20 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SingleDeckShip.cpp">
+    <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DoubleDeckShip.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ThreeDeckShip.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Ships</Filter>
     </ClCompile>
     <ClCompile Include="FourDeckShip.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Ships</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="SingleDeckShip.cpp">
+      <Filter>Source Files\Ships</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDeckShip.cpp">
+      <Filter>Source Files\Ships</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -44,22 +53,40 @@
     <ClInclude Include="Ship.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SingleDeckShip.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DoubleDeckShip.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ThreeDeckShip.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FourDeckShip.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="UnionHeader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Factory.h">
+      <Filter>Header Files\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="FactorySingleShip.h">
+      <Filter>Header Files\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="FactoryDoubleShip.h">
+      <Filter>Header Files\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="FactoryThreeShip.h">
+      <Filter>Header Files\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="FactoryFourShip.h">
+      <Filter>Header Files\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleDeckShip.h">
+      <Filter>Header Files\Ships</Filter>
+    </ClInclude>
+    <ClInclude Include="FourDeckShip.h">
+      <Filter>Header Files\Ships</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleDeckShip.h">
+      <Filter>Header Files\Ships</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDeckShip.h">
+      <Filter>Header Files\Ships</Filter>
+    </ClInclude>
+    <ClInclude Include="UnionFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

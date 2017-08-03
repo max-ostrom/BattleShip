@@ -46,7 +46,7 @@ DoubleDeckShip::DoubleDeckShip(char field[10][10])
 	}
 }
 
-int DoubleDeckShip::GetShipSize()
+int DoubleDeckShip::getShipSize()
 {
 	return 2;
 }
@@ -54,6 +54,6 @@ int DoubleDeckShip::GetShipSize()
 
 DoubleDeckShip::~DoubleDeckShip()
 {
-	delete(coordsX_);
-	delete(coordsY_);
+	delete[] coordsX_;
+	delete[] coordsY_;
 }

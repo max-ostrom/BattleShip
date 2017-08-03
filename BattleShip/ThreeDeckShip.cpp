@@ -52,7 +52,7 @@ ThreeDeckShip::ThreeDeckShip(char field[10][10])
 	}//switch
 }
 
-int ThreeDeckShip::GetShipSize()
+int ThreeDeckShip::getShipSize()
 {
 	return 3;
 }
@@ -60,6 +60,6 @@ int ThreeDeckShip::GetShipSize()
 
 ThreeDeckShip::~ThreeDeckShip()
 {
-	delete(coordsX_);
-	delete(coordsY_);
+	delete [] coordsX_;
+	delete [] coordsY_;
 }

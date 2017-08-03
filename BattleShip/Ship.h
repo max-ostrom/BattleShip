@@ -1,17 +1,16 @@
 #pragma once
-class Ship 
+// interface
+class IShip abstract
 {
-public:
-	virtual int GetShipSize() { return 0; };
-	bool IsAlive() { return isAlive; }
-	void Destroy() { isAlive = false; }
-	virtual int* GetX() { return coordsX_; }
-	virtual int* GetY() { return coordsY_; }
-
-	
 protected:
-	bool isAlive = true;
+	bool is_Alive_ = true;
 	int* coordsX_;
 	int* coordsY_;
+public:
+	virtual int getShipSize() = 0;
+	bool isAlive() { return is_Alive_; }
+	void destroy() { is_Alive_ = false; }
+	virtual int* getX() { return coordsX_; }
+	virtual int* getY() { return coordsY_; }
 };
 

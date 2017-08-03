@@ -156,12 +156,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DoubleDeckShip.h" />
+    <ClInclude Include="Factory.h" />
+    <ClInclude Include="FactoryDoubleShip.h" />
+    <ClInclude Include="FactoryFourShip.h" />
+    <ClInclude Include="FactorySingleShip.h" />
+    <ClInclude Include="FactoryThreeShip.h" />
     <ClInclude Include="FourDeckShip.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Ship.h" />
     <ClInclude Include="SingleDeckShip.h" />
     <ClInclude Include="ThreeDeckShip.h" />
+    <ClInclude Include="UnionFactory.h" />
     <ClInclude Include="UnionHeader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

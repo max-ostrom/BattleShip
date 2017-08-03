@@ -12,11 +12,17 @@ FourDeckShip::FourDeckShip(char field[10][10])
 	{
 		int m = rand() % 7;
 		int n = rand() % 10;
-		while (field[m][n] == 'X' || field[m + 1][n] == 'X' || field[m + 2][n] == 'X' || field[m + 3][n] == 'X' ||
-			field[m - 1][n - 1] == 'X' || field[m - 1][n] == 'X' || field[m - 1][n + 1] == 'X' || field[m][n - 1] == 'X' ||
-			field[m][n + 1] == 'X' || field[m + 1][n - 1] == 'X' || field[m + 1][n + 1] == 'X' || field[m + 2][n - 1] == 'X' ||
-			field[m + 2][n + 1] == 'X' || field[m + 3][n - 1] == 'X' || field[m + 3][n + 1] == 'X' || field[m + 4][n - 1] == 'X' ||
-			field[m + 4][n] == 'X' || field[m + 4][n + 1] == 'X') {
+		while (
+			field[m][n] == 'X' || field[m + 1][n] == 'X' ||
+			field[m + 2][n] == 'X' || field[m + 3][n] == 'X' ||
+			field[m - 1][n - 1] == 'X' || field[m - 1][n] == 'X' || 
+			field[m - 1][n + 1] == 'X' || field[m][n - 1] == 'X' ||
+			field[m][n + 1] == 'X' || field[m + 1][n - 1] == 'X' || 
+			field[m + 1][n + 1] == 'X' || field[m + 2][n - 1] == 'X' ||
+			field[m + 2][n + 1] == 'X' || field[m + 3][n - 1] == 'X' || 
+			field[m + 3][n + 1] == 'X' || field[m + 4][n - 1] == 'X' ||
+			field[m + 4][n] == 'X' || field[m + 4][n + 1] == 'X') 
+		{
 			m = rand() % 7;
 			n = rand() % 10;
 		}
@@ -36,11 +42,17 @@ FourDeckShip::FourDeckShip(char field[10][10])
 	case 1://горизонтальное положение
 		int m = rand() % 10;
 		int n = rand() % 7;
-		while (field[m][n] == 'X' || field[m][n + 1] == 'X' || field[m][n + 2] == 'X' || field[m][n + 3] == 'X' ||
-			field[m - 1][n - 1] == 'X' || field[m - 1][n] == 'X' || field[m - 1][n + 1] == 'X' || field[m - 1][n + 2] == 'X' ||
-			field[m - 1][n + 3] == 'X' || field[m - 1][n + 4] == 'X' || field[m][n - 1] == 'X' || field[m][n + 4] == 'X' ||
-			field[m + 1][n - 1] == 'X' || field[m + 1][n] == 'X' || field[m + 1][n + 1] == 'X' || field[m + 1][n + 2] == 'X' ||
-			field[m + 1][n + 3] == 'X' || field[m + 1][n + 4] == 'X') {
+		while (
+			field[m][n] == 'X' || field[m][n + 1] == 'X' ||
+			field[m][n + 2] == 'X' || field[m][n + 3] == 'X' ||
+			field[m - 1][n - 1] == 'X' || field[m - 1][n] == 'X' ||
+			field[m - 1][n + 1] == 'X' || field[m - 1][n + 2] == 'X' ||
+			field[m - 1][n + 3] == 'X' || field[m - 1][n + 4] == 'X' || 
+			field[m][n - 1] == 'X' || field[m][n + 4] == 'X' ||
+			field[m + 1][n - 1] == 'X' || field[m + 1][n] == 'X' ||
+			field[m + 1][n + 1] == 'X' || field[m + 1][n + 2] == 'X' ||
+			field[m + 1][n + 3] == 'X' || field[m + 1][n + 4] == 'X')
+		{
 			m = rand() % 10;
 			n = rand() % 7;
 		}
@@ -60,7 +72,7 @@ FourDeckShip::FourDeckShip(char field[10][10])
 	}//switch
 }
 
-int FourDeckShip::GetShipSize()
+int FourDeckShip::getShipSize()
 {
 	return 4;
 }
@@ -68,6 +80,6 @@ int FourDeckShip::GetShipSize()
 
 FourDeckShip::~FourDeckShip()
 {
-	delete(coordsX_);
-	delete(coordsY_);
+	delete[] coordsX_;
+	delete[] coordsY_;
 }
