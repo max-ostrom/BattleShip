@@ -151,6 +151,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Ship.cpp" />
     <ClCompile Include="SingleDeckShip.cpp" />
     <ClCompile Include="ThreeDeckShip.cpp" />
   </ItemGroup>

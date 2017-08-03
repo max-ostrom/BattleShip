@@ -25,12 +25,8 @@ SingleDeckShip::SingleDeckShip(char field[10][10])
 		coordsY_[0] = n;
 	}
 }
-int SingleDeckShip::getShipSize()
+int SingleDeckShip::getShipSize() const
 {
 	return 1;
 }
-SingleDeckShip::~SingleDeckShip()
-{
-	delete[] coordsX_;
-	delete[] coordsY_;
-}
+

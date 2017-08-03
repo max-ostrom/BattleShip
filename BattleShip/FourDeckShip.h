@@ -1,13 +1,11 @@
 #pragma once
 #include "SingleDeckShip.h"
 class FourDeckShip :
-	public IShip
+	public Ship
 {
 public:
 	FourDeckShip(char field[10][10]);
-	virtual int getShipSize() override;
-	~FourDeckShip();
-
+	virtual int getShipSize()const  override;
 	
 };
 

@@ -13,7 +13,8 @@ DoubleDeckShip::DoubleDeckShip(char field[10][10])
 {
 		int m = rand() % 9;
 		int n = rand() % 10;
-		while (
+		while 
+			(
 			field[m][n] == 'X' || field[m - 1][n - 1] == 'X' || 
 			field[m - 1][n] == 'X' || field[m - 1][n + 1] == 'X' ||
 			field[m][n - 1] == 'X' || field[m][n + 1] == 'X' || 
@@ -56,14 +57,9 @@ DoubleDeckShip::DoubleDeckShip(char field[10][10])
 	}
 }
 
-int DoubleDeckShip::getShipSize()
+int DoubleDeckShip::getShipSize() const
 {
 	return 2;
 }
 
 
-DoubleDeckShip::~DoubleDeckShip()
-{
-	delete[] coordsX_;
-	delete[] coordsY_;
-}

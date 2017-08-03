@@ -3,23 +3,20 @@
 class Game
 {
 private:
-
-
 	int seconds = 0;
 	char choose_[7];
 	Player You_;
 	Player Computer_;
 
-	void endOfGame(clock_t startGame);
-	void reprintField();
+	void endOfGame(const clock_t startGame) const;
+	void reprintField() const;
 	void setSeconds(int s) { seconds = s; }
 	
-	int getSeconds() { return seconds; }
+	int getSeconds() const { return seconds; }
 	
-	bool isKeyPressed(int key);
+	bool isKeyPressed(int key) const;
 
 public:
 	Game();
-	
 };
 

@@ -3,7 +3,6 @@
 class IFactory
 {
 public:
-	virtual IShip* createShip(char field[10][10]) = 0;
-	virtual ~IFactory() {}
+	virtual Ship* createShip(char field[10][10]) = 0;
 };
 

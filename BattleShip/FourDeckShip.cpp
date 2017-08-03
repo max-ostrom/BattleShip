@@ -72,14 +72,10 @@ FourDeckShip::FourDeckShip(char field[10][10])
 	}//switch
 }
 
-int FourDeckShip::getShipSize()
+int FourDeckShip::getShipSize() const
 {
 	return 4;
 }
 
 
-FourDeckShip::~FourDeckShip()
-{
-	delete[] coordsX_;
-	delete[] coordsY_;
-}
+

@@ -1,6 +1,8 @@
 #include "Player.h"
 #include "UnionFactory.h"
-bool Player::isEndOfGame()
+
+using namespace std;
+bool Player::isEndOfGame() const
 {
 	for (int i = 0; i < 10; i++)
 	{
@@ -12,16 +14,16 @@ bool Player::isEndOfGame()
 		}
 	}
 	return true;
-	return false;
 }
-bool Player::isShipAlive(IShip* item)
+
+bool Player::isShipAlive(Ship* item) 
 {
 	bool flag = true;
 	for (int i = 0; i < item->getShipSize(); i++)
 	{
 		if ( getField(item->getX()[i], item->getY()[i]) == '#' && flag)
 		{
-
+			flag = true;
 		}
 		else
 		{
@@ -36,10 +38,7 @@ bool Player::isShipAlive(IShip* item)
 	return true;
 }
 
-
-
-
-void Player::setNearCell(IShip* item)
+void Player::setNearCell(Ship* item)
 {
 	item->destroy();
 
@@ -267,6 +266,7 @@ void Player::setNearCell(IShip* item)
 		}
 	}
 }
+
 char Player::getField(const int i, const int j) const
 {
 	if (i >= 0 && i < 11 && j >= 0 && j < 11)
@@ -274,8 +274,6 @@ char Player::getField(const int i, const int j) const
 	else
 		return NULL;
 }
-
-
 
 char Player::getEnemyField(const int i, const int j) const
 {
@@ -285,10 +283,7 @@ char Player::getEnemyField(const int i, const int j) const
 		return NULL;
 }
 
-
-
-
-void Player::setField(int i, int j)
+void Player::setField(const int i, const int j)
 {
 	if (yourField_[i][j] == ' ' || yourField_[i][j] == '*')
 		yourField_[i][j] = '*';
@@ -296,9 +291,7 @@ void Player::setField(int i, int j)
 		yourField_[i][j] = '#';
 }
 
-
-
-void Player::setEnemyField(int i, int j, const Player& p)
+void Player::setEnemyField(const int i, const int j,const Player& p)
 {
 	if (p.yourField_[i][j] == ' ' || p.yourField_[i][j] == '*')
 		enemyField_[i][j] = '*';
@@ -317,22 +310,22 @@ Player::Player()
 		}
 	}
 
-	FactoryFourShip* factory_fourShip = new FactoryFourShip();
+	IFactory* factory_fourShip = new FactoryFourShip();
 	YourShips.push_back(factory_fourShip->createShip(yourField_));
 
-	FactoryThreeShip* factory_threeShip = new FactoryThreeShip();
+	IFactory* factory_threeShip = new FactoryThreeShip();
 	for (int i = 0; i < 2; i++)
 	{
 		YourShips.push_back(factory_threeShip->createShip(yourField_));
 	}
 
-	FactoryDoubleShip* factory_doubleShip = new FactoryDoubleShip();
+	IFactory* factory_doubleShip = new FactoryDoubleShip();
 	for (int i = 0; i < 3; i++)
 	{
 		YourShips.push_back(factory_doubleShip->createShip(yourField_));
 	}
 
-	FactorySingleShip* factory_singleShip = new FactorySingleShip();
+	IFactory* factory_singleShip = new FactorySingleShip();
 	for (int i = 0; i < 4; i++)
 	{
 		YourShips.push_back(factory_singleShip->createShip(yourField_));
@@ -342,6 +335,8 @@ Player::Player()
 	delete factory_fourShip;
 	delete factory_threeShip;
 }
+
 Player::~Player()
 {
+	
 }
