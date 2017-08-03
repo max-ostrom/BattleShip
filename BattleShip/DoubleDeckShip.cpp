@@ -13,9 +13,14 @@ DoubleDeckShip::DoubleDeckShip(char field[10][10])
 {
 		int m = rand() % 9;
 		int n = rand() % 10;
-		while (field[m][n] == 'X' || field[m - 1][n - 1] == 'X' || field[m - 1][n] == 'X' || field[m - 1][n + 1] == 'X' ||
-			field[m][n - 1] == 'X' || field[m][n + 1] == 'X' || field[m + 1][n - 1] == 'X' || field[m + 1][n] == 'X' ||
-			field[m + 1][n + 1] == 'X' || field[m + 2][n - 1] == 'X' || field[m + 2][n] == 'X' || field[m + 2][n + 1] == 'X') {
+		while (
+			field[m][n] == 'X' || field[m - 1][n - 1] == 'X' || 
+			field[m - 1][n] == 'X' || field[m - 1][n + 1] == 'X' ||
+			field[m][n - 1] == 'X' || field[m][n + 1] == 'X' || 
+			field[m + 1][n - 1] == 'X' || field[m + 1][n] == 'X' ||
+			field[m + 1][n + 1] == 'X' || field[m + 2][n - 1] == 'X' || 
+			field[m + 2][n] == 'X' || field[m + 2][n + 1] == 'X') 
+		{
 			m = rand() % 9;
 			n = rand() % 10;
 		}
@@ -30,9 +35,14 @@ DoubleDeckShip::DoubleDeckShip(char field[10][10])
 	case 1://горизонтальное расположение корабля
 		int m = rand() % 10;
 		int n = rand() % 9;
-		while (field[m][n] == 'X' || field[m][n + 1] == 'X' || field[m - 1][n - 1] == 'X' || field[m - 1][n] == 'X' ||
-			field[m - 1][n + 1] == 'X' || field[m - 1][n + 2] == 'X' || field[m][n - 1] == 'X' || field[m][n + 2] == 'X' ||
-			field[m + 1][n - 1] == 'X' || field[m + 1][n] == 'X' || field[m + 1][n + 1] == 'X' || field[m + 1][n + 2] == 'X') {
+		while (
+			field[m][n] == 'X' || field[m][n + 1] == 'X' || 
+			field[m - 1][n - 1] == 'X' || field[m - 1][n] == 'X' ||
+			field[m - 1][n + 1] == 'X' || field[m - 1][n + 2] == 'X' || 
+			field[m][n - 1] == 'X' || field[m][n + 2] == 'X' ||
+			field[m + 1][n - 1] == 'X' || field[m + 1][n] == 'X' || 
+			field[m + 1][n + 1] == 'X' || field[m + 1][n + 2] == 'X') 
+		{
 			m = rand() % 10;
 			n = rand() % 9;
 		}

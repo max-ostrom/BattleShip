@@ -1,10 +1,10 @@
 	#include "Game.h"
 
-
-	#include <Windows.h>
 	#include <chrono>
 	#include <thread>
 	#include <string>
+
+	#include <Windows.h>
 	#include <conio.h>
 
 
@@ -214,7 +214,6 @@
 							{
 								if (var->getX()[i] == coordAtack[0] && var->getY()[i] == coordAtack[1])
 								{
-									//NearCell(var,coordAtack[0],coordAtack[1]);
 									Computer_.isShipAlive(var);
 								}
 							}
@@ -324,11 +323,8 @@
 
 	void Game::reprintField() // поток перерисовывающий поля
 	{
-	
-		
-	
-			system("cls");
-			char alf[11] = { "ABCDEFGHIJ" };
+		system("cls");
+		char alf[11] = { "ABCDEFGHIJ" };
 		char numbers[12] = { " 1234567890" };
 		cout << numbers << endl;
 		for (int i = 0; i < 10; i++)
@@ -356,99 +352,3 @@
 	
 		
 	}
-	
-	//void Game::NearCell(IShip* s,int x, int y)
-	//{
-	//	bool isDestroy = true;
-	//	for (int i = 0; i < s->GetShipSize(); i++)
-	//	{
-	//		if (You_.GetField(s->GetX()[i], s->GetY()[i]) == 'X')
-	//			isDestroy = false;
-	//	}
-	//	if (isDestroy)
-	//	{
-	//		//FillNearestCell(s);
-	//	}
-	//	else 
-	//	{
-	//		if (s->GetShipSize() == 2)
-	//		{
-	//			if (x == 0 && s->GetY()[0] == 0)
-	//			{
-	//				if(You_.GetField(s->GetX()[0] + 1, s->GetY()[0]) == ' ')
-	//					You_.SetField(s->GetX()[0] + 1, s->GetY()[0] );
-	//				else if (You_.GetField(s->GetX()[0], s->GetY()[0] + 1) == ' ')
-	//					You_.SetField(s->GetX()[0] , s->GetY()[0] + 1);
-	//			}
-	//			else if (x == 9 && s->GetY()[0] == 0)
-	//			{
-	//				if (You_.GetField(x - 1, s->GetY()[0]) == ' ')
-	//					You_.SetField(x - 1, s->GetY()[0]);
-	//				else if (You_.GetField(x, s->GetY()[0] + 1) == ' ')
-	//					You_.SetField(x, s->GetY()[0] + 1);
-	//			}
-	//			else if (x == 0 && s->GetY()[1] == 9)
-	//			{
-	//				if (You_.GetField(x + 1, s->GetY()[0]) == ' ')
-	//					You_.SetField(x + 1, s->GetY()[0]);
-	//				else if (You_.GetField(x, s->GetY()[0] - 1) == ' ')
-	//					You_.SetField(x, s->GetY()[0] - 1);
-	//			}
-	//			else if (x == 9 && s->GetY()[1] == 9)
-	//			{
-	//				if (You_.GetField(x - 1, s->GetY()[0]) == ' ')
-	//					You_.SetField(x - 1, s->GetY()[0]);
-	//				else if (You_.GetField(x, s->GetY()[0] - 1) == ' ')
-	//					You_.SetField(x, s->GetY()[0] - 1);
-	//			}
-	//			else if (x == 0)
-	//			{
-	//				if (You_.GetField(x + 1, s->GetY()[0]) == ' ')
-	//					You_.SetField(x + 1, s->GetY()[0]);
-	//				else if (You_.GetField(x - 1, s->GetY()[0]) == ' ')
-	//					You_.SetField(x - 1, s->GetY()[0]);
-	//				else if (You_.GetField(x, s->GetY()[0] + 1) == ' ')
-	//					You_.SetField(x, s->GetY()[0] + 1);
-	//			}
-	//			else if (x == 9)
-	//			{
-	//				if (You_.GetField(x + 1, s->GetY()[0]) == ' ')
-	//					You_.SetField(x + 1, s->GetY()[0]);
-	//				else if (You_.GetField(x - 1, s->GetY()[0]) == ' ')
-	//					You_.SetField(x - 1, s->GetY()[0]);
-	//				else if (You_.GetField(x, s->GetY()[0] - 1) == ' ')
-	//					You_.SetField(x, s->GetY()[0] - 1);
-	//			}
-	//			else if (x == 9)
-	//			{
-	//				if (You_.GetField(x - 1, s->GetY()[0]) == ' ')
-	//					You_.SetField(x - 1, s->GetY()[0]);
-	//				else if (You_.GetField(x, s->GetY()[0] - 1) == ' ')
-	//					You_.SetField(x, s->GetY()[0] - 1);
-	//				else if (You_.GetField(x, s->GetY()[0] + 1) == ' ')
-	//					You_.SetField(x, s->GetY()[0] + 1);
-	//			}
-	//			else if (x == 0)
-	//			{
-	//				if (You_.GetField(x + 1, s->GetY()[0]) == ' ')
-	//					You_.SetField(x + 1, s->GetY()[0]);
-	//				else if (You_.GetField(x, s->GetY()[0] - 1) == ' ')
-	//					You_.SetField(x, s->GetY()[0] - 1);
-	//				else if(You_.GetField(x, s->GetY()[0] + 1) == ' ')
-	//					You_.SetField(x, s->GetY()[0] + 1);
-	//			}
-	//			else
-	//			{
-	//				if (You_.GetField(x - 1, s->GetY()[0]) == ' ')
-	//					You_.SetField(x - 1, s->GetY()[0]);
-	//				else if (You_.GetField(x + 1, s->GetY()[0] ) == ' ')
-	//					You_.SetField(x + 1, y);
-	//				else if (You_.GetField(x, y) == ' ')
-	//					You_.SetField(x, y - 1);
-	//				else if(You_.GetField(x, y +1 ) == ' ')
-	//					You_.SetField(x, y + 1);
-	//			}
-	//		}
-	//	
-	//	}
-	//}

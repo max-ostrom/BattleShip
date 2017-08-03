@@ -10,8 +10,13 @@ SingleDeckShip::SingleDeckShip(char field[10][10])
 	for (int i = 0; i<1; i++) {
 		int m = rand() % 10;
 		int n = rand() % 10;
-		while (field[m][n] == 'X' || field[m][n + 1] == 'X' || field[m][n - 1] == 'X' || field[m + 1][n] == 'X' || field[m - 1][n] == 'X'
-			|| field[m + 1][n + 1] == 'X' || field[m + 1][n - 1] == 'X' || field[m - 1][n + 1] == 'X' || field[m - 1][n - 1] == 'X') {
+		while (
+			field[m][n] == 'X' || field[m][n + 1] == 'X' || 
+			field[m][n - 1] == 'X' || field[m + 1][n] == 'X' || 
+			field[m - 1][n] == 'X' || field[m + 1][n + 1] == 'X' || 
+			field[m + 1][n - 1] == 'X' || field[m - 1][n + 1] == 'X' || 
+			field[m - 1][n - 1] == 'X') 
+		{
 			m = rand() % 10;
 			n = rand() % 10;
 		}
