@@ -8,13 +8,13 @@ private:
 	Player You_;
 	Player Computer_;
 
-	void endOfGame(const clock_t startGame) const;
+	void endOfGame(const clock_t& startGame) const;
 	void reprintField() const;
-	void setSeconds(const int s);
+	void setSeconds(const int& s);
 	
 	int getSeconds() const;
 	
-	bool isKeyPressed(const int key) const;
+	bool isKeyPressed(const int& key) const;
 
 public:
 	Game();

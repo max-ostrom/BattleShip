@@ -9,7 +9,7 @@
 
 
 
-bool Game::isKeyPressed(const int key) const 
+bool Game::isKeyPressed(const int& key) const 
 {
 const unsigned int MSB = 0x8000;
 
@@ -283,7 +283,7 @@ Game::Game()//главный цикл игры
 
 
 
-void Game::endOfGame(const clock_t startGame) const
+void Game::endOfGame(const clock_t& startGame) const
 {
 	this_thread::sleep_for(chrono::seconds(2));
 	// конец игры
@@ -338,7 +338,7 @@ void Game::endOfGame(const clock_t startGame) const
 		<< "Computer Ships : " << computerAliveShips <<endl;
 }
 
-void Game::setSeconds(const int s) 
+void Game::setSeconds(const int& s) 
 { 
 	seconds = s; 
 }

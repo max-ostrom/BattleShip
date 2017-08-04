@@ -287,7 +287,7 @@ void Player::setNearCell(Ship* item)
 	}
 }
 
-char Player::getField(const int i, const int j) const
+char Player::getField(const int& i, const int& j) const
 {
 	if (i >= 0 && i < 11 && j >= 0 && j < 11)
 		return yourField_[i][j];
@@ -296,7 +296,7 @@ char Player::getField(const int i, const int j) const
 		return NULL;
 }
 
-char Player::getEnemyField(const int i, const int j) const
+char Player::getEnemyField(const int& i, const int& j) const
 {
 	if (i >= 0 && i < 11 && j >= 0 && j < 11)
 		return enemyField_[i][j];
@@ -305,7 +305,7 @@ char Player::getEnemyField(const int i, const int j) const
 		return NULL;
 }
 
-void Player::setField(const int i, const int j)
+void Player::setField(const int& i, const int& j)
 {
 	if (yourField_[i][j] == ' ' || yourField_[i][j] == '*')
 		yourField_[i][j] = '*';
@@ -314,7 +314,7 @@ void Player::setField(const int i, const int j)
 		yourField_[i][j] = '#';
 }
 
-void Player::setEnemyField(const int i, const int j,const Player& p)
+void Player::setEnemyField(const int& i, const int& j,const Player& p)
 {
 	if (p.yourField_[i][j] == ' ' || p.yourField_[i][j] == '*')
 		enemyField_[i][j] = '*';
