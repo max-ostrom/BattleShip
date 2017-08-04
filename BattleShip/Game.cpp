@@ -349,13 +349,13 @@ int Game::getSeconds() const
 }
 
 void Game::reprintField() const  // поток перерисовывающий поля
-{
+{	
 	system("cls");
 	char alf[11] = { "ABCDEFGHIJ" };
 	char numbers[12] = { " 1234567890" };
 
 
-	cout << numbers << endl;
+	cout <<"Your ships"<<endl<< numbers << endl;
 	for (int i = 0; i < 10; i++)
 	{
 		cout << alf[i];
@@ -363,11 +363,11 @@ void Game::reprintField() const  // поток перерисовывающий поля
 		{
 			cout << You_.getField(i, j);
 		}
-		cout << endl;
+		cout << "|"<<endl;
 	}
 
 
-	cout << numbers << endl;
+	cout <<endl<<"Computer ships"<<endl<< numbers << endl;
 	for (int i = 0; i < 10; i++)
 	{
 		cout << alf[i];
@@ -378,7 +378,7 @@ void Game::reprintField() const  // поток перерисовывающий поля
 			else
 				cout << Computer_.getField(i, j);
 		}	
-		cout << endl;
+		cout <<"|"<< endl;
 	}
 	
 		
