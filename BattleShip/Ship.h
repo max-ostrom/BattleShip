@@ -1,11 +1,12 @@
 #pragma once
+#include <memory>
 class Ship// abstract
 {
 protected:
 	bool is_Alive_ = true;
 
-	int* coordsX_;
-	int* coordsY_;
+	std::auto_ptr<int> coordsX_;
+	std::auto_ptr<int> coordsY_;
 public:
 	virtual int getShipSize() const = 0 ;
 
@@ -14,6 +15,6 @@ public:
 
 	virtual int* getX() const;
 	virtual int* getY() const;
-	virtual ~Ship();
+
 };
 

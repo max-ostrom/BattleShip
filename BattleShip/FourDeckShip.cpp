@@ -4,8 +4,8 @@
 
 FourDeckShip::FourDeckShip(char field[10][10])
 {
-	coordsX_ = new int[4];
-	coordsY_ = new int[4];
+	coordsX_ = auto_ptr<int>(new int[4]);
+	coordsY_ = auto_ptr<int>(new int[4]);
 	int l = rand() % 2;
 	switch (l) {
 	case 0://вертикальное положение
@@ -30,14 +30,14 @@ FourDeckShip::FourDeckShip(char field[10][10])
 		field[m + 1][n] = 'X';
 		field[m + 2][n] = 'X';
 		field[m + 3][n] = 'X';
-		coordsX_[0] = m;
-		coordsX_[1] = m + 1;
-		coordsX_[2] = m + 2;
-		coordsX_[3] = m + 3;
-		coordsY_[0] = n;
-		coordsY_[1] = n;
-		coordsY_[2] = n;
-		coordsY_[3] = n;
+		coordsX_.get()[0] = m;
+		coordsX_.get()[1] = m + 1;
+		coordsX_.get()[2] = m + 2;
+		coordsX_.get()[3] = m + 3;
+		coordsY_.get()[0] = n;
+		coordsY_.get()[1] = n;
+		coordsY_.get()[2] = n;
+		coordsY_.get()[3] = n;
 		break; }
 	case 1://горизонтальное положение
 		int m = rand() % 10;
@@ -60,14 +60,14 @@ FourDeckShip::FourDeckShip(char field[10][10])
 		field[m][n + 1] = 'X';
 		field[m][n + 2] = 'X';
 		field[m][n + 3] = 'X';
-		coordsX_[0] = m;
-		coordsX_[1] = m;
-		coordsX_[2] = m;
-		coordsX_[3] = m;
-		coordsY_[0] = n;
-		coordsY_[1] = n+1;
-		coordsY_[2] = n+2;
-		coordsY_[3] = n+3;
+		coordsX_.get()[0] = m;
+		coordsX_.get()[1] = m;
+		coordsX_.get()[2] = m;
+		coordsX_.get()[3] = m;
+		coordsY_.get()[0] = n;
+		coordsY_.get()[1] = n+1;
+		coordsY_.get()[2] = n+2;
+		coordsY_.get()[3] = n+3;
 		break;
 	}//switch
 }

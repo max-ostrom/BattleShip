@@ -4,8 +4,8 @@
 
 DoubleDeckShip::DoubleDeckShip(char field[10][10])
 {
-	coordsX_ = new int[2];
-	coordsY_ = new int[2];
+	coordsX_ = auto_ptr<int>(new int[2]);
+	coordsY_ = auto_ptr<int>(new int[2]);
 	srand(time(0));
 	int k = rand() % 2;
 	switch (k) {
@@ -27,10 +27,10 @@ DoubleDeckShip::DoubleDeckShip(char field[10][10])
 		}
 		field[m][n] = 'X';
 		field[m + 1][n] = 'X';
-		coordsX_[0] = m;
-		coordsX_[1] = m + 1;
-		coordsY_[0] = n;
-		coordsY_[1] = n;
+		coordsX_.get()[0] = m;
+		coordsX_.get()[1] = m + 1;
+		coordsY_.get()[0] = n;
+		coordsY_.get()[1] = n;
 		break;
 	}
 	case 1://горизонтальное расположение корабля
@@ -49,10 +49,10 @@ DoubleDeckShip::DoubleDeckShip(char field[10][10])
 		}
 		field[m][n] = 'X';
 		field[m][n + 1] = 'X';
-		coordsX_[0] = m;
-		coordsX_[1] = m;
-		coordsY_[0] = n;
-		coordsY_[1] = n+1;
+		coordsX_.get()[0] = m;
+		coordsX_.get()[1] = m;
+		coordsY_.get()[0] = n;
+		coordsY_.get()[1] = n+1;
 		break;
 	}
 }

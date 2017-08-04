@@ -10,18 +10,12 @@ void Ship::destroy()
 	is_Alive_ = false; 
 }
 
-int* Ship::getX() const 
+int* Ship::getX() const
 { 
-	return coordsX_; 
+	return coordsX_.get(); 
 }
 
-int* Ship::getY() const 
+int* Ship::getY() const
 { 
-	return coordsY_; 
-}
-
-Ship::~Ship() 
-{
-	delete[] coordsX_; 
-	delete[] coordsY_;
+	return coordsY_.get(); 
 }
