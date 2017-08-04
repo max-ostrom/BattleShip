@@ -9,13 +9,15 @@
 
 
 
-bool Game::isKeyPressed(int key) const 
+bool Game::isKeyPressed(const int key) const 
 {
 const unsigned int MSB = 0x8000;
-if (GetAsyncKeyState(key) && MSB)
-{
-	return true;
-}
+
+	if (GetAsyncKeyState(key) && MSB)
+	{
+		return true;
+	}
+
 return false;
 }
 
@@ -27,10 +29,13 @@ Game::Game()//главный цикл игры
 	bool turn = true;
 	int coordAtack[2]; // координаты атаки 
 	bool hitting = false; // попал ли комьютер 
+
+
 	while (!You_.isEndOfGame() && !Computer_.isEndOfGame())
 	{
 			
 		reprintField();
+
 		if (turn)
 		{
 			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,14 });
@@ -38,6 +43,8 @@ Game::Game()//главный цикл игры
 			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,15 });
 			cout << "Enter - pause, any key to atack ship";
 			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,16 });
+
+
 			switch (_getch())
 			{
 				
@@ -56,7 +63,6 @@ Game::Game()//главный цикл игры
 				break;
 			}
 			case 32:
-					
 			default:
 				switch (_getch())
 				{
@@ -65,12 +71,14 @@ Game::Game()//главный цикл игры
 				{
 					cout << static_cast<char>(65);
 					coordAtack[0] = 0;
-					break; }
+					break; 
+				}
 				case 98: //b
 				case 66: //B
-				{	cout << static_cast<char>(66);
-				coordAtack[0] = 1;
-				break;
+				{	
+					cout << static_cast<char>(66);
+					coordAtack[0] = 1;
+					break;
 				}
 				case 99: //c
 				case 67: //C
@@ -136,9 +144,10 @@ Game::Game()//главный цикл игры
 				switch (_getch())
 				{
 				case 49: //1
-				{	cout << static_cast<char>(49);
-				coordAtack[1] = 0;
-				break;
+				{	
+					cout << static_cast<char>(49);
+					coordAtack[1] = 0;
+					break;
 				}
 				case 50: //2
 				{
@@ -153,9 +162,10 @@ Game::Game()//главный цикл игры
 					break;
 				}
 				case 52: //4
-				{	cout << static_cast<char>(52);
-				coordAtack[1] = 3;
-				break;
+				{	
+					cout << static_cast<char>(52);
+					coordAtack[1] = 3;
+					break;
 				}
 				case 53: //5
 				{
@@ -203,6 +213,8 @@ Game::Game()//главный цикл игры
 			
 			You_.setEnemyField(coordAtack[0], coordAtack[1], Computer_);
 			Computer_.setField(coordAtack[0], coordAtack[1]);
+
+
 			// ход игрока
 			if (Computer_.getField(coordAtack[0], coordAtack[1]) == '#')
 			{
@@ -226,6 +238,8 @@ Game::Game()//главный цикл игры
 					turn = false;
 				}
 			}
+
+
 			// ход компьютера
 			else
 			{
@@ -282,6 +296,8 @@ void Game::endOfGame(const clock_t startGame) const
 			yourAliveShips++;
 		}
 	}
+
+
 	int computerAliveShips = 0;
 	//подсчет живих кораблей комьютера
 	for each (auto item in Computer_.YourShips)
@@ -298,6 +314,8 @@ void Game::endOfGame(const clock_t startGame) const
 	char numbers[12] = { " 1234567890" };
 	cout << "Computer ships" << endl;
 	cout << numbers<< endl;
+
+
 	//отрисовка кораблей комьютера
 	for (int i = 0; i < 10; i++)
 	{
@@ -309,6 +327,8 @@ void Game::endOfGame(const clock_t startGame) const
 		cout << endl;
 
 	}
+
+
 	// вывод времени игры и количества оставшихся кораблей
 	cout << "Time: "
 		<< static_cast<int>((clock() - startGame) / CLOCKS_PER_SEC) / 60
@@ -318,14 +338,23 @@ void Game::endOfGame(const clock_t startGame) const
 		<< "Computer Ships : " << computerAliveShips <<endl;
 }
 
+void Game::setSeconds(const int s) 
+{ 
+	seconds = s; 
+}
 
-
+int Game::getSeconds() const 
+{ 
+	return seconds; 
+}
 
 void Game::reprintField() const  // поток перерисовывающий поля
 {
 	system("cls");
 	char alf[11] = { "ABCDEFGHIJ" };
 	char numbers[12] = { " 1234567890" };
+
+
 	cout << numbers << endl;
 	for (int i = 0; i < 10; i++)
 	{
@@ -336,6 +365,8 @@ void Game::reprintField() const  // поток перерисовывающий поля
 		}
 		cout << endl;
 	}
+
+
 	cout << numbers << endl;
 	for (int i = 0; i < 10; i++)
 	{

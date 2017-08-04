@@ -2,10 +2,7 @@
 #include <iostream>
 #include <vector>
 
-
 #include"UnionHeader.h"
-
-
 
 class Player
 {

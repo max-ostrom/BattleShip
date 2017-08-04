@@ -10,11 +10,11 @@ private:
 
 	void endOfGame(const clock_t startGame) const;
 	void reprintField() const;
-	void setSeconds(int s) { seconds = s; }
+	void setSeconds(const int s);
 	
-	int getSeconds() const { return seconds; }
+	int getSeconds() const;
 	
-	bool isKeyPressed(int key) const;
+	bool isKeyPressed(const int key) const;
 
 public:
 	Game();
