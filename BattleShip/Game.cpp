@@ -29,7 +29,7 @@ Game::Game()//главный цикл игры
 	bool turn = true;
 	int coordAtack[2]; // координаты атаки 
 	bool hitting = false; // попал ли комьютер 
-
+	string choose;
 
 	while (!You_.isEndOfGame() && !Computer_.isEndOfGame())
 	{
@@ -47,7 +47,7 @@ Game::Game()//главный цикл игры
 
 			switch (_getch())
 			{
-				
+
 			case VK_RETURN: // enter
 							//pause
 			{
@@ -62,155 +62,24 @@ Game::Game()//главный цикл игры
 				}
 				break;
 			}
-			case 32:
 			default:
-				switch (_getch())
+			{	
+				do
 				{
-				case 97: //a
-				case 65: //A
-				{
-					cout << static_cast<char>(65);
-					coordAtack[0] = 0;
-					break; 
-				}
-				case 98: //b
-				case 66: //B
-				{	
-					cout << static_cast<char>(66);
-					coordAtack[0] = 1;
-					break;
-				}
-				case 99: //c
-				case 67: //C
-				{
-					cout << static_cast<char>(67);
-					coordAtack[0] = 2;
-					break;
-				}
-				case 100: //d
-				case 68: //D
-				{
-					cout << static_cast<char>(68);
-					coordAtack[0] = 3;
-					break;
-				}
-				case 101: //e
-				case 69: //E
-				{
-					cout << static_cast<char>(69);
-					coordAtack[0] = 4;
-					break;
-				}
-				case 102: //f
-				case 70: // F
-				{
-					cout << static_cast<char>(70);
-					coordAtack[0] = 5;
-					break;
-				}
-				case 103: // g
-				case 71: //G
-				{
-					cout << static_cast<char>(71);
-					coordAtack[0] = 6;
-					break;
-				}
-				case 104: //h
-				case 72: //H
-				{
-					cout << static_cast<char>(72);
-					coordAtack[0] = 7;
-					break;
-				}
-				case 105: //i
-				case 73: //I
-				{
-					cout << static_cast<char>(73);
-					coordAtack[0] = 8;
-					break;
-				}
-				case 106: //j
-				case 74: //J
-				{
-					cout << static_cast<char>(74);
-					coordAtack[0] = 9;
-					break;
-				}
-				default:
-					coordAtack[0] = 0;
-					break;
-				} // первая координата атаки
-				// первая координата атаки
-				switch (_getch())
-				{
-				case 49: //1
-				{	
-					cout << static_cast<char>(49);
-					coordAtack[1] = 0;
-					break;
-				}
-				case 50: //2
-				{
-					cout << static_cast<char>(50);
-					coordAtack[1] = 1;
-					break;
-				}
-				case 51: //3
-				{
-					cout << static_cast<char>(51);
-					coordAtack[1] = 2;
-					break;
-				}
-				case 52: //4
-				{	
-					cout << static_cast<char>(52);
-					coordAtack[1] = 3;
-					break;
-				}
-				case 53: //5
-				{
-					cout << static_cast<char>(53);
-					coordAtack[1] = 4;
-					break;
-				}
-				case 54: //6
-				{
-					cout << static_cast<char>(54);
-					coordAtack[1] = 5;
-					break;
-				}
-				case 55: //7
-				{
-					cout << static_cast<char>(55);
-					coordAtack[1] = 6;
-					break;
-				}
-				case 56: //8
-				{
-					cout << static_cast<char>(56);
-					coordAtack[1] = 7;
-					break;
-				}
-				case 57: //9
-				{
-					cout << static_cast<char>(57);
-					coordAtack[1] = 8;
-					break;
-				}
-				case 48: //0
-				{
-					cout << static_cast<char>(48);
-					coordAtack[1] = 9;
-					break;
-				}
-				default: {
-					coordAtack[1] = 0;
-					break; }
-				} //
-				// вторая координата атаки
+					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,16 });
+					cin >> choose;
+					coordAtack[0] = choose[0] % static_cast<int>('a');
+					cout << endl;
+					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,17 });
+					cin >> coordAtack[1];
+					
+				} while (coordAtack[0]<0 || coordAtack[0]>10 || coordAtack[1]<0 || coordAtack[1]>10);
+				break;
 			}
-				
-			
+			}
+
+
+
 			You_.setEnemyField(coordAtack[0], coordAtack[1], Computer_);
 			Computer_.setField(coordAtack[0], coordAtack[1]);
 
@@ -311,7 +180,7 @@ void Game::endOfGame(const clock_t& startGame) const
 		
 	system("cls");
 	char alf[11] = { "ABCDEFGHIJ" };
-	char numbers[12] = { " 1234567890" };
+	char numbers[12] = { "0123456789" };
 	cout << "Computer ships" << endl;
 	cout << numbers<< endl;
 
@@ -352,7 +221,7 @@ void Game::reprintField() const  // поток перерисовывающий поля
 {	
 	system("cls");
 	char alf[11] = { "ABCDEFGHIJ" };
-	char numbers[12] = { " 1234567890" };
+	char numbers[12] = { " 0123456789" };
 
 
 	cout <<"Your ships"<<endl<< numbers << endl;
