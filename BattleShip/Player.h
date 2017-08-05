@@ -16,7 +16,6 @@ public:
 	void setField(const int& i, const int& j);
 	void setEnemyField(const int& i, const  int& j,const Player& p);
 	void setNearCell(Ship* item);
-
 	bool isShipAlive(Ship* item) ;
 	bool isEndOfGame() const;
 
