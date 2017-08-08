@@ -2,11 +2,13 @@
 #include "UnionFactory.h"
 
 using namespace std;
+
+
 bool Player::isEndOfGame() const
 {
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < FIELDSIZE; i++)
 	{
-		for (int j = 0; j < 10; j++)
+		for (int j = 0; j < FIELDSIZE; j++)
 		{
 			if (getField(i, j) == 'X')
 				return false;
@@ -45,7 +47,7 @@ bool Player::isShipAlive(Ship* item)
 void Player::setNearCell(Ship* item)
 {
 	item->destroy();
-
+	//lefttopconnor
 	if (item->getX()[0] == 0 && item->getY()[0] == 0)
 	{
 		for (int i = 0; i < item->getShipSize() + 1; i++)
@@ -64,8 +66,8 @@ void Player::setNearCell(Ship* item)
 		}
 	}
 
-
-	else if (item->getX()[item->getShipSize() - 1] == 9 && item->getY()[0] == 0)
+	//leftbottomconnor
+	else if (item->getX()[item->getShipSize() - 1] == FIELDSIZE-1 && item->getY()[0] == 0)
 	{
 		if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
 		{
@@ -93,8 +95,8 @@ void Player::setNearCell(Ship* item)
 		}
 	}
 
-
-	else if (item->getX()[0] == 0 && item->getY()[item->getShipSize() - 1] == 9)
+	//righttopconnor
+	else if (item->getX()[0] == 0 && item->getY()[item->getShipSize() - 1] == FIELDSIZE-1)
 	{
 		if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
 		{
@@ -122,8 +124,8 @@ void Player::setNearCell(Ship* item)
 		}
 	}
 
-
-	else if (item->getX()[item->getShipSize() - 1] == 9 && item->getY()[item->getShipSize() - 1] == 9)
+	//rightbottomconnor
+	else if (item->getX()[item->getShipSize() - 1] == FIELDSIZE-1 && item->getY()[item->getShipSize() - 1] == FIELDSIZE-1)
 	{
 		for (int i = item->getX()[0] - 1; i < item->getX()[0] + item->getShipSize() + 1; i++)
 		{
@@ -141,7 +143,7 @@ void Player::setNearCell(Ship* item)
 		}
 	}
 
-
+	//leftside
 	else if (item->getY()[0] == 0)
 	{
 		if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
@@ -172,8 +174,8 @@ void Player::setNearCell(Ship* item)
 
 	}
 
-
-	else if (item->getY()[item->getShipSize() - 1] == 9)
+	//rightside
+	else if (item->getY()[item->getShipSize() - 1] == FIELDSIZE-1)
 	{
 		if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
 		{
@@ -201,8 +203,8 @@ void Player::setNearCell(Ship* item)
 		}
 	}
 
-
-	else if (item->getX()[item->getShipSize() - 1] == 9)
+	//bottomside
+	else if (item->getX()[item->getShipSize() - 1] == FIELDSIZE-1)
 	{
 		if (item->getX()[0] - item->getX()[1] != 0)
 		{
@@ -230,7 +232,7 @@ void Player::setNearCell(Ship* item)
 		}
 	}
 
-
+	//topside
 	else if (item->getX()[0] == 0)
 	{
 		if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
@@ -289,7 +291,7 @@ void Player::setNearCell(Ship* item)
 
 char Player::getField(const int& i, const int& j) const
 {
-	if (i >= 0 && i < 11 && j >= 0 && j < 11)
+	if (i >= 0 && i < FIELDSIZE+1 && j >= 0 && j < FIELDSIZE+1)
 		return yourField_[i][j];
 
 	else
@@ -298,7 +300,7 @@ char Player::getField(const int& i, const int& j) const
 
 char Player::getEnemyField(const int& i, const int& j) const
 {
-	if (i >= 0 && i < 11 && j >= 0 && j < 11)
+	if (i >= 0 && i < FIELDSIZE+1 && j >= 0 && j < FIELDSIZE+1)
 		return enemyField_[i][j];
 
 	else
@@ -325,9 +327,9 @@ void Player::setEnemyField(const int& i, const int& j,const Player& p)
 
 Player::Player() 
 {
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < FIELDSIZE; i++)
 	{
-		for (int j = 0; j < 10; j++)
+		for (int j = 0; j < FIELDSIZE; j++)
 		{
 			enemyField_[i][j] = ' ';
 			yourField_[i][j] = ' ';
@@ -366,3 +368,4 @@ Player::~Player()
 {
 	
 }
+

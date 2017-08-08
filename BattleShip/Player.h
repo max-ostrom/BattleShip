@@ -7,8 +7,8 @@
 class Player
 {
 private:
-	char yourField_[10][10];
-	char enemyField_[10][10];
+	char yourField_[FIELDSIZE][FIELDSIZE];
+	char enemyField_[FIELDSIZE][FIELDSIZE];
 public:
 	std::vector<Ship*> YourShips;
 	Player();

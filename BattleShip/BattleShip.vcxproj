@@ -146,28 +146,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ConsoleGame.cpp" />
     <ClCompile Include="DoubleDeckShip.cpp" />
     <ClCompile Include="FourDeckShip.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Ship.cpp" />
+    <ClCompile Include="Ships\Ship.cpp" />
     <ClCompile Include="SingleDeckShip.cpp" />
     <ClCompile Include="ThreeDeckShip.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DoubleDeckShip.h" />
+    <ClInclude Include="ConsoleGame.h" />
+    <ClInclude Include="Constants.h" />
     <ClInclude Include="Factory.h" />
-    <ClInclude Include="FactoryDoubleShip.h" />
     <ClInclude Include="FactoryFourShip.h" />
-    <ClInclude Include="FactorySingleShip.h" />
-    <ClInclude Include="FactoryThreeShip.h" />
-    <ClInclude Include="FourDeckShip.h" />
+    <ClInclude Include="Factory\FactoryDoubleShip.h" />
+    <ClInclude Include="Factory\FactorySingleShip.h" />
+    <ClInclude Include="Factory\FactoryThreeShip.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="Ship.h" />
-    <ClInclude Include="SingleDeckShip.h" />
-    <ClInclude Include="ThreeDeckShip.h" />
+    <ClInclude Include="Ships\DoubleDeckShip.h" />
+    <ClInclude Include="Ships\FourDeckShip.h" />
+    <ClInclude Include="Ships\Ship.h" />
+    <ClInclude Include="Ships\SingleDeckShip.h" />
+    <ClInclude Include="Ships\ThreeDeckShip.h" />
     <ClInclude Include="UnionFactory.h" />
     <ClInclude Include="UnionHeader.h" />
   </ItemGroup>

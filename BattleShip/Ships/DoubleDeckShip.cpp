@@ -1,4 +1,4 @@
-#include "..\BattleShip\Ships\DoubleDeckShip.h"
+#include "DoubleDeckShip.h"
 
 
 
@@ -8,22 +8,22 @@ DoubleDeckShip::DoubleDeckShip(char field[FIELDSIZE][FIELDSIZE])
 	coordsY_ = auto_ptr<int>(new int[SHIPSIZE]);
 
 	srand(time(0));
-	int k = rand() % 2; // vertical or horizontal
+	int k = rand() % 2;
 	
 	switch (k) {
 	
 	
-	case 0://vertiacal
+	case 0://вертикальное расположение корабля
 	{
-		int m = rand() % FIELDSIZE - SHIPSIZE + 1;
-		int n = rand() % FIELDSIZE;
+		int m = rand() % 9;
+		int n = rand() % 10;
 
 
 		while 
 			(isCellFreeVertical(field,m,n)) 
 		{
-			m = rand() % FIELDSIZE - SHIPSIZE + 1;
-			n = rand() % FIELDSIZE;
+			m = rand() % 9;
+			n = rand() % 10;
 		}
 
 
@@ -41,18 +41,18 @@ DoubleDeckShip::DoubleDeckShip(char field[FIELDSIZE][FIELDSIZE])
 	
 	
 	
-	case 1://horizontal
+	case 1://горизонтальное расположение корабля
 		
 		
-		int m = rand() % FIELDSIZE;
-		int n = rand() % FIELDSIZE - SHIPSIZE + 1;
+		int m = rand() % 10;
+		int n = rand() % 9;
 
 
 		while 
 			(isCellFreeHorizontal(field,m,n)) 
 		{
-			m = rand() % FIELDSIZE;
-			n = rand() % FIELDSIZE - SHIPSIZE + 1;
+			m = rand() % 10;
+			n = rand() % 9;
 		}
 
 

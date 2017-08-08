@@ -1,6 +1,6 @@
 #pragma once
 #include "Player.h"
-class Game
+class Game 
 {
 private:
 	int seconds = 0;
@@ -10,9 +10,7 @@ private:
 
 	void endOfGame(const clock_t& startGame) const;
 	void reprintField() const;
-	void setSeconds(const int& s);
-	
-	int getSeconds() const;
+
 	
 	bool isKeyPressed(const int& key) const;
 

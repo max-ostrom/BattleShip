@@ -1,4 +1,4 @@
-#include "..\BattleShip\Ships\SingleDeckShip.h"
+#include "SingleDeckShip.h"
 
 
 
@@ -12,14 +12,14 @@ SingleDeckShip::SingleDeckShip(char field[FIELDSIZE][FIELDSIZE])
 
 
 	
-	int m = rand() % FIELDSIZE - SHIPSIZE + 1;
-	int n = rand() % FIELDSIZE - SHIPSIZE + 1;
+	int m = rand() % 10;
+	int n = rand() % 10;
 
 
 	while (isCellFreeHorizontal(field, m, n))
 	{
-		m = rand() % FIELDSIZE - SHIPSIZE + 1;
-		n = rand() % FIELDSIZE - SHIPSIZE + 1;
+		m = rand() % 10;
+		n = rand() % 10;
 	}
 
 

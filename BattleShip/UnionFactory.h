@@ -1,5 +1,5 @@
 #pragma once
-#include"FactoryDoubleShip.h"
-#include"FactoryFourShip.h"
-#include"FactorySingleShip.h"
-#include"FactoryThreeShip.h"
+#include"Factory\FactoryDoubleShip.h"
+#include"Factory\FactoryFourShip.h"
+#include"Factory\FactorySingleShip.h"
+#include"Factory\FactoryThreeShip.h"

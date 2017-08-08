@@ -1,4 +1,4 @@
-#include "..\BattleShip\Ships\FourDeckShip.h"
+#include "FourDeckShip.h"
 
 
 
@@ -13,16 +13,16 @@ FourDeckShip::FourDeckShip(char field[FIELDSIZE][FIELDSIZE])
 	
 	switch (l) {
 	
-	case 0://vertical
+	case 0://вертикальное положение
 	{
-		int m = rand() % FIELDSIZE - SHIPSIZE + 1;
-		int n = rand() % FIELDSIZE;
+		int m = rand() % 7;
+		int n = rand() % 10;
 		
 		
 		while (isCellFreeVertical(field,m,n)) 		
 		{
-			m = rand() % FIELDSIZE - SHIPSIZE + 1;
-			n = rand() % FIELDSIZE;
+			m = rand() % 7;
+			n = rand() % 10;
 		}
 		
 		
@@ -45,17 +45,17 @@ FourDeckShip::FourDeckShip(char field[FIELDSIZE][FIELDSIZE])
 		break; }
 	
 	
-	case 1://horizontal
+	case 1://горизонтальное положение
 		
 		
-		int m = rand() % FIELDSIZE;
-		int n = rand() % FIELDSIZE - SHIPSIZE + 1;
+		int m = rand() % 10;
+		int n = rand() % 7;
 		
 		
 		while (isCellFreeHorizontal(field,m,n))
 		{
-			m = rand() % FIELDSIZE;
-			n = rand() % FIELDSIZE - SHIPSIZE + 1;
+			m = rand() % 10;
+			n = rand() % 7;
 		}
 
 

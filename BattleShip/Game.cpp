@@ -1,5 +1,3 @@
-#include "Game.h"
-
 #include <chrono>
 #include <thread>
 #include <string>
@@ -7,7 +5,8 @@
 #include <Windows.h>
 #include <conio.h>
 
-
+#include "Game.h"
+#include "Constants.h"
 
 bool Game::isKeyPressed(const int& key) const 
 {
@@ -23,12 +22,12 @@ return false;
 
 
 
-Game::Game()//главный цикл игры 
+Game::Game()//main game 
 {
-	clock_t startTime = clock();
+	const clock_t startTime = clock();
 	bool turn = true;
-	int coordAtack[2]; // координаты атаки 
-	bool hitting = false; // попал ли комьютер 
+	int coordAtack[2]; 
+	bool hitting = false; 
 	string choose;
 
 	while (!You_.isEndOfGame() && !Computer_.isEndOfGame())
@@ -54,7 +53,7 @@ Game::Game()//главный цикл игры
 				clock_t startPause = clock();
 				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 17,17 });
 				cout << "Pause, press space to continue, seconds :\t";
-				while (!isKeyPressed(32)) // выход из паузы по пробелу
+				while (!isKeyPressed(32))
 				{
 					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 60,17 });
 					cout << static_cast<int>(clock() - startPause) / CLOCKS_PER_SEC;
@@ -155,9 +154,9 @@ Game::Game()//главный цикл игры
 void Game::endOfGame(const clock_t& startGame) const
 {
 	this_thread::sleep_for(chrono::seconds(2));
-	// конец игры
+
 	int yourAliveShips = 0;
-	//подсчет живих кораблей игрока
+	//players alive ships
 	for each (auto item in You_.YourShips)
 	{
 		if (item->isAlive())
@@ -168,7 +167,7 @@ void Game::endOfGame(const clock_t& startGame) const
 
 
 	int computerAliveShips = 0;
-	//подсчет живих кораблей комьютера
+	//computers alive ships
 	for each (auto item in Computer_.YourShips)
 	{
 		if (item->isAlive())
@@ -185,11 +184,11 @@ void Game::endOfGame(const clock_t& startGame) const
 	cout << numbers<< endl;
 
 
-	//отрисовка кораблей комьютера
-	for (int i = 0; i < 10; i++)
+	//print computer ships
+	for (int i = 0; i < FIELDSIZE; i++)
 	{
 		cout << alf[i];
-		for (int j = 0; j < 10; j++)
+		for (int j = 0; j < FIELDSIZE; j++)
 		{
 			cout << Computer_.getField(i, j);
 		}
@@ -198,7 +197,7 @@ void Game::endOfGame(const clock_t& startGame) const
 	}
 
 
-	// вывод времени игры и количества оставшихся кораблей
+	// time and ships count
 	cout << "Time: "
 		<< static_cast<int>((clock() - startGame) / CLOCKS_PER_SEC) / 60
 		<< ":" 
@@ -207,17 +206,7 @@ void Game::endOfGame(const clock_t& startGame) const
 		<< "Computer Ships : " << computerAliveShips <<endl;
 }
 
-void Game::setSeconds(const int& s) 
-{ 
-	seconds = s; 
-}
-
-int Game::getSeconds() const 
-{ 
-	return seconds; 
-}
-
-void Game::reprintField() const  // поток перерисовывающий поля
+void Game::reprintField() const  
 {	
 	system("cls");
 	char alf[11] = { "ABCDEFGHIJ" };
@@ -225,10 +214,12 @@ void Game::reprintField() const  // поток перерисовывающий поля
 
 
 	cout <<"Your ships"<<endl<< numbers << endl;
-	for (int i = 0; i < 10; i++)
+
+
+	for (int i = 0; i < FIELDSIZE; i++)
 	{
 		cout << alf[i];
-		for (int j = 0; j < 10; j++)
+		for (int j = 0; j < FIELDSIZE; j++)
 		{
 			cout << You_.getField(i, j);
 		}
@@ -237,10 +228,10 @@ void Game::reprintField() const  // поток перерисовывающий поля
 
 
 	cout <<endl<<"Computer ships"<<endl<< numbers << endl;
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < FIELDSIZE; i++)
 	{
 		cout << alf[i];
-		for (int j = 0; j < 10; j++)
+		for (int j = 0; j < FIELDSIZE; j++)
 		{
 			if (Computer_.getField(i, j) == 'X')
 				cout << " ";

@@ -1,4 +1,4 @@
-#include "..\BattleShip\Ships\ThreeDeckShip.h"
+#include "ThreeDeckShip.h"
 
 
 
@@ -12,16 +12,16 @@ ThreeDeckShip::ThreeDeckShip(char field[FIELDSIZE][FIELDSIZE])
 
 	switch (n) {
 
-	case 0://vertical
+	case 0://вертикальное положение корабля
 	{
-		int m = rand() % FIELDSIZE - SHIPSIZE + 1;
-		int n = rand() % FIELDSIZE;
+		int m = rand() % 8;
+		int n = rand() % 10;
 
 
 		while (isCellFreeVertical(field,m,n)) 
 		{
-			m = rand() % FIELDSIZE - SHIPSIZE + 1;
-			n = rand() % FIELDSIZE;
+			m = rand() % 8;
+			n = rand() % 10;
 		}
 
 
@@ -39,15 +39,15 @@ ThreeDeckShip::ThreeDeckShip(char field[FIELDSIZE][FIELDSIZE])
 		coordsY_.get()[1] = n;
 		coordsY_.get()[2] = n;
 		break; }
-	case 1://horizontal
-		int m = rand() % FIELDSIZE;
-		int n = rand() % FIELDSIZE - SHIPSIZE + 1;
+	case 1:
+		int m = rand() % 10;
+		int n = rand() % 8;
 
 
 		while (isCellFreeHorizontal(field,m,n))
 		{
-			m = rand() % FIELDSIZE;
-			n = rand() % FIELDSIZE - SHIPSIZE +1;
+			m = rand() % 10;
+			n = rand() % 8;
 		}
 
 

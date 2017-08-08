@@ -5,9 +5,10 @@ class FactoryFourShip :
 {
 public:
 
-	Ship* createShip(char field[10][10])override
+	Ship* createShip(char field[FIELDSIZE][FIELDSIZE])override
 	{
 		return new FourDeckShip(field);
 	}
+	virtual ~FactoryFourShip() {}
 };
 
