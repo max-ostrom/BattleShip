@@ -6,5 +6,13 @@ class ConsoleGame :
 public:
 	ConsoleGame();
 	virtual ~ConsoleGame();
+	virtual void run() override;
+protected:
+	virtual void endOfGame(const clock_t& startGame) const  override;
+	virtual void reprintField() const override;
+
+
+	virtual bool isKeyPressed(const int& key) const override;
+
 };
 

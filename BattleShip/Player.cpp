@@ -291,7 +291,7 @@ void Player::setNearCell(Ship* item)
 
 char Player::getField(const int& i, const int& j) const
 {
-	if (i >= 0 && i < FIELDSIZE+1 && j >= 0 && j < FIELDSIZE+1)
+	if (i >= 0 && i < FIELDSIZE && j >= 0 && j < FIELDSIZE)
 		return yourField_[i][j];
 
 	else
