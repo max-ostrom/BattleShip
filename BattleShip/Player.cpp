@@ -287,6 +287,7 @@ void Player::setNearCell(Ship* item)
 			}
 		}
 	}
+	notifyUpdate();
 }
 
 char Player::getField(const int& i, const int& j) const
@@ -309,20 +310,30 @@ char Player::getEnemyField(const int& i, const int& j) const
 
 void Player::setField(const int& i, const int& j)
 {
+	
 	if (yourField_[i][j] == ' ' || yourField_[i][j] == '*')
+	{
 		yourField_[i][j] = '*';
-
+	}
 	else
+	{
 		yourField_[i][j] = '#';
+	}
+	notifyUpdate();
 }
 
 void Player::setEnemyField(const int& i, const int& j,const Player& p)
 {
+	
 	if (p.yourField_[i][j] == ' ' || p.yourField_[i][j] == '*')
+	{
 		enemyField_[i][j] = '*';
-
+	}
 	else
+	{
 		enemyField_[i][j] = '#';
+	}
+	notifyUpdate();
 }
 
 Player::Player() 

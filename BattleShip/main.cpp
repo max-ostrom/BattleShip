@@ -1,7 +1,10 @@
-#include "ConsoleGame.h"
+#include "Controller.h"
+#include "View.h"
 int main()
 {
-	ConsoleGame game;
-	game.run();
+	GameModel model;
+	Controller controller(&model);
+	View view(&model);
+	controller.run();
 	return 0;
 }

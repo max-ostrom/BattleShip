@@ -146,25 +146,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ConsoleGame.cpp" />
+    <ClCompile Include="Controller.cpp" />
     <ClCompile Include="DoubleDeckShip.cpp" />
     <ClCompile Include="FourDeckShip.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Observable.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Ships\Ship.cpp" />
     <ClCompile Include="SingleDeckShip.cpp" />
     <ClCompile Include="ThreeDeckShip.cpp" />
+    <ClCompile Include="View.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ConsoleGame.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="Controller.h" />
     <ClInclude Include="Factory.h" />
     <ClInclude Include="FactoryFourShip.h" />
     <ClInclude Include="Factory\FactoryDoubleShip.h" />
     <ClInclude Include="Factory\FactorySingleShip.h" />
     <ClInclude Include="Factory\FactoryThreeShip.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Observable.h" />
+    <ClInclude Include="Observer.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Ships\DoubleDeckShip.h" />
     <ClInclude Include="Ships\FourDeckShip.h" />
@@ -173,6 +177,7 @@
     <ClInclude Include="Ships\ThreeDeckShip.h" />
     <ClInclude Include="UnionFactory.h" />
     <ClInclude Include="UnionHeader.h" />
+    <ClInclude Include="View.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

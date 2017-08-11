@@ -48,7 +48,13 @@
     <ClCompile Include="Ships\Ship.cpp">
       <Filter>Source Files\Ships</Filter>
     </ClCompile>
-    <ClCompile Include="ConsoleGame.cpp">
+    <ClCompile Include="View.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Observable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -98,7 +104,16 @@
     <ClInclude Include="Factory\FactoryThreeShip.h">
       <Filter>Header Files\Factory</Filter>
     </ClInclude>
-    <ClInclude Include="ConsoleGame.h">
+    <ClInclude Include="View.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Observable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

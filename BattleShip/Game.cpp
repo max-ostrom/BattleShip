@@ -1,18 +1,24 @@
-#include <chrono>
-#include <thread>
-#include <string>
 
-#include <Windows.h>
-#include <conio.h>
 
 #include "Game.h"
-#include "Constants.h"
 
-
-
-
-
-Game::Game()//main game 
+Player& GameModel::getUser() 
+{ 
+	return You_; 
+}
+Player& GameModel::getComputer()
+{
+	return Computer_;
+}
+void GameModel::setStartTime(clock_t start) 
+{ 
+	startGame_ = start; 
+}
+const clock_t& GameModel::getStartTime() const
+{
+	return startGame_;
+}
+GameModel::GameModel()//main game 
 	: You_() , Computer_()
 {
 	

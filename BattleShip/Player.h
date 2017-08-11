@@ -3,8 +3,9 @@
 #include <vector>
 
 #include"UnionHeader.h"
-
-class Player
+#include "Observable.h"
+class Player :
+	public Observable
 {
 private:
 	char yourField_[FIELDSIZE][FIELDSIZE];
