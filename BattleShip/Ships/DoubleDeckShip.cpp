@@ -4,8 +4,8 @@
 
 DoubleDeckShip::DoubleDeckShip(char field[FIELDSIZE][FIELDSIZE])
 {
-	coordsX_ = auto_ptr<int>(new int[SHIPSIZE]);
-	coordsY_ = auto_ptr<int>(new int[SHIPSIZE]);
+	coordsX_ = shared_ptr<int>(new int[SHIPSIZE]);
+	coordsY_ = shared_ptr<int>(new int[SHIPSIZE]);
 
 	srand(time(0));
 	int k = rand() % 2;

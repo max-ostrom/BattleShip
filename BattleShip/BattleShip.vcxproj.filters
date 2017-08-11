@@ -33,9 +33,6 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DoubleDeckShip.cpp">
-      <Filter>Source Files\Ships</Filter>
-    </ClCompile>
     <ClCompile Include="FourDeckShip.cpp">
       <Filter>Source Files\Ships</Filter>
     </ClCompile>
@@ -56,6 +53,9 @@
     </ClCompile>
     <ClCompile Include="Controller.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ships\DoubleDeckShip.cpp">
+      <Filter>Source Files\Ships</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

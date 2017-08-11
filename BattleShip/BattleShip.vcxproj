@@ -147,12 +147,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Controller.cpp" />
-    <ClCompile Include="DoubleDeckShip.cpp" />
     <ClCompile Include="FourDeckShip.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Observable.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Ships\DoubleDeckShip.cpp" />
     <ClCompile Include="Ships\Ship.cpp" />
     <ClCompile Include="SingleDeckShip.cpp" />
     <ClCompile Include="ThreeDeckShip.cpp" />

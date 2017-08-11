@@ -7,13 +7,10 @@
 
 #include "View.h"
 
-
-
 View::View(GameModel* model) :model_(model)
 {
 	model->getComputer().addObserver(this);
 	model->getUser().addObserver(this);
-	
 }
 
 
