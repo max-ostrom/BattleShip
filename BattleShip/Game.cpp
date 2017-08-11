@@ -12,6 +12,14 @@ Player& GameModel::getComputer()
 {
 	return Computer_;
 }
+const Player & GameModel::getReadonlyUser() const
+{
+	return You_;
+}
+const Player & GameModel::getReadonlyComputer() const
+{
+	return Computer_;
+}
 void GameModel::setStartTime(clock_t start) 
 { 
 	startGame_ = start; 

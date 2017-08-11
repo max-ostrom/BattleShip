@@ -15,6 +15,6 @@ public:
 	~View();
 private:
 	void endOfGame() const;
-	std::shared_ptr<GameModel> model_;
+	const std::shared_ptr<const GameModel> model_;
 };
 #endif
