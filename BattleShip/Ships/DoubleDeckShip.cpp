@@ -15,15 +15,15 @@ DoubleDeckShip::DoubleDeckShip(char field[FIELDSIZE][FIELDSIZE])
 	
 	case 0://вертикальное расположение корабля
 	{
-		int m = rand() % 9;
-		int n = rand() % 10;
+		int m = rand() % FIELDSIZE - SHIPSIZE + 1;
+		int n = rand() % FIELDSIZE;
 
 
 		while 
 			(isCellFreeVertical(field,m,n)) 
 		{
-			m = rand() % 9;
-			n = rand() % 10;
+			m = rand() % FIELDSIZE - SHIPSIZE + 1;
+			n = rand() % FIELDSIZE;
 		}
 
 
@@ -44,15 +44,15 @@ DoubleDeckShip::DoubleDeckShip(char field[FIELDSIZE][FIELDSIZE])
 	case 1://горизонтальное расположение корабля
 		
 		
-		int m = rand() % 10;
-		int n = rand() % 9;
+		int m = rand() % FIELDSIZE;
+		int n = rand() % FIELDSIZE - SHIPSIZE + 1;
 
 
 		while 
 			(isCellFreeHorizontal(field,m,n)) 
 		{
-			m = rand() % 10;
-			n = rand() % 9;
+			m = rand() % FIELDSIZE;
+			n = rand() % FIELDSIZE - SHIPSIZE + 19;
 		}
 
 
