@@ -26,7 +26,7 @@ bool Player::isShipAlive(Ship* item)
 
 	for (int i = 0; i < item->getShipSize(); i++)
 	{
-		if ( getField(item->getX()[i], item->getY()[i]) == '#' && flag)
+		if ( getField(item->getX().get()[i], item->getY().get()[i]) == '#' && flag)
 		{
 			flag = true;
 		}
@@ -49,49 +49,49 @@ void Player::setNearCell(Ship* item)
 {
 	item->destroy();
 	//lefttopconnor
-	if (item->getX()[0] == 0 && item->getY()[0] == 0)
+	if (item->getX().get()[0] == 0 && item->getY().get()[0] == 0)
 	{
 		fillLeftTopConnorCell(item);
 	}
 
 	//leftbottomconnor
-	else if (item->getX()[item->getShipSize() - 1] == FIELDSIZE-1 && item->getY()[0] == 0)
+	else if (item->getX().get()[item->getShipSize() - 1] == FIELDSIZE-1 && item->getY().get()[0] == 0)
 	{
 		fillLeftBottomConnorCell(item);
 	}
 
 	//righttopconnor
-	else if (item->getX()[0] == 0 && item->getY()[item->getShipSize() - 1] == FIELDSIZE-1)
+	else if (item->getX().get()[0] == 0 && item->getY().get()[item->getShipSize() - 1] == FIELDSIZE-1)
 	{
 		fillRightTopConnorCell(item);
 	}
 
 	//rightbottomconnor
-	else if (item->getX()[item->getShipSize() - 1] == FIELDSIZE-1 && item->getY()[item->getShipSize() - 1] == FIELDSIZE-1)
+	else if (item->getX().get()[item->getShipSize() - 1] == FIELDSIZE-1 && item->getY().get()[item->getShipSize() - 1] == FIELDSIZE-1)
 	{
 		fillRightBottomConnorCell(item);
 	}
 
 	//leftside
-	else if (item->getY()[0] == 0)
+	else if (item->getY().get()[0] == 0)
 	{
 		fillLeftSideCell(item);
 	}
 
 	//rightside
-	else if (item->getY()[item->getShipSize() - 1] == FIELDSIZE-1)
+	else if (item->getY().get()[item->getShipSize() - 1] == FIELDSIZE-1)
 	{
 		fillRightSideCell(item);
 	}
 
 	//bottomside
-	else if (item->getX()[item->getShipSize() - 1] == FIELDSIZE-1)
+	else if (item->getX().get()[item->getShipSize() - 1] == FIELDSIZE-1)
 	{
 		fillBottomSideCell(item);
 	}
 
 	//topside
-	else if (item->getX()[0] == 0)
+	else if (item->getX().get()[0] == 0)
 	{
 		fillTopSideCell(item);
 	}
@@ -99,11 +99,11 @@ void Player::setNearCell(Ship* item)
 
 	else
 	{
-		if (item->getX()[0] - item->getX()[1] != 0)
+		if (item->getX().get()[0] - item->getX().get()[1] != 0)
 		{
-			for (int i = item->getX()[0] - 1; i < item->getX()[0] + item->getShipSize() + 1; i++)
+			for (int i = item->getX().get()[0] - 1; i < item->getX().get()[0] + item->getShipSize() + 1; i++)
 			{
-				for (int j = item->getY()[0] - 1; j < item->getY()[0] + 2; j++)
+				for (int j = item->getY().get()[0] - 1; j < item->getY().get()[0] + 2; j++)
 				{
 					setField(i, j);
 				}
@@ -111,9 +111,9 @@ void Player::setNearCell(Ship* item)
 		}
 		else
 		{
-			for (int i = item->getX()[0] - 1; i < item->getX()[0] + 2; i++)
+			for (int i = item->getX().get()[0] - 1; i < item->getX().get()[0] + 2; i++)
 			{
-				for (int j = item->getY()[0] - 1; j < item->getY()[0] + item->getShipSize() + 1; j++)
+				for (int j = item->getY().get()[0] - 1; j < item->getY().get()[0] + item->getShipSize() + 1; j++)
 				{
 					setField(i, j);
 				}
@@ -147,7 +147,7 @@ void Player::fillLeftTopConnorCell(Ship * item)
 	{
 		for (int j = 0; j < 2; j++)
 		{
-			if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
+			if (item->getX().get()[0] - item->getX().get()[item->getShipSize() - 1] != 0)
 			{
 				setField(i, j);
 			}
@@ -161,11 +161,11 @@ void Player::fillLeftTopConnorCell(Ship * item)
 
 void Player::fillLeftBottomConnorCell(Ship * item)
 {
-	if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
+	if (item->getX().get()[0] - item->getX().get()[item->getShipSize() - 1] != 0)
 	{
-		for (int i = item->getX()[0] - 1; i < item->getX()[0] + item->getShipSize() + 1; i++)
+		for (int i = item->getX().get()[0] - 1; i < item->getX().get()[0] + item->getShipSize() + 1; i++)
 		{
-			for (int j = item->getY()[0]; j < item->getY()[0] + 2; j++)
+			for (int j = item->getY().get()[0]; j < item->getY().get()[0] + 2; j++)
 			{
 
 				setField(i, j);
@@ -175,9 +175,9 @@ void Player::fillLeftBottomConnorCell(Ship * item)
 	}
 	else
 	{
-		for (int i = item->getX()[0]; i < item->getX()[0] + 2; i++)
+		for (int i = item->getX().get()[0]; i < item->getX().get()[0] + 2; i++)
 		{
-			for (int j = item->getY()[0] - 1; j < item->getY()[0] + item->getShipSize(); j++)
+			for (int j = item->getY().get()[0] - 1; j < item->getY().get()[0] + item->getShipSize(); j++)
 			{
 
 				setField(i, j);
@@ -189,11 +189,11 @@ void Player::fillLeftBottomConnorCell(Ship * item)
 
 void Player::fillRightTopConnorCell(Ship * item)
 {
-	if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
+	if (item->getX().get()[0] - item->getX().get()[item->getShipSize() - 1] != 0)
 	{
-		for (int i = item->getX()[0]; i < item->getX()[0] + item->getShipSize() + 1; i++) // возможно ошибка если что убрать +1
+		for (int i = item->getX().get()[0]; i < item->getX().get()[0] + item->getShipSize() + 1; i++) // возможно ошибка если что убрать +1
 		{
-			for (int j = item->getY()[0] - 1; j < item->getY()[0] + 1; j++)
+			for (int j = item->getY().get()[0] - 1; j < item->getY().get()[0] + 1; j++)
 			{
 
 				setField(i, j);
@@ -203,9 +203,9 @@ void Player::fillRightTopConnorCell(Ship * item)
 	}
 	else
 	{
-		for (int i = item->getX()[0] - 1; i < item->getX()[0] + 1; i++)
+		for (int i = item->getX().get()[0] - 1; i < item->getX().get()[0] + 1; i++)
 		{
-			for (int j = item->getY()[0]; j < item->getY()[0] + item->getShipSize() + 1; j++)
+			for (int j = item->getY().get()[0]; j < item->getY().get()[0] + item->getShipSize() + 1; j++)
 			{
 
 				setField(i, j);
@@ -217,11 +217,11 @@ void Player::fillRightTopConnorCell(Ship * item)
 
 void Player::fillRightBottomConnorCell(Ship * item)
 {
-	for (int i = item->getX()[0] - 1; i < item->getX()[0] + item->getShipSize() + 1; i++)
+	for (int i = item->getX().get()[0] - 1; i < item->getX().get()[0] + item->getShipSize() + 1; i++)
 	{
-		for (int j = item->getY()[0] - 1; j < item->getY()[0] + 1; j++)
+		for (int j = item->getY().get()[0] - 1; j < item->getY().get()[0] + 1; j++)
 		{
-			if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
+			if (item->getX().get()[0] - item->getX().get()[item->getShipSize() - 1] != 0)
 			{
 				setField(i, j);
 			}
@@ -236,11 +236,11 @@ void Player::fillRightBottomConnorCell(Ship * item)
 
 void Player::fillLeftSideCell(Ship * item)
 {
-	if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
+	if (item->getX().get()[0] - item->getX().get()[item->getShipSize() - 1] != 0)
 	{
-		for (int i = item->getX()[0] - 1; i < item->getX()[0] + item->getShipSize() + 1; i++)
+		for (int i = item->getX().get()[0] - 1; i < item->getX().get()[0] + item->getShipSize() + 1; i++)
 		{
-			for (int j = item->getY()[0]; j < item->getY()[0] + 2; j++)
+			for (int j = item->getY().get()[0]; j < item->getY().get()[0] + 2; j++)
 			{
 
 				setField(i, j);
@@ -250,9 +250,9 @@ void Player::fillLeftSideCell(Ship * item)
 	}
 	else
 	{
-		for (int i = item->getX()[0] - 1; i < item->getX()[0] + 2; i++)
+		for (int i = item->getX().get()[0] - 1; i < item->getX().get()[0] + 2; i++)
 		{
-			for (int j = item->getY()[0]; j < item->getY()[0] + item->getShipSize() + 1; j++)
+			for (int j = item->getY().get()[0]; j < item->getY().get()[0] + item->getShipSize() + 1; j++)
 			{
 
 				setField(i, j);
@@ -265,11 +265,11 @@ void Player::fillLeftSideCell(Ship * item)
 
 void Player::fillBottomSideCell(Ship * item)
 {
-	if (item->getX()[0] - item->getX()[1] != 0)
+	if (item->getX().get()[0] - item->getX().get()[1] != 0)
 	{
-		for (int i = item->getX()[0] - 1; i < item->getX()[0] + item->getShipSize() + 1; i++)
+		for (int i = item->getX().get()[0] - 1; i < item->getX().get()[0] + item->getShipSize() + 1; i++)
 		{
-			for (int j = item->getY()[0] - 1; j < item->getY()[0] + 2; j++)
+			for (int j = item->getY().get()[0] - 1; j < item->getY().get()[0] + 2; j++)
 			{
 
 				setField(i, j);
@@ -279,9 +279,9 @@ void Player::fillBottomSideCell(Ship * item)
 	}
 	else
 	{
-		for (int i = item->getX()[0] - 1; i < item->getX()[0] + 2; i++)
+		for (int i = item->getX().get()[0] - 1; i < item->getX().get()[0] + 2; i++)
 		{
-			for (int j = item->getY()[0] - 1; j < item->getY()[0] + item->getShipSize() + 1; j++)
+			for (int j = item->getY().get()[0] - 1; j < item->getY().get()[0] + item->getShipSize() + 1; j++)
 			{
 
 				setField(i, j);
@@ -293,11 +293,11 @@ void Player::fillBottomSideCell(Ship * item)
 
 void Player::fillRightSideCell(Ship * item)
 {
-	if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
+	if (item->getX().get()[0] - item->getX().get()[item->getShipSize() - 1] != 0)
 	{
-		for (int i = item->getX()[0] - 1; i < item->getX()[0] + item->getShipSize() + 1; i++)
+		for (int i = item->getX().get()[0] - 1; i < item->getX().get()[0] + item->getShipSize() + 1; i++)
 		{
-			for (int j = item->getY()[0] - 1; j < item->getY()[0] + 1; j++)
+			for (int j = item->getY().get()[0] - 1; j < item->getY().get()[0] + 1; j++)
 			{
 
 				setField(i, j);
@@ -307,9 +307,9 @@ void Player::fillRightSideCell(Ship * item)
 	}
 	else
 	{
-		for (int i = item->getX()[0] - 1; i < item->getX()[0] + 2; i++)
+		for (int i = item->getX().get()[0] - 1; i < item->getX().get()[0] + 2; i++)
 		{
-			for (int j = item->getY()[0] - 1; j < item->getY()[0] + item->getShipSize(); j++)
+			for (int j = item->getY().get()[0] - 1; j < item->getY().get()[0] + item->getShipSize(); j++)
 			{
 
 				setField(i, j);
@@ -321,11 +321,11 @@ void Player::fillRightSideCell(Ship * item)
 
 void Player::fillTopSideCell(Ship * item)
 {
-	if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
+	if (item->getX().get()[0] - item->getX().get()[item->getShipSize() - 1] != 0)
 	{
-		for (int i = item->getX()[0]; i < item->getX()[0] + item->getShipSize() + 1; i++)
+		for (int i = item->getX().get()[0]; i < item->getX().get()[0] + item->getShipSize() + 1; i++)
 		{
-			for (int j = item->getY()[0] - 1; j < item->getY()[0] + 2; j++)
+			for (int j = item->getY().get()[0] - 1; j < item->getY().get()[0] + 2; j++)
 			{
 
 				setField(i, j);
@@ -336,9 +336,9 @@ void Player::fillTopSideCell(Ship * item)
 	}
 	else
 	{
-		for (int i = item->getX()[0]; i < item->getX()[0] + 2; i++)
+		for (int i = item->getX().get()[0]; i < item->getX().get()[0] + 2; i++)
 		{
-			for (int j = item->getY()[0] - 1; j < item->getY()[0] + item->getShipSize() + 1; j++)
+			for (int j = item->getY().get()[0] - 1; j < item->getY().get()[0] + item->getShipSize() + 1; j++)
 			{
 
 				setField(i, j);

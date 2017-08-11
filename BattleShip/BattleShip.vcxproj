@@ -161,7 +161,7 @@
   <ItemGroup>
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Controller.h" />
-    <ClInclude Include="Factory.h" />
+    <ClInclude Include="Factory\Factory.h" />
     <ClInclude Include="Factory\FactoryDoubleShip.h" />
     <ClInclude Include="Factory\FactoryFourShip.h" />
     <ClInclude Include="Factory\FactorySingleShip.h" />

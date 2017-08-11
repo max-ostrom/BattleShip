@@ -10,7 +10,7 @@ class Player :
 	public Observable
 {
 public:
-	std::vector<Ship*> YourShips;
+	std::vector<std::shared_ptr<Ship>> YourShips;
 	Player();
 	~Player();
 	void setField(const int& i, const int& j);

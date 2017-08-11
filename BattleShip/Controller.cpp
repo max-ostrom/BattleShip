@@ -85,9 +85,9 @@ void Controller::run()
 						{
 							for (int i = 0; i < var->getShipSize(); i++)
 							{
-								if (var->getX()[i] == coordAtack[0] && var->getY()[i] == coordAtack[1])
+								if (var->getX().get()[i] == coordAtack[0] && var->getY().get()[i] == coordAtack[1])
 								{
-									model_.get()->getComputer().isShipAlive(var);
+									model_.get()->getComputer().isShipAlive(var.get());
 								}
 							}
 
@@ -120,9 +120,9 @@ void Controller::run()
 							{
 								for (int i = 0; i < var->getShipSize(); i++)
 								{
-									if (var->getX()[i] == coordAtack[0] && var->getY()[i] == coordAtack[1])
+									if (var->getX().get()[i] == coordAtack[0] && var->getY().get()[i] == coordAtack[1])
 									{
-										model_.get()->getUser().isShipAlive(var);
+										model_.get()->getUser().isShipAlive(var.get());
 									}
 								}
 

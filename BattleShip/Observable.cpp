@@ -7,8 +7,8 @@ void Observable::addObserver(Observer *observer)
 }
 void Observable::notifyUpdate()
 {
-	std::for_each(observers_.begin(), observers_.end(), [this](std::shared_ptr<Observer> item)// Lambda expression
+	std::for_each(observers_.begin(), observers_.end(), [&](std::shared_ptr<Observer> item)// Lambda expression
 	{
-		item.get()->update();
+		item->update();
 	});
 }

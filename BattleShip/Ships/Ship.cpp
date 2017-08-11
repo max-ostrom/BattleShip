@@ -10,12 +10,12 @@ void Ship::destroy()
 	is_Alive_ = false; 
 }
 
-int* Ship::getX() const
+std::shared_ptr<int> Ship::getX() const
 { 
-	return coordsX_.get(); 
+	return coordsX_; 
 }
 
-int* Ship::getY() const
+std::shared_ptr<int> Ship::getY() const
 { 
-	return coordsY_.get(); 
+	return coordsY_; 
 }
