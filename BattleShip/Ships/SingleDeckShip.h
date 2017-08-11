@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SingleDeckShip_H
+#define SingleDeckShip_H
 
 #include "Ship.h"
 
@@ -19,3 +20,4 @@ private:
 	const int SHIPSIZE = 1;
 };
 
+#endif

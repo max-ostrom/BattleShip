@@ -2,6 +2,7 @@
 #include "UnionFactory.h"
 
 using namespace std;
+	
 
 
 bool Player::isEndOfGame() const
@@ -50,217 +51,49 @@ void Player::setNearCell(Ship* item)
 	//lefttopconnor
 	if (item->getX()[0] == 0 && item->getY()[0] == 0)
 	{
-		for (int i = 0; i < item->getShipSize() + 1; i++)
-		{
-			for (int j = 0; j < 2; j++)
-			{
-				if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
-				{
-					setField(i, j);
-				}
-				else
-				{
-					setField(j, i);
-				}
-			}
-		}
+		fillLeftTopConnorCell(item);
 	}
 
 	//leftbottomconnor
 	else if (item->getX()[item->getShipSize() - 1] == FIELDSIZE-1 && item->getY()[0] == 0)
 	{
-		if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
-		{
-			for (int i = item->getX()[0] - 1; i < item->getX()[0] + item->getShipSize() + 1; i++)
-			{
-				for (int j = item->getY()[0]; j < item->getY()[0] + 2; j++)
-				{
-
-					setField(i, j);
-
-				}
-			}
-		}
-		else
-		{
-			for (int i = item->getX()[0]; i < item->getX()[0] + 2; i++)
-			{
-				for (int j = item->getY()[0] - 1; j < item->getY()[0] + item->getShipSize(); j++)
-				{
-
-					setField(i, j);
-
-				}
-			}
-		}
+		fillLeftBottomConnorCell(item);
 	}
 
 	//righttopconnor
 	else if (item->getX()[0] == 0 && item->getY()[item->getShipSize() - 1] == FIELDSIZE-1)
 	{
-		if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
-		{
-			for (int i = item->getX()[0]; i < item->getX()[0] + item->getShipSize() + 1; i++) // возможно ошибка если что убрать +1
-			{
-				for (int j = item->getY()[0] - 1; j < item->getY()[0] + 1; j++)
-				{
-
-					setField(i, j);
-
-				}
-			}
-		}
-		else
-		{
-			for (int i = item->getX()[0] - 1; i < item->getX()[0] + 1; i++)
-			{
-				for (int j = item->getY()[0]; j < item->getY()[0] + item->getShipSize() + 1; j++)
-				{
-
-					setField(i, j);
-
-				}
-			}
-		}
+		fillRightTopConnorCell(item);
 	}
 
 	//rightbottomconnor
 	else if (item->getX()[item->getShipSize() - 1] == FIELDSIZE-1 && item->getY()[item->getShipSize() - 1] == FIELDSIZE-1)
 	{
-		for (int i = item->getX()[0] - 1; i < item->getX()[0] + item->getShipSize() + 1; i++)
-		{
-			for (int j = item->getY()[0] - 1; j < item->getY()[0] + 1; j++)
-			{
-				if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
-				{
-					setField(i, j);
-				}
-				else
-				{
-					setField(j, i);
-				}
-			}
-		}
+		fillRightBottomConnorCell(item);
 	}
 
 	//leftside
 	else if (item->getY()[0] == 0)
 	{
-		if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
-		{
-			for (int i = item->getX()[0] - 1; i < item->getX()[0] + item->getShipSize() + 1; i++)
-			{
-				for (int j = item->getY()[0]; j < item->getY()[0] + 2; j++)
-				{
-
-					setField(i, j);
-
-				}
-			}
-		}
-		else
-		{
-			for (int i = item->getX()[0] - 1; i < item->getX()[0] + 2; i++)
-			{
-				for (int j = item->getY()[0]; j < item->getY()[0] + item->getShipSize() + 1; j++)
-				{
-
-					setField(i, j);
-
-				}
-			}
-		}
-
-
+		fillLeftSideCell(item);
 	}
 
 	//rightside
 	else if (item->getY()[item->getShipSize() - 1] == FIELDSIZE-1)
 	{
-		if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
-		{
-			for (int i = item->getX()[0] - 1; i < item->getX()[0] + item->getShipSize() + 1; i++)
-			{
-				for (int j = item->getY()[0] - 1; j < item->getY()[0] + 1; j++)
-				{
-
-					setField(i, j);
-
-				}
-			}
-		}
-		else
-		{
-			for (int i = item->getX()[0] - 1; i < item->getX()[0] + 2; i++)
-			{
-				for (int j = item->getY()[0] - 1; j < item->getY()[0] + item->getShipSize(); j++)
-				{
-
-					setField(i, j);
-
-				}
-			}
-		}
+		fillRightSideCell(item);
 	}
 
 	//bottomside
 	else if (item->getX()[item->getShipSize() - 1] == FIELDSIZE-1)
 	{
-		if (item->getX()[0] - item->getX()[1] != 0)
-		{
-			for (int i = item->getX()[0] - 1; i < item->getX()[0] + item->getShipSize() + 1; i++)
-			{
-				for (int j = item->getY()[0] - 1; j < item->getY()[0] + 2; j++)
-				{
-
-					setField(i, j);
-
-				}
-			}
-		}
-		else
-		{
-			for (int i = item->getX()[0] - 1; i < item->getX()[0] + 2; i++)
-			{
-				for (int j = item->getY()[0] - 1; j < item->getY()[0] + item->getShipSize() + 1; j++)
-				{
-
-					setField(i, j);
-
-				}
-			}
-		}
+		fillBottomSideCell(item);
 	}
 
 	//topside
 	else if (item->getX()[0] == 0)
 	{
-		if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
-		{
-			for (int i = item->getX()[0]; i < item->getX()[0] + item->getShipSize() + 1; i++)
-			{
-				for (int j = item->getY()[0] - 1; j < item->getY()[0] + 2; j++)
-				{
-
-					setField(i, j);
-
-
-				}
-			}
-		}
-		else
-		{
-			for (int i = item->getX()[0]; i < item->getX()[0] + 2; i++)
-			{
-				for (int j = item->getY()[0] - 1; j < item->getY()[0] + item->getShipSize() + 1; j++)
-				{
-
-					setField(i, j);
-
-
-				}
-			}
-		}
+		fillTopSideCell(item);
 	}
 
 
@@ -308,6 +141,218 @@ char Player::getEnemyField(const int& i, const int& j) const
 		return NULL;
 }
 
+void Player::fillLeftTopConnorCell(Ship * item)
+{
+	for (int i = 0; i < item->getShipSize() + 1; i++)
+	{
+		for (int j = 0; j < 2; j++)
+		{
+			if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
+			{
+				setField(i, j);
+			}
+			else
+			{
+				setField(j, i);
+			}
+		}
+	}
+}
+
+void Player::fillLeftBottomConnorCell(Ship * item)
+{
+	if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
+	{
+		for (int i = item->getX()[0] - 1; i < item->getX()[0] + item->getShipSize() + 1; i++)
+		{
+			for (int j = item->getY()[0]; j < item->getY()[0] + 2; j++)
+			{
+
+				setField(i, j);
+
+			}
+		}
+	}
+	else
+	{
+		for (int i = item->getX()[0]; i < item->getX()[0] + 2; i++)
+		{
+			for (int j = item->getY()[0] - 1; j < item->getY()[0] + item->getShipSize(); j++)
+			{
+
+				setField(i, j);
+
+			}
+		}
+	}
+}
+
+void Player::fillRightTopConnorCell(Ship * item)
+{
+	if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
+	{
+		for (int i = item->getX()[0]; i < item->getX()[0] + item->getShipSize() + 1; i++) // возможно ошибка если что убрать +1
+		{
+			for (int j = item->getY()[0] - 1; j < item->getY()[0] + 1; j++)
+			{
+
+				setField(i, j);
+
+			}
+		}
+	}
+	else
+	{
+		for (int i = item->getX()[0] - 1; i < item->getX()[0] + 1; i++)
+		{
+			for (int j = item->getY()[0]; j < item->getY()[0] + item->getShipSize() + 1; j++)
+			{
+
+				setField(i, j);
+
+			}
+		}
+	}
+}
+
+void Player::fillRightBottomConnorCell(Ship * item)
+{
+	for (int i = item->getX()[0] - 1; i < item->getX()[0] + item->getShipSize() + 1; i++)
+	{
+		for (int j = item->getY()[0] - 1; j < item->getY()[0] + 1; j++)
+		{
+			if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
+			{
+				setField(i, j);
+			}
+			else
+			{
+				setField(j, i);
+			}
+		}
+	}
+
+}
+
+void Player::fillLeftSideCell(Ship * item)
+{
+	if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
+	{
+		for (int i = item->getX()[0] - 1; i < item->getX()[0] + item->getShipSize() + 1; i++)
+		{
+			for (int j = item->getY()[0]; j < item->getY()[0] + 2; j++)
+			{
+
+				setField(i, j);
+
+			}
+		}
+	}
+	else
+	{
+		for (int i = item->getX()[0] - 1; i < item->getX()[0] + 2; i++)
+		{
+			for (int j = item->getY()[0]; j < item->getY()[0] + item->getShipSize() + 1; j++)
+			{
+
+				setField(i, j);
+
+			}
+		}
+	}
+
+}
+
+void Player::fillBottomSideCell(Ship * item)
+{
+	if (item->getX()[0] - item->getX()[1] != 0)
+	{
+		for (int i = item->getX()[0] - 1; i < item->getX()[0] + item->getShipSize() + 1; i++)
+		{
+			for (int j = item->getY()[0] - 1; j < item->getY()[0] + 2; j++)
+			{
+
+				setField(i, j);
+
+			}
+		}
+	}
+	else
+	{
+		for (int i = item->getX()[0] - 1; i < item->getX()[0] + 2; i++)
+		{
+			for (int j = item->getY()[0] - 1; j < item->getY()[0] + item->getShipSize() + 1; j++)
+			{
+
+				setField(i, j);
+
+			}
+		}
+	}
+}
+
+void Player::fillRightSideCell(Ship * item)
+{
+	if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
+	{
+		for (int i = item->getX()[0] - 1; i < item->getX()[0] + item->getShipSize() + 1; i++)
+		{
+			for (int j = item->getY()[0] - 1; j < item->getY()[0] + 1; j++)
+			{
+
+				setField(i, j);
+
+			}
+		}
+	}
+	else
+	{
+		for (int i = item->getX()[0] - 1; i < item->getX()[0] + 2; i++)
+		{
+			for (int j = item->getY()[0] - 1; j < item->getY()[0] + item->getShipSize(); j++)
+			{
+
+				setField(i, j);
+
+			}
+		}
+	}
+}
+
+void Player::fillTopSideCell(Ship * item)
+{
+	if (item->getX()[0] - item->getX()[item->getShipSize() - 1] != 0)
+	{
+		for (int i = item->getX()[0]; i < item->getX()[0] + item->getShipSize() + 1; i++)
+		{
+			for (int j = item->getY()[0] - 1; j < item->getY()[0] + 2; j++)
+			{
+
+				setField(i, j);
+
+
+			}
+		}
+	}
+	else
+	{
+		for (int i = item->getX()[0]; i < item->getX()[0] + 2; i++)
+		{
+			for (int j = item->getY()[0] - 1; j < item->getY()[0] + item->getShipSize() + 1; j++)
+			{
+
+				setField(i, j);
+
+
+			}
+		}
+	}
+}
+
+
+
+
+
 void Player::setField(const int& i, const int& j)
 {
 	
@@ -351,19 +396,19 @@ Player::Player()
 	YourShips.push_back(factory_fourShip->createShip(yourField_));
 
 	IFactory* factory_threeShip = new FactoryThreeShip();
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < ThreeDeckShipCounter; i++)
 	{
 		YourShips.push_back(factory_threeShip->createShip(yourField_));
 	}
 
 	IFactory* factory_doubleShip = new FactoryDoubleShip();
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < DoubleDeckShipCounter; i++)
 	{
 		YourShips.push_back(factory_doubleShip->createShip(yourField_));
 	}
 
 	IFactory* factory_singleShip = new FactorySingleShip();
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < SingleDeckShipCounter; i++)
 	{
 		YourShips.push_back(factory_singleShip->createShip(yourField_));
 	}

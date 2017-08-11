@@ -1,4 +1,6 @@
-#pragma once
+#ifndef ThreeDeckShip_H
+#define ThreeDeckShip_H
+
 #include "SingleDeckShip.h"
 class ThreeDeckShip :
 	public Ship
@@ -11,4 +13,4 @@ private:
 	virtual bool isCellFreeVertical(const char field[FIELDSIZE][FIELDSIZE], const int m, const int n)const override;
 	const int SHIPSIZE = 3;
 };
-
+#endif

@@ -6,6 +6,8 @@ Player& GameModel::getUser()
 { 
 	return You_; 
 }
+
+
 Player& GameModel::getComputer()
 {
 	return Computer_;
@@ -18,7 +20,7 @@ const clock_t& GameModel::getStartTime() const
 {
 	return startGame_;
 }
-GameModel::GameModel()//main game 
+GameModel::GameModel()
 	: You_() , Computer_()
 {
 	

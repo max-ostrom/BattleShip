@@ -1,5 +1,8 @@
-#pragma once
+#ifndef FourDeckShip_H
+#define FourDeckShip_H
+
 #include "SingleDeckShip.h"
+
 class FourDeckShip :
 	public Ship
 {
@@ -12,4 +15,4 @@ private:
 	const int SHIPSIZE = 4;
 	
 };
-
+#endif

@@ -1,5 +1,8 @@
-#pragma once
+#ifndef FactoryFourShip_H
+#define FactoryFourShip_H
+
 #include "Factory.h"
+
 class FactoryFourShip :
 	public IFactory
 {
@@ -12,3 +15,4 @@ public:
 	virtual ~FactoryFourShip() {}
 };
 
+#endif

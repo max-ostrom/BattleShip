@@ -1,7 +1,11 @@
-#pragma once
+#ifndef View_H
+#define View_H
+
 #include <memory>
+
 #include "Observer.h"
 #include "Game.h"
+
 class View :
 	public Observer
 {
@@ -13,4 +17,4 @@ private:
 	void endOfGame() const;
 	std::shared_ptr<GameModel> model_;
 };
-
+#endif

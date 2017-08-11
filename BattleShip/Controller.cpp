@@ -76,7 +76,7 @@ void Controller::run()
 				model_.get()->getComputer().setField(coordAtack[0], coordAtack[1]);
 
 
-				// ход игрока
+				// player shot
 				if (model_.get()->getComputer().getField(coordAtack[0], coordAtack[1]) == '#')
 				{
 					if (model_.get()->getComputer().getField(coordAtack[0], coordAtack[1]) == '#')
@@ -101,7 +101,7 @@ void Controller::run()
 				}
 
 
-				// ход компьютера
+				// computer shot
 				else
 				{
 					if (!hitting)
@@ -146,7 +146,6 @@ Controller::Controller(GameModel* model) : model_(model)
 {
 	
 }
-
 
 Controller::~Controller()
 {

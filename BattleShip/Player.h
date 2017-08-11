@@ -1,4 +1,6 @@
-#pragma once
+#ifndef Player_H
+#define Player_H
+
 #include <iostream>
 #include <vector>
 
@@ -7,9 +9,6 @@
 class Player :
 	public Observable
 {
-private:
-	char yourField_[FIELDSIZE][FIELDSIZE];
-	char enemyField_[FIELDSIZE][FIELDSIZE];
 public:
 	std::vector<Ship*> YourShips;
 	Player();
@@ -22,6 +21,19 @@ public:
 
 	char getField(const int& i, const int& j) const;
 	char getEnemyField(const int& i, const int& j) const;
+private:
+	char yourField_[FIELDSIZE][FIELDSIZE];
+	char enemyField_[FIELDSIZE][FIELDSIZE];
 
+	void fillLeftTopConnorCell(Ship* item);
+	void fillLeftBottomConnorCell(Ship* item);
+	void fillRightTopConnorCell(Ship* item);
+	void fillRightBottomConnorCell(Ship* item);
+
+	void fillLeftSideCell(Ship* item);
+	void fillBottomSideCell(Ship* item);
+	void fillRightSideCell(Ship* item);
+	void fillTopSideCell(Ship* item);
 };
 
+#endif

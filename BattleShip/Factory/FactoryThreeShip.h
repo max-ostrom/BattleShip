@@ -1,5 +1,8 @@
-#pragma once
+#ifndef FactoryThreeShip_H
+#define FactoryThreeShip_H
+
 #include "Factory.h"
+
 class FactoryThreeShip :
 	public IFactory
 {
@@ -11,4 +14,4 @@ public:
 	}
 	virtual ~FactoryThreeShip() {}
 };
-
+#endif

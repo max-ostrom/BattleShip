@@ -1,4 +1,6 @@
-#pragma once
+#ifndef Ship_H
+#define Ship_H
+
 #include <memory>
 
 #include "../Constants.h"
@@ -22,4 +24,4 @@ private:
 	virtual bool isCellFreeHorizontal(const char field[FIELDSIZE][FIELDSIZE], const int m, const int n) const = 0;
 	virtual bool isCellFreeVertical(const char field[FIELDSIZE][FIELDSIZE], const int m, const int n) const = 0;
 };
-
+#endif
