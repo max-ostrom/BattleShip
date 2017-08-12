@@ -6,7 +6,7 @@ class Controller
 {
 public:
 	virtual void run();
-	Controller(GameModel* model);
+	explicit	Controller(GameModel* model);
 	~Controller();
 private:
 	virtual bool isKeyPressed(const int& key) const;

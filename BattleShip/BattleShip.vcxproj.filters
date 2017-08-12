@@ -65,12 +65,6 @@
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UnionFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Constants.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Ships\Ship.h">
       <Filter>Header Files\Ship</Filter>
     </ClInclude>
@@ -107,14 +101,20 @@
     <ClInclude Include="Controller.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UnionHeader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Factory\FactoryFourShip.h">
       <Filter>Header Files\Factory</Filter>
     </ClInclude>
     <ClInclude Include="Factory\Factory.h">
       <Filter>Header Files\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="UnionFactory.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UnionHeader.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Constants.h">
+      <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

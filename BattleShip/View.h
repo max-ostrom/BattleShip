@@ -10,7 +10,7 @@ class View :
 	public Observer
 {
 public:
-	View(GameModel* model);
+	explicit View(GameModel* model);
 	void update() const override;
 	~View();
 private:
