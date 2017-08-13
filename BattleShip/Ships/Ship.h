@@ -14,7 +14,7 @@ protected:
 	std::shared_ptr<int> coordsY_;
 public:
 	virtual const int& getShipSize() const = 0 ;
-	
+	virtual ~Ship();
 	bool isAlive()const ;
 	void destroy();
 

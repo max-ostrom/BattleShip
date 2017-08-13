@@ -1,6 +1,10 @@
 #include "Ship.h"
 
-bool Ship::isAlive() const 
+Ship::~Ship()
+{
+}
+
+bool Ship::isAlive() const
 { 
 	return is_Alive_; 
 }

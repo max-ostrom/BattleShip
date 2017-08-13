@@ -13,6 +13,7 @@ public:
 	void setStartTime(clock_t start);
 	const clock_t& getStartTime() const;
 	GameModel();
+	~GameModel();
 protected:
 	Player You_;
 	Player Computer_;

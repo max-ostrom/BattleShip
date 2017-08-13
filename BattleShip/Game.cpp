@@ -34,4 +34,8 @@ GameModel::GameModel()
 	
 }
 
+GameModel::~GameModel()
+{
+}
+
 
