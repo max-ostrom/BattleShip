@@ -79,26 +79,25 @@ void Controller::run()
 				// player shot
 				if (model_.get()->getComputer().getField(coordAtack[0], coordAtack[1]) == '#')
 				{
-					if (model_.get()->getComputer().getField(coordAtack[0], coordAtack[1]) == '#')
+
+					for each (auto var in model_.get()->getComputer().YourShips)
 					{
-						for each (auto var in model_.get()->getComputer().YourShips)
+						for (int i = 0; i < var->getShipSize(); i++)
 						{
-							for (int i = 0; i < var->getShipSize(); i++)
+							if (var->getX().get()[i] == coordAtack[0] && var->getY().get()[i] == coordAtack[1])
 							{
-								if (var->getX().get()[i] == coordAtack[0] && var->getY().get()[i] == coordAtack[1])
-								{
-									model_.get()->getComputer().isShipAlive(var.get());
-								}
+								model_.get()->getComputer().isShipAlive(var.get());
 							}
-
-
 						}
-					}
-					else
-					{
-						turn = false;
+
+
 					}
 				}
+				else
+				{
+						turn = false;
+				}
+			}
 
 
 				// computer shot
@@ -140,7 +139,7 @@ void Controller::run()
 			}
 		}
 	
-}
+
 
 Controller::Controller(GameModel* model) : model_(model)
 {
