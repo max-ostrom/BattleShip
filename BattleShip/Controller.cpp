@@ -80,7 +80,7 @@ void Controller::run()
 				if (model_.get()->getComputer().getField(coordAtack[0], coordAtack[1]) == '#')
 				{
 
-					for each (auto var in model_.get()->getComputer().YourShips)
+					for (auto var : model_.get()->getComputer().YourShips)
 					{
 						for (int i = 0; i < var->getShipSize(); i++)
 						{
@@ -115,7 +115,7 @@ void Controller::run()
 					model_.get()->getUser().setField(coordAtack[0], coordAtack[1]);
 					if (model_.get()->getUser().getField(coordAtack[0], coordAtack[1]) == '#')
 					{
-						for each (auto var in model_.get()->getUser().YourShips)
+						for (auto var : model_.get()->getUser().YourShips)
 						{
 							for (int i = 0; i < var->getShipSize(); i++)
 							{
@@ -143,9 +143,9 @@ void Controller::run()
 
 Controller::Controller(GameModel* model) : model_(model)
 {
-	
+	if (model == nullptr)
+	{
+		throw exception();
+	}
 }
 
-Controller::~Controller()
-{
-}

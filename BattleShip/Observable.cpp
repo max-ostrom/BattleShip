@@ -1,9 +1,13 @@
 #include "Observable.h"
 #include <algorithm>
-
-void Observable::addObserver(Observer *observer)
+#include <iostream>
+void Observable::addObserver(std::shared_ptr<Observer> observer)
 {
-	observers_.push_back(std::shared_ptr<Observer>(observer));
+	if (observer.get() == nullptr)
+	{
+		throw std::exception();
+	}
+	observers_.push_back(observer);
 }
 void Observable::notifyUpdate() const
 {

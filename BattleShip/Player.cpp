@@ -21,6 +21,10 @@ bool Player::isEndOfGame() const
 
 bool Player::isShipAlive(Ship* item) 
 {
+	if (item == nullptr)
+	{
+		throw exception();
+	}
 	bool flag = true;
 
 

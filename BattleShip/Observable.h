@@ -10,7 +10,7 @@
 class Observable
 {
 public:
-	void addObserver(Observer *observer);
+	void addObserver(std::shared_ptr<Observer> observer);
 	void notifyUpdate() const;
 private:
 	std::vector<std::shared_ptr<Observer>> observers_;

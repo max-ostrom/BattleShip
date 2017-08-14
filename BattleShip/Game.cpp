@@ -6,17 +6,15 @@ Player& GameModel::getUser()
 { 
 	return You_; 
 }
-
-
 Player& GameModel::getComputer()
 {
 	return Computer_;
 }
-const Player & GameModel::getReadonlyUser() const
+const Player & GameModel::getUser() const
 {
 	return You_;
 }
-const Player & GameModel::getReadonlyComputer() const
+const Player & GameModel::getComputer() const
 {
 	return Computer_;
 }
@@ -34,8 +32,6 @@ GameModel::GameModel()
 	
 }
 
-GameModel::~GameModel()
-{
-}
+
 
 

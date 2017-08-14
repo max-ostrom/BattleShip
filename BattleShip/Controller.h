@@ -2,14 +2,13 @@
 #define Controller_H
 
 #include "Game.h"
-class Controller
+class Controller final
 {
 public:
-	virtual void run();
+	void run();
 	Controller(GameModel* model);
-	~Controller();
 private:
-	virtual bool isKeyPressed(const int& key) const;
+	bool isKeyPressed(const int& key) const;
 	std::shared_ptr<GameModel> model_;
 };
 #endif

@@ -9,8 +9,10 @@
 
 View::View(GameModel* model) :model_(model)
 {
-	model->getComputer().addObserver(this);
-	model->getUser().addObserver(this);
+	if (model == nullptr)
+	{
+		throw exception();
+	}
 }
 
 
@@ -18,7 +20,7 @@ void View::update() const
 {
 
 	system("cls");
-	char alf[11] = { "ABCDEFGHIJ" };
+	char alf[] = { "ABCDEFGHIJ" };
 	char numbers[12] = { " 0123456789" };
 
 
@@ -30,7 +32,7 @@ void View::update() const
 		cout << alf[i];
 		for (int j = 0; j < FIELDSIZE; j++)
 		{
-			cout << model_.get()->getReadonlyUser().getField(i, j);
+			cout << model_.get()->getUser().getField(i, j);
 		}
 		cout << "|" << endl;
 	}
@@ -42,15 +44,15 @@ void View::update() const
 		cout << alf[i];
 		for (int j = 0; j < FIELDSIZE; j++)
 		{
-			if (model_.get()->getReadonlyComputer().getField(i, j) == 'X')
+			if (model_.get()->getComputer().getField(i, j) == 'X')
 				cout << " ";
 			else
-				cout << model_.get()->getReadonlyComputer().getField(i, j);
+				cout << model_.get()->getComputer().getField(i, j);
 		}
 		cout << "|" << endl;
 	}
 
-	if (model_.get()->getReadonlyUser().isEndOfGame() || model_.get()->getReadonlyComputer().isEndOfGame())
+	if (model_.get()->getUser().isEndOfGame() || model_.get()->getComputer().isEndOfGame())
 	{
 		endOfGame();
 	}
@@ -64,7 +66,7 @@ void View::endOfGame() const
 
 	int yourAliveShips = 0;
 	//players alive ships
-	for each (auto item in model_.get()->getReadonlyUser().YourShips)
+	for (auto item : model_.get()->getUser().YourShips)
 	{
 		if (item->isAlive())
 		{
@@ -75,7 +77,7 @@ void View::endOfGame() const
 
 	int computerAliveShips = 0;
 	//computers alive ships
-	for each (auto item in model_.get()->getReadonlyComputer().YourShips)
+	for (auto item : model_.get()->getComputer().YourShips)
 	{
 		if (item->isAlive())
 		{
@@ -97,7 +99,7 @@ void View::endOfGame() const
 		cout << alf[i];
 		for (int j = 0; j < FIELDSIZE; j++)
 		{
-			cout << model_.get()->getReadonlyComputer().getField(i, j);
+			cout << model_.get()->getComputer().getField(i, j);
 		}
 		cout << endl;
 
@@ -113,6 +115,3 @@ void View::endOfGame() const
 		<< "Computer Ships : " << computerAliveShips << endl;
 }
 
-View::~View()
-{
-}

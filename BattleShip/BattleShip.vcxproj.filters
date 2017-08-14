@@ -57,6 +57,9 @@
     <ClCompile Include="Ships\DoubleDeckShip.cpp">
       <Filter>Source Files\Ships</Filter>
     </ClCompile>
+    <ClCompile Include="Settings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h">
@@ -115,6 +118,15 @@
     </ClInclude>
     <ClInclude Include="Constants.h">
       <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IFieldSettings.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IShipSettings.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Settings.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

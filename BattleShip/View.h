@@ -6,13 +6,12 @@
 #include "Observer.h"
 #include "Game.h"
 
-class View :
+class View final :
 	public Observer
 {
 public:
 	View(GameModel* model);
 	void update() const override;
-	~View();
 private:
 	void endOfGame() const;
 	const std::shared_ptr<const GameModel> model_;
