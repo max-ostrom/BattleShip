@@ -11,7 +11,7 @@ bool Controller::isKeyPressed(const int& key) const
 {
 	const unsigned int MSB = 0x8000;
 
-	if (GetAsyncKeyState(key) && MSB)
+	if (GetAsyncKeyState(key) & MSB)
 	{
 		return true;
 	}
@@ -101,43 +101,43 @@ void Controller::run()
 
 
 				// computer shot
-				else
+			else
+			{
+				if (!hitting)
 				{
-					if (!hitting)
+					do {
+						coordAtack[0] = rand() % FIELDSIZE;
+						coordAtack[1] = rand() % FIELDSIZE;
+					} while (model_.get()->getUser().getEnemyField(coordAtack[0], coordAtack[1]) != ' ');
+				}
+				if (model_.get()->getUser().getEnemyField(coordAtack[0], coordAtack[1]) == ' ')
+				{
+					model_.get()->getUser().setField(coordAtack[0], coordAtack[1]);
+					if (model_.get()->getUser().getField(coordAtack[0], coordAtack[1]) == '#')
 					{
-						do {
-							coordAtack[0] = rand() % FIELDSIZE;
-							coordAtack[1] = rand() % FIELDSIZE;
-						} while (model_.get()->getUser().getEnemyField(coordAtack[0], coordAtack[1]) != ' ');
-					}
-					if (model_.get()->getUser().getEnemyField(coordAtack[0], coordAtack[1]) == ' ')
-					{
-						model_.get()->getUser().setField(coordAtack[0], coordAtack[1]);
-						if (model_.get()->getUser().getField(coordAtack[0], coordAtack[1]) == '#')
+						for each (auto var in model_.get()->getUser().YourShips)
 						{
-							for each (auto var in model_.get()->getUser().YourShips)
+							for (int i = 0; i < var->getShipSize(); i++)
 							{
-								for (int i = 0; i < var->getShipSize(); i++)
+								if (var->getX().get()[i] == coordAtack[0] && var->getY().get()[i] == coordAtack[1])
 								{
-									if (var->getX().get()[i] == coordAtack[0] && var->getY().get()[i] == coordAtack[1])
-									{
-										model_.get()->getUser().isShipAlive(var.get());
-									}
+									model_.get()->getUser().isShipAlive(var.get());
 								}
-
 							}
 
 						}
-						else
-						{
-							turn = true;
-						}
-					}
 
+					}
+					else
+					{
+						turn = true;
+					}
 				}
-				
+
 			}
+				
 		}
+}
 	
 
 

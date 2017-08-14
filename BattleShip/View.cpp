@@ -16,47 +16,47 @@ View::View(GameModel* model) :model_(model)
 
 void View::update() const
 {
-	
-		system("cls");
-		char alf[11] = { "ABCDEFGHIJ" };
-		char numbers[12] = { " 0123456789" };
+
+	system("cls");
+	char alf[11] = { "ABCDEFGHIJ" };
+	char numbers[12] = { " 0123456789" };
 
 
-		cout << "Your ships" << endl << numbers << endl;
+	cout << "Your ships" << endl << numbers << endl;
 
 
-		for (int i = 0; i < FIELDSIZE; i++)
+	for (int i = 0; i < FIELDSIZE; i++)
+	{
+		cout << alf[i];
+		for (int j = 0; j < FIELDSIZE; j++)
 		{
-			cout << alf[i];
-			for (int j = 0; j < FIELDSIZE; j++)
-			{
-				cout << model_.get()->getReadonlyUser().getField(i, j);
-			}
-			cout << "|" << endl;
+			cout << model_.get()->getReadonlyUser().getField(i, j);
 		}
+		cout << "|" << endl;
+	}
 
 
-		cout << endl << "Computer ships" << endl << numbers << endl;
-		for (int i = 0; i < FIELDSIZE; i++)
+	cout << endl << "Computer ships" << endl << numbers << endl;
+	for (int i = 0; i < FIELDSIZE; i++)
+	{
+		cout << alf[i];
+		for (int j = 0; j < FIELDSIZE; j++)
 		{
-			cout << alf[i];
-			for (int j = 0; j < FIELDSIZE; j++)
-			{
-				if (model_.get()->getReadonlyComputer().getField(i, j) == 'X')
-					cout << " ";
-				else
-					cout << model_.get()->getReadonlyComputer().getField(i, j);
-			}
-			cout << "|" << endl;
+			if (model_.get()->getReadonlyComputer().getField(i, j) == 'X')
+				cout << " ";
+			else
+				cout << model_.get()->getReadonlyComputer().getField(i, j);
 		}
+		cout << "|" << endl;
+	}
 
-		if (model_.get()->getReadonlyUser().isEndOfGame() || model_.get()->getReadonlyComputer().isEndOfGame())
-		{
-			endOfGame();
-		}
+	if (model_.get()->getReadonlyUser().isEndOfGame() || model_.get()->getReadonlyComputer().isEndOfGame())
+	{
+		endOfGame();
+	}
 
 
-	
+
 }
 void View::endOfGame() const
 {
