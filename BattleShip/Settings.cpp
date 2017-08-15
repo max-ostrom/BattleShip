@@ -16,7 +16,7 @@ const int Settings::getDoubleDeckShipCounter() const
 	return DoubleDeckShipCounter;
 }
 
-const int Settings::getSingleThreeDeckShipCounter() const
+const int Settings::getSingleDeckShipCounter() const
 {
 	return SingleDeckShipCounter;
 }

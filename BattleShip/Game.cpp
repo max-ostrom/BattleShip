@@ -27,7 +27,7 @@ const clock_t& GameModel::getStartTime() const
 	return startGame_;
 }
 GameModel::GameModel()
-	: You_() , Computer_()
+	: You_(Settings(), Settings()) , Computer_(Settings(), Settings())
 {
 	
 }

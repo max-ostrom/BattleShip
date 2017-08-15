@@ -4,9 +4,9 @@ int main()
 {
 	GameModel model;
 	Controller controller(&model);
-	std::shared_ptr<View> view(&model);
-	model.getComputer().addObserver(view);
-	model.getUser().addObserver(view);
+	View view(&model);
+	model.getComputer().addObserver(std::make_shared<View>(view));
+	model.getUser().addObserver(std::make_shared<View>(view));
 	controller.run();
 	return 0;
 }

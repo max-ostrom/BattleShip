@@ -385,7 +385,7 @@ void Player::setEnemyField(const int& i, const int& j,const Player& p)
 	notifyUpdate();
 }
 
-Player::Player() 
+Player::Player(IFieldSettings& fieldSettings, IShipSettings& shipSettings)
 {
 	for (int i = 0; i < FIELDSIZE; i++)
 	{
@@ -400,19 +400,19 @@ Player::Player()
 	YourShips.push_back(factory_fourShip->createShip(yourField_));
 
 	IFactory* factory_threeShip = new FactoryThreeShip();
-	for (int i = 0; i < ThreeDeckShipCounter; i++)
+	for (int i = 0; i < shipSettings.getSingleDeckShipCounter(); i++)
 	{
 		YourShips.push_back(factory_threeShip->createShip(yourField_));
 	}
 
 	IFactory* factory_doubleShip = new FactoryDoubleShip();
-	for (int i = 0; i < DoubleDeckShipCounter; i++)
+	for (int i = 0; i < shipSettings.getDoubleDeckShipCounter(); i++)
 	{
 		YourShips.push_back(factory_doubleShip->createShip(yourField_));
 	}
 
 	IFactory* factory_singleShip = new FactorySingleShip();
-	for (int i = 0; i < SingleDeckShipCounter; i++)
+	for (int i = 0; i < shipSettings.getSingleDeckShipCounter(); i++)
 	{
 		YourShips.push_back(factory_singleShip->createShip(yourField_));
 	}

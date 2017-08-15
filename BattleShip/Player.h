@@ -4,14 +4,15 @@
 #include <iostream>
 #include <vector>
 
-#include"UnionHeader.h"
+#include "Settings.h"
+#include "UnionHeader.h"
 #include "Observable.h"
 class Player :
 	public Observable
 {
 public:
 	std::vector<std::shared_ptr<Ship>> YourShips;
-	Player();
+	Player(IFieldSettings& fieldSettings, IShipSettings& shipSettings);
 	virtual ~Player();
 	void setField(const int& i, const int& j);
 	void setEnemyField(const int& i, const  int& j,const Player& p);
