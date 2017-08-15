@@ -168,7 +168,6 @@
     <ClInclude Include="Factory\FactorySingleShip.h" />
     <ClInclude Include="Factory\FactoryThreeShip.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="IFieldSettings.h" />
     <ClInclude Include="IShipSettings.h" />
     <ClInclude Include="Observable.h" />
     <ClInclude Include="Observer.h" />

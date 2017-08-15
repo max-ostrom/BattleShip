@@ -12,7 +12,7 @@ class Player :
 {
 public:
 	std::vector<std::shared_ptr<Ship>> YourShips;
-	Player(IFieldSettings& fieldSettings, IShipSettings& shipSettings);
+	Player(IShipSettings& shipSettings);
 	virtual ~Player();
 	void setField(const int& i, const int& j);
 	void setEnemyField(const int& i, const  int& j,const Player& p);

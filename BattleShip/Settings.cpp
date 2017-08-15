@@ -1,10 +1,7 @@
 #include "Settings.h"
 
 
-const int Settings::getFieldSize() const
-{
-	return FIELDSIZE;
-}
+
 
 const int Settings::getThreeDeckShipCounter() const
 {

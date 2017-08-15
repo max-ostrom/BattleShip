@@ -385,7 +385,7 @@ void Player::setEnemyField(const int& i, const int& j,const Player& p)
 	notifyUpdate();
 }
 
-Player::Player(IFieldSettings& fieldSettings, IShipSettings& shipSettings)
+Player::Player(IShipSettings& shipSettings) 
 {
 	for (int i = 0; i < FIELDSIZE; i++)
 	{

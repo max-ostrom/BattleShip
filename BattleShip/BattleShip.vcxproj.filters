@@ -119,9 +119,6 @@
     <ClInclude Include="Constants.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
-    <ClInclude Include="IFieldSettings.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
     <ClInclude Include="IShipSettings.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
