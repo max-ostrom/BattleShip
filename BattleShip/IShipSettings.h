@@ -1,4 +1,6 @@
-#pragma once
+#ifndef IShipSettings_H
+#define IShipSettings_H
+
 class IShipSettings
 {
 public:
@@ -10,4 +12,4 @@ public:
 	{
 	}
 };
-
+#endif

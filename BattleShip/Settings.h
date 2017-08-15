@@ -1,6 +1,8 @@
-#pragma once
+#ifndef Settings_H
+#define Settings_H
+
 #include "IShipSettings.h"
-#include "IFieldSettings.h"
+
 class Settings :
 	public IShipSettings
 {
@@ -15,4 +17,4 @@ private:
 	const int DoubleDeckShipCounter = 3;
 	const int SingleDeckShipCounter = 4;
 };
-
+#endif
