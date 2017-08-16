@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 
+#include"UnionFactory.h"
 #include "Settings.h"
 #include "UnionHeader.h"
 #include "Observable.h"
