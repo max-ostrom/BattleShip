@@ -396,34 +396,28 @@ Player::Player(IShipSettings& shipSettings)
 		}
 	}
 
-	IFactory* factory_fourShip = new FactoryFourShip();
-	YourShips.push_back(factory_fourShip->createShip(yourField_));
+	addShip(FactoryFourShip());
 
-	IFactory* factory_threeShip = new FactoryThreeShip();
 	for (int i = 0; i < shipSettings.getSingleDeckShipCounter(); i++)
 	{
-		YourShips.push_back(factory_threeShip->createShip(yourField_));
+		addShip(FactoryThreeShip());
 	}
 
-	IFactory* factory_doubleShip = new FactoryDoubleShip();
 	for (int i = 0; i < shipSettings.getDoubleDeckShipCounter(); i++)
 	{
-		YourShips.push_back(factory_doubleShip->createShip(yourField_));
+		addShip(FactoryDoubleShip());
 	}
 
-	IFactory* factory_singleShip = new FactorySingleShip();
 	for (int i = 0; i < shipSettings.getSingleDeckShipCounter(); i++)
 	{
-		YourShips.push_back(factory_singleShip->createShip(yourField_));
+		addShip(FactorySingleShip());
 	}
 
-
-	delete factory_doubleShip;
-	delete factory_singleShip;
-	delete factory_fourShip;
-	delete factory_threeShip;
 }
-
+void Player::addShip(IFactory& factory)
+{
+	YourShips.push_back(factory.createShip(yourField_));
+}
 Player::~Player()
 {
 	

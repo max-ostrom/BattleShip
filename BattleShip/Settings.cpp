@@ -1,8 +1,5 @@
 #include "Settings.h"
 
-
-
-
 const int Settings::getThreeDeckShipCounter() const
 {
 	return ThreeDeckShipCounter;
