@@ -63,7 +63,7 @@ void View::endOfGame() const
 
 	int yourAliveShips = 0;
 	//players alive ships
-	for (auto item : model_.getUser().YourShips)
+	for (auto item : model_.getUser().getShips())
 	{
 		if (item->isAlive())
 		{
@@ -74,7 +74,7 @@ void View::endOfGame() const
 
 	int computerAliveShips = 0;
 	//computers alive ships
-	for (auto item : model_.getComputer().YourShips)
+	for (auto item : model_.getComputer().getShips())
 	{
 		if (item->isAlive())
 		{

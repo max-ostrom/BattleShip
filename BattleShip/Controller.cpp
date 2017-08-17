@@ -80,7 +80,7 @@ void Controller::run()
 				if (model_.getComputer().getField(coordAtack[0], coordAtack[1]) == '#')
 				{
 
-					for (auto var : model_.getComputer().YourShips)
+					for (auto var : model_.getComputer().getShips())
 					{
 						for (int i = 0; i < var->getShipSize(); i++)
 						{
@@ -115,7 +115,7 @@ void Controller::run()
 					model_.getUser().setField(coordAtack[0], coordAtack[1]);
 					if (model_.getUser().getField(coordAtack[0], coordAtack[1]) == '#')
 					{
-						for (auto var : model_.getUser().YourShips)
+						for (auto var : model_.getUser().getShips())
 						{
 							for (int i = 0; i < var->getShipSize(); i++)
 							{

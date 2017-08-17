@@ -385,7 +385,17 @@ void Player::setEnemyField(const int& i, const int& j,const Player& p)
 	notifyUpdate();
 }
 
-Player::Player(IShipSettings& shipSettings) 
+std::vector<std::shared_ptr<Ship>>& Player::getShips()
+{
+	return YourShips;
+}
+
+const std::vector<std::shared_ptr<Ship>>& Player::getShips() const
+{
+	return YourShips;
+}
+
+Player::Player(IShipSettings& shipSettings)
 {
 
 	cout << "Constr"<<endl;

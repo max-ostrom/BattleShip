@@ -12,7 +12,8 @@ class Player :
 	public Observable
 {
 public:
-	std::vector<std::shared_ptr<Ship>> YourShips;
+	std::vector<std::shared_ptr<Ship>>& getShips();
+	const std::vector<std::shared_ptr<Ship>>& getShips() const;
 	Player(IShipSettings& shipSettings);
 	virtual ~Player();
 	void setField(const int& i, const int& j);
@@ -24,6 +25,8 @@ public:
 	char getField(const int& i, const int& j) const;
 	char getEnemyField(const int& i, const int& j) const;
 private:
+	std::vector<std::shared_ptr<Ship>> YourShips;
+
 	char yourField_[FIELDSIZE][FIELDSIZE];
 	char enemyField_[FIELDSIZE][FIELDSIZE];
 
