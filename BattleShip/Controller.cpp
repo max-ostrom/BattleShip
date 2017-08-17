@@ -29,6 +29,11 @@ void Controller::run()
 
 	while (!model_.getUser().isEndOfGame() && !model_.getComputer().isEndOfGame())
 	{
+		if (model_.getUser().isEndOfGame() || model_.getComputer().isEndOfGame())
+		{
+			_getch();
+			exit(0); // end of game
+		}
 		if (turn)
 		{
 			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,14 });

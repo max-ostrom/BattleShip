@@ -8,7 +8,7 @@
 
 #include "View.h"
 
-View::View(GameModel& model) :model_(model)
+View::View(const GameModel& model) :model_(model)
 {
 	
 }
@@ -63,7 +63,9 @@ void View::endOfGame() const
 
 	int yourAliveShips = 0;
 	//players alive ships
-	for_each(model_.getUser().getShips().begin(), model_.getUser().getShips().end(),
+	for_each(
+		model_.getUser().getShips().begin(), 
+		model_.getUser().getShips().end(),
 		[yourAliveShips](std::shared_ptr<Ship> item) mutable// Lambda expression
 	{
 		if (item->isAlive())
@@ -75,7 +77,9 @@ void View::endOfGame() const
 
 	int computerAliveShips = 0;
 	//computers alive ships
-	for_each(model_.getComputer().getShips().begin(), model_.getComputer().getShips().end(),
+	for_each(
+		model_.getComputer().getShips().begin(),
+		model_.getComputer().getShips().end(),
 		[computerAliveShips](std::shared_ptr<Ship> item) mutable// Lambda expression
 	{
 		if (item->isAlive())

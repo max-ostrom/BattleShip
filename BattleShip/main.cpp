@@ -5,7 +5,7 @@ int main()
 	try {
 		GameModel model;
 		Controller controller(model);
-		std:shared_ptr<View> view = std::make_shared<View>(model);
+		shared_ptr<View> view = make_shared<View>(model);
 		model.getComputer().addObserver(view);
 		model.getUser().addObserver(view);
 		controller.run();
