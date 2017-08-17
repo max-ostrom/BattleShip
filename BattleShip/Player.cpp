@@ -398,7 +398,7 @@ Player::Player(IShipSettings& shipSettings)
 
 	addShip(FactoryFourShip());
 
-	for (int i = 0; i < shipSettings.getSingleDeckShipCounter(); i++)
+	for (int i = 0; i < shipSettings.getThreeDeckShipCounter(); i++)
 	{
 		addShip(FactoryThreeShip());
 	}
