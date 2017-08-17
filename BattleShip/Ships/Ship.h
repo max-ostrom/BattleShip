@@ -9,13 +9,11 @@ class Ship// abstract
 {
 protected:
 	bool is_Alive_ = true;
-	Ship() {}
-	Ship(const Ship& other);
 	std::shared_ptr<int> coordsX_;
 	std::shared_ptr<int> coordsY_;
 public:
 	virtual const int& getShipSize() const = 0 ;
-	virtual ~Ship();
+	virtual ~Ship() {}
 	bool isAlive()const ;
 	void destroy();
 

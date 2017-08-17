@@ -3,10 +3,10 @@
 int main()
 {
 	GameModel model;
-	Controller controller(&model);
-	View view(&model);
-	model.getComputer().addObserver(std::make_shared<View>(view));
-	model.getUser().addObserver(std::make_shared<View>(view));
+	Controller controller(model);
+	std:shared_ptr<View> view = std::make_shared<View>(model);
+	model.getComputer().addObserver(view);
+	model.getUser().addObserver(view);
 	controller.run();
 	return 0;
 }

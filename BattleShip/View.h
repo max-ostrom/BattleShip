@@ -10,10 +10,10 @@ class View final :
 	public Observer
 {
 public:
-	View(GameModel* model);
+	View(GameModel& model);
 	void update() const override;
 private:
 	void endOfGame() const;
-	const std::shared_ptr<const GameModel> model_;
+	const GameModel& model_;
 };
 #endif

@@ -1,6 +1,8 @@
 #include "Observable.h"
+
 #include <algorithm>
 #include <iostream>
+
 void Observable::addObserver(std::shared_ptr<Observer> observer)
 {
 	if (observer.get() == nullptr)

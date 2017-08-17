@@ -7,12 +7,9 @@
 
 #include "View.h"
 
-View::View(GameModel* model) :model_(model)
+View::View(GameModel& model) :model_(model)
 {
-	if (model == nullptr)
-	{
-		throw exception();
-	}
+	
 }
 
 
@@ -32,7 +29,7 @@ void View::update() const
 		cout << alf[i];
 		for (int j = 0; j < FIELDSIZE; j++)
 		{
-			cout << model_.get()->getUser().getField(i, j);
+			cout << model_.getUser().getField(i, j);
 		}
 		cout << "|" << endl;
 	}
@@ -44,15 +41,15 @@ void View::update() const
 		cout << alf[i];
 		for (int j = 0; j < FIELDSIZE; j++)
 		{
-			if (model_.get()->getComputer().getField(i, j) == 'X')
+			if (model_.getComputer().getField(i, j) == 'X')
 				cout << " ";
 			else
-				cout << model_.get()->getComputer().getField(i, j);
+				cout << model_.getComputer().getField(i, j);
 		}
 		cout << "|" << endl;
 	}
 
-	if (model_.get()->getUser().isEndOfGame() || model_.get()->getComputer().isEndOfGame())
+	if (model_.getUser().isEndOfGame() || model_.getComputer().isEndOfGame())
 	{
 		endOfGame();
 	}
@@ -66,7 +63,7 @@ void View::endOfGame() const
 
 	int yourAliveShips = 0;
 	//players alive ships
-	for (auto item : model_.get()->getUser().YourShips)
+	for (auto item : model_.getUser().YourShips)
 	{
 		if (item->isAlive())
 		{
@@ -77,7 +74,7 @@ void View::endOfGame() const
 
 	int computerAliveShips = 0;
 	//computers alive ships
-	for (auto item : model_.get()->getComputer().YourShips)
+	for (auto item : model_.getComputer().YourShips)
 	{
 		if (item->isAlive())
 		{
@@ -99,7 +96,7 @@ void View::endOfGame() const
 		cout << alf[i];
 		for (int j = 0; j < FIELDSIZE; j++)
 		{
-			cout << model_.get()->getComputer().getField(i, j);
+			cout << model_.getComputer().getField(i, j);
 		}
 		cout << endl;
 
@@ -108,9 +105,9 @@ void View::endOfGame() const
 
 	// time and ships count
 	cout << "Time: "
-		<< static_cast<int>((clock() - model_.get()->getStartTime()) / CLOCKS_PER_SEC) / 60
+		<< static_cast<int>((clock() - model_.getStartTime()) / CLOCKS_PER_SEC) / 60
 		<< ":"
-		<< static_cast<int>((clock() - model_.get()->getStartTime()) / CLOCKS_PER_SEC) % 60
+		<< static_cast<int>((clock() - model_.getStartTime()) / CLOCKS_PER_SEC) % 60
 		<< "Your Ships : " << yourAliveShips << endl
 		<< "Computer Ships : " << computerAliveShips << endl;
 }

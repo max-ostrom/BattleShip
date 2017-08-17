@@ -6,9 +6,9 @@ class Controller final
 {
 public:
 	void run();
-	Controller(GameModel* model);
+	Controller(GameModel& model);
 private:
 	bool isKeyPressed(const int& key) const;
-	std::shared_ptr<GameModel> model_;
+	GameModel& model_;
 };
 #endif

@@ -20,13 +20,13 @@ bool Controller::isKeyPressed(const int& key) const
 }
 void Controller::run()
 {
-		model_.get()->setStartTime(clock());
+		model_.setStartTime(clock());
 		bool turn = true;
 		int coordAtack[2];
 		bool hitting = false;
 		string choose;
 
-		while (!model_.get()->getUser().isEndOfGame() && !model_.get()->getComputer().isEndOfGame())
+		while (!model_.getUser().isEndOfGame() && !model_.getComputer().isEndOfGame())
 		{
 			if (turn)
 			{
@@ -72,21 +72,21 @@ void Controller::run()
 
 
 
-				model_.get()->getUser().setEnemyField(coordAtack[0], coordAtack[1], model_.get()->getComputer());
-				model_.get()->getComputer().setField(coordAtack[0], coordAtack[1]);
+				model_.getUser().setEnemyField(coordAtack[0], coordAtack[1], model_.getComputer());
+				model_.getComputer().setField(coordAtack[0], coordAtack[1]);
 
 
 				// player shot
-				if (model_.get()->getComputer().getField(coordAtack[0], coordAtack[1]) == '#')
+				if (model_.getComputer().getField(coordAtack[0], coordAtack[1]) == '#')
 				{
 
-					for (auto var : model_.get()->getComputer().YourShips)
+					for (auto var : model_.getComputer().YourShips)
 					{
 						for (int i = 0; i < var->getShipSize(); i++)
 						{
 							if (var->getX().get()[i] == coordAtack[0] && var->getY().get()[i] == coordAtack[1])
 							{
-								model_.get()->getComputer().isShipAlive(var.get());
+								model_.getComputer().isShipAlive(var.get());
 							}
 						}
 
@@ -108,20 +108,20 @@ void Controller::run()
 					do {
 						coordAtack[0] = rand() % FIELDSIZE;
 						coordAtack[1] = rand() % FIELDSIZE;
-					} while (model_.get()->getUser().getEnemyField(coordAtack[0], coordAtack[1]) != ' ');
+					} while (model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) != ' ');
 				}
-				if (model_.get()->getUser().getEnemyField(coordAtack[0], coordAtack[1]) == ' ')
+				if (model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) == ' ')
 				{
-					model_.get()->getUser().setField(coordAtack[0], coordAtack[1]);
-					if (model_.get()->getUser().getField(coordAtack[0], coordAtack[1]) == '#')
+					model_.getUser().setField(coordAtack[0], coordAtack[1]);
+					if (model_.getUser().getField(coordAtack[0], coordAtack[1]) == '#')
 					{
-						for (auto var : model_.get()->getUser().YourShips)
+						for (auto var : model_.getUser().YourShips)
 						{
 							for (int i = 0; i < var->getShipSize(); i++)
 							{
 								if (var->getX().get()[i] == coordAtack[0] && var->getY().get()[i] == coordAtack[1])
 								{
-									model_.get()->getUser().isShipAlive(var.get());
+									model_.getUser().isShipAlive(var.get());
 								}
 							}
 
@@ -141,11 +141,8 @@ void Controller::run()
 	
 
 
-Controller::Controller(GameModel* model) : model_(model)
+Controller::Controller(GameModel& model) : model_(model)
 {
-	if (model == nullptr)
-	{
-		throw exception();
-	}
+
 }
 

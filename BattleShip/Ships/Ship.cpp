@@ -1,14 +1,6 @@
 #include "Ship.h"
 
-Ship::Ship(const Ship & other)
-{
-	coordsX_ = other.coordsX_;
-	coordsY_ = other.coordsY_;
-}
 
-Ship::~Ship()
-{
-}
 
 bool Ship::isAlive() const
 { 
