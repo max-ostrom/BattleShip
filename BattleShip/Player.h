@@ -27,8 +27,8 @@ public:
 private:
 	std::vector<std::shared_ptr<Ship>> YourShips_;
 
-	char yourField_[FIELDSIZE][FIELDSIZE];
-	char enemyField_[FIELDSIZE][FIELDSIZE];
+	char yourField_[FIELD_SIZE][FIELD_SIZE];
+	char enemyField_[FIELD_SIZE][FIELD_SIZE];
 
 	void fillLeftTopConnorCell(Ship* item);
 	void fillLeftBottomConnorCell(Ship* item);

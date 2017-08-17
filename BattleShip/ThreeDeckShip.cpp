@@ -2,10 +2,10 @@
 
 
 
-ThreeDeckShip::ThreeDeckShip(char field[FIELDSIZE][FIELDSIZE])
+ThreeDeckShip::ThreeDeckShip(char field[FIELD_SIZE][FIELD_SIZE])
 {
-	coordsX_ = shared_ptr<int>(new int[SHIPSIZE_]);
-	coordsY_ = shared_ptr<int>(new int[SHIPSIZE_]);
+	coordsX_ = shared_ptr<int>(new int[SHIP_SIZE_]);
+	coordsY_ = shared_ptr<int>(new int[SHIP_SIZE_]);
 
 
 	int n = rand() % 2;
@@ -14,14 +14,14 @@ ThreeDeckShip::ThreeDeckShip(char field[FIELDSIZE][FIELDSIZE])
 
 	case 0://vertical
 	{
-		int m = rand() % (FIELDSIZE - SHIPSIZE_ + 1);
-		int n = rand() % FIELDSIZE;
+		int m = rand() % (FIELD_SIZE - SHIP_SIZE_ + 1);
+		int n = rand() % FIELD_SIZE;
 
 
 		while (isCellFreeVertical(field,m,n)) 
 		{
-			m = rand() % (FIELDSIZE - SHIPSIZE_ + 1);
-			n = rand() % FIELDSIZE;
+			m = rand() % (FIELD_SIZE - SHIP_SIZE_ + 1);
+			n = rand() % FIELD_SIZE;
 		}
 
 
@@ -40,14 +40,14 @@ ThreeDeckShip::ThreeDeckShip(char field[FIELDSIZE][FIELDSIZE])
 		coordsY_.get()[2] = n;
 		break; }
 	case 1://horizontal
-		int m = rand() % FIELDSIZE;
-		int n = rand() % (FIELDSIZE - SHIPSIZE_ + 1);
+		int m = rand() % FIELD_SIZE;
+		int n = rand() % (FIELD_SIZE - SHIP_SIZE_ + 1);
 
 
 		while (isCellFreeHorizontal(field,m,n))
 		{
-			m = rand() % FIELDSIZE;
-			n = rand() % (FIELDSIZE - SHIPSIZE_ + 1);
+			m = rand() % FIELD_SIZE;
+			n = rand() % (FIELD_SIZE - SHIP_SIZE_ + 1);
 		}
 
 
@@ -70,10 +70,10 @@ ThreeDeckShip::ThreeDeckShip(char field[FIELDSIZE][FIELDSIZE])
 
 const int& ThreeDeckShip::getShipSize() const
 {
-	return SHIPSIZE_;
+	return SHIP_SIZE_;
 }
 
-bool ThreeDeckShip::isCellFreeHorizontal(const char field[FIELDSIZE][FIELDSIZE], const int m, const int n) const
+bool ThreeDeckShip::isCellFreeHorizontal(const char field[FIELD_SIZE][FIELD_SIZE], const int m, const int n) const
 {
 	return field[m][n] == 'X' || field[m][n + 1] == 'X' ||
 		field[m][n + 2] == 'X' || field[m - 1][n - 1] == 'X' ||
@@ -85,7 +85,7 @@ bool ThreeDeckShip::isCellFreeHorizontal(const char field[FIELDSIZE][FIELDSIZE],
 		field[m + 1][n + 3] == 'X';
 }
 
-bool ThreeDeckShip::isCellFreeVertical(const char field[FIELDSIZE][FIELDSIZE], const int m, const int n) const
+bool ThreeDeckShip::isCellFreeVertical(const char field[FIELD_SIZE][FIELD_SIZE], const int m, const int n) const
 {
 	return field[m][n] == 'X' || field[m + 1][n] == 'X' ||
 		field[m + 2][n] == 'X' || field[m - 1][n - 1] == 'X' ||

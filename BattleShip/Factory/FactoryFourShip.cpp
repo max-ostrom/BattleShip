@@ -1,6 +1,6 @@
 #include "FactoryFourShip.h"
 
-std::shared_ptr<Ship> FactoryFourShip::createShip(char field[FIELDSIZE][FIELDSIZE])
+std::shared_ptr<Ship> FactoryFourShip::createShip(char field[FIELD_SIZE][FIELD_SIZE])
 {
 	try
 	{

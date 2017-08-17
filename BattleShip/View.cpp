@@ -30,10 +30,10 @@ void View::update() const
 		cout << "Your ships" << endl << numbers << endl;
 
 
-		for (int i = 0; i < FIELDSIZE; i++)
+		for (int i = 0; i < FIELD_SIZE; i++)
 		{
 			cout << alf[i];
-			for (int j = 0; j < FIELDSIZE; j++)
+			for (int j = 0; j < FIELD_SIZE; j++)
 			{
 				cout << model_.getUser().getField(i, j);
 			}
@@ -42,10 +42,10 @@ void View::update() const
 
 
 		cout << endl << "Computer ships" << endl << numbers << endl;
-		for (int i = 0; i < FIELDSIZE; i++)
+		for (int i = 0; i < FIELD_SIZE; i++)
 		{
 			cout << alf[i];
-			for (int j = 0; j < FIELDSIZE; j++)
+			for (int j = 0; j < FIELD_SIZE; j++)
 			{
 				if (model_.getComputer().getField(i, j) == 'X')
 					cout << " ";
@@ -96,10 +96,10 @@ void View::endOfGame() const
 
 
 	//print computer ships
-	for (int i = 0; i < FIELDSIZE; i++)
+	for (int i = 0; i < FIELD_SIZE; i++)
 	{
 		cout << alf[i];
-		for (int j = 0; j < FIELDSIZE; j++)
+		for (int j = 0; j < FIELD_SIZE; j++)
 		{
 			cout << model_.getComputer().getField(i, j);
 		}

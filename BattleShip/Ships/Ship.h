@@ -7,10 +7,7 @@
 
 class Ship// abstract
 {
-protected:
-	bool is_Alive_ = true;
-	std::shared_ptr<int> coordsX_;
-	std::shared_ptr<int> coordsY_;
+
 public:
 	virtual const int& getShipSize() const = 0 ;
 	virtual ~Ship() {}
@@ -19,8 +16,14 @@ public:
 
 	virtual std::shared_ptr<int> getX() const;
 	virtual std::shared_ptr<int> getY() const;
+
+protected:
+	bool is_Alive_ = true;
+	std::shared_ptr<int> coordsX_;
+	std::shared_ptr<int> coordsY_;
+
 private:
-	virtual bool isCellFreeHorizontal(const char field[FIELDSIZE][FIELDSIZE], const int m, const int n) const = 0;
-	virtual bool isCellFreeVertical(const char field[FIELDSIZE][FIELDSIZE], const int m, const int n) const = 0;
+	virtual bool isCellFreeHorizontal(const char field[FIELD_SIZE][FIELD_SIZE], const int m, const int n) const = 0;
+	virtual bool isCellFreeVertical(const char field[FIELD_SIZE][FIELD_SIZE], const int m, const int n) const = 0;
 };
 #endif

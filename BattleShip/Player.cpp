@@ -7,9 +7,9 @@ using namespace std;
 
 bool Player::isEndOfGame() const
 {
-	for (int i = 0; i < FIELDSIZE; i++)
+	for (int i = 0; i < FIELD_SIZE; i++)
 	{
-		for (int j = 0; j < FIELDSIZE; j++)
+		for (int j = 0; j < FIELD_SIZE; j++)
 		{
 			if (getField(i, j) == 'X')
 				return false;
@@ -59,19 +59,19 @@ void Player::setNearCell(Ship* item)
 	}
 
 	//leftbottomconnor
-	else if (item->getX().get()[item->getShipSize() - 1] == FIELDSIZE-1 && item->getY().get()[0] == 0)
+	else if (item->getX().get()[item->getShipSize() - 1] == FIELD_SIZE-1 && item->getY().get()[0] == 0)
 	{
 		fillLeftBottomConnorCell(item);
 	}
 
 	//righttopconnor
-	else if (item->getX().get()[0] == 0 && item->getY().get()[item->getShipSize() - 1] == FIELDSIZE-1)
+	else if (item->getX().get()[0] == 0 && item->getY().get()[item->getShipSize() - 1] == FIELD_SIZE-1)
 	{
 		fillRightTopConnorCell(item);
 	}
 
 	//rightbottomconnor
-	else if (item->getX().get()[item->getShipSize() - 1] == FIELDSIZE-1 && item->getY().get()[item->getShipSize() - 1] == FIELDSIZE-1)
+	else if (item->getX().get()[item->getShipSize() - 1] == FIELD_SIZE-1 && item->getY().get()[item->getShipSize() - 1] == FIELD_SIZE-1)
 	{
 		fillRightBottomConnorCell(item);
 	}
@@ -83,13 +83,13 @@ void Player::setNearCell(Ship* item)
 	}
 
 	//rightside
-	else if (item->getY().get()[item->getShipSize() - 1] == FIELDSIZE-1)
+	else if (item->getY().get()[item->getShipSize() - 1] == FIELD_SIZE-1)
 	{
 		fillRightSideCell(item);
 	}
 
 	//bottomside
-	else if (item->getX().get()[item->getShipSize() - 1] == FIELDSIZE-1)
+	else if (item->getX().get()[item->getShipSize() - 1] == FIELD_SIZE-1)
 	{
 		fillBottomSideCell(item);
 	}
@@ -129,7 +129,7 @@ void Player::setNearCell(Ship* item)
 
 char Player::getField(const int& i, const int& j) const
 {
-	if (i >= 0 && i < FIELDSIZE && j >= 0 && j < FIELDSIZE)
+	if (i >= 0 && i < FIELD_SIZE && j >= 0 && j < FIELD_SIZE)
 		return yourField_[i][j];
 
 	else
@@ -138,7 +138,7 @@ char Player::getField(const int& i, const int& j) const
 
 char Player::getEnemyField(const int& i, const int& j) const
 {
-	if (i >= 0 && i < FIELDSIZE+1 && j >= 0 && j < FIELDSIZE+1)
+	if (i >= 0 && i < FIELD_SIZE+1 && j >= 0 && j < FIELD_SIZE+1)
 		return enemyField_[i][j];
 
 	else
@@ -399,9 +399,9 @@ Player::Player(IShipSettings& shipSettings)
 {
 
 
-	for (int i = 0; i < FIELDSIZE; i++)
+	for (int i = 0; i < FIELD_SIZE; i++)
 	{
-		for (int j = 0; j < FIELDSIZE; j++)
+		for (int j = 0; j < FIELD_SIZE; j++)
 		{
 			enemyField_[i][j] = ' ';
 			yourField_[i][j] = ' ';

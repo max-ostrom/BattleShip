@@ -8,7 +8,7 @@ class FactoryFourShip :
 {
 public:
 
-	std::shared_ptr<Ship> createShip(char field[FIELDSIZE][FIELDSIZE])override;
+	std::shared_ptr<Ship> createShip(char field[FIELD_SIZE][FIELD_SIZE])override;
 	virtual ~FactoryFourShip();
 };
 

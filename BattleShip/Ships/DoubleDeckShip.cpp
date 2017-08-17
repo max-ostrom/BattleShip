@@ -2,10 +2,10 @@
 
 
 
-DoubleDeckShip::DoubleDeckShip(char field[FIELDSIZE][FIELDSIZE])
+DoubleDeckShip::DoubleDeckShip(char field[FIELD_SIZE][FIELD_SIZE])
 {
-	coordsX_ = shared_ptr<int>(new int[SHIPSIZE_]);
-	coordsY_ = shared_ptr<int>(new int[SHIPSIZE_]);
+	coordsX_ = shared_ptr<int>(new int[SHIP_SIZE_]);
+	coordsY_ = shared_ptr<int>(new int[SHIP_SIZE_]);
 
 	srand(time(0));
 	int k = rand() % 2;
@@ -15,15 +15,15 @@ DoubleDeckShip::DoubleDeckShip(char field[FIELDSIZE][FIELDSIZE])
 	
 	case 0://вертикальное расположение корабля
 	{
-		int m = rand() % (FIELDSIZE - SHIPSIZE_ + 1);
-		int n = rand() % FIELDSIZE;
+		int m = rand() % (FIELD_SIZE - SHIP_SIZE_ + 1);
+		int n = rand() % FIELD_SIZE;
 
 
 		while 
 			(isCellFreeVertical(field,m,n)) 
 		{
-			m = rand() % (FIELDSIZE - SHIPSIZE_ + 1);
-			n = rand() % FIELDSIZE;
+			m = rand() % (FIELD_SIZE - SHIP_SIZE_ + 1);
+			n = rand() % FIELD_SIZE;
 		}
 
 
@@ -44,15 +44,15 @@ DoubleDeckShip::DoubleDeckShip(char field[FIELDSIZE][FIELDSIZE])
 	case 1://горизонтальное расположение корабля
 		
 		
-		int m = rand() % FIELDSIZE;
-		int n = rand() % (FIELDSIZE - SHIPSIZE_ + 1);
+		int m = rand() % FIELD_SIZE;
+		int n = rand() % (FIELD_SIZE - SHIP_SIZE_ + 1);
 
 
 		while 
 			(isCellFreeHorizontal(field,m,n)) 
 		{
-			m = rand() % FIELDSIZE;
-			n = rand() % (FIELDSIZE - SHIPSIZE_ + 1);
+			m = rand() % FIELD_SIZE;
+			n = rand() % (FIELD_SIZE - SHIP_SIZE_ + 1);
 		}
 
 
@@ -70,10 +70,10 @@ DoubleDeckShip::DoubleDeckShip(char field[FIELDSIZE][FIELDSIZE])
 
 const int& DoubleDeckShip::getShipSize() const
 {
-	return SHIPSIZE_;
+	return SHIP_SIZE_;
 }
 
-bool DoubleDeckShip::isCellFreeHorizontal(const char field[FIELDSIZE][FIELDSIZE], const int m, const int n) const
+bool DoubleDeckShip::isCellFreeHorizontal(const char field[FIELD_SIZE][FIELD_SIZE], const int m, const int n) const
 {
 	return field[m][n] == 'X' || field[m][n + 1] == 'X' ||
 		field[m - 1][n - 1] == 'X' || field[m - 1][n] == 'X' ||
@@ -83,7 +83,7 @@ bool DoubleDeckShip::isCellFreeHorizontal(const char field[FIELDSIZE][FIELDSIZE]
 		field[m + 1][n + 1] == 'X' || field[m + 1][n + 2] == 'X';
 }
 
-bool DoubleDeckShip::isCellFreeVertical(const char field[FIELDSIZE][FIELDSIZE], const int m, const int n) const
+bool DoubleDeckShip::isCellFreeVertical(const char field[FIELD_SIZE][FIELD_SIZE], const int m, const int n) const
 {
 	return field[m][n] == 'X' || field[m - 1][n - 1] == 'X' ||
 		field[m - 1][n] == 'X' || field[m - 1][n + 1] == 'X' ||

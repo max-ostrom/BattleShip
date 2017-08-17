@@ -2,16 +2,16 @@
 
 const int Settings::getThreeDeckShipCounter() const
 {
-	return THREEDECKSHIPCOUNTER_;
+	return THREEDECK_SHIP_COUNTER_;
 }
 
 const int Settings::getDoubleDeckShipCounter() const
 {
-	return DOUBLEDECKSHIPCOUNTER_;
+	return DOUBLEDECK_SHIP_COUNTER_;
 }
 
 const int Settings::getSingleDeckShipCounter() const
 {
-	return SINGLEDECKSHIPCOUNTER_;
+	return SINGLEDECK_SHIP_COUNTER_;
 }
 

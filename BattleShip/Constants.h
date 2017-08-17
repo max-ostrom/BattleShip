@@ -1,6 +1,6 @@
 #ifndef Constants_H
 #define Constants_H
 
-const int FIELDSIZE = 10;
+const int FIELD_SIZE = 10;
 
 #endif

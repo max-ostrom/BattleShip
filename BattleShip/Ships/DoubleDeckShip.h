@@ -7,11 +7,11 @@ class DoubleDeckShip :
 	public Ship
 {
 public:
-	DoubleDeckShip(char field[FIELDSIZE][FIELDSIZE]);
+	DoubleDeckShip(char field[FIELD_SIZE][FIELD_SIZE]);
 	virtual const int& getShipSize()const  override;
 private:
-	virtual bool isCellFreeHorizontal(const char field[FIELDSIZE][FIELDSIZE], const int m, const int n)const override;
-	virtual bool isCellFreeVertical(const char field[FIELDSIZE][FIELDSIZE], const int m, const int n)const override;
-	const int SHIPSIZE_ = 2;
+	virtual bool isCellFreeHorizontal(const char field[FIELD_SIZE][FIELD_SIZE], const int m, const int n)const override;
+	virtual bool isCellFreeVertical(const char field[FIELD_SIZE][FIELD_SIZE], const int m, const int n)const override;
+	const int SHIP_SIZE_ = 2;
 };
 #endif

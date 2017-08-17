@@ -2,10 +2,10 @@
 
 
 
-FourDeckShip::FourDeckShip(char field[FIELDSIZE][FIELDSIZE])
+FourDeckShip::FourDeckShip(char field[FIELD_SIZE][FIELD_SIZE])
 {
-	coordsX_ = shared_ptr<int>(new int[SHIPSIZE_]);
-	coordsY_ = shared_ptr<int>(new int[SHIPSIZE_]);
+	coordsX_ = shared_ptr<int>(new int[SHIP_SIZE_]);
+	coordsY_ = shared_ptr<int>(new int[SHIP_SIZE_]);
 
 
 	int l = rand() % 2;
@@ -15,14 +15,14 @@ FourDeckShip::FourDeckShip(char field[FIELDSIZE][FIELDSIZE])
 	
 	case 0://vertical
 	{
-		int m = rand() % (FIELDSIZE - SHIPSIZE_ + 1);
-		int n = rand() % FIELDSIZE;
+		int m = rand() % (FIELD_SIZE - SHIP_SIZE_ + 1);
+		int n = rand() % FIELD_SIZE;
 		
 		
 		while (isCellFreeVertical(field,m,n)) 		
 		{
-			m = rand() % (FIELDSIZE - SHIPSIZE_ + 1);
-			n = rand() % FIELDSIZE;
+			m = rand() % (FIELD_SIZE - SHIP_SIZE_ + 1);
+			n = rand() % FIELD_SIZE;
 		}
 		
 		
@@ -48,14 +48,14 @@ FourDeckShip::FourDeckShip(char field[FIELDSIZE][FIELDSIZE])
 	case 1://horizontal
 		
 		
-		int m = rand() % FIELDSIZE;
-		int n = rand() % (FIELDSIZE - SHIPSIZE_ + 1);
+		int m = rand() % FIELD_SIZE;
+		int n = rand() % (FIELD_SIZE - SHIP_SIZE_ + 1);
 		
 		
 		while (isCellFreeHorizontal(field,m,n))
 		{
-			m = rand() % FIELDSIZE;
-			n = rand() % (FIELDSIZE - SHIPSIZE_ + 1);
+			m = rand() % FIELD_SIZE;
+			n = rand() % (FIELD_SIZE - SHIP_SIZE_ + 1);
 		}
 
 
@@ -81,10 +81,10 @@ FourDeckShip::FourDeckShip(char field[FIELDSIZE][FIELDSIZE])
 
 const int& FourDeckShip::getShipSize() const
 {
-	return SHIPSIZE_;
+	return SHIP_SIZE_;
 }
 
-bool FourDeckShip::isCellFreeHorizontal(const char field[FIELDSIZE][FIELDSIZE], const int m, const int n) const
+bool FourDeckShip::isCellFreeHorizontal(const char field[FIELD_SIZE][FIELD_SIZE], const int m, const int n) const
 {
 	return field[m][n] == 'X' || field[m][n + 1] == 'X' ||
 		field[m][n + 2] == 'X' || field[m][n + 3] == 'X' ||
@@ -97,7 +97,7 @@ bool FourDeckShip::isCellFreeHorizontal(const char field[FIELDSIZE][FIELDSIZE], 
 		field[m + 1][n + 3] == 'X' || field[m + 1][n + 4] == 'X';
 }
 
-bool FourDeckShip::isCellFreeVertical(const char field[FIELDSIZE][FIELDSIZE], const int m, const int n) const
+bool FourDeckShip::isCellFreeVertical(const char field[FIELD_SIZE][FIELD_SIZE], const int m, const int n) const
 {
 	return field[m][n] == 'X' || field[m + 1][n] == 'X' ||
 		field[m + 2][n] == 'X' || field[m + 3][n] == 'X' ||

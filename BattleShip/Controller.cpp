@@ -46,32 +46,32 @@ void Controller::run()
 			switch (_getch())
 			{
 
-			case VK_RETURN: // enter
-							//pause
+			case VK_RETURN : 
+			// enter - pause
 			{
 				clock_t startPause = clock();
-				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 17,17 });
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 17, 17 });
 				cout << "Pause, press space to continue, seconds :\t";
-				while (!isKeyPressed(32))
+				while (!isKeyPressed (VK_SPACE))
 				{
-					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 60,17 });
+					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 60, 17 });
 					cout << static_cast<int>(clock() - startPause) / CLOCKS_PER_SEC;
 					Sleep(1000);
 				}
 				break;
 			}
-			default:
+			default :
 			{
 				do
 				{
-					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,16 });
+					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14, 16 });
 					cin >> choose;
 					coordAtack[0] = choose[0] % static_cast<int>('a');
 					cout << endl;
-					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,17 });
+					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14, 17 });
 					cin >> coordAtack[1];
 
-				} while (coordAtack[0]<0 || coordAtack[0]>FIELDSIZE || coordAtack[1]<0 || coordAtack[1]>FIELDSIZE);
+				} while (coordAtack[0]<0 || coordAtack[0]>FIELD_SIZE || coordAtack[1]<0 || coordAtack[1]>FIELD_SIZE);
 				break;
 			}
 			}
@@ -112,8 +112,8 @@ void Controller::run()
 			if (!hitting)
 			{
 				do {
-					coordAtack[0] = rand() % FIELDSIZE;
-					coordAtack[1] = rand() % FIELDSIZE;
+					coordAtack[0] = rand() % FIELD_SIZE;
+					coordAtack[1] = rand() % FIELD_SIZE;
 				} while (model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) != ' ');
 			}
 			if (model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) == ' ')

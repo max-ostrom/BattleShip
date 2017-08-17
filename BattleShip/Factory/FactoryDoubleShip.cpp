@@ -1,6 +1,6 @@
 #include "FactoryDoubleShip.h"
 
-std::shared_ptr<Ship> FactoryDoubleShip::createShip(char field[FIELDSIZE][FIELDSIZE])
+std::shared_ptr<Ship> FactoryDoubleShip::createShip(char field[FIELD_SIZE][FIELD_SIZE])
 {
 	try
 	{
