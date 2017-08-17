@@ -37,7 +37,7 @@ private:
 	void fillRightSideCell(Ship* item);
 	void fillTopSideCell(Ship* item);
 
-	void addShip(IFactory* factory);
+	void addShip(IFactory& factory);
 };
 
 #endif

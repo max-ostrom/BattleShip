@@ -388,7 +388,7 @@ void Player::setEnemyField(const int& i, const int& j,const Player& p)
 Player::Player(IShipSettings& shipSettings) 
 {
 
-	cout << 2;
+	cout << "Constr"<<endl;
 	for (int i = 0; i < FIELDSIZE; i++)
 	{
 		for (int j = 0; j < FIELDSIZE; j++)
@@ -398,25 +398,25 @@ Player::Player(IShipSettings& shipSettings)
 		}
 	}
 
-	cout << 3;
+	cout << "Init field"<<endl;
 	try {
-		addShip(new FactoryFourShip());
+		addShip(FactoryFourShip());
 
-		cout << 4;
+		cout << "fourdeck" << endl;
 		for (int i = 0; i < shipSettings.getThreeDeckShipCounter(); i++)
 		{
-			addShip(new FactoryThreeShip());
+			addShip(FactoryThreeShip());
 		}
-		cout << 5;
+		cout << "threedeck" << endl;
 		for (int i = 0; i < shipSettings.getDoubleDeckShipCounter(); i++)
 		{
-			addShip(new FactoryDoubleShip());
+			addShip(FactoryDoubleShip());
 		}
 
-		cout << 6;
+		cout << "doubledeck"<<endl;
 		for (int i = 0; i < shipSettings.getSingleDeckShipCounter(); i++)
 		{
-			addShip(new FactorySingleShip());
+			addShip(FactorySingleShip());
 		}
 		
 	}
@@ -425,17 +425,11 @@ Player::Player(IShipSettings& shipSettings)
 		cout <<ex.what() << endl;
 	}
 
-	cout << 7 << "all ok  ";
+	cout <<"singledeck "<< "all ok  ";
 }
-void Player::addShip(IFactory* factory)
+void Player::addShip(IFactory& factory)
 {
-	try {
-		YourShips.push_back(factory->createShip(yourField_));
-	}
-	catch (exception& ex)
-	{
-		cout << ex.what() << endl;
-	}
+	YourShips.push_back(factory.createShip(yourField_));
 }
 Player::~Player()
 {
