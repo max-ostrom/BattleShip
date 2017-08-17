@@ -147,6 +147,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="Factory\FactoryDoubleShip.cpp" />
+    <ClCompile Include="Factory\FactoryFourShip.cpp" />
+    <ClCompile Include="Factory\FactorySingleShip.cpp" />
+    <ClCompile Include="Factory\FactoryThreeShip.cpp" />
     <ClCompile Include="FourDeckShip.cpp" />
     <ClCompile Include="GameModel.cpp" />
     <ClCompile Include="main.cpp" />

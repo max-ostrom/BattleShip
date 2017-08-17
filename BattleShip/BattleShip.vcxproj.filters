@@ -22,6 +22,9 @@
     <Filter Include="Header Files\Ship">
       <UniqueIdentifier>{301bceda-9064-4f65-a67c-a246b3b44b01}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Factory">
+      <UniqueIdentifier>{5257f257-00dc-4a99-967f-a5043243596c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Player.cpp">
@@ -59,6 +62,18 @@
     </ClCompile>
     <ClCompile Include="GameModel.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Factory\FactoryDoubleShip.cpp">
+      <Filter>Source Files\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="Factory\FactoryFourShip.cpp">
+      <Filter>Source Files\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="Factory\FactorySingleShip.cpp">
+      <Filter>Source Files\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="Factory\FactoryThreeShip.cpp">
+      <Filter>Source Files\Factory</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

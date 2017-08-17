@@ -8,18 +8,7 @@ class FactoryDoubleShip :
 {
 public:
 	
-	std::shared_ptr<Ship> createShip(char field[FIELDSIZE][FIELDSIZE])override
-	{	
-		try 
-		{
-			return std::shared_ptr<Ship>(new DoubleDeckShip(field));
-		}
-		catch (exception& ex)
-		{
-			cout << ex.what() << endl;
-			return nullptr;
-		}
-	}
-	virtual ~FactoryDoubleShip() {}
+	std::shared_ptr<Ship> createShip(char field[FIELDSIZE][FIELDSIZE])override;
+	virtual ~FactoryDoubleShip();
 };
 #endif
