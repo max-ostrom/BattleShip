@@ -153,9 +153,11 @@
     <ClCompile Include="Factory\FactoryThreeShip.cpp" />
     <ClCompile Include="FourDeckShip.cpp" />
     <ClCompile Include="GameModel.cpp" />
+    <ClCompile Include="IPlayer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Observable.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerHelper.cpp" />
     <ClCompile Include="Settings.cpp" />
     <ClCompile Include="Ships\DoubleDeckShip.cpp" />
     <ClCompile Include="Ships\Ship.cpp" />
@@ -172,10 +174,12 @@
     <ClInclude Include="Factory\FactorySingleShip.h" />
     <ClInclude Include="Factory\FactoryThreeShip.h" />
     <ClInclude Include="GameModel.h" />
+    <ClInclude Include="IPlayer.h" />
     <ClInclude Include="IShipSettings.h" />
     <ClInclude Include="Observable.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerHelper.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="Ships\DoubleDeckShip.h" />
     <ClInclude Include="Ships\FourDeckShip.h" />
