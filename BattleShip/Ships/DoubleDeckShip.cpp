@@ -4,8 +4,8 @@
 
 DoubleDeckShip::DoubleDeckShip(char field[FIELDSIZE][FIELDSIZE])
 {
-	coordsX_ = shared_ptr<int>(new int[SHIPSIZE]);
-	coordsY_ = shared_ptr<int>(new int[SHIPSIZE]);
+	coordsX_ = shared_ptr<int>(new int[SHIPSIZE_]);
+	coordsY_ = shared_ptr<int>(new int[SHIPSIZE_]);
 
 	srand(time(0));
 	int k = rand() % 2;
@@ -15,14 +15,14 @@ DoubleDeckShip::DoubleDeckShip(char field[FIELDSIZE][FIELDSIZE])
 	
 	case 0://вертикальное расположение корабля
 	{
-		int m = rand() % (FIELDSIZE - SHIPSIZE + 1);
+		int m = rand() % (FIELDSIZE - SHIPSIZE_ + 1);
 		int n = rand() % FIELDSIZE;
 
 
 		while 
 			(isCellFreeVertical(field,m,n)) 
 		{
-			m = rand() % (FIELDSIZE - SHIPSIZE + 1);
+			m = rand() % (FIELDSIZE - SHIPSIZE_ + 1);
 			n = rand() % FIELDSIZE;
 		}
 
@@ -45,14 +45,14 @@ DoubleDeckShip::DoubleDeckShip(char field[FIELDSIZE][FIELDSIZE])
 		
 		
 		int m = rand() % FIELDSIZE;
-		int n = rand() % (FIELDSIZE - SHIPSIZE + 1);
+		int n = rand() % (FIELDSIZE - SHIPSIZE_ + 1);
 
 
 		while 
 			(isCellFreeHorizontal(field,m,n)) 
 		{
 			m = rand() % FIELDSIZE;
-			n = rand() % (FIELDSIZE - SHIPSIZE + 1);
+			n = rand() % (FIELDSIZE - SHIPSIZE_ + 1);
 		}
 
 
@@ -70,7 +70,7 @@ DoubleDeckShip::DoubleDeckShip(char field[FIELDSIZE][FIELDSIZE])
 
 const int& DoubleDeckShip::getShipSize() const
 {
-	return SHIPSIZE;
+	return SHIPSIZE_;
 }
 
 bool DoubleDeckShip::isCellFreeHorizontal(const char field[FIELDSIZE][FIELDSIZE], const int m, const int n) const

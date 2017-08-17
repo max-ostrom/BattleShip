@@ -1,12 +1,12 @@
 #ifndef Controller_H
 #define Controller_H
 
-#include "Game.h"
+#include "GameModel.h"
 class Controller final
 {
 public:
 	void run();
-	Controller(GameModel& model);
+	Controller(GameModel& gameModel);
 private:
 	bool isKeyPressed(const int& key) const;
 	GameModel& model_;

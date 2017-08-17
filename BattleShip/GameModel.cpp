@@ -1,6 +1,6 @@
 
 
-#include "Game.h"
+#include "GameModel.h"
 
 Player& GameModel::getUser() 
 { 

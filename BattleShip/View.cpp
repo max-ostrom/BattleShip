@@ -66,7 +66,7 @@ void View::endOfGame() const
 	for_each(
 		model_.getUser().getShips().begin(), 
 		model_.getUser().getShips().end(),
-		[yourAliveShips](std::shared_ptr<Ship> item) mutable// Lambda expression
+		[yourAliveShips](const std::shared_ptr<Ship> item) mutable// Lambda expression
 	{
 		if (item->isAlive())
 		{
@@ -80,7 +80,7 @@ void View::endOfGame() const
 	for_each(
 		model_.getComputer().getShips().begin(),
 		model_.getComputer().getShips().end(),
-		[computerAliveShips](std::shared_ptr<Ship> item) mutable// Lambda expression
+		[computerAliveShips](const std::shared_ptr<Ship> item) mutable// Lambda expression
 	{
 		if (item->isAlive())
 		{

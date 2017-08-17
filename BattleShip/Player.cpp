@@ -387,12 +387,12 @@ void Player::setEnemyField(const int& i, const int& j,const Player& p)
 
 std::vector<std::shared_ptr<Ship>>& Player::getShips()
 {
-	return YourShips;
+	return YourShips_;
 }
 
 const std::vector<std::shared_ptr<Ship>>& Player::getShips() const
 {
-	return YourShips;
+	return YourShips_;
 }
 
 Player::Player(IShipSettings& shipSettings)
@@ -437,7 +437,7 @@ Player::Player(IShipSettings& shipSettings)
 }
 void Player::addShip(IFactory& factory)
 {
-	YourShips.push_back(factory.createShip(yourField_));
+	YourShips_.push_back(factory.createShip(yourField_));
 }
 Player::~Player()
 {

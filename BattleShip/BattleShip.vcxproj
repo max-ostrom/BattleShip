@@ -148,7 +148,7 @@
   <ItemGroup>
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="FourDeckShip.cpp" />
-    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameModel.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Observable.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -167,7 +167,7 @@
     <ClInclude Include="Factory\FactoryFourShip.h" />
     <ClInclude Include="Factory\FactorySingleShip.h" />
     <ClInclude Include="Factory\FactoryThreeShip.h" />
-    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameModel.h" />
     <ClInclude Include="IShipSettings.h" />
     <ClInclude Include="Observable.h" />
     <ClInclude Include="Observer.h" />

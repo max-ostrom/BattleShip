@@ -25,7 +25,7 @@ public:
 	char getField(const int& i, const int& j) const;
 	char getEnemyField(const int& i, const int& j) const;
 private:
-	std::vector<std::shared_ptr<Ship>> YourShips;
+	std::vector<std::shared_ptr<Ship>> YourShips_;
 
 	char yourField_[FIELDSIZE][FIELDSIZE];
 	char enemyField_[FIELDSIZE][FIELDSIZE];

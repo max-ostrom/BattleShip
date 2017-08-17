@@ -4,8 +4,8 @@
 
 FourDeckShip::FourDeckShip(char field[FIELDSIZE][FIELDSIZE])
 {
-	coordsX_ = shared_ptr<int>(new int[SHIPSIZE]);
-	coordsY_ = shared_ptr<int>(new int[SHIPSIZE]);
+	coordsX_ = shared_ptr<int>(new int[SHIPSIZE_]);
+	coordsY_ = shared_ptr<int>(new int[SHIPSIZE_]);
 
 
 	int l = rand() % 2;
@@ -15,13 +15,13 @@ FourDeckShip::FourDeckShip(char field[FIELDSIZE][FIELDSIZE])
 	
 	case 0://vertical
 	{
-		int m = rand() % (FIELDSIZE - SHIPSIZE + 1);
+		int m = rand() % (FIELDSIZE - SHIPSIZE_ + 1);
 		int n = rand() % FIELDSIZE;
 		
 		
 		while (isCellFreeVertical(field,m,n)) 		
 		{
-			m = rand() % (FIELDSIZE - SHIPSIZE + 1);
+			m = rand() % (FIELDSIZE - SHIPSIZE_ + 1);
 			n = rand() % FIELDSIZE;
 		}
 		
@@ -49,13 +49,13 @@ FourDeckShip::FourDeckShip(char field[FIELDSIZE][FIELDSIZE])
 		
 		
 		int m = rand() % FIELDSIZE;
-		int n = rand() % (FIELDSIZE - SHIPSIZE + 1);
+		int n = rand() % (FIELDSIZE - SHIPSIZE_ + 1);
 		
 		
 		while (isCellFreeHorizontal(field,m,n))
 		{
 			m = rand() % FIELDSIZE;
-			n = rand() % (FIELDSIZE - SHIPSIZE + 1);
+			n = rand() % (FIELDSIZE - SHIPSIZE_ + 1);
 		}
 
 
@@ -81,7 +81,7 @@ FourDeckShip::FourDeckShip(char field[FIELDSIZE][FIELDSIZE])
 
 const int& FourDeckShip::getShipSize() const
 {
-	return SHIPSIZE;
+	return SHIPSIZE_;
 }
 
 bool FourDeckShip::isCellFreeHorizontal(const char field[FIELDSIZE][FIELDSIZE], const int m, const int n) const

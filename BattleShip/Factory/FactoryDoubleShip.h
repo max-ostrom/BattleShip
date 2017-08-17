@@ -17,6 +17,7 @@ public:
 		catch (exception& ex)
 		{
 			cout << ex.what() << endl;
+			return nullptr;
 		}
 	}
 	virtual ~FactoryDoubleShip() {}

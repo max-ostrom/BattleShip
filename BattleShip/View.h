@@ -4,13 +4,13 @@
 #include <memory>
 
 #include "Observer.h"
-#include "Game.h"
+#include "GameModel.h"
 
 class View final :
 	public Observer
 {
 public:
-	View(const GameModel& model);
+	View(const GameModel& gameModel);
 	void update() const override;
 private:
 	void endOfGame() const;

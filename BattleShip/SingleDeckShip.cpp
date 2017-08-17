@@ -4,22 +4,22 @@
 
 SingleDeckShip::SingleDeckShip(char field[FIELDSIZE][FIELDSIZE])
 {
-	coordsX_ = shared_ptr<int>(new int[SHIPSIZE]);
-	coordsY_ = shared_ptr<int>(new int[SHIPSIZE]);
+	coordsX_ = shared_ptr<int>(new int[SHIPSIZE_]);
+	coordsY_ = shared_ptr<int>(new int[SHIPSIZE_]);
 
 
 	srand(time(0));
 
 
 	
-	int m = rand() % FIELDSIZE - SHIPSIZE + 1;
-	int n = rand() % FIELDSIZE - SHIPSIZE + 1;
+	int m = rand() % FIELDSIZE - SHIPSIZE_ + 1;
+	int n = rand() % FIELDSIZE - SHIPSIZE_ + 1;
 
 
 	while (isCellFreeHorizontal(field, m, n))
 	{
-		m = rand() % FIELDSIZE - SHIPSIZE + 1;
-		n = rand() % FIELDSIZE - SHIPSIZE + 1;
+		m = rand() % FIELDSIZE - SHIPSIZE_ + 1;
+		n = rand() % FIELDSIZE - SHIPSIZE_ + 1;
 	}
 
 
@@ -32,7 +32,7 @@ SingleDeckShip::SingleDeckShip(char field[FIELDSIZE][FIELDSIZE])
 }
 const int& SingleDeckShip::getShipSize() const
 {
-	return SHIPSIZE;
+	return SHIPSIZE_;
 }
 
 bool SingleDeckShip::isCellFreeHorizontal(const char field[FIELDSIZE][FIELDSIZE],const int m,const int n) const
