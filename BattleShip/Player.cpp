@@ -398,7 +398,7 @@ const std::vector<std::shared_ptr<Ship>>& Player::getShips() const
 Player::Player(IShipSettings& shipSettings)
 {
 
-	cout << "Constr"<<endl;
+
 	for (int i = 0; i < FIELDSIZE; i++)
 	{
 		for (int j = 0; j < FIELDSIZE; j++)
@@ -408,22 +408,22 @@ Player::Player(IShipSettings& shipSettings)
 		}
 	}
 
-	cout << "Init field"<<endl;
+	
 	try {
 		addShip(FactoryFourShip());
 
-		cout << "fourdeck" << endl;
+		
 		for (int i = 0; i < shipSettings.getThreeDeckShipCounter(); i++)
 		{
 			addShip(FactoryThreeShip());
 		}
-		cout << "threedeck" << endl;
+		
 		for (int i = 0; i < shipSettings.getDoubleDeckShipCounter(); i++)
 		{
 			addShip(FactoryDoubleShip());
 		}
 
-		cout << "doubledeck"<<endl;
+		
 		for (int i = 0; i < shipSettings.getSingleDeckShipCounter(); i++)
 		{
 			addShip(FactorySingleShip());
@@ -434,8 +434,6 @@ Player::Player(IShipSettings& shipSettings)
 	{
 		cout <<ex.what() << endl;
 	}
-
-	cout <<"singledeck "<< "all ok  ";
 }
 void Player::addShip(IFactory& factory)
 {

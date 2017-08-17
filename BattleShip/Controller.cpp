@@ -6,6 +6,7 @@
 #include <Windows.h>
 #include <conio.h>
 #include <string>
+#include <algorithm>
 using namespace std;
 bool Controller::isKeyPressed(const int& key) const
 {
@@ -20,128 +21,130 @@ bool Controller::isKeyPressed(const int& key) const
 }
 void Controller::run()
 {
-		model_.setStartTime(clock());
-		bool turn = true;
-		int coordAtack[2];
-		bool hitting = false;
-		string choose;
+	model_.setStartTime(clock());
+	bool turn = true;
+	int coordAtack[2];
+	bool hitting = false;
+	string choose;
 
-		while (!model_.getUser().isEndOfGame() && !model_.getComputer().isEndOfGame())
+	while (!model_.getUser().isEndOfGame() && !model_.getComputer().isEndOfGame())
+	{
+		if (turn)
 		{
-			if (turn)
+			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,14 });
+			cout << "At first write letter then number without Enter : " << endl;
+			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,15 });
+			cout << "Enter - pause, any key to atack ship";
+			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,16 });
+
+
+			switch (_getch())
 			{
-				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,14 });
-				cout << "At first write letter then number without Enter : " << endl;
-				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,15 });
-				cout << "Enter - pause, any key to atack ship";
-				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,16 });
 
-
-				switch (_getch())
+			case VK_RETURN: // enter
+							//pause
+			{
+				clock_t startPause = clock();
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 17,17 });
+				cout << "Pause, press space to continue, seconds :\t";
+				while (!isKeyPressed(32))
 				{
-
-				case VK_RETURN: // enter
-								//pause
-				{
-					clock_t startPause = clock();
-					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 17,17 });
-					cout << "Pause, press space to continue, seconds :\t";
-					while (!isKeyPressed(32))
-					{
-						SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 60,17 });
-						cout << static_cast<int>(clock() - startPause) / CLOCKS_PER_SEC;
-						Sleep(1000);
-					}
-					break;
+					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 60,17 });
+					cout << static_cast<int>(clock() - startPause) / CLOCKS_PER_SEC;
+					Sleep(1000);
 				}
-				default:
+				break;
+			}
+			default:
+			{
+				do
 				{
-					do
-					{
-						SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,16 });
-						cin >> choose;
-						coordAtack[0] = choose[0] % static_cast<int>('a');
-						cout << endl;
-						SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,17 });
-						cin >> coordAtack[1];
+					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,16 });
+					cin >> choose;
+					coordAtack[0] = choose[0] % static_cast<int>('a');
+					cout << endl;
+					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,17 });
+					cin >> coordAtack[1];
 
-					} while (coordAtack[0]<0 || coordAtack[0]>FIELDSIZE || coordAtack[1]<0 || coordAtack[1]>FIELDSIZE);
-					break;
-				}
-				}
+				} while (coordAtack[0]<0 || coordAtack[0]>FIELDSIZE || coordAtack[1]<0 || coordAtack[1]>FIELDSIZE);
+				break;
+			}
+			}
 
 
 
-				model_.getUser().setEnemyField(coordAtack[0], coordAtack[1], model_.getComputer());
-				model_.getComputer().setField(coordAtack[0], coordAtack[1]);
+			model_.getUser().setEnemyField(coordAtack[0], coordAtack[1], model_.getComputer());
+			model_.getComputer().setField(coordAtack[0], coordAtack[1]);
 
 
-				// player shot
-				if (model_.getComputer().getField(coordAtack[0], coordAtack[1]) == '#')
+			// player shot
+			if (model_.getComputer().getField(coordAtack[0], coordAtack[1]) == '#')
+			{
+				for_each(
+					model_.getComputer().getShips().begin(),
+					model_.getComputer().getShips().end(),
+					[this, &coordAtack](std::shared_ptr<Ship> item) mutable// Lambda expression
 				{
-
-					for (auto var : model_.getComputer().getShips())
+					for (int i = 0; i < item->getShipSize(); i++)
 					{
-						for (int i = 0; i < var->getShipSize(); i++)
+						if (item->getX().get()[i] == coordAtack[0] && item->getY().get()[i] == coordAtack[1])
 						{
-							if (var->getX().get()[i] == coordAtack[0] && var->getY().get()[i] == coordAtack[1])
+							model_.getComputer().isShipAlive(item.get());
+						}
+					}
+				});
+			}
+			else
+			{
+				turn = false;
+			}
+		}
+
+
+		// computer shot
+		else
+		{
+			if (!hitting)
+			{
+				do {
+					coordAtack[0] = rand() % FIELDSIZE;
+					coordAtack[1] = rand() % FIELDSIZE;
+				} while (model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) != ' ');
+			}
+			if (model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) == ' ')
+			{
+				model_.getUser().setField(coordAtack[0], coordAtack[1]);
+				if (model_.getUser().getField(coordAtack[0], coordAtack[1]) == '#')
+				{
+					for_each(
+						model_.getUser().getShips().begin(),
+						model_.getUser().getShips().end(),
+						[this, &coordAtack](std::shared_ptr<Ship> item) mutable// Lambda expression
+					{
+						for (int i = 0; i < item->getShipSize(); i++)
+						{
+							if (item->getX().get()[i] == coordAtack[0] && item->getY().get()[i] == coordAtack[1])
 							{
-								model_.getComputer().isShipAlive(var.get());
+								model_.getUser().isShipAlive(item.get());
 							}
 						}
+					});
 
-
-					}
 				}
 				else
 				{
-						turn = false;
+					turn = true;
 				}
 			}
 
-
-				// computer shot
-			else
-			{
-				if (!hitting)
-				{
-					do {
-						coordAtack[0] = rand() % FIELDSIZE;
-						coordAtack[1] = rand() % FIELDSIZE;
-					} while (model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) != ' ');
-				}
-				if (model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) == ' ')
-				{
-					model_.getUser().setField(coordAtack[0], coordAtack[1]);
-					if (model_.getUser().getField(coordAtack[0], coordAtack[1]) == '#')
-					{
-						for (auto var : model_.getUser().getShips())
-						{
-							for (int i = 0; i < var->getShipSize(); i++)
-							{
-								if (var->getX().get()[i] == coordAtack[0] && var->getY().get()[i] == coordAtack[1])
-								{
-									model_.getUser().isShipAlive(var.get());
-								}
-							}
-
-						}
-
-					}
-					else
-					{
-						turn = true;
-					}
-				}
-
-			}
-				
 		}
+
+	}
 }
-	
 
 
-Controller::Controller(GameModel& model) : model_(model) 
+
+Controller::Controller(GameModel& model) : model_(model)
 {
 
 }

@@ -1,6 +1,7 @@
 #include <chrono>
 #include <thread>
 #include <string>
+#include <algorithm>
 
 #include <Windows.h>
 #include <conio.h>
@@ -15,47 +16,46 @@ View::View(GameModel& model) :model_(model)
 
 void View::update() const
 {
-
-	system("cls");
-	char alf[] = { "ABCDEFGHIJ" };
-	char numbers[12] = { " 0123456789" };
-
-
-	cout << "Your ships" << endl << numbers << endl;
-
-
-	for (int i = 0; i < FIELDSIZE; i++)
-	{
-		cout << alf[i];
-		for (int j = 0; j < FIELDSIZE; j++)
-		{
-			cout << model_.getUser().getField(i, j);
-		}
-		cout << "|" << endl;
-	}
-
-
-	cout << endl << "Computer ships" << endl << numbers << endl;
-	for (int i = 0; i < FIELDSIZE; i++)
-	{
-		cout << alf[i];
-		for (int j = 0; j < FIELDSIZE; j++)
-		{
-			if (model_.getComputer().getField(i, j) == 'X')
-				cout << " ";
-			else
-				cout << model_.getComputer().getField(i, j);
-		}
-		cout << "|" << endl;
-	}
-
 	if (model_.getUser().isEndOfGame() || model_.getComputer().isEndOfGame())
 	{
 		endOfGame();
 	}
+	else
+	{
+		system("cls");
+		char alf[] = { "ABCDEFGHIJ" };
+		char numbers[12] = { " 0123456789" };
 
 
+		cout << "Your ships" << endl << numbers << endl;
 
+
+		for (int i = 0; i < FIELDSIZE; i++)
+		{
+			cout << alf[i];
+			for (int j = 0; j < FIELDSIZE; j++)
+			{
+				cout << model_.getUser().getField(i, j);
+			}
+			cout << "|" << endl;
+		}
+
+
+		cout << endl << "Computer ships" << endl << numbers << endl;
+		for (int i = 0; i < FIELDSIZE; i++)
+		{
+			cout << alf[i];
+			for (int j = 0; j < FIELDSIZE; j++)
+			{
+				if (model_.getComputer().getField(i, j) == 'X')
+					cout << " ";
+				else
+					cout << model_.getComputer().getField(i, j);
+			}
+			cout << "|" << endl;
+		}
+
+	}
 }
 void View::endOfGame() const
 {
@@ -63,25 +63,26 @@ void View::endOfGame() const
 
 	int yourAliveShips = 0;
 	//players alive ships
-	for (auto item : model_.getUser().getShips())
+	for_each(model_.getUser().getShips().begin(), model_.getUser().getShips().end(),
+		[yourAliveShips](std::shared_ptr<Ship> item) mutable// Lambda expression
 	{
 		if (item->isAlive())
 		{
 			yourAliveShips++;
 		}
-	}
+	});
 
 
 	int computerAliveShips = 0;
 	//computers alive ships
-	for (auto item : model_.getComputer().getShips())
+	for_each(model_.getComputer().getShips().begin(), model_.getComputer().getShips().end(),
+		[computerAliveShips](std::shared_ptr<Ship> item) mutable// Lambda expression
 	{
 		if (item->isAlive())
 		{
 			computerAliveShips++;
 		}
-	}
-
+	});
 
 	system("cls");
 	char alf[11] = { "ABCDEFGHIJ" };
