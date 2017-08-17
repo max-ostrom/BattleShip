@@ -52,7 +52,7 @@ DoubleDeckShip::DoubleDeckShip(char field[FIELDSIZE][FIELDSIZE])
 			(isCellFreeHorizontal(field,m,n)) 
 		{
 			m = rand() % FIELDSIZE;
-			n = rand() % FIELDSIZE - SHIPSIZE + 19;
+			n = rand() % FIELDSIZE - SHIPSIZE + 1;
 		}
 
 

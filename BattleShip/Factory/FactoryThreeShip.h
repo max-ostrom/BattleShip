@@ -10,7 +10,14 @@ public:
 
 	std::shared_ptr<Ship> createShip(char field[FIELDSIZE][FIELDSIZE]) override
 	{
-		return std::shared_ptr<Ship>(new ThreeDeckShip(field));
+		try {
+			return std::shared_ptr<Ship>(new ThreeDeckShip(field));
+		}
+		catch (exception& ex)
+		{
+			cout << ex.what() << endl;
+			return std::shared_ptr<Ship>(new ThreeDeckShip(field));
+		}
 	}
 	virtual ~FactoryThreeShip() {}
 };

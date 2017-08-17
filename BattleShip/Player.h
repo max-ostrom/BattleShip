@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 
-#include"UnionFactory.h"
+#include "UnionFactory.h"
 #include "Settings.h"
 #include "UnionHeader.h"
 #include "Observable.h"
@@ -37,7 +37,7 @@ private:
 	void fillRightSideCell(Ship* item);
 	void fillTopSideCell(Ship* item);
 
-	void addShip(IFactory& factory);
+	void addShip(IFactory* factory);
 };
 
 #endif

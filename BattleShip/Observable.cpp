@@ -1,5 +1,5 @@
 #include "Observable.h"
-
+#include <new>
 #include <algorithm>
 #include <iostream>
 

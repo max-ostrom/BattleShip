@@ -141,7 +141,7 @@ void Controller::run()
 	
 
 
-Controller::Controller(GameModel& model) : model_(model)
+Controller::Controller(GameModel& model) : model_(model) 
 {
 
 }
