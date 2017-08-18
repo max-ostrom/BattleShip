@@ -165,6 +165,8 @@
     <ClCompile Include="View.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Command\Command.h" />
+    <ClInclude Include="Command\FillLeftTopConnorCellCommand.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="Factory\Factory.h" />

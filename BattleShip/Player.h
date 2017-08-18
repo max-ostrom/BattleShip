@@ -21,8 +21,8 @@ public:
 	virtual ~Player();
 	void setField(const int& i, const int& j) override;
 	void setEnemyField(const int& i, const  int& j,const IPlayer& p) override;
-	bool isShipAlive(shared_ptr<Ship> item) ;
-	bool isEndOfGame() const;
+	bool isShipAlive(shared_ptr<Ship> item) override;
+	bool isEndOfGame() const override;
 
 	char getField(const int& i, const int& j) const override;
 	char getEnemyField(const int& i, const int& j) const override;

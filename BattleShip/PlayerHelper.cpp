@@ -3,7 +3,7 @@
 #include<memory>
 
 using namespace std;
-PlayerHelper::PlayerHelper(IPlayer& p, shared_ptr<Ship> item) : Player_(p)
+PlayerHelper::PlayerHelper(IPlayer& p, shared_ptr<Ship> ship) : Player_(p), item(ship)
 {
 
 	item->destroy();
@@ -83,7 +83,7 @@ PlayerHelper::PlayerHelper(IPlayer& p, shared_ptr<Ship> item) : Player_(p)
 }
 
 
-void PlayerHelper::fillLeftTopConnorCell(shared_ptr<Ship> item)
+void PlayerHelper::fillLeftTopConnorCell()
 {
 	for (int i = 0; i < item->getShipSize() + 1; i++)
 	{
@@ -101,7 +101,7 @@ void PlayerHelper::fillLeftTopConnorCell(shared_ptr<Ship> item)
 	}
 }
 
-void PlayerHelper::fillLeftBottomConnorCell(shared_ptr<Ship> item)
+void PlayerHelper::fillLeftBottomConnorCell()
 {
 	if (item->getX().get()[0] - item->getX().get()[item->getShipSize() - 1] != 0)
 	{
@@ -129,11 +129,11 @@ void PlayerHelper::fillLeftBottomConnorCell(shared_ptr<Ship> item)
 	}
 }
 
-void PlayerHelper::fillRightTopConnorCell(shared_ptr<Ship> item)
+void PlayerHelper::fillRightTopConnorCell()
 {
 	if (item->getX().get()[0] - item->getX().get()[item->getShipSize() - 1] != 0)
 	{
-		for (int i = item->getX().get()[0]; i < item->getX().get()[0] + item->getShipSize() + 1; i++) // возможно ошибка если что убрать +1
+		for (int i = item->getX().get()[0]; i < item->getX().get()[0] + item->getShipSize() + 1; i++) 
 		{
 			for (int j = item->getY().get()[0] - 1; j < item->getY().get()[0] + 1; j++)
 			{
@@ -145,7 +145,7 @@ void PlayerHelper::fillRightTopConnorCell(shared_ptr<Ship> item)
 	}
 	else
 	{
-		for (int i = item->getX().get()[0] - 1; i < item->getX().get()[0] + 1; i++)
+		for (int i = item->getX().get()[0] - 1; i < item->getX().get()[0] ; i++)
 		{
 			for (int j = item->getY().get()[0]; j < item->getY().get()[0] + item->getShipSize() + 1; j++)
 			{
@@ -157,7 +157,7 @@ void PlayerHelper::fillRightTopConnorCell(shared_ptr<Ship> item)
 	}
 }
 
-void PlayerHelper::fillRightBottomConnorCell(shared_ptr<Ship> item)
+void PlayerHelper::fillRightBottomConnorCell()
 {
 	for (int i = item->getX().get()[0] - 1; i < item->getX().get()[0] + item->getShipSize() + 1; i++)
 	{
@@ -176,7 +176,7 @@ void PlayerHelper::fillRightBottomConnorCell(shared_ptr<Ship> item)
 
 }
 
-void PlayerHelper::fillLeftSideCell(shared_ptr<Ship> item)
+void PlayerHelper::fillLeftSideCell()
 {
 	if (item->getX().get()[0] - item->getX().get()[item->getShipSize() - 1] != 0)
 	{
@@ -205,7 +205,7 @@ void PlayerHelper::fillLeftSideCell(shared_ptr<Ship> item)
 
 }
 
-void PlayerHelper::fillBottomSideCell(shared_ptr<Ship> item)
+void PlayerHelper::fillBottomSideCell()
 {
 	if (item->getX().get()[0] - item->getX().get()[1] != 0)
 	{
@@ -233,7 +233,7 @@ void PlayerHelper::fillBottomSideCell(shared_ptr<Ship> item)
 	}
 }
 
-void PlayerHelper::fillRightSideCell(shared_ptr<Ship> item)
+void PlayerHelper::fillRightSideCell()
 {
 	if (item->getX().get()[0] - item->getX().get()[item->getShipSize() - 1] != 0)
 	{
@@ -261,7 +261,7 @@ void PlayerHelper::fillRightSideCell(shared_ptr<Ship> item)
 	}
 }
 
-void PlayerHelper::fillTopSideCell(shared_ptr<Ship> item)
+void PlayerHelper::fillTopSideCell()
 {
 	if (item->getX().get()[0] - item->getX().get()[item->getShipSize() - 1] != 0)
 	{
@@ -286,6 +286,16 @@ void PlayerHelper::fillTopSideCell(shared_ptr<Ship> item)
 			}
 		}
 	}
+}
+
+shared_ptr<Ship> PlayerHelper::getShip()
+{
+	return item;
+}
+
+shared_ptr<Ship> PlayerHelper::getShip() const
+{
+	return item;
 }
 
 PlayerHelper::~PlayerHelper()
