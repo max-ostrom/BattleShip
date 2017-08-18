@@ -19,7 +19,7 @@ bool Player::isEndOfGame() const
 	return true;
 }
 
-bool Player::isShipAlive(Ship* item) 
+bool Player::isShipAlive(shared_ptr<Ship> item) 
 {
 	if (item == nullptr)
 	{
@@ -49,7 +49,7 @@ bool Player::isShipAlive(Ship* item)
 	return true;
 }
 
-void Player::setNearCell(Ship* item)
+void Player::setNearCell(shared_ptr<Ship> item)
 {
 	item->destroy();
 	//lefttopconnor
@@ -145,7 +145,7 @@ char Player::getEnemyField(const int& i, const int& j) const
 		return NULL;
 }
 
-void Player::fillLeftTopConnorCell(Ship * item)
+void Player::fillLeftTopConnorCell(shared_ptr<Ship> item)
 {
 	for (int i = 0; i < item->getShipSize() + 1; i++)
 	{
@@ -163,7 +163,7 @@ void Player::fillLeftTopConnorCell(Ship * item)
 	}
 }
 
-void Player::fillLeftBottomConnorCell(Ship * item)
+void Player::fillLeftBottomConnorCell(shared_ptr<Ship> item)
 {
 	if (item->getX().get()[0] - item->getX().get()[item->getShipSize() - 1] != 0)
 	{
@@ -191,7 +191,7 @@ void Player::fillLeftBottomConnorCell(Ship * item)
 	}
 }
 
-void Player::fillRightTopConnorCell(Ship * item)
+void Player::fillRightTopConnorCell(shared_ptr<Ship> item)
 {
 	if (item->getX().get()[0] - item->getX().get()[item->getShipSize() - 1] != 0)
 	{
@@ -219,7 +219,7 @@ void Player::fillRightTopConnorCell(Ship * item)
 	}
 }
 
-void Player::fillRightBottomConnorCell(Ship * item)
+void Player::fillRightBottomConnorCell(shared_ptr<Ship> item)
 {
 	for (int i = item->getX().get()[0] - 1; i < item->getX().get()[0] + item->getShipSize() + 1; i++)
 	{
@@ -238,7 +238,7 @@ void Player::fillRightBottomConnorCell(Ship * item)
 
 }
 
-void Player::fillLeftSideCell(Ship * item)
+void Player::fillLeftSideCell(shared_ptr<Ship> item)
 {
 	if (item->getX().get()[0] - item->getX().get()[item->getShipSize() - 1] != 0)
 	{
@@ -267,7 +267,7 @@ void Player::fillLeftSideCell(Ship * item)
 
 }
 
-void Player::fillBottomSideCell(Ship * item)
+void Player::fillBottomSideCell(shared_ptr<Ship> item)
 {
 	if (item->getX().get()[0] - item->getX().get()[1] != 0)
 	{
@@ -295,7 +295,7 @@ void Player::fillBottomSideCell(Ship * item)
 	}
 }
 
-void Player::fillRightSideCell(Ship * item)
+void Player::fillRightSideCell(shared_ptr<Ship> item)
 {
 	if (item->getX().get()[0] - item->getX().get()[item->getShipSize() - 1] != 0)
 	{
@@ -323,7 +323,7 @@ void Player::fillRightSideCell(Ship * item)
 	}
 }
 
-void Player::fillTopSideCell(Ship * item)
+void Player::fillTopSideCell(shared_ptr<Ship> item)
 {
 	if (item->getX().get()[0] - item->getX().get()[item->getShipSize() - 1] != 0)
 	{
@@ -371,10 +371,10 @@ void Player::setField(const int& i, const int& j)
 	notifyUpdate();
 }
 
-void Player::setEnemyField(const int& i, const int& j,const Player& p)
+void Player::setEnemyField(const int& i, const int& j,const IPlayer& p)
 {
 	
-	if (p.yourField_[i][j] == ' ' || p.yourField_[i][j] == '*')
+	if (p.getField(i, j) == ' ' || p.getField(i, j) == '*')
 	{
 		enemyField_[i][j] = '*';
 	}

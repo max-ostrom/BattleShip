@@ -94,7 +94,7 @@ void Controller::run()
 					{
 						if (item->getX().get()[i] == coordAtack[0] && item->getY().get()[i] == coordAtack[1])
 						{
-							model_.getComputer().isShipAlive(item.get());
+							model_.getComputer().isShipAlive(item);
 						}
 					}
 				});
@@ -130,7 +130,7 @@ void Controller::run()
 						{
 							if (item->getX().get()[i] == coordAtack[0] && item->getY().get()[i] == coordAtack[1])
 							{
-								model_.getUser().isShipAlive(item.get());
+								model_.getUser().isShipAlive(item);
 							}
 						}
 					});
