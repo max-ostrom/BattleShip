@@ -7,7 +7,9 @@
 #include <conio.h>
 #include <string>
 #include <algorithm>
+
 using namespace std;
+
 bool Controller::isKeyPressed(const int& key) const
 {
 	const unsigned int MSB = 0x8000;

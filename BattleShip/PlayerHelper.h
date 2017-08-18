@@ -10,6 +10,8 @@ class PlayerHelper
 {
 public:
 	PlayerHelper(IPlayer& p, shared_ptr<Ship> item);
+	virtual ~PlayerHelper();
+private:
 	void fillLeftTopConnorCell(shared_ptr<Ship> item);
 	void fillLeftBottomConnorCell(shared_ptr<Ship> item);
 	void fillRightTopConnorCell(shared_ptr<Ship> item);
@@ -19,9 +21,6 @@ public:
 	void fillBottomSideCell(shared_ptr<Ship> item);
 	void fillRightSideCell(shared_ptr<Ship> item);
 	void fillTopSideCell(shared_ptr<Ship> item);
-	virtual ~PlayerHelper();
-private:
-	
 
 	IPlayer& Player_;
 };
