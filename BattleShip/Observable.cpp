@@ -14,8 +14,8 @@ void Observable::addObserver(std::shared_ptr<Observer> observer)
 void Observable::notifyUpdate() const
 {	// i dont know what can fix here
 	// Lambda expression
-	std::for_each(observers_.begin(), observers_.end(), [](const std::shared_ptr<Observer> item)
+	std::for_each(observers_.begin(), observers_.end(), [](const std::shared_ptr<Observer> Ship_)
 	{
-		item->update();
+		Ship_->update();
 	});
 }

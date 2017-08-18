@@ -1,15 +1,17 @@
 #pragma once
+
 #include "../PlayerHelper.h"
 #include "Command.h"
-class FillLeftTopConnorCellCommand : public Command
+
+class FillRightBottomConnorCellCommand : public Command
 {
 public:
-	FillLeftTopConnorCellCommand(PlayerHelper& p) : PlayerHelper_(p) {}
+	FillRightBottomConnorCellCommand(PlayerHelper& p) : PlayerHelper_(p) {}
 	void execute() override
 	{
-		for (int i = 0; i < PlayerHelper_.getShip()->getShipSize() + 1; i++)
+		for (int i = PlayerHelper_.getShip()->getX().get()[0] - 1; i < PlayerHelper_.getShip()->getX().get()[0] + PlayerHelper_.getShip()->getShipSize() + 1; i++)
 		{
-			for (int j = 0; j < 2; j++)
+			for (int j = PlayerHelper_.getShip()->getY().get()[0] - 1; j < PlayerHelper_.getShip()->getY().get()[0] + 1; j++)
 			{
 				if (PlayerHelper_.getShip()->getX().get()[0] - PlayerHelper_.getShip()->getX().get()[PlayerHelper_.getShip()->getShipSize() - 1] != 0)
 				{
@@ -21,6 +23,7 @@ public:
 				}
 			}
 		}
+
 	}
 private:
 	PlayerHelper& PlayerHelper_;

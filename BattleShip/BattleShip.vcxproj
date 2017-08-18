@@ -166,7 +166,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Command\Command.h" />
+    <ClInclude Include="Command\FillBottomSideCellCommand.h" />
+    <ClInclude Include="Command\FillLeftBottomConnorCellCommand.h" />
+    <ClInclude Include="Command\FillLeftSideCellCommand.h" />
     <ClInclude Include="Command\FillLeftTopConnorCellCommand.h" />
+    <ClInclude Include="Command\FillRightBottomConnorCellCommand.h" />
+    <ClInclude Include="Command\FillRightSideCellCommand.h" />
+    <ClInclude Include="Command\FillRightTopConnorCellCommand.h" />
+    <ClInclude Include="Command\FillTopSideCellCommand.h" />
+    <ClInclude Include="Command\UnionCommand.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="Factory\Factory.h" />

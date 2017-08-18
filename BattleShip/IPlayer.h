@@ -9,7 +9,7 @@ class IPlayer
 {
 public:
 	virtual bool isEndOfGame() const = 0;
-	virtual bool isShipAlive(std::shared_ptr<Ship> item) = 0;
+	virtual bool isShipAlive(std::shared_ptr<Ship> Ship_) = 0;
 	virtual std::vector<std::shared_ptr<Ship>>& getShips() = 0;
 	virtual const std::vector<std::shared_ptr<Ship>>& getShips() const = 0;
 	virtual char getField(const int& i, const int& j) const = 0 ;

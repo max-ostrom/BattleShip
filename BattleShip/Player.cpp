@@ -19,18 +19,18 @@ bool Player::isEndOfGame() const
 	return true;
 }
 
-bool Player::isShipAlive(shared_ptr<Ship> item) 
+bool Player::isShipAlive(shared_ptr<Ship> Ship_) 
 {
-	if (item == nullptr)
+	if (Ship_ == nullptr)
 	{
 		throw exception();
 	}
 	bool flag = true;
 
 
-	for (int i = 0; i < item->getShipSize(); i++)
+	for (int i = 0; i < Ship_->getShipSize(); i++)
 	{
-		if ( getField(item->getX().get()[i], item->getY().get()[i]) == '#' && flag)
+		if ( getField(Ship_->getX().get()[i], Ship_->getY().get()[i]) == '#' && flag)
 		{
 			flag = true;
 		}
@@ -43,7 +43,7 @@ bool Player::isShipAlive(shared_ptr<Ship> item)
 
 	if (flag)
 	{
-		PlayerHelper(*this,item);
+		PlayerHelper(*this,Ship_);
 		return false;
 	}
 	return true;

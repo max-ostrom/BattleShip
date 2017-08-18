@@ -90,13 +90,13 @@ void Controller::run()
 				for_each(
 					model_.getComputer().getShips().begin(),
 					model_.getComputer().getShips().end(),
-					[this, &coordAtack](std::shared_ptr<Ship> item) mutable// Lambda expression
+					[this, &coordAtack](std::shared_ptr<Ship> Ship_) mutable// Lambda expression
 				{
-					for (int i = 0; i < item->getShipSize(); i++)
+					for (int i = 0; i < Ship_->getShipSize(); i++)
 					{
-						if (item->getX().get()[i] == coordAtack[0] && item->getY().get()[i] == coordAtack[1])
+						if (Ship_->getX().get()[i] == coordAtack[0] && Ship_->getY().get()[i] == coordAtack[1])
 						{
-							model_.getComputer().isShipAlive(item);
+							model_.getComputer().isShipAlive(Ship_);
 						}
 					}
 				});
@@ -126,13 +126,13 @@ void Controller::run()
 					for_each(
 						model_.getUser().getShips().begin(),
 						model_.getUser().getShips().end(),
-						[this, &coordAtack](std::shared_ptr<Ship> item) mutable// Lambda expression
+						[this, &coordAtack](std::shared_ptr<Ship> Ship_) mutable// Lambda expression
 					{
-						for (int i = 0; i < item->getShipSize(); i++)
+						for (int i = 0; i < Ship_->getShipSize(); i++)
 						{
-							if (item->getX().get()[i] == coordAtack[0] && item->getY().get()[i] == coordAtack[1])
+							if (Ship_->getX().get()[i] == coordAtack[0] && Ship_->getY().get()[i] == coordAtack[1])
 							{
-								model_.getUser().isShipAlive(item);
+								model_.getUser().isShipAlive(Ship_);
 							}
 						}
 					});
