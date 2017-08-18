@@ -82,7 +82,7 @@ void Controller::run()
 			model_.getComputer().setField(coordAtack[0], coordAtack[1]);
 
 
-			// player shot
+			// Player_ shot
 			if (model_.getComputer().getField(coordAtack[0], coordAtack[1]) == '#')
 			{
 				for_each(
