@@ -1,13 +1,13 @@
 #ifndef PlayerHelper_H
 #define PlayerHelper_H
 
+#include <memory>
+
+#include "Command\Command.h"
 #include "IPlayer.h"
 
-
-#include <memory>
-#include "Command\Command.h"
-#include "IField.h"
 using namespace std;
+
 class PlayerHelper
 {
 public:
