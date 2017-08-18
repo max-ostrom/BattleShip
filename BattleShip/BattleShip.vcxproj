@@ -153,7 +153,6 @@
     <ClCompile Include="Factory\FactoryThreeShip.cpp" />
     <ClCompile Include="FourDeckShip.cpp" />
     <ClCompile Include="GameModel.cpp" />
-    <ClCompile Include="IPlayer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Observable.cpp" />
     <ClCompile Include="Player.cpp" />

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef PlayerHelper_H
+#define PlayerHelper_H
 class PlayerHelper
 {
 public:
@@ -6,4 +7,4 @@ public:
 	// not today
 	virtual ~PlayerHelper();
 };
-
+#endif

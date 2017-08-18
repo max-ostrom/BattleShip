@@ -75,9 +75,6 @@
     <ClCompile Include="Factory\FactoryThreeShip.cpp">
       <Filter>Source Files\Factory</Filter>
     </ClCompile>
-    <ClCompile Include="IPlayer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
