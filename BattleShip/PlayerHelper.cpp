@@ -4,7 +4,7 @@
 
 #include"Command\UnionCommand.h"
 using namespace std;
-PlayerHelper::PlayerHelper(IPlayer& p, shared_ptr<Ship> ship) : Player_(p), Ship_(ship)
+PlayerHelper::PlayerHelper(IField& p, shared_ptr<Ship> ship) : Player_(p), Ship_(ship)
 {
 
 	Ship_->destroy();
@@ -99,12 +99,12 @@ shared_ptr<Ship> PlayerHelper::getShip() const
 	return Ship_;
 }
 
-IPlayer & PlayerHelper::getPlayer()
+IField & PlayerHelper::getPlayer()
 {
 	return Player_;
 }
 
-IPlayer & PlayerHelper::getPlayer() const
+IField & PlayerHelper::getPlayer() const
 {
 	return Player_;
 }

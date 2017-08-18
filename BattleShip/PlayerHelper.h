@@ -6,11 +6,12 @@
 
 #include <memory>
 #include "Command\Command.h"
+#include "IField.h"
 using namespace std;
 class PlayerHelper
 {
 public:
-	PlayerHelper(IPlayer& p, shared_ptr<Ship> Ship_);
+	PlayerHelper(IField& p, shared_ptr<Ship> Ship_);
 	virtual ~PlayerHelper();
 
 	void fillCells(Command& command);
@@ -18,10 +19,10 @@ public:
 	shared_ptr<Ship> getShip();
 	shared_ptr<Ship> getShip() const;
 
-	IPlayer& getPlayer();
-	IPlayer& getPlayer() const;
+	IField& getPlayer();
+	IField& getPlayer() const;
 private:
 	shared_ptr<Ship> Ship_;
-	IPlayer& Player_;
+	IField& Player_;
 };
 #endif

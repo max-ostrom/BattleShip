@@ -89,7 +89,7 @@ void Player::setField(const int& i, const int& j)
 	notifyUpdate();
 }
 
-void Player::setEnemyField(const int& i, const int& j,const IPlayer& p)
+void Player::setEnemyField(const int& i, const int& j,const IField& p)
 {
 	
 	if (p.getField(i, j) == ' ' || p.getField(i, j) == '*')
