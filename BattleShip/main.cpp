@@ -2,7 +2,8 @@
 #include "View.h"
 int main()
 {
-	try {
+	try 
+	{
 		GameModel model;
 		Controller controller(model);
 		shared_ptr<View> view = make_shared<View>(model);

@@ -1,6 +1,9 @@
-#pragma once
+#ifndef FillLeftTopConnorCellCommand_H
+#define FillLeftTopConnorCellCommand_H
+
 #include "../PlayerHelper.h"
 #include "Command.h"
+
 class FillLeftTopConnorCellCommand : public Command
 {
 public:
@@ -26,3 +29,4 @@ public:
 private:
 	PlayerHelper& PlayerHelper_;
 };
+#endif

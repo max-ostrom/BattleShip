@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FillBottomSideCellCommand_H
+#define FillBottomSideCellCommand_H
 #include "../PlayerHelper.h"
 #include "Command.h"
 class FillBottomSideCellCommand : public Command
@@ -42,3 +43,4 @@ public:
 private:
 	PlayerHelper& PlayerHelper_;
 };
+#endif

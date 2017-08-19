@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FillRightBottomConnorCellCommand_H
+#define FillRightBottomConnorCellCommand_H
 
 #include "../PlayerHelper.h"
 #include "Command.h"
@@ -31,3 +32,4 @@ public:
 private:
 	PlayerHelper& PlayerHelper_;
 };
+#endif
