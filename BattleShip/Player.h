@@ -7,12 +7,11 @@
 #include "UnionFactory.h"
 #include "Settings.h"
 #include "UnionHeader.h"
-#include "Observable.h"
 #include "IPlayer.h"
 #include "PlayerHelper.h"
 // must have class PlayerHelper !!!!
 class Player :
-	public Observable, public IPlayer
+	 public IPlayer
 {
 public:
 	std::vector<std::shared_ptr<Ship>>& getShips() override;

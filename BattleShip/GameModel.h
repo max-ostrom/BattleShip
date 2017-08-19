@@ -6,16 +6,16 @@
 class GameModel 
 {
 public:
-	Player& getUser();
-	Player& getComputer();
-	const Player& getUser() const;
-	const Player& getComputer() const;
+	IPlayer& getUser();
+	IPlayer& getComputer();
+	const IPlayer& getUser() const;
+	const IPlayer& getComputer() const;
 	void setStartTime(clock_t start);
 	const clock_t& getStartTime() const;
-	GameModel();
+	GameModel(IPlayer& you, IPlayer& computer);
 private:
-	Player You_;
-	Player Computer_;
+	IPlayer& You_;
+	IPlayer& Computer_;
 	clock_t startGame_;
 };
 #endif

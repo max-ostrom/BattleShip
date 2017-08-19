@@ -2,19 +2,19 @@
 
 #include "GameModel.h"
 
-Player& GameModel::getUser() 
+IPlayer& GameModel::getUser() 
 { 
 	return You_; 
 }
-Player& GameModel::getComputer()
+IPlayer& GameModel::getComputer()
 {
 	return Computer_;
 }
-const Player & GameModel::getUser() const
+const IPlayer & GameModel::getUser() const
 {
 	return You_;
 }
-const Player & GameModel::getComputer() const
+const IPlayer & GameModel::getComputer() const
 {
 	return Computer_;
 }
@@ -26,8 +26,8 @@ const clock_t& GameModel::getStartTime() const
 {
 	return startGame_;
 }
-GameModel::GameModel()
-	: You_(Settings()) , Computer_(Settings())
+GameModel::GameModel(IPlayer& you, IPlayer& computer)
+	: You_(you) , Computer_(computer)
 {
 	
 }

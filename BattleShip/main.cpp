@@ -4,7 +4,10 @@ int main()
 {
 	try 
 	{
-		GameModel model;
+		IShipSettings& settings = Settings();
+		Player user(settings);
+		Player computer(settings);
+		GameModel model(user,computer);
 		Controller controller(model);
 		shared_ptr<View> view = make_shared<View>(model);
 		model.getComputer().addObserver(view);
