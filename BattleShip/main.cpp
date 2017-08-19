@@ -5,9 +5,9 @@ int main()
 	try 
 	{
 		IShipSettings& settings = Settings();
-		Player user(settings);
-		Player computer(settings);
-		GameModel model(user,computer);
+		Player User(settings);
+		Player Computer(settings);
+		GameModel model(User,Computer);
 		Controller controller(model);
 		shared_ptr<View> view = make_shared<View>(model);
 		model.getComputer().addObserver(view);

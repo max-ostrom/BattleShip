@@ -15,7 +15,6 @@ public:
 	virtual bool isShipAlive(std::shared_ptr<Ship> Ship_) = 0;
 	virtual std::vector<std::shared_ptr<Ship>>& getShips() = 0;
 	virtual const std::vector<std::shared_ptr<Ship>>& getShips() const = 0;
-	
 	virtual ~IPlayer() {}
 };
 #endif

@@ -113,7 +113,7 @@ const std::vector<std::shared_ptr<Ship>>& Player::getShips() const
 	return YourShips_;
 }
 
-Player::Player(IShipSettings& shipSettings)
+Player::Player(IShipSettings& shipSettings = Settings())
 {
 
 

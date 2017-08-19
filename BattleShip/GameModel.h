@@ -12,7 +12,7 @@ public:
 	const IPlayer& getComputer() const;
 	void setStartTime(clock_t start);
 	const clock_t& getStartTime() const;
-	GameModel(IPlayer& you, IPlayer& computer);
+	GameModel(IPlayer& you = Player(), IPlayer& computer = Player());
 private:
 	IPlayer& You_;
 	IPlayer& Computer_;

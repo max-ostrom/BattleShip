@@ -16,7 +16,7 @@ class Player :
 public:
 	std::vector<std::shared_ptr<Ship>>& getShips() override;
 	const std::vector<std::shared_ptr<Ship>>& getShips() const override;
-	Player(IShipSettings& shipSettings);
+	Player(IShipSettings& shipSettings = Settings());
 	virtual ~Player();
 	void setField(const int& i, const int& j) override;
 	void setEnemyField(const int& i, const  int& j,const IField& p) override;
