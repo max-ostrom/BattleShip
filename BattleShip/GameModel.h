@@ -2,16 +2,17 @@
 #define Game_H
 
 #include "Player.h"
-
-class GameModel 
+#include "IGameWithTime.h"
+class GameModel :
+	public IGameWithTime
 {
 public:
-	IPlayer& getUser();
-	IPlayer& getComputer();
-	const IPlayer& getUser() const;
-	const IPlayer& getComputer() const;
-	void setStartTime(clock_t start);
-	const clock_t& getStartTime() const;
+	IPlayer& getUser() override;
+	IPlayer& getComputer() override;
+	const IPlayer& getUser() const override;
+	const IPlayer& getComputer() const override;
+	void setStartTime(clock_t start) override;
+	const clock_t& getStartTime() const override;
 	GameModel(IPlayer& you = Player(), IPlayer& computer = Player());
 private:
 	IPlayer& You_;

@@ -151,7 +151,7 @@ void Controller::run()
 
 
 
-Controller::Controller(GameModel& model) : model_(model)
+Controller::Controller(IGameWithTime& model) : model_(model)
 {
 
 }

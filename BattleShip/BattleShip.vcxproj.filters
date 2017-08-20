@@ -185,5 +185,11 @@
     <ClInclude Include="IField.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="IGame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IGameWithTime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

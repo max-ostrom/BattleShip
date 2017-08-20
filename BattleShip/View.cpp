@@ -8,7 +8,7 @@
 
 #include "View.h"
 
-View::View(const GameModel& model) :model_(model)
+View::View(const IGameWithTime& model) :model_(model)
 {
 	
 }

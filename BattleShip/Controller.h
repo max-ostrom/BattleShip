@@ -6,9 +6,9 @@ class Controller final
 {
 public:
 	void run();
-	Controller(GameModel& gameModel);
+	Controller(IGameWithTime& gameModel);
 private:
 	bool isKeyPressed(const int& key) const;
-	GameModel& model_;
+	IGameWithTime& model_;
 };
 #endif

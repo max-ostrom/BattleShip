@@ -10,10 +10,10 @@ class View final :
 	public Observer
 {
 public:
-	View(const GameModel& gameModel);
+	View(const IGameWithTime& gameModel);
 	void update() const override;
 private:
 	void endOfGame() const;
-	const GameModel& model_;
+	const IGameWithTime& model_;
 };
 #endif
