@@ -151,7 +151,6 @@
     <ClCompile Include="Factory\FactoryFourShip.cpp" />
     <ClCompile Include="Factory\FactorySingleShip.cpp" />
     <ClCompile Include="Factory\FactoryThreeShip.cpp" />
-    <ClCompile Include="FourDeckShip.cpp" />
     <ClCompile Include="GameModel.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Observable.cpp" />
@@ -159,9 +158,10 @@
     <ClCompile Include="PlayerHelper.cpp" />
     <ClCompile Include="Settings.cpp" />
     <ClCompile Include="Ships\DoubleDeckShip.cpp" />
+    <ClCompile Include="Ships\FourDeckShip.cpp" />
     <ClCompile Include="Ships\Ship.cpp" />
-    <ClCompile Include="SingleDeckShip.cpp" />
-    <ClCompile Include="ThreeDeckShip.cpp" />
+    <ClCompile Include="Ships\SingleDeckShip.cpp" />
+    <ClCompile Include="Ships\ThreeDeckShip.cpp" />
     <ClCompile Include="View.cpp" />
   </ItemGroup>
   <ItemGroup>

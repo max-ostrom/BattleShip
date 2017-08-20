@@ -2,26 +2,26 @@
 
 
 
-ThreeDeckShip::ThreeDeckShip(char field[FIELDSIZE][FIELDSIZE])
+ThreeDeckShip::ThreeDeckShip(char field[FIELD_SIZE][FIELD_SIZE])
 {
-	coordsX_ = auto_ptr<int>(new int[SHIPSIZE]);
-	coordsY_ = auto_ptr<int>(new int[SHIPSIZE]);
+	coordsX_ = shared_ptr<int>(new int[SHIP_SIZE_]);
+	coordsY_ = shared_ptr<int>(new int[SHIP_SIZE_]);
 
 
 	int n = rand() % 2;
 
 	switch (n) {
 
-	case 0://вертикальное положение корабля
+	case 0://vertical
 	{
-		int m = rand() % 8;
-		int n = rand() % 10;
+		int m = rand() % (FIELD_SIZE - SHIP_SIZE_ + 1);
+		int n = rand() % FIELD_SIZE;
 
 
 		while (isCellFreeVertical(field,m,n)) 
 		{
-			m = rand() % 8;
-			n = rand() % 10;
+			m = rand() % (FIELD_SIZE - SHIP_SIZE_ + 1);
+			n = rand() % FIELD_SIZE;
 		}
 
 
@@ -39,15 +39,15 @@ ThreeDeckShip::ThreeDeckShip(char field[FIELDSIZE][FIELDSIZE])
 		coordsY_.get()[1] = n;
 		coordsY_.get()[2] = n;
 		break; }
-	case 1:
-		int m = rand() % 10;
-		int n = rand() % 8;
+	case 1://horizontal
+		int m = rand() % FIELD_SIZE;
+		int n = rand() % (FIELD_SIZE - SHIP_SIZE_ + 1);
 
 
 		while (isCellFreeHorizontal(field,m,n))
 		{
-			m = rand() % 10;
-			n = rand() % 8;
+			m = rand() % FIELD_SIZE;
+			n = rand() % (FIELD_SIZE - SHIP_SIZE_ + 1);
 		}
 
 
@@ -70,10 +70,10 @@ ThreeDeckShip::ThreeDeckShip(char field[FIELDSIZE][FIELDSIZE])
 
 const int& ThreeDeckShip::getShipSize() const
 {
-	return SHIPSIZE;
+	return SHIP_SIZE_;
 }
 
-bool ThreeDeckShip::isCellFreeHorizontal(const char field[FIELDSIZE][FIELDSIZE], const int m, const int n) const
+bool ThreeDeckShip::isCellFreeHorizontal(const char field[FIELD_SIZE][FIELD_SIZE], const int m, const int n) const
 {
 	return field[m][n] == 'X' || field[m][n + 1] == 'X' ||
 		field[m][n + 2] == 'X' || field[m - 1][n - 1] == 'X' ||
@@ -85,7 +85,7 @@ bool ThreeDeckShip::isCellFreeHorizontal(const char field[FIELDSIZE][FIELDSIZE],
 		field[m + 1][n + 3] == 'X';
 }
 
-bool ThreeDeckShip::isCellFreeVertical(const char field[FIELDSIZE][FIELDSIZE], const int m, const int n) const
+bool ThreeDeckShip::isCellFreeVertical(const char field[FIELD_SIZE][FIELD_SIZE], const int m, const int n) const
 {
 	return field[m][n] == 'X' || field[m + 1][n] == 'X' ||
 		field[m + 2][n] == 'X' || field[m - 1][n - 1] == 'X' ||

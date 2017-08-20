@@ -33,15 +33,6 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FourDeckShip.cpp">
-      <Filter>Source Files\Ships</Filter>
-    </ClCompile>
-    <ClCompile Include="SingleDeckShip.cpp">
-      <Filter>Source Files\Ships</Filter>
-    </ClCompile>
-    <ClCompile Include="ThreeDeckShip.cpp">
-      <Filter>Source Files\Ships</Filter>
-    </ClCompile>
     <ClCompile Include="Ships\Ship.cpp">
       <Filter>Source Files\Ships</Filter>
     </ClCompile>
@@ -80,6 +71,15 @@
     </ClCompile>
     <ClCompile Include="PlayerHelper.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ships\FourDeckShip.cpp">
+      <Filter>Source Files\Ships</Filter>
+    </ClCompile>
+    <ClCompile Include="Ships\SingleDeckShip.cpp">
+      <Filter>Source Files\Ships</Filter>
+    </ClCompile>
+    <ClCompile Include="Ships\ThreeDeckShip.cpp">
+      <Filter>Source Files\Ships</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
