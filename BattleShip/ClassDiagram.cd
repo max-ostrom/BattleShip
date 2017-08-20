@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Command">
+    <Position X="29.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Command\Command.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Controller">
+    <Position X="9" Y="21.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAQAAAAAAAAAAAAAAAAAAIAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Controller.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="model_" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DoubleDeckShip">
+    <Position X="33" Y="17.25" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAYAAAIAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Ships\DoubleDeckShip.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameModel">
+    <Position X="13" Y="24.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAEACABAQAgAgABAAAAA=</HashCode>
+      <FileName>GameModel.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Computer_" />
+      <Field Name="You_" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="IGame">
+    <Position X="13.25" Y="19.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAQAAAAABAAAAA=</HashCode>
+      <FileName>IGame.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IGameWithTime">
+    <Position X="13.25" Y="21.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IGameWithTime.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Observable">
+    <Position X="13.5" Y="9.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAQAAAAAE=</HashCode>
+      <FileName>Observable.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Observer">
+    <Position X="18.75" Y="20.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Observer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="View">
+    <Position X="18" Y="22.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAABAAAAAAAAAAAMAAA=</HashCode>
+      <FileName>View.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="model_" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FourDeckShip">
+    <Position X="26.5" Y="17.25" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAYAAAAAAAAAAAAAAAAEAAAAACAAAAAAA=</HashCode>
+      <FileName>Ships\FourDeckShip.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SingleDeckShip">
+    <Position X="20" Y="17.25" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AAkAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Ships\SingleDeckShip.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ship">
+    <Position X="29.75" Y="13.25" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAYEAAAAAAAEAAAQAAAAAABgACAGEAAAA=</HashCode>
+      <FileName>Ships\Ship.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThreeDeckShip">
+    <Position X="39.5" Y="17.25" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAYAAAAAAAAAAAAAACAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Ships\ThreeDeckShip.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IShipSettings">
+    <Position X="22" Y="20.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Resource\IShipSettings.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Settings">
+    <Position X="22" Y="22.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAgAAAAAAGA=</HashCode>
+      <FileName>Resource\Settings.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IField">
+    <Position X="48" Y="9" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>CACAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAiAAAAAAAAA=</HashCode>
+      <FileName>Players\IField.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IPlayer">
+    <Position X="13.5" Y="11.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAEAAAgAAAAAAIAAAAA=</HashCode>
+      <FileName>Players\IPlayer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player">
+    <Position X="13" Y="14.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>CACAAAAAAAAAAAAAAAAAAAIAEAkAAAAAAiAQAYAAABA=</HashCode>
+      <FileName>Players\Player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerHelper">
+    <Position X="32.75" Y="3.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAABBAAAAAAAAwAAAAAAAAEAAgAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Players\PlayerHelper.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Player_" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FactoryDoubleShip">
+    <Position X="18.75" Y="11.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Factory\FactoryDoubleShip.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IFactory">
+    <Position X="26.25" Y="9.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAg=</HashCode>
+      <FileName>Factory\Factory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FactoryFourShip">
+    <Position X="23.75" Y="11.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Factory\FactoryFourShip.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FactorySingleShip">
+    <Position X="28.75" Y="11.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Factory\FactorySingleShip.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FactoryThreeShip">
+    <Position X="33.75" Y="11.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAg=</HashCode>
+      <FileName>Factory\FactoryThreeShip.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FillBottomSideCellCommand">
+    <Position X="14.5" Y="7.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Command\FillBottomSideCellCommand.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="PlayerHelper_" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FillLeftBottomConnorCellCommand">
+    <Position X="39.25" Y="7.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAEACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Command\FillLeftBottomConnorCellCommand.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="PlayerHelper_" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FillLeftTopConnorCellCommand">
+    <Position X="18.5" Y="7.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAEAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Command\FillLeftTopConnorCellCommand.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="PlayerHelper_" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FillLeftSideCellCommand">
+    <Position X="22.75" Y="7.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAoAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Command\FillLeftSideCellCommand.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="PlayerHelper_" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FillRightBottomConnorCellCommand">
+    <Position X="34.75" Y="7.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAEAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Command\FillRightBottomConnorCellCommand.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="PlayerHelper_" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FillRightSideCellCommand">
+    <Position X="26.5" Y="7.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Command\FillRightSideCellCommand.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="PlayerHelper_" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FillRightTopConnorCellCommand">
+    <Position X="30.5" Y="7.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAEAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Command\FillRightTopConnorCellCommand.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="PlayerHelper_" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FillTopSideCellCommand">
+    <Position X="43.75" Y="7.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAEAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Command\FillTopSideCellCommand.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="PlayerHelper_" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

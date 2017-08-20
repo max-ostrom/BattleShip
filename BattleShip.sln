@@ -7,16 +7,20 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BattleShip", "BattleShip\Ba
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5226F78-188F-4CDC-AE88-17592AD9BD6E}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{A5226F78-188F-4CDC-AE88-17592AD9BD6E}.Debug|x64.ActiveCfg = Debug|x64
 		{A5226F78-188F-4CDC-AE88-17592AD9BD6E}.Debug|x64.Build.0 = Debug|x64
 		{A5226F78-188F-4CDC-AE88-17592AD9BD6E}.Debug|x86.ActiveCfg = Debug|Win32
 		{A5226F78-188F-4CDC-AE88-17592AD9BD6E}.Debug|x86.Build.0 = Debug|Win32
+		{A5226F78-188F-4CDC-AE88-17592AD9BD6E}.Release|Any CPU.ActiveCfg = Release|Win32
 		{A5226F78-188F-4CDC-AE88-17592AD9BD6E}.Release|x64.ActiveCfg = Release|x64
 		{A5226F78-188F-4CDC-AE88-17592AD9BD6E}.Release|x64.Build.0 = Release|x64
 		{A5226F78-188F-4CDC-AE88-17592AD9BD6E}.Release|x86.ActiveCfg = Release|Win32

@@ -6,6 +6,7 @@
 class Controller final
 {
 public:
+	//pattern STATE soon
 	void run();
 	Controller(IGameWithTime& gameModel);
 private:
