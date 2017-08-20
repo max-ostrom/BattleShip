@@ -4,9 +4,9 @@
 #include <iostream>
 #include <vector>
 
-#include "Resource\UnionFactory.h"
-#include "Resource\Settings.h"
-#include "Resource\UnionHeader.h"
+#include "..\Resource\UnionFactory.h"
+#include "..\Resource\Settings.h"
+#include "..\Resource\UnionHeader.h"
 #include "IPlayer.h"
 #include "PlayerHelper.h"
 // must have class PlayerHelper !!!!

@@ -4,9 +4,9 @@
 #include <vector>
 #include <memory>
 
-#include "Ships\Ship.h"
+#include "..\Ships\Ship.h"
 #include "IField.h"
-#include "Observable.h"
+#include "..\Observable.h"
 
 class IPlayer :
 	public Observable, public IField

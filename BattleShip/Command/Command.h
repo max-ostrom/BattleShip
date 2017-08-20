@@ -1,7 +1,7 @@
 #ifndef Command_H
 #define Command_H
 
-#include "../PlayerHelper.h"
+#include "..\Players\PlayerHelper.h"
 
 class Command 
 {

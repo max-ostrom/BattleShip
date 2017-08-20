@@ -1,7 +1,7 @@
 #ifndef Game_H
 #define Game_H
 
-#include "Player.h"
+#include "Players\Player.h"
 #include "IGameWithTime.h"
 
 class GameModel :

@@ -28,11 +28,14 @@
     <Filter Include="Header Files\Commands">
       <UniqueIdentifier>{f4e10058-b473-47b9-a8c9-de2c26a4b841}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Resource">
+      <UniqueIdentifier>{27536fe8-6e28-485d-8fb2-a65d60c2192b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Players">
+      <UniqueIdentifier>{cb5b213c-48b5-4fb7-8058-11f0a02c9991}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Ships\Ship.cpp">
       <Filter>Source Files\Ships</Filter>
     </ClCompile>
@@ -66,9 +69,6 @@
     <ClCompile Include="Factory\FactoryThreeShip.cpp">
       <Filter>Source Files\Factory</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerHelper.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Ships\FourDeckShip.cpp">
       <Filter>Source Files\Ships</Filter>
     </ClCompile>
@@ -81,11 +81,14 @@
     <ClCompile Include="Resource\Settings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Players\Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Players\PlayerHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Ships\Ship.h">
       <Filter>Header Files\Ship</Filter>
     </ClInclude>
@@ -134,12 +137,6 @@
     <ClInclude Include="GameModel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IPlayer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerHelper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Command\Command.h">
       <Filter>Header Files\Commands</Filter>
     </ClInclude>
@@ -170,19 +167,10 @@
     <ClInclude Include="Command\UnionCommand.h">
       <Filter>Header Files\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="IField.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="IGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IGameWithTime.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource\IShipSettings.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource\Settings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Resource\UnionFactory.h">
@@ -190,6 +178,24 @@
     </ClInclude>
     <ClInclude Include="Resource\UnionHeader.h">
       <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource\IShipSettings.h">
+      <Filter>Header Files\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource\Settings.h">
+      <Filter>Header Files\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Players\IField.h">
+      <Filter>Header Files\Players</Filter>
+    </ClInclude>
+    <ClInclude Include="Players\IPlayer.h">
+      <Filter>Header Files\Players</Filter>
+    </ClInclude>
+    <ClInclude Include="Players\Player.h">
+      <Filter>Header Files\Players</Filter>
+    </ClInclude>
+    <ClInclude Include="Players\PlayerHelper.h">
+      <Filter>Header Files\Players</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

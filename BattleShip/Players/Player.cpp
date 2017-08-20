@@ -1,5 +1,5 @@
 #include "Player.h"
-#include "Resource\UnionFactory.h"
+#include "..\Resource\UnionFactory.h"
 
 using namespace std;
 

@@ -1,7 +1,7 @@
 #ifndef FillRightSideCellCommand_H
 #define FillRightSideCellCommand_H
 
-#include "../PlayerHelper.h"
+#include "..\Players\PlayerHelper.h"
 #include "Command.h"
 
 class FillRightSideCellCommand : public Command

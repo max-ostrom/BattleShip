@@ -2,7 +2,7 @@
 
 #include<memory>
 
-#include"Command\UnionCommand.h"
+#include"..\Command\UnionCommand.h"
 using namespace std;
 PlayerHelper::PlayerHelper(IField& p, shared_ptr<Ship> ship) : Player_(p), Ship_(ship)
 {

@@ -1,7 +1,7 @@
 #ifndef FillRightTopConnorCellCommand_H
 #define FillRightTopConnorCellCommand_H
 
-#include "../PlayerHelper.h"
+#include "..\Players\PlayerHelper.h"
 #include "Command.h"
 
 class FillRightTopConnorCellCommand : public Command
