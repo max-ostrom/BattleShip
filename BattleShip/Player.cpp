@@ -1,9 +1,7 @@
 #include "Player.h"
-#include "UnionFactory.h"
+#include "Resource\UnionFactory.h"
 
 using namespace std;
-	
-
 
 bool Player::isEndOfGame() const
 {

@@ -156,7 +156,7 @@
     <ClCompile Include="Observable.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerHelper.cpp" />
-    <ClCompile Include="Settings.cpp" />
+    <ClCompile Include="Resource\Settings.cpp" />
     <ClCompile Include="Ships\DoubleDeckShip.cpp" />
     <ClCompile Include="Ships\FourDeckShip.cpp" />
     <ClCompile Include="Ships\Ship.cpp" />
@@ -187,19 +187,19 @@
     <ClInclude Include="IGame.h" />
     <ClInclude Include="IGameWithTime.h" />
     <ClInclude Include="IPlayer.h" />
-    <ClInclude Include="IShipSettings.h" />
     <ClInclude Include="Observable.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerHelper.h" />
-    <ClInclude Include="Settings.h" />
+    <ClInclude Include="Resource\IShipSettings.h" />
+    <ClInclude Include="Resource\Settings.h" />
+    <ClInclude Include="Resource\UnionFactory.h" />
+    <ClInclude Include="Resource\UnionHeader.h" />
     <ClInclude Include="Ships\DoubleDeckShip.h" />
     <ClInclude Include="Ships\FourDeckShip.h" />
     <ClInclude Include="Ships\Ship.h" />
     <ClInclude Include="Ships\SingleDeckShip.h" />
     <ClInclude Include="Ships\ThreeDeckShip.h" />
-    <ClInclude Include="UnionFactory.h" />
-    <ClInclude Include="UnionHeader.h" />
     <ClInclude Include="View.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
