@@ -3,6 +3,7 @@
 
 #include "../PlayerHelper.h"
 #include "Command.h"
+
 class FillLeftSideCellCommand : public Command
 {
 public:

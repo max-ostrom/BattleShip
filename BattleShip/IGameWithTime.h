@@ -1,7 +1,10 @@
-#pragma once
+#ifndef IGameWithTime_H
+#define IGameWithTime_H
+
 #include <ctime>
 
 #include "IGame.h"
+
 class IGameWithTime :
 	public IGame
 {
@@ -12,4 +15,4 @@ public:
 	{
 	}
 };
-
+#endif

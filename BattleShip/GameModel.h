@@ -3,6 +3,7 @@
 
 #include "Player.h"
 #include "IGameWithTime.h"
+
 class GameModel :
 	public IGameWithTime
 {

@@ -1,5 +1,8 @@
-#pragma once
+#ifndef IGame_H
+#define IGame_H
+
 #include"IPlayer.h"
+
 class IGame
 {
 public:
@@ -12,3 +15,4 @@ public:
 	}
 };
 
+#endif

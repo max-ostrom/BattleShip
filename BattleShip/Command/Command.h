@@ -1,6 +1,8 @@
 #ifndef Command_H
 #define Command_H
+
 #include "../PlayerHelper.h"
+
 class Command 
 {
 public:

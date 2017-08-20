@@ -1,4 +1,6 @@
-#pragma once
+#ifndef IField_H
+#define IField_H
+
 class IField
 {
 public:
@@ -8,4 +10,4 @@ public:
 	virtual void setEnemyField(const int& i, const  int& j, const IField& p) = 0;
 	virtual ~IField() {}
 };
-
+#endif

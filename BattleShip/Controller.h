@@ -2,6 +2,7 @@
 #define Controller_H
 
 #include "GameModel.h"
+
 class Controller final
 {
 public:
