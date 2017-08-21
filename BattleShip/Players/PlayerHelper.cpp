@@ -4,7 +4,7 @@
 
 #include"..\Command\UnionCommand.h"
 using namespace std;
-PlayerHelper::PlayerHelper(IField& p, shared_ptr<Ship> ship) : Player_(p), Ship_(ship)
+PlayerHelper::PlayerHelper(IField& field, shared_ptr<Ship> ship) : Field_(field), Ship_(ship)
 {
 
 	Ship_->destroy();
@@ -65,7 +65,7 @@ PlayerHelper::PlayerHelper(IField& p, shared_ptr<Ship> ship) : Player_(p), Ship_
 			{
 				for (int j = Ship_->getY().get()[0] - 1; j < Ship_->getY().get()[0] + 2; j++)
 				{
-					Player_.setField(i, j);
+					Field_.setField(i, j);
 				}
 			}
 		}
@@ -75,7 +75,7 @@ PlayerHelper::PlayerHelper(IField& p, shared_ptr<Ship> ship) : Player_(p), Ship_
 			{
 				for (int j = Ship_->getY().get()[0] - 1; j < Ship_->getY().get()[0] + Ship_->getShipSize() + 1; j++)
 				{
-					Player_.setField(i, j);
+					Field_.setField(i, j);
 				}
 			}
 		}
@@ -101,12 +101,12 @@ shared_ptr<Ship> PlayerHelper::getShip() const
 
 IField & PlayerHelper::getPlayer()
 {
-	return Player_;
+	return Field_;
 }
 
 IField & PlayerHelper::getPlayer() const
 {
-	return Player_;
+	return Field_;
 }
 
 PlayerHelper::~PlayerHelper()

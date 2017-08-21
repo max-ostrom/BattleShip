@@ -1,7 +1,9 @@
-#include "Observable.h"
 #include <new>
 #include <algorithm>
 #include <iostream>
+#include <thread> 
+#include <chrono>
+#include "Observable.h"
 
 void Observable::addObserver(std::shared_ptr<Observer> observer)
 {
@@ -16,6 +18,7 @@ void Observable::notifyUpdate() const
 	// Lambda expression
 	std::for_each(observers_.begin(), observers_.end(), [](const std::shared_ptr<Observer> item)
 	{
-		item->update();
+		std::thread([item] {item->update(); }).join();
+		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	});
 }

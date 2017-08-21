@@ -11,7 +11,7 @@ using namespace std;
 class PlayerHelper
 {
 public:
-	PlayerHelper(IField& p, shared_ptr<Ship> Ship_);
+	PlayerHelper(IField& field, shared_ptr<Ship> ship);
 	virtual ~PlayerHelper();
 
 	void fillCells(Command& command);
@@ -23,6 +23,6 @@ public:
 	IField& getPlayer() const;
 private:
 	shared_ptr<Ship> Ship_;
-	IField& Player_;
+	IField& Field_;
 };
 #endif

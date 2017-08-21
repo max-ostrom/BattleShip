@@ -8,7 +8,7 @@ class Controller final
 public:
 	//pattern STATE soon
 	void run();
-	Controller(IGame& gameModel, ITime& time);
+	explicit Controller(IGame& gameModel, ITime& time);
 private:
 	bool isKeyPressed(const int& key) const;
 	IGame& Model_;

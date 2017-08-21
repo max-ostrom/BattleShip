@@ -10,7 +10,7 @@ class View final :
 	public Observer
 {
 public:
-	View(const IGame& gameModel,const ITime& time);
+	explicit View(const IGame& gameModel,const ITime& time);
 	void update() const override;
 private:
 	void endOfGame() const;
