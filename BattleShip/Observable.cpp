@@ -1,8 +1,8 @@
-#include <new>
 #include <algorithm>
 #include <iostream>
 #include <thread> 
-#include <chrono>
+#include <mutex>
+
 #include "Observable.h"
 
 void Observable::addObserver(std::shared_ptr<Observer> observer)
@@ -16,9 +16,11 @@ void Observable::addObserver(std::shared_ptr<Observer> observer)
 void Observable::notifyUpdate() const
 {	// i dont know what can fix here
 	// Lambda expression
-	std::for_each(observers_.begin(), observers_.end(), [](const std::shared_ptr<Observer> item)
-	{
+	std::mutex locker;
+	std::for_each(observers_.begin(), observers_.end(), [&locker](const std::shared_ptr<Observer> item) 
+	{	
+		locker.lock();
 		std::thread([item] {item->update(); }).join();
-		std::this_thread::sleep_for(std::chrono::milliseconds(10));
+		locker.unlock();
 	});
 }
