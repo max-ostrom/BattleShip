@@ -23,15 +23,15 @@ bool Controller::isKeyPressed(const int& key) const
 }
 void Controller::run()
 {
-	time_.setStartTime(clock());
+	Time_.setStartTime(clock());
 	bool turn = true;
 	int coordAtack[2];
 	bool hitting = false;
 	string choose;
 
-	while (!model_.getUser().isEndOfGame() && !model_.getComputer().isEndOfGame())
+	while (!Model_.getUser().isEndOfGame() && !Model_.getComputer().isEndOfGame())
 	{
-		if (model_.getUser().isEndOfGame() || model_.getComputer().isEndOfGame())
+		if (Model_.getUser().isEndOfGame() || Model_.getComputer().isEndOfGame())
 		{
 			_getch();
 			exit(0); // end of game
@@ -80,23 +80,23 @@ void Controller::run()
 
 
 
-			model_.getUser().setEnemyField(coordAtack[0], coordAtack[1], model_.getComputer());
-			model_.getComputer().setField(coordAtack[0], coordAtack[1]);
+			Model_.getUser().setEnemyField(coordAtack[0], coordAtack[1], Model_.getComputer());
+			Model_.getComputer().setField(coordAtack[0], coordAtack[1]);
 
 
 			// Player_ shot
-			if (model_.getComputer().getField(coordAtack[0], coordAtack[1]) == '#')
+			if (Model_.getComputer().getField(coordAtack[0], coordAtack[1]) == '#')
 			{
 				for_each(
-					model_.getComputer().getShips().begin(),
-					model_.getComputer().getShips().end(),
+					Model_.getComputer().getShips().begin(),
+					Model_.getComputer().getShips().end(),
 					[this, &coordAtack](std::shared_ptr<Ship> Ship_) mutable// Lambda expression
 				{
 					for (int i = 0; i < Ship_->getShipSize(); i++)
 					{
 						if (Ship_->getX().get()[i] == coordAtack[0] && Ship_->getY().get()[i] == coordAtack[1])
 						{
-							model_.getComputer().isShipAlive(Ship_);
+							Model_.getComputer().isShipAlive(Ship_);
 						}
 					}
 				});
@@ -116,23 +116,23 @@ void Controller::run()
 				do {
 					coordAtack[0] = rand() % FIELD_SIZE;
 					coordAtack[1] = rand() % FIELD_SIZE;
-				} while (model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) != ' ');
+				} while (Model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) != ' ');
 			}
-			if (model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) == ' ')
+			if (Model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) == ' ')
 			{
-				model_.getUser().setField(coordAtack[0], coordAtack[1]);
-				if (model_.getUser().getField(coordAtack[0], coordAtack[1]) == '#')
+				Model_.getUser().setField(coordAtack[0], coordAtack[1]);
+				if (Model_.getUser().getField(coordAtack[0], coordAtack[1]) == '#')
 				{
 					for_each(
-						model_.getUser().getShips().begin(),
-						model_.getUser().getShips().end(),
+						Model_.getUser().getShips().begin(),
+						Model_.getUser().getShips().end(),
 						[this, &coordAtack](std::shared_ptr<Ship> Ship_) mutable// Lambda expression
 					{
 						for (int i = 0; i < Ship_->getShipSize(); i++)
 						{
 							if (Ship_->getX().get()[i] == coordAtack[0] && Ship_->getY().get()[i] == coordAtack[1])
 							{
-								model_.getUser().isShipAlive(Ship_);
+								Model_.getUser().isShipAlive(Ship_);
 							}
 						}
 					});
@@ -148,7 +148,7 @@ void Controller::run()
 
 	}
 }
-Controller::Controller(IGame& model, ITime& time) : model_(model), time_(time)
+Controller::Controller(IGame& model, ITime& time) : Model_(model), Time_(time)
 {
 
 }

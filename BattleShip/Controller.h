@@ -11,7 +11,7 @@ public:
 	Controller(IGame& gameModel, ITime& time);
 private:
 	bool isKeyPressed(const int& key) const;
-	IGame& model_;
-	ITime& time_;
+	IGame& Model_;
+	ITime& Time_;
 };
 #endif
