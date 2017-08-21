@@ -10,9 +10,13 @@
   <Class Name="Controller">
     <Position X="9" Y="21.75" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAAgAAAQAAAAAAAAAAAAAAAAAAIAAAAAAAAAAoAAA=</HashCode>
+      <HashCode>ACAAAgAAAQAAAAAAAAAAAAAAAAAAIAAAAAgAAAAAAAA=</HashCode>
       <FileName>Controller.h</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Time_" />
+      <Field Name="Model_" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="DoubleDeckShip">
     <Position X="33" Y="17.25" Width="5.75" />
@@ -56,9 +60,13 @@
   <Class Name="View">
     <Position X="18" Y="22.25" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAABAAAAAAAAAAAsAAA=</HashCode>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAABAAAABAAAAAAgAAAAEAAA=</HashCode>
       <FileName>View.h</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Time_" />
+      <Field Name="Model_" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="FourDeckShip">
     <Position X="26.5" Y="17.25" Width="5.75" />
