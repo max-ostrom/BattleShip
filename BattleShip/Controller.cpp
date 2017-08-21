@@ -23,7 +23,7 @@ bool Controller::isKeyPressed(const int& key) const
 }
 void Controller::run()
 {
-	model_.setStartTime(clock());
+	time_.setStartTime(clock());
 	bool turn = true;
 	int coordAtack[2];
 	bool hitting = false;
@@ -148,11 +148,7 @@ void Controller::run()
 
 	}
 }
-
-
-
-Controller::Controller(IGameWithTime& model) : model_(model)
+Controller::Controller(IGame& model, ITime& time) : model_(model), time_(time)
 {
 
 }
-

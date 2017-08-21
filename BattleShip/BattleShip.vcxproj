@@ -184,7 +184,7 @@
     <ClInclude Include="Factory\FactoryThreeShip.h" />
     <ClInclude Include="GameModel.h" />
     <ClInclude Include="IGame.h" />
-    <ClInclude Include="IGameWithTime.h" />
+    <ClInclude Include="ITime.h" />
     <ClInclude Include="Observable.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Players\IField.h" />

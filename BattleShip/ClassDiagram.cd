@@ -10,12 +10,9 @@
   <Class Name="Controller">
     <Position X="9" Y="21.75" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAAgAAAQAAAAAAAAAAAAAAAAAAIAAAAAAAAAAIAAA=</HashCode>
+      <HashCode>AAAAAgAAAQAAAAAAAAAAAAAAAAAAIAAAAAAAAAAoAAA=</HashCode>
       <FileName>Controller.h</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="model_" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="DoubleDeckShip">
     <Position X="33" Y="17.25" Width="5.75" />
@@ -31,8 +28,8 @@
       <FileName>GameModel.h</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="Computer_" />
       <Field Name="You_" />
+      <Field Name="Computer_" />
     </ShowAsAssociation>
   </Class>
   <Class Name="IGame">
@@ -40,13 +37,6 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAQAAAAABAAAAA=</HashCode>
       <FileName>IGame.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="IGameWithTime">
-    <Position X="13.25" Y="21.75" Width="2.5" />
-    <TypeIdentifier>
-      <HashCode>IAAAAAAAIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IGameWithTime.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Observable">
@@ -66,12 +56,9 @@
   <Class Name="View">
     <Position X="18" Y="22.25" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAABAAAAAAAAAAAMAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAABAAAAAAAAAAAsAAA=</HashCode>
       <FileName>View.h</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="model_" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="FourDeckShip">
     <Position X="26.5" Y="17.25" Width="5.75" />
@@ -260,6 +247,13 @@
     <ShowAsAssociation>
       <Field Name="PlayerHelper_" />
     </ShowAsAssociation>
+  </Class>
+  <Class Name="ITime">
+    <Position X="13.25" Y="21.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAgAAAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ITime.h</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

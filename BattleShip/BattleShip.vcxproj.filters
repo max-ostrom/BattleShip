@@ -170,9 +170,6 @@
     <ClInclude Include="IGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IGameWithTime.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Resource\UnionFactory.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
@@ -196,6 +193,9 @@
     </ClInclude>
     <ClInclude Include="Players\PlayerHelper.h">
       <Filter>Header Files\Players</Filter>
+    </ClInclude>
+    <ClInclude Include="ITime.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -2,10 +2,10 @@
 #define Game_H
 
 #include "Players\Player.h"
-#include "IGameWithTime.h"
-
+#include "ITime.h"
+#include "IGame.h"
 class GameModel :
-	public IGameWithTime
+	 public IGame , public ITime
 {
 public:
 	IPlayer& getUser() override;
