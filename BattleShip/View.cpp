@@ -10,7 +10,7 @@
 
 View::View(const IGame& model, const ITime& time) :Model_(model), Time_(time)
 {
-	
+	update();
 }
 
 
