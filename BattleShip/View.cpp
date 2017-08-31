@@ -8,15 +8,13 @@
 
 #include "View.h"
 
-View::View(const IGame& model, const ITime& time) :Model_(model), Time_(time)
+View::View(IPlayer& you , IPlayer& computer) : GameModel(you,computer)
 {
 	update();
 }
-
-
 void View::update() const
 {
-	if (Model_.getUser().isEndOfGame() || Model_.getComputer().isEndOfGame())
+	if (getUser().isEndOfGame() || getComputer().isEndOfGame())
 	{
 		endOfGame();
 	}
@@ -35,7 +33,7 @@ void View::update() const
 			cout << alf[i];
 			for (int j = 0; j < FIELD_SIZE; j++)
 			{
-				cout << Model_.getUser().getField(i, j);
+				cout << getUser().getField(i, j);
 			}
 			cout << "|" << endl;
 		}
@@ -47,10 +45,10 @@ void View::update() const
 			cout << alf[i];
 			for (int j = 0; j < FIELD_SIZE; j++)
 			{
-				if (Model_.getComputer().getField(i, j) == 'X')
+				if (getComputer().getField(i, j) == 'X')
 					cout << " ";
 				else
-					cout << Model_.getComputer().getField(i, j);
+					cout << getComputer().getField(i, j);
 			}
 			cout << "|" << endl;
 		}
@@ -64,8 +62,8 @@ void View::endOfGame() const
 	int yourAliveShips = 0;
 	//players alive ships
 	for_each(
-		Model_.getUser().getShips().begin(), 
-		Model_.getUser().getShips().end(),
+		getUser().getShips().begin(), 
+		getUser().getShips().end(),
 		[yourAliveShips](const std::shared_ptr<Ship> Ship_) mutable// Lambda expression
 	{
 		if (Ship_->isAlive())
@@ -78,8 +76,8 @@ void View::endOfGame() const
 	int computerAliveShips = 0;
 	//computers alive ships
 	for_each(
-		Model_.getComputer().getShips().begin(),
-		Model_.getComputer().getShips().end(),
+		getComputer().getShips().begin(),
+		getComputer().getShips().end(),
 		[computerAliveShips](const std::shared_ptr<Ship> Ship_) mutable// Lambda expression
 	{
 		if (Ship_->isAlive())
@@ -101,7 +99,7 @@ void View::endOfGame() const
 		cout << alf[i];
 		for (int j = 0; j < FIELD_SIZE; j++)
 		{
-			cout << Model_.getComputer().getField(i, j);
+			cout << getComputer().getField(i, j);
 		}
 		cout << endl;
 
@@ -110,13 +108,13 @@ void View::endOfGame() const
 
 	// time and ships count
 	cout << "Time: "
-		<< static_cast<int>((clock() - Time_.getStartTime()) / CLOCKS_PER_SEC) / 60
+		<< static_cast<int>((clock() - getStartTime()) / CLOCKS_PER_SEC) / 60
 		<< ":"
 
 
 
 
-		<< static_cast<int>((clock() - Time_.getStartTime()) / CLOCKS_PER_SEC) % 60
+		<< static_cast<int>((clock() - getStartTime()) / CLOCKS_PER_SEC) % 60
 		<< "Your Ships : " << yourAliveShips << endl
 		<< "Computer Ships : " << computerAliveShips << endl;
 }

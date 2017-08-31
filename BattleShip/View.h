@@ -5,16 +5,14 @@
 
 #include "IView.h"
 #include "GameModel.h"
-
 class View final :
-	public IView
+	public GameModel, public IView
 {
 public:
-	explicit View(const IGame& gameModel,const ITime& time);
+	explicit View(IPlayer& you = Player(), IPlayer& computer = Player());
 	void update() const override;
 private:
 	void endOfGame() const override;
-	const IGame& Model_;
-	const ITime& Time_;
+	
 };
 #endif

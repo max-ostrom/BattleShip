@@ -10,6 +10,52 @@
 
 using namespace std;
 
+void Controller::input(vector<int>& coordAtack)
+{
+
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,14 });
+	cout << "At first write letter then number without Enter : " << endl;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,15 });
+	cout << "Enter - pause, any key to atack ship";
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,16 });
+
+
+	switch (_getch())
+	{
+
+	case VK_RETURN:
+		// enter - pause
+	{
+		clock_t startPause = clock();
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 17, 17 });
+		cout << "Pause, press space to continue, seconds :\t";
+		while (!isKeyPressed(VK_SPACE))
+		{
+			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 60, 17 });
+			cout << static_cast<int>(clock() - startPause) / CLOCKS_PER_SEC;
+			Sleep(1000);
+		}
+		break;
+	}
+	default:
+	{
+		do
+		{
+			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14, 16 });
+			string choose;
+			cin >> choose;
+			coordAtack[0] = choose[0] % static_cast<int>('a');
+			cout << endl;
+			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14, 17 });
+			cin >> coordAtack[1];
+
+		} while (coordAtack[0]<0 || coordAtack[0]>FIELD_SIZE || coordAtack[1]<0 || coordAtack[1]>FIELD_SIZE);
+		break;
+	}
+	}
+
+}
+
 bool Controller::isKeyPressed(const int& key) const
 {
 	const unsigned int MSB = 0x8000;
@@ -25,9 +71,9 @@ void Controller::run()
 {
 	Time_.setStartTime(clock());
 	bool turn = true;
-	int coordAtack[2];
+	vector<int> coordAtack = {0,0} ;
 	bool hitting = false;
-	string choose;
+	
 
 	while (!Model_.getUser().isEndOfGame() && !Model_.getComputer().isEndOfGame())
 	{
@@ -38,46 +84,7 @@ void Controller::run()
 		}
 		if (turn)
 		{
-			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,14 });
-			cout << "At first write letter then number without Enter : " << endl;
-			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,15 });
-			cout << "Enter - pause, any key to atack ship";
-			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,16 });
-
-
-			switch (_getch())
-			{
-
-			case VK_RETURN : 
-			// enter - pause
-			{
-				clock_t startPause = clock();
-				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 17, 17 });
-				cout << "Pause, press space to continue, seconds :\t";
-				while (!isKeyPressed (VK_SPACE))
-				{
-					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 60, 17 });
-					cout << static_cast<int>(clock() - startPause) / CLOCKS_PER_SEC;
-					Sleep(1000);
-				}
-				break;
-			}
-			default :
-			{
-				do
-				{
-					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14, 16 });
-					cin >> choose;
-					coordAtack[0] = choose[0] % static_cast<int>('a');
-					cout << endl;
-					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14, 17 });
-					cin >> coordAtack[1];
-
-				} while (coordAtack[0]<0 || coordAtack[0]>FIELD_SIZE || coordAtack[1]<0 || coordAtack[1]>FIELD_SIZE);
-				break;
-			}
-			}
-
+			input(coordAtack);
 
 
 			Model_.getUser().setEnemyField(coordAtack[0], coordAtack[1], Model_.getComputer());
