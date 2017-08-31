@@ -1,6 +1,7 @@
 #ifndef Constants_H
 #define Constants_H
 
-const int FIELD_SIZE = 10;
+enum  FildSize{ STANDART_FIELD = 10 };
+
 
 #endif

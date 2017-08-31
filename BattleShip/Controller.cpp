@@ -49,7 +49,7 @@ void Controller::input(vector<int>& coordAtack)
 			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14, 17 });
 			cin >> coordAtack[1];
 
-		} while (coordAtack[0]<0 || coordAtack[0]>FIELD_SIZE || coordAtack[1]<0 || coordAtack[1]>FIELD_SIZE);
+		} while (coordAtack[0]<0 || coordAtack[0]>STANDART_FIELD || coordAtack[1]<0 || coordAtack[1]>STANDART_FIELD);
 		break;
 	}
 	}
@@ -121,8 +121,8 @@ void Controller::run()
 			if (!hitting)
 			{
 				do {
-					coordAtack[0] = rand() % FIELD_SIZE;
-					coordAtack[1] = rand() % FIELD_SIZE;
+					coordAtack[0] = rand() % STANDART_FIELD;
+					coordAtack[1] = rand() % STANDART_FIELD;
 				} while (Model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) != ' ');
 			}
 			if (Model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) == ' ')

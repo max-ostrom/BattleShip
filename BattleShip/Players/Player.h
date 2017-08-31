@@ -28,8 +28,8 @@ public:
 private:
 	std::vector<std::shared_ptr<Ship>> YourShips_;
 
-	char yourField_[FIELD_SIZE][FIELD_SIZE];
-	char enemyField_[FIELD_SIZE][FIELD_SIZE];
+	char yourField_[STANDART_FIELD][STANDART_FIELD];
+	char enemyField_[STANDART_FIELD][STANDART_FIELD];
 
 	void addShip(IFactory& factory);
 };

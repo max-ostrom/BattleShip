@@ -5,9 +5,9 @@ using namespace std;
 
 bool Player::isEndOfGame() const
 {
-	for (int i = 0; i < FIELD_SIZE; i++)
+	for (int i = 0; i < STANDART_FIELD; i++)
 	{
-		for (int j = 0; j < FIELD_SIZE; j++)
+		for (int j = 0; j < STANDART_FIELD; j++)
 		{
 			if (getField(i, j) == 'X')
 				return false;
@@ -51,7 +51,7 @@ bool Player::isShipAlive(shared_ptr<Ship> Ship_)
 
 char Player::getField(const int& i, const int& j) const
 {
-	if (i >= 0 && i < FIELD_SIZE && j >= 0 && j < FIELD_SIZE)
+	if (i >= 0 && i < STANDART_FIELD && j >= 0 && j < STANDART_FIELD)
 		return yourField_[i][j];
 
 	else
@@ -60,7 +60,7 @@ char Player::getField(const int& i, const int& j) const
 
 char Player::getEnemyField(const int& i, const int& j) const
 {
-	if (i >= 0 && i < FIELD_SIZE+1 && j >= 0 && j < FIELD_SIZE+1)
+	if (i >= 0 && i < STANDART_FIELD+1 && j >= 0 && j < STANDART_FIELD+1)
 		return enemyField_[i][j];
 
 	else
@@ -115,9 +115,9 @@ Player::Player(IShipSettings& shipSettings)
 {
 
 
-	for (int i = 0; i < FIELD_SIZE; i++)
+	for (int i = 0; i < STANDART_FIELD; i++)
 	{
-		for (int j = 0; j < FIELD_SIZE; j++)
+		for (int j = 0; j < STANDART_FIELD; j++)
 		{
 			enemyField_[i][j] = ' ';
 			yourField_[i][j] = ' ';

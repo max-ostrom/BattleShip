@@ -2,7 +2,7 @@
 
 
 
-FourDeckShip::FourDeckShip(char field[FIELD_SIZE][FIELD_SIZE])
+FourDeckShip::FourDeckShip(char field[STANDART_FIELD][STANDART_FIELD])
 {
 	coordsX_ = shared_ptr<int>(new int[SHIP_SIZE_]);
 	coordsY_ = shared_ptr<int>(new int[SHIP_SIZE_]);
@@ -15,14 +15,14 @@ FourDeckShip::FourDeckShip(char field[FIELD_SIZE][FIELD_SIZE])
 	
 	case 0://vertical
 	{
-		int m = rand() % (FIELD_SIZE - SHIP_SIZE_ + 1);
-		int n = rand() % FIELD_SIZE;
+		int m = rand() % (STANDART_FIELD - SHIP_SIZE_ + 1);
+		int n = rand() % STANDART_FIELD;
 		
 		
 		while (isCellFreeVertical(field,m,n)) 		
 		{
-			m = rand() % (FIELD_SIZE - SHIP_SIZE_ + 1);
-			n = rand() % FIELD_SIZE;
+			m = rand() % (STANDART_FIELD - SHIP_SIZE_ + 1);
+			n = rand() % STANDART_FIELD;
 		}
 		
 		
@@ -48,14 +48,14 @@ FourDeckShip::FourDeckShip(char field[FIELD_SIZE][FIELD_SIZE])
 	case 1://horizontal
 		
 		
-		int m = rand() % FIELD_SIZE;
-		int n = rand() % (FIELD_SIZE - SHIP_SIZE_ + 1);
+		int m = rand() % STANDART_FIELD;
+		int n = rand() % (STANDART_FIELD - SHIP_SIZE_ + 1);
 		
 		
 		while (isCellFreeHorizontal(field,m,n))
 		{
-			m = rand() % FIELD_SIZE;
-			n = rand() % (FIELD_SIZE - SHIP_SIZE_ + 1);
+			m = rand() % STANDART_FIELD;
+			n = rand() % (STANDART_FIELD - SHIP_SIZE_ + 1);
 		}
 
 
@@ -84,7 +84,7 @@ const int& FourDeckShip::getShipSize() const
 	return SHIP_SIZE_;
 }
 
-bool FourDeckShip::isCellFreeHorizontal(const char field[FIELD_SIZE][FIELD_SIZE], const int m, const int n) const
+bool FourDeckShip::isCellFreeHorizontal(const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const
 {
 	return field[m][n] == 'X' || field[m][n + 1] == 'X' ||
 		field[m][n + 2] == 'X' || field[m][n + 3] == 'X' ||
@@ -97,7 +97,7 @@ bool FourDeckShip::isCellFreeHorizontal(const char field[FIELD_SIZE][FIELD_SIZE]
 		field[m + 1][n + 3] == 'X' || field[m + 1][n + 4] == 'X';
 }
 
-bool FourDeckShip::isCellFreeVertical(const char field[FIELD_SIZE][FIELD_SIZE], const int m, const int n) const
+bool FourDeckShip::isCellFreeVertical(const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const
 {
 	return field[m][n] == 'X' || field[m + 1][n] == 'X' ||
 		field[m + 2][n] == 'X' || field[m + 3][n] == 'X' ||

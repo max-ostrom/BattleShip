@@ -12,11 +12,11 @@ class SingleDeckShip :
 	public Ship
 {
 public:
-	SingleDeckShip(char field[FIELD_SIZE][FIELD_SIZE]);
+	SingleDeckShip(char field[STANDART_FIELD][STANDART_FIELD]);
 	virtual const int& getShipSize()const override;
 private:
-	virtual bool isCellFreeHorizontal(const char field[FIELD_SIZE][FIELD_SIZE], const int m, const int n)const override;
-	virtual bool isCellFreeVertical(const char field[FIELD_SIZE][FIELD_SIZE], const int m, const int n)const override;
+	virtual bool isCellFreeHorizontal(const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n)const override;
+	virtual bool isCellFreeVertical(const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n)const override;
 	const int SHIP_SIZE_ = 1;
 };
 

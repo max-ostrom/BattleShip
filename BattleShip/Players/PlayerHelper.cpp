@@ -15,19 +15,19 @@ PlayerHelper::PlayerHelper(IField& field, shared_ptr<Ship> ship) : Field_(field)
 	}
 
 	//leftbottomconnor
-	else if (Ship_->getX().get()[Ship_->getShipSize() - 1] == FIELD_SIZE - 1 && Ship_->getY().get()[0] == 0)
+	else if (Ship_->getX().get()[Ship_->getShipSize() - 1] == STANDART_FIELD - 1 && Ship_->getY().get()[0] == 0)
 	{
 		fillCells(FillLeftBottomConnorCellCommand(*this));
 	}
 
 	//righttopconnor
-	else if (Ship_->getX().get()[0] == 0 && Ship_->getY().get()[Ship_->getShipSize() - 1] == FIELD_SIZE - 1)
+	else if (Ship_->getX().get()[0] == 0 && Ship_->getY().get()[Ship_->getShipSize() - 1] == STANDART_FIELD - 1)
 	{
 		fillCells(FillRightTopConnorCellCommand(*this));
 	}
 
 	//rightbottomconnor
-	else if (Ship_->getX().get()[Ship_->getShipSize() - 1] == FIELD_SIZE - 1 && Ship_->getY().get()[Ship_->getShipSize() - 1] == FIELD_SIZE - 1)
+	else if (Ship_->getX().get()[Ship_->getShipSize() - 1] == STANDART_FIELD - 1 && Ship_->getY().get()[Ship_->getShipSize() - 1] == STANDART_FIELD - 1)
 	{
 		fillCells(FillRightBottomConnorCellCommand(*this));
 	}
@@ -39,13 +39,13 @@ PlayerHelper::PlayerHelper(IField& field, shared_ptr<Ship> ship) : Field_(field)
 	}
 
 	//rightside
-	else if (Ship_->getY().get()[Ship_->getShipSize() - 1] == FIELD_SIZE - 1)
+	else if (Ship_->getY().get()[Ship_->getShipSize() - 1] == STANDART_FIELD - 1)
 	{
 		fillCells(FillRightSideCellCommand(*this));
 	}
 
 	//bottomside
-	else if (Ship_->getX().get()[Ship_->getShipSize() - 1] == FIELD_SIZE - 1)
+	else if (Ship_->getX().get()[Ship_->getShipSize() - 1] == STANDART_FIELD - 1)
 	{
 		fillCells(FillBottomSideCellCommand(*this));
 	}

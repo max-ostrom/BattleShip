@@ -2,7 +2,7 @@
 
 
 
-SingleDeckShip::SingleDeckShip(char field[FIELD_SIZE][FIELD_SIZE])
+SingleDeckShip::SingleDeckShip(char field[STANDART_FIELD][STANDART_FIELD])
 {
 	coordsX_ = shared_ptr<int>(new int[SHIP_SIZE_]);
 	coordsY_ = shared_ptr<int>(new int[SHIP_SIZE_]);
@@ -12,14 +12,14 @@ SingleDeckShip::SingleDeckShip(char field[FIELD_SIZE][FIELD_SIZE])
 
 
 	
-	int m = rand() % FIELD_SIZE - SHIP_SIZE_ + 1;
-	int n = rand() % FIELD_SIZE - SHIP_SIZE_ + 1;
+	int m = rand() % STANDART_FIELD - SHIP_SIZE_ + 1;
+	int n = rand() % STANDART_FIELD - SHIP_SIZE_ + 1;
 
 
 	while (isCellFreeHorizontal(field, m, n))
 	{
-		m = rand() % FIELD_SIZE - SHIP_SIZE_ + 1;
-		n = rand() % FIELD_SIZE - SHIP_SIZE_ + 1;
+		m = rand() % STANDART_FIELD - SHIP_SIZE_ + 1;
+		n = rand() % STANDART_FIELD - SHIP_SIZE_ + 1;
 	}
 
 
@@ -35,7 +35,7 @@ const int& SingleDeckShip::getShipSize() const
 	return SHIP_SIZE_;
 }
 
-bool SingleDeckShip::isCellFreeHorizontal(const char field[FIELD_SIZE][FIELD_SIZE],const int m,const int n) const
+bool SingleDeckShip::isCellFreeHorizontal(const char field[STANDART_FIELD][STANDART_FIELD],const int m,const int n) const
 {
 	return field[m][n] == 'X' || field[m][n + 1] == 'X' ||
 		field[m][n - 1] == 'X' || field[m + 1][n] == 'X' ||
@@ -44,7 +44,7 @@ bool SingleDeckShip::isCellFreeHorizontal(const char field[FIELD_SIZE][FIELD_SIZ
 		field[m - 1][n - 1] == 'X';
 }
 
-bool SingleDeckShip::isCellFreeVertical(const char field[FIELD_SIZE][FIELD_SIZE], const int m, const int n) const
+bool SingleDeckShip::isCellFreeVertical(const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const
 {
 	return field[m][n] == 'X' || field[m][n + 1] == 'X' ||
 		field[m][n - 1] == 'X' || field[m + 1][n] == 'X' ||
