@@ -1,4 +1,6 @@
-#pragma once
+#ifndef IController_H
+#define IController_H
+
 class IController
 {
 public:
@@ -9,4 +11,4 @@ public:
 	{
 	}
 };
-
+#endif

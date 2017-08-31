@@ -1,5 +1,8 @@
-#pragma once
+#ifndef IView_H
+#define IView_H
+
 #include "Observer.h"
+
 class IView :
 	public Observer
 {
@@ -11,3 +14,4 @@ public:
 private:
 	virtual void endOfGame() const = 0;
 };
+#endif
