@@ -185,6 +185,7 @@
     <ClInclude Include="GameModel.h" />
     <ClInclude Include="IGame.h" />
     <ClInclude Include="ITime.h" />
+    <ClInclude Include="IView.h" />
     <ClInclude Include="Observable.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Players\IField.h" />

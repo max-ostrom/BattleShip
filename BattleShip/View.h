@@ -3,17 +3,17 @@
 
 #include <memory>
 
-#include "Observer.h"
+#include "IView.h"
 #include "GameModel.h"
 
 class View final :
-	public Observer
+	public IView
 {
 public:
 	explicit View(const IGame& gameModel,const ITime& time);
 	void update() const override;
 private:
-	void endOfGame() const;
+	void endOfGame() const override;
 	const IGame& Model_;
 	const ITime& Time_;
 };
