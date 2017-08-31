@@ -1,32 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="Command">
-    <Position X="29.75" Y="5.25" Width="1.5" />
+    <Position X="17.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Command\Command.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Controller">
-    <Position X="9" Y="21.75" Width="3" />
+    <Position X="9.75" Y="18.5" Width="3" />
     <TypeIdentifier>
       <HashCode>ACAAAgAAAQAAAAAAAAAAAAAAAAAAIAAAAAgAAAAAAAA=</HashCode>
       <FileName>Controller.h</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="Time_" />
       <Field Name="Model_" />
+      <Field Name="Time_" />
     </ShowAsAssociation>
   </Class>
   <Class Name="DoubleDeckShip">
-    <Position X="33" Y="17.25" Width="5.75" />
+    <Position X="20.75" Y="14.25" Width="5.75" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAAAAAYAAAIAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
       <FileName>Ships\DoubleDeckShip.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameModel">
-    <Position X="13" Y="24.25" Width="3.25" />
+    <Position X="0.5" Y="16.25" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAEACABAQAgAgABAAAAA=</HashCode>
       <FileName>GameModel.h</FileName>
@@ -37,147 +37,144 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="IGame">
-    <Position X="13.25" Y="19.25" Width="2.5" />
+    <Position X="34.5" Y="13.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAQAAAAABAAAAA=</HashCode>
       <FileName>IGame.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Observable">
-    <Position X="13.5" Y="9.25" Width="3.5" />
+    <Position X="36.25" Y="6.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAQAAAAAE=</HashCode>
       <FileName>Observable.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Observer">
-    <Position X="18.75" Y="20.25" Width="1.5" />
+    <Position X="6.5" Y="17.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>Observer.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="View">
-    <Position X="18" Y="22.25" Width="3" />
+    <Position X="5.75" Y="20.75" Width="3" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAAAAAAAAAAAAABAAAABAAAAAAgAAAAEAAA=</HashCode>
       <FileName>View.h</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="Time_" />
       <Field Name="Model_" />
+      <Field Name="Time_" />
     </ShowAsAssociation>
   </Class>
   <Class Name="FourDeckShip">
-    <Position X="26.5" Y="17.25" Width="5.75" />
+    <Position X="14.25" Y="14.25" Width="5.75" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAAAAAYAAAAAAAAAAAAAAAAEAAAAACAAAAAAA=</HashCode>
       <FileName>Ships\FourDeckShip.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SingleDeckShip">
-    <Position X="20" Y="17.25" Width="5.75" />
+    <Position X="7.75" Y="14.25" Width="5.75" />
     <TypeIdentifier>
       <HashCode>AAkAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
       <FileName>Ships\SingleDeckShip.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Ship">
-    <Position X="29.75" Y="13.25" Width="5.75" />
+    <Position X="17.5" Y="10.25" Width="5.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAYEAAAAAAAEAAAQAAAAAABgACAGEAAAA=</HashCode>
       <FileName>Ships\Ship.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ThreeDeckShip">
-    <Position X="39.5" Y="17.25" Width="5.75" />
+    <Position X="27.25" Y="14.25" Width="5.75" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAAAAAYAAAAAAAAAAAAAACAAAAAAACAAAAAAA=</HashCode>
       <FileName>Ships\ThreeDeckShip.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IShipSettings">
-    <Position X="22" Y="20.25" Width="3" />
+    <Position X="13.75" Y="17.25" Width="3" />
     <TypeIdentifier>
       <HashCode>BAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAEA=</HashCode>
       <FileName>Resource\IShipSettings.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Settings">
-    <Position X="22" Y="22.75" Width="3" />
+    <Position X="13.75" Y="19.75" Width="3" />
     <TypeIdentifier>
       <HashCode>BAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAgAAAAAAGA=</HashCode>
       <FileName>Resource\Settings.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IField">
-    <Position X="48" Y="9" Width="4.25" />
+    <Position X="0.75" Y="6.25" Width="4.25" />
     <TypeIdentifier>
       <HashCode>CACAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAiAAAAAAAAA=</HashCode>
       <FileName>Players\IField.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IPlayer">
-    <Position X="13.5" Y="11.75" Width="3.25" />
+    <Position X="1.25" Y="8.75" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAEAAAgAAAAAAIAAAAA=</HashCode>
       <FileName>Players\IPlayer.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Player">
-    <Position X="13" Y="14.75" Width="4.25" />
+    <Position X="0.75" Y="11.75" Width="4.25" />
     <TypeIdentifier>
       <HashCode>CACAAAAAAAAAAAAAAAAAAAIAEAkAAAAAAiAQAYAAABA=</HashCode>
       <FileName>Players\Player.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PlayerHelper">
-    <Position X="32.75" Y="3.75" Width="3.25" />
+    <Position X="19.75" Y="0.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAABBAAAAAAAAwAAAAAAAAEAAgAAAAAAAAAAAAAABAA=</HashCode>
+      <HashCode>AAABBAAAAAAAAwAAAAAAAAEAAAAAAAAAAAAAAAAAhAA=</HashCode>
       <FileName>Players\PlayerHelper.h</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="Player_" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="FactoryDoubleShip">
-    <Position X="18.75" Y="11.25" Width="4.25" />
+    <Position X="7.5" Y="8.25" Width="4.25" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
       <FileName>Factory\FactoryDoubleShip.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IFactory">
-    <Position X="26.25" Y="9.25" Width="4.25" />
+    <Position X="15" Y="6.25" Width="4.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAg=</HashCode>
       <FileName>Factory\Factory.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FactoryFourShip">
-    <Position X="23.75" Y="11.25" Width="4.25" />
+    <Position X="12.5" Y="8.25" Width="4.25" />
     <TypeIdentifier>
       <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
       <FileName>Factory\FactoryFourShip.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FactorySingleShip">
-    <Position X="28.75" Y="11.25" Width="4.25" />
+    <Position X="17.5" Y="8.25" Width="4.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAg=</HashCode>
       <FileName>Factory\FactorySingleShip.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FactoryThreeShip">
-    <Position X="33.75" Y="11.25" Width="4.25" />
+    <Position X="22.5" Y="8.25" Width="4.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAg=</HashCode>
       <FileName>Factory\FactoryThreeShip.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FillBottomSideCellCommand">
-    <Position X="14.5" Y="7.25" Width="3.25" />
+    <Position X="2.25" Y="4.25" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
       <FileName>Command\FillBottomSideCellCommand.h</FileName>
@@ -187,7 +184,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="FillLeftBottomConnorCellCommand">
-    <Position X="39.25" Y="7.25" Width="3.75" />
+    <Position X="27" Y="4.25" Width="3.75" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAAAAAAAAAAAEACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Command\FillLeftBottomConnorCellCommand.h</FileName>
@@ -197,7 +194,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="FillLeftTopConnorCellCommand">
-    <Position X="18.5" Y="7.25" Width="3.5" />
+    <Position X="6.25" Y="4.25" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAAAAAAAAAAAEAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Command\FillLeftTopConnorCellCommand.h</FileName>
@@ -207,7 +204,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="FillLeftSideCellCommand">
-    <Position X="22.75" Y="7.25" Width="3" />
+    <Position X="10.5" Y="4.25" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAoAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Command\FillLeftSideCellCommand.h</FileName>
@@ -217,7 +214,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="FillRightBottomConnorCellCommand">
-    <Position X="34.75" Y="7.25" Width="3.75" />
+    <Position X="22.5" Y="4.25" Width="3.75" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAAAAAAAAAAAEAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Command\FillRightBottomConnorCellCommand.h</FileName>
@@ -227,7 +224,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="FillRightSideCellCommand">
-    <Position X="26.5" Y="7.25" Width="3.25" />
+    <Position X="14.25" Y="4.25" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
       <FileName>Command\FillRightSideCellCommand.h</FileName>
@@ -237,7 +234,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="FillRightTopConnorCellCommand">
-    <Position X="30.5" Y="7.25" Width="3.5" />
+    <Position X="18.25" Y="4.25" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAAAAAAAAAAAEAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Command\FillRightTopConnorCellCommand.h</FileName>
@@ -247,7 +244,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="FillTopSideCellCommand">
-    <Position X="43.75" Y="7.25" Width="3" />
+    <Position X="31.5" Y="4.25" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAAAAAAAAAAAEAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
       <FileName>Command\FillTopSideCellCommand.h</FileName>
@@ -257,10 +254,24 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="ITime">
-    <Position X="13.25" Y="21.75" Width="2.5" />
+    <Position X="37.75" Y="14" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAIAAAAgAAAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ITime.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IView">
+    <Position X="6.5" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>IView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IController">
+    <Position X="10.5" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IController.h</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
