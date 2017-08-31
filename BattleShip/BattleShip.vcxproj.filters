@@ -200,6 +200,9 @@
     <ClInclude Include="IView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="IController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

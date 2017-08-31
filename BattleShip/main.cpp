@@ -8,8 +8,8 @@ int main()
 		Player User(settings);
 		Player Computer(settings);
 		GameModel model(User,Computer);
-		shared_ptr<Controller> controller = make_shared<Controller>(model,model);
-		shared_ptr<View> view = make_shared<View>(model,model);
+		shared_ptr<IController> controller = make_shared<Controller>(model,model);
+		shared_ptr<IView> view = make_shared<View>(model,model);
 		model.getComputer().addObserver(view);
 		model.getUser().addObserver(view);
 		controller->run();

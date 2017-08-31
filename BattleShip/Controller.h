@@ -2,12 +2,12 @@
 #define Controller_H
 
 #include "GameModel.h"
-
-class Controller final
+#include "IController.h"
+class Controller final : 
+	public IController
 {
 public:
-	//pattern STATE soon
-	void run();
+	void run() override;
 	explicit Controller(IGame& gameModel, ITime& time);
 private:
 	bool isKeyPressed(const int& key) const;

@@ -183,6 +183,7 @@
     <ClInclude Include="Factory\FactorySingleShip.h" />
     <ClInclude Include="Factory\FactoryThreeShip.h" />
     <ClInclude Include="GameModel.h" />
+    <ClInclude Include="IController.h" />
     <ClInclude Include="IGame.h" />
     <ClInclude Include="ITime.h" />
     <ClInclude Include="IView.h" />
