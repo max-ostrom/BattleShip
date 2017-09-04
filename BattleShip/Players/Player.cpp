@@ -103,7 +103,7 @@ const std::vector<std::shared_ptr<Ship>>& Player::getShips() const
 	return YourShips_;
 }
 
-Player::Player(IShipSettings& shipSettings)
+Player::Player(list<shared_ptr<IFactory>> Factories)
 {
 	for (int i = 0; i < STANDART_FIELD; i++)
 	{
@@ -114,19 +114,9 @@ Player::Player(IShipSettings& shipSettings)
 		}
 	}
 	try {
-		addShip(FactoryFourShip());
-
-		for (int i = 0; i < shipSettings.getThreeDeckShipCounter(); i++)
+		for (shared_ptr<IFactory> item : Factories)
 		{
-			addShip(FactoryThreeShip());
-		}
-		for (int i = 0; i < shipSettings.getDoubleDeckShipCounter(); i++)
-		{
-			addShip(FactoryDoubleShip());
-		}
-		for (int i = 0; i < shipSettings.getSingleDeckShipCounter(); i++)
-		{
-			addShip(FactorySingleShip());
+			addShip(item);
 		}
 	}
 	catch (exception& ex)
@@ -135,9 +125,9 @@ Player::Player(IShipSettings& shipSettings)
 	}
 }
 
-void Player::addShip(IFactory& factory)
+void Player::addShip(shared_ptr<IFactory> factory)
 {
-	YourShips_.push_back(factory.createShip(yourField_));
+	YourShips_.push_back(factory->createShip(yourField_));
 }
 
 Player::~Player()

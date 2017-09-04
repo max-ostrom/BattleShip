@@ -59,26 +59,7 @@ PlayerHelper::PlayerHelper(IField& field, shared_ptr<Ship> ship) : Field_(field)
 
 	else
 	{
-		if (Ship_->getX().get()[0] - Ship_->getX().get()[1] != 0)
-		{
-			for (int i = Ship_->getX().get()[0] - 1; i < Ship_->getX().get()[0] + Ship_->getShipSize() + 1; i++)
-			{
-				for (int j = Ship_->getY().get()[0] - 1; j < Ship_->getY().get()[0] + 2; j++)
-				{
-					Field_.setField(i, j);
-				}
-			}
-		}
-		else
-		{
-			for (int i = Ship_->getX().get()[0] - 1; i < Ship_->getX().get()[0] + 2; i++)
-			{
-				for (int j = Ship_->getY().get()[0] - 1; j < Ship_->getY().get()[0] + Ship_->getShipSize() + 1; j++)
-				{
-					Field_.setField(i, j);
-				}
-			}
-		}
+		fillCells(FillStandartCellCommand(*this));
 	}
 
 }

@@ -1,5 +1,5 @@
 #include "Controller.h"
-
+#include "View.h"
 #include <chrono>
 #include <thread>
 #include <iostream>
@@ -151,5 +151,7 @@ void Controller::run()
 }
 Controller::Controller(IGame& model, ITime& time) : Model_(model), Time_(time)
 {
-
+	view = make_shared<View>(model,time);
+	model.getComputer().addObserver(view);
+	model.getUser().addObserver(view);
 }

@@ -5,13 +5,19 @@ int main()
 	try 
 	{
 		IShipSettings& settings = Settings();
-		IPlayer& User = Player(settings);
-		IPlayer& Computer = Player(settings);
+		list<shared_ptr<IFactory>> Factories;
+		Factories.push_back(make_shared<FactoryFourShip>());
+		for(int i = 0; i <settings.getThreeDeckShipCounter(); i++)
+		Factories.push_back(make_shared<FactoryThreeShip>());
+		for (int i = 0; i < settings.getDoubleDeckShipCounter(); i++)
+		Factories.push_back(make_shared<FactoryDoubleShip>());
+		for (int i = 0; i < settings.getSingleDeckShipCounter(); i++)
+		Factories.push_back(make_shared<FactorySingleShip>());
+		
+		IPlayer& User = Player(Factories);
+		IPlayer& Computer = Player(Factories);
 		GameModel model(User, Computer);
-		shared_ptr<Observer> view = make_shared<View>(model, model);
 		shared_ptr<IController> controller = make_shared<Controller>(model, model);
-		model.getComputer().addObserver(view);
-		model.getUser().addObserver(view);
 		controller->run();
 		return 0;
 	}

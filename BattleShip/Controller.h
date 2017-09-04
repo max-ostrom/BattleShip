@@ -16,7 +16,8 @@ private:
 	void computerAtack();
 	void input() override;
 	bool isKeyPressed(const int& key) const;
-	
+
+	shared_ptr<Observer> view ;
 	IGame& Model_;
 	ITime& Time_;
 

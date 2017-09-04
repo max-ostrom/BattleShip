@@ -29,6 +29,7 @@ public:
 		}
 
 	}
+
 private:
 	PlayerHelper& PlayerHelper_;
 };

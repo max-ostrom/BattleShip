@@ -163,6 +163,7 @@
     <ClCompile Include="Ships\SingleDeckShip.cpp" />
     <ClCompile Include="Ships\ThreeDeckShip.cpp" />
     <ClCompile Include="View.cpp" />
+    <ClCompile Include="ViewModel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Command\Command.h" />
@@ -182,6 +183,7 @@
     <ClInclude Include="Factory\FactoryFourShip.h" />
     <ClInclude Include="Factory\FactorySingleShip.h" />
     <ClInclude Include="Factory\FactoryThreeShip.h" />
+    <ClInclude Include="FillStandartCellCommand.h" />
     <ClInclude Include="GameModel.h" />
     <ClInclude Include="IController.h" />
     <ClInclude Include="IGame.h" />
@@ -202,6 +204,7 @@
     <ClInclude Include="Ships\SingleDeckShip.h" />
     <ClInclude Include="Ships\ThreeDeckShip.h" />
     <ClInclude Include="View.h" />
+    <ClInclude Include="ViewModel.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

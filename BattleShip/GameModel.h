@@ -14,7 +14,7 @@ public:
 	const IPlayer& getComputer() const override;
 	void setStartTime(clock_t start) override;
 	const clock_t& getStartTime() const override;
-	GameModel(IPlayer& you = Player(), IPlayer& computer = Player());
+	GameModel(IPlayer& you , IPlayer& computer );
 private:
 	IPlayer& You_;
 	IPlayer& Computer_;

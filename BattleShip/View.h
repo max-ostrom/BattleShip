@@ -6,7 +6,7 @@
 #include "Observer.h"
 #include "GameModel.h"
 class View final :
-	public GameModel, public Observer
+	 public Observer
 {
 public:
 	explicit View(const IGame& game,const ITime& time);
