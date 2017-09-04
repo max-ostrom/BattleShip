@@ -125,14 +125,7 @@ void Controller::input()
 
 bool Controller::isKeyPressed(const int& key) const
 {
-	const unsigned int MSB = 0x8000;
-
-	if (GetAsyncKeyState(key) & MSB)
-	{
-		return true;
-	}
-
-	return false;
+		return static_cast<bool>(GetAsyncKeyState(key) & 0x8000);
 }
 void Controller::run()
 {

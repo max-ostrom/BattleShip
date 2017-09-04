@@ -72,7 +72,6 @@ void View::endOfGame() const
 		}
 	});
 
-
 	int computerAliveShips = 0;
 	//computers alive ships
 	for_each(
@@ -92,7 +91,6 @@ void View::endOfGame() const
 	cout << "Computer ships" << endl;
 	cout << numbers << endl;
 
-
 	//print computer ships
 	for (int i = 0; i < STANDART_FIELD; i++)
 	{
@@ -105,15 +103,10 @@ void View::endOfGame() const
 
 	}
 
-
 	// time and ships count
 	cout << "Time: "
 		<< static_cast<int>((clock() - Time_.getStartTime()) / CLOCKS_PER_SEC) / 60
 		<< ":"
-
-
-
-
 		<< static_cast<int>((clock() - Time_.getStartTime()) / CLOCKS_PER_SEC) % 60
 		<< "Your Ships : " << yourAliveShips << endl
 		<< "Computer Ships : " << computerAliveShips << endl;

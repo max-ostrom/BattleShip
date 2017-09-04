@@ -47,9 +47,7 @@ bool Player::isShipAlive(shared_ptr<Ship> Ship_)
 	return true;
 }
 
-
-
-char Player::getField(const int& i, const int& j) const
+char Player::getField(const int i, const int j) const
 {
 	if (i >= 0 && i < STANDART_FIELD && j >= 0 && j < STANDART_FIELD)
 		return yourField_[i][j];
@@ -58,7 +56,7 @@ char Player::getField(const int& i, const int& j) const
 		return NULL;
 }
 
-char Player::getEnemyField(const int& i, const int& j) const
+char Player::getEnemyField(const int i, const int j) const
 {
 	if (i >= 0 && i < STANDART_FIELD+1 && j >= 0 && j < STANDART_FIELD+1)
 		return enemyField_[i][j];
@@ -67,13 +65,7 @@ char Player::getEnemyField(const int& i, const int& j) const
 		return NULL;
 }
 
-
-
-
-
-
-
-void Player::setField(const int& i, const int& j)
+void Player::setField(const int i, const int j)
 {
 	
 	if (yourField_[i][j] == ' ' || yourField_[i][j] == '*')
@@ -87,7 +79,7 @@ void Player::setField(const int& i, const int& j)
 	notifyUpdate();
 }
 
-void Player::setEnemyField(const int& i, const int& j,const IField& p)
+void Player::setEnemyField(const int i, const int j,const IField& p)
 {
 	
 	if (p.getField(i, j) == ' ' || p.getField(i, j) == '*')
@@ -113,8 +105,6 @@ const std::vector<std::shared_ptr<Ship>>& Player::getShips() const
 
 Player::Player(IShipSettings& shipSettings)
 {
-
-
 	for (int i = 0; i < STANDART_FIELD; i++)
 	{
 		for (int j = 0; j < STANDART_FIELD; j++)
@@ -123,38 +113,33 @@ Player::Player(IShipSettings& shipSettings)
 			yourField_[i][j] = ' ';
 		}
 	}
-
-	
 	try {
 		addShip(FactoryFourShip());
 
-		
 		for (int i = 0; i < shipSettings.getThreeDeckShipCounter(); i++)
 		{
 			addShip(FactoryThreeShip());
 		}
-		
 		for (int i = 0; i < shipSettings.getDoubleDeckShipCounter(); i++)
 		{
 			addShip(FactoryDoubleShip());
 		}
-
-		
 		for (int i = 0; i < shipSettings.getSingleDeckShipCounter(); i++)
 		{
 			addShip(FactorySingleShip());
 		}
-		
 	}
 	catch (exception& ex)
 	{
 		cout <<ex.what() << endl;
 	}
 }
+
 void Player::addShip(IFactory& factory)
 {
 	YourShips_.push_back(factory.createShip(yourField_));
 }
+
 Player::~Player()
 {
 	
