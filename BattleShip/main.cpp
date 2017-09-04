@@ -5,8 +5,8 @@ int main()
 	try 
 	{
 		IShipSettings& settings = Settings();
-		Player User(settings);
-		Player Computer(settings);
+		IPlayer& User = Player(settings);
+		IPlayer& Computer = Player(settings);
 		GameModel model(User, Computer);
 		shared_ptr<Observer> view = make_shared<View>(model, model);
 		shared_ptr<IController> controller = make_shared<Controller>(model, model);
