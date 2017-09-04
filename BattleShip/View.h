@@ -13,7 +13,7 @@ public:
 	void update() const override;
 private:
 	void endOfGame() const;
-	const IGame& game_;
-	const ITime& time_;
+	const IGame& Model_;
+	const ITime& Time_;
 };
 #endif

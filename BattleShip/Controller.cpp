@@ -10,7 +10,74 @@
 
 using namespace std;
 
-void Controller::input(vector<int>& coordAtack)
+void Controller::userAtack()
+{
+	input();
+
+
+	Model_.getUser().setEnemyField(coordAtack[0], coordAtack[1], Model_.getComputer());
+	Model_.getComputer().setField(coordAtack[0], coordAtack[1]);
+
+
+	// Player_ shot
+	if (Model_.getComputer().getField(coordAtack[0], coordAtack[1]) == '#')
+	{
+		for_each(
+			Model_.getComputer().getShips().begin(),
+			Model_.getComputer().getShips().end(),
+			[this](std::shared_ptr<Ship> Ship_) mutable// Lambda expression
+		{
+			for (int i = 0; i < Ship_->getShipSize(); i++)
+			{
+				if (Ship_->getX().get()[i] == coordAtack[0] && Ship_->getY().get()[i] == coordAtack[1])
+				{
+					Model_.getComputer().isShipAlive(Ship_);
+				}
+			}
+		});
+	}
+	else
+	{
+		turn = false;
+	}
+}
+
+void Controller::computerAtack()
+{
+	
+	do {
+		coordAtack[0] = rand() % STANDART_FIELD;
+		coordAtack[1] = rand() % STANDART_FIELD;
+	} while (Model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) != ' ');
+	
+	if (Model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) == ' ')
+	{
+		Model_.getUser().setField(coordAtack[0], coordAtack[1]);
+		if (Model_.getUser().getField(coordAtack[0], coordAtack[1]) == '#')
+		{
+			for_each(
+				Model_.getUser().getShips().begin(),
+				Model_.getUser().getShips().end(),
+				[this](std::shared_ptr<Ship> Ship_) mutable// Lambda expression
+			{
+				for (int i = 0; i < Ship_->getShipSize(); i++)
+				{
+					if (Ship_->getX().get()[i] == coordAtack[0] && Ship_->getY().get()[i] == coordAtack[1])
+					{
+						Model_.getUser().isShipAlive(Ship_);
+					}
+				}
+			});
+
+		}
+		else
+		{
+			turn = true;
+		}
+	}
+}
+
+void Controller::input()
 {
 
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,14 });
@@ -70,11 +137,7 @@ bool Controller::isKeyPressed(const int& key) const
 void Controller::run()
 {
 	Time_.setStartTime(clock());
-	bool turn = true;
-	vector<int> coordAtack = {0,0} ;
-	bool hitting = false;
 	
-
 	while (!Model_.getUser().isEndOfGame() && !Model_.getComputer().isEndOfGame())
 	{
 		if (Model_.getUser().isEndOfGame() || Model_.getComputer().isEndOfGame())
@@ -84,75 +147,13 @@ void Controller::run()
 		}
 		if (turn)
 		{
-			input(coordAtack);
-
-
-			Model_.getUser().setEnemyField(coordAtack[0], coordAtack[1], Model_.getComputer());
-			Model_.getComputer().setField(coordAtack[0], coordAtack[1]);
-
-
-			// Player_ shot
-			if (Model_.getComputer().getField(coordAtack[0], coordAtack[1]) == '#')
-			{
-				for_each(
-					Model_.getComputer().getShips().begin(),
-					Model_.getComputer().getShips().end(),
-					[this, &coordAtack](std::shared_ptr<Ship> Ship_) mutable// Lambda expression
-				{
-					for (int i = 0; i < Ship_->getShipSize(); i++)
-					{
-						if (Ship_->getX().get()[i] == coordAtack[0] && Ship_->getY().get()[i] == coordAtack[1])
-						{
-							Model_.getComputer().isShipAlive(Ship_);
-						}
-					}
-				});
-			}
-			else
-			{
-				turn = false;
-			}
+			userAtack();
 		}
-
-
 		// computer shot
 		else
 		{
-			if (!hitting)
-			{
-				do {
-					coordAtack[0] = rand() % STANDART_FIELD;
-					coordAtack[1] = rand() % STANDART_FIELD;
-				} while (Model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) != ' ');
-			}
-			if (Model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) == ' ')
-			{
-				Model_.getUser().setField(coordAtack[0], coordAtack[1]);
-				if (Model_.getUser().getField(coordAtack[0], coordAtack[1]) == '#')
-				{
-					for_each(
-						Model_.getUser().getShips().begin(),
-						Model_.getUser().getShips().end(),
-						[this, &coordAtack](std::shared_ptr<Ship> Ship_) mutable// Lambda expression
-					{
-						for (int i = 0; i < Ship_->getShipSize(); i++)
-						{
-							if (Ship_->getX().get()[i] == coordAtack[0] && Ship_->getY().get()[i] == coordAtack[1])
-							{
-								Model_.getUser().isShipAlive(Ship_);
-							}
-						}
-					});
-
-				}
-				else
-				{
-					turn = true;
-				}
-			}
-
+			computerAtack();
 		}
-
 	}
 }
 Controller::Controller(IGame& model, ITime& time) : Model_(model), Time_(time)

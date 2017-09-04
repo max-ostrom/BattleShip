@@ -12,9 +12,15 @@ public:
 	explicit Controller(IGame& gameModel, ITime& time);
 private:
 	//here user input coords 
-	void input(vector<int>& coordAtack) override;
+	void userAtack();
+	void computerAtack();
+	void input() override;
 	bool isKeyPressed(const int& key) const;
+	
 	IGame& Model_;
 	ITime& Time_;
+
+	vector<int> coordAtack = { 0,0 };
+	bool turn = true;
 };
 #endif
