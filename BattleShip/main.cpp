@@ -7,10 +7,11 @@ int main()
 		IShipSettings& settings = Settings();
 		Player User(settings);
 		Player Computer(settings);
-		shared_ptr<View> view = make_shared<View>(User,Computer);
-		shared_ptr<IController> controller = make_shared<Controller>(*view.get(), *view.get());
-		view->getComputer().addObserver(view);
-		view->getUser().addObserver(view);
+		GameModel model(User, Computer);
+		shared_ptr<View> view = make_shared<View>(model, model);
+		shared_ptr<IController> controller = make_shared<Controller>(model, model);
+		model.getComputer().addObserver(view);
+		model.getUser().addObserver(view);
 		controller->run();
 		return 0;
 	}

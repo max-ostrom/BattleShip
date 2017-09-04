@@ -9,10 +9,11 @@ class View final :
 	public GameModel, public Observer
 {
 public:
-	explicit View(IPlayer& you = Player(), IPlayer& computer = Player());
+	explicit View(const IGame& game,const ITime& time);
 	void update() const override;
 private:
 	void endOfGame() const;
-	
+	const IGame& game_;
+	const ITime& time_;
 };
 #endif
