@@ -249,13 +249,6 @@
       <FileName>ITime.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="IView">
-    <Position X="14.25" Y="10.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAIAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAEAAA=</HashCode>
-      <FileName>IView.h</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="IController">
     <Position X="5.5" Y="17.25" Width="1.5" />
     <TypeIdentifier>

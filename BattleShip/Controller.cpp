@@ -135,17 +135,39 @@ void Controller::run()
 	{
 		if (Model_.getUser().isEndOfGame() || Model_.getComputer().isEndOfGame())
 		{
+			for (int i = 0; i < STANDART_FIELD; i++)
+			{
+				for (int j = 0; j < STANDART_FIELD; j++)
+				{
+					viewModel_.get()->setUserField(i, j, ' ');
+					viewModel_.get()->setComputerField(i, j, Model_.getComputer().getField(i, j));
+				}
+			}
 			_getch();
 			exit(0); // end of game
 		}
 		if (turn)
 		{
 			userAtack();
+			for (int i = 0; i < STANDART_FIELD; i++)
+			{
+				for (int j = 0; j < STANDART_FIELD; j++)
+				{
+					viewModel_.get()->setUserField(i, j, Model_.getUser().getEnemyField(i,j));
+				}
+			}
 		}
 		// computer shot
 		else
 		{
 			computerAtack();
+			for (int i = 0; i < STANDART_FIELD; i++)
+			{
+				for (int j = 0; j < STANDART_FIELD; j++)
+				{
+					viewModel_.get()->setUserField(i, j, Model_.getUser().getField(i, j));
+				}
+			}
 		}
 	}
 }

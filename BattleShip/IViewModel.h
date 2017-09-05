@@ -1,5 +1,7 @@
 #pragma once
-class IViewModel
+#include "Observable.h"
+class IViewModel : 
+	public Observable
 {
 public:
 	virtual void setUserField(const int i, const int j, const char symb) = 0;
