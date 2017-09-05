@@ -8,8 +8,9 @@
 
 #include "View.h"
 
-View::View(const IGame& game,const ITime& time) : Model_(game), Time_(time)
+View::View(const IGame& game) : Model_(game)
 {
+	setStartTime(clock());
 	update();
 }
 void View::update() const
@@ -54,6 +55,14 @@ void View::update() const
 		}
 
 	}
+}
+void View::setStartTime(clock_t start)
+{
+	startGame_ = start;
+}
+const clock_t & View::getStartTime() const
+{
+	return startGame_;
 }
 void View::endOfGame() const
 {
@@ -105,9 +114,9 @@ void View::endOfGame() const
 
 	// time and ships count
 	cout << "Time: "
-		<< static_cast<int>((clock() - Time_.getStartTime()) / CLOCKS_PER_SEC) / 60
+		<< static_cast<int>((clock() - getStartTime()) / CLOCKS_PER_SEC) / 60
 		<< ":"
-		<< static_cast<int>((clock() - Time_.getStartTime()) / CLOCKS_PER_SEC) % 60
+		<< static_cast<int>((clock() - getStartTime()) / CLOCKS_PER_SEC) % 60
 		<< "Your Ships : " << yourAliveShips << endl
 		<< "Computer Ships : " << computerAliveShips << endl;
 }

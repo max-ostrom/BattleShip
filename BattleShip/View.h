@@ -6,14 +6,16 @@
 #include "Observer.h"
 #include "GameModel.h"
 class View final :
-	 public Observer
+	public Observer, public ITime
 {
 public:
-	explicit View(const IGame& game,const ITime& time);
+	explicit View(const IGame& game);
 	void update() const override;
+	void setStartTime(clock_t start) override;
+	const clock_t& getStartTime() const override;
 private:
 	void endOfGame() const;
 	const IGame& Model_;
-	const ITime& Time_;
+	clock_t startGame_;
 };
 #endif

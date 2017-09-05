@@ -49,12 +49,11 @@
   <Class Name="View">
     <Position X="15.5" Y="19.25" Width="3" />
     <TypeIdentifier>
-      <HashCode>ACAAAAAAAAAAAAAAAAAAAABAAAABAAAAAAgAAAAEAAA=</HashCode>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAABAAEADAAAAAAgAAAAEAAA=</HashCode>
       <FileName>View.h</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="Model_" />
-      <Field Name="Time_" />
     </ShowAsAssociation>
   </Class>
   <Class Name="FourDeckShip">
@@ -259,12 +258,11 @@
   <Class Name="Controller">
     <Position X="5.5" Y="19.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAoAAASAAAAIAAAAAAAAAQAAAIBAAAAgIAQAAAAA=</HashCode>
+      <HashCode>AAAAAoAAASAAAAIAAAAAAAAAQAAAIBAAAAgIAQAAAAA=</HashCode>
       <FileName>Controller.h</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="Model_" />
-      <Field Name="Time_" />
     </ShowAsAssociation>
   </Class>
   <Class Name="ViewModel">

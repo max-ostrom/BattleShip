@@ -18,9 +18,9 @@ int main()
 		IPlayer& User = Player(Factories);
 		IPlayer& Computer = Player(Factories);
 		GameModel model(User, Computer);
-		shared_ptr<Observer> view = make_shared<View>(model, model);
+		shared_ptr<Observer> view = make_shared<View>(model);
 		shared_ptr<IViewModel> viewModel = make_shared<ViewModel>();
-		shared_ptr<IController> controller = make_shared<Controller>(model, model, view, viewModel);
+		shared_ptr<IController> controller = make_shared<Controller>(model, view, viewModel);
 		controller->run();
 		return 0;
 	}

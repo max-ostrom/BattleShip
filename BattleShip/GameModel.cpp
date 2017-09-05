@@ -18,14 +18,6 @@ const IPlayer & GameModel::getComputer() const
 {
 	return Computer_;
 }
-void GameModel::setStartTime(clock_t start) 
-{ 
-	startGame_ = start; 
-}
-const clock_t& GameModel::getStartTime() const
-{
-	return startGame_;
-}
 GameModel::GameModel(IPlayer& you , IPlayer& computer )
 	: You_(you) , Computer_(computer)
 {

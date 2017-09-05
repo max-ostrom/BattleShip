@@ -129,7 +129,6 @@ bool Controller::isKeyPressed(const int& key) const
 }
 void Controller::run()
 {
-	Time_.setStartTime(clock());
 	
 	while (!Model_.getUser().isEndOfGame() && !Model_.getComputer().isEndOfGame())
 	{
@@ -171,7 +170,7 @@ void Controller::run()
 		}
 	}
 }
-Controller::Controller(IGame& model, ITime& time, shared_ptr<Observer> view, shared_ptr<IViewModel> viewModel) : Model_(model), Time_(time), view_(view), viewModel_(viewModel)
+Controller::Controller(IGame& model, shared_ptr<Observer> view, shared_ptr<IViewModel> viewModel) : Model_(model), view_(view), viewModel_(viewModel)
 {
 	model.getComputer().addObserver(view_);
 	model.getUser().addObserver(view_);
