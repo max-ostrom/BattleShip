@@ -149,9 +149,8 @@ void Controller::run()
 		}
 	}
 }
-Controller::Controller(IGame& model, ITime& time) : Model_(model), Time_(time)
+Controller::Controller(IGame& model, ITime& time, shared_ptr<Observer> view, shared_ptr<IViewModel> viewModel) : Model_(model), Time_(time), view_(view), viewModel_(viewModel)
 {
-	view = make_shared<View>(model,time);
-	model.getComputer().addObserver(view);
-	model.getUser().addObserver(view);
+	model.getComputer().addObserver(view_);
+	model.getUser().addObserver(view_);
 }

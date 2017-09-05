@@ -188,6 +188,7 @@
     <ClInclude Include="IController.h" />
     <ClInclude Include="IGame.h" />
     <ClInclude Include="ITime.h" />
+    <ClInclude Include="IViewModel.h" />
     <ClInclude Include="Observable.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Players\IField.h" />
