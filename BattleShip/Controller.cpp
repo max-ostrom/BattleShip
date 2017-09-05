@@ -14,6 +14,7 @@ void Controller::userAtack()
 {
 	input();
 
+	notifyUpdate();
 
 	Model_.getUser().setEnemyField(coordAtack[0], coordAtack[1], Model_.getComputer());
 	Model_.getComputer().setField(coordAtack[0], coordAtack[1]);
@@ -49,7 +50,8 @@ void Controller::computerAtack()
 		coordAtack[0] = rand() % STANDART_FIELD;
 		coordAtack[1] = rand() % STANDART_FIELD;
 	} while (Model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) != ' ');
-	
+	notifyUpdate();
+
 	if (Model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) == ' ')
 	{
 		Model_.getUser().setField(coordAtack[0], coordAtack[1]);
@@ -129,7 +131,6 @@ bool Controller::isKeyPressed(const int& key) const
 }
 void Controller::run()
 {
-	
 	while (!Model_.getUser().isEndOfGame() && !Model_.getComputer().isEndOfGame())
 	{
 		if (Model_.getUser().isEndOfGame() || Model_.getComputer().isEndOfGame())
@@ -142,9 +143,11 @@ void Controller::run()
 					viewModel_.get()->setComputerField(i, j, Model_.getComputer().getField(i, j));
 				}
 			}
+			notifyUpdate();
 			_getch();
 			exit(0); // end of game
 		}
+	
 		if (turn)
 		{
 			userAtack();
@@ -152,7 +155,8 @@ void Controller::run()
 			{
 				for (int j = 0; j < STANDART_FIELD; j++)
 				{
-					viewModel_.get()->setUserField(i, j, Model_.getUser().getEnemyField(i,j));
+					if(Model_.getComputer().getField(i, j) != 'X')
+					viewModel_.get()->setUserField(i, j, Model_.getComputer().getField(i, j));
 				}
 			}
 		}
@@ -164,14 +168,23 @@ void Controller::run()
 			{
 				for (int j = 0; j < STANDART_FIELD; j++)
 				{
-					viewModel_.get()->setUserField(i, j, Model_.getUser().getField(i, j));
+					viewModel_.get()->setComputerField(i, j, Model_.getUser().getField(i, j));
 				}
 			}
 		}
+		notifyUpdate();
 	}
 }
-Controller::Controller(IGame& model, shared_ptr<Observer> view, shared_ptr<IViewModel> viewModel) : Model_(model), view_(view), viewModel_(viewModel)
+Controller::Controller(IGame& model, shared_ptr<IViewModel> viewModel) : Model_(model), viewModel_(viewModel)
 {
-	model.getComputer().addObserver(view_);
-	model.getUser().addObserver(view_);
+	view_ = make_shared<View>(*viewModel);
+	addObserver(view_);
+	for (int i = 0; i < STANDART_FIELD; i++)
+	{
+		for (int j = 0; j < STANDART_FIELD; j++)
+		{
+			viewModel_.get()->setComputerField(i, j, Model_.getUser().getField(i, j));
+		}
+	}
+	notifyUpdate();
 }

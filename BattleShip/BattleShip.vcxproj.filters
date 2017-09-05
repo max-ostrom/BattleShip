@@ -81,13 +81,13 @@
     <ClCompile Include="Resource\Settings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Players\Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Players\PlayerHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ViewModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Players\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -5,17 +5,17 @@
 
 #include "Observer.h"
 #include "GameModel.h"
+#include "ViewModel.h"
 class View final :
 	public Observer, public ITime
 {
 public:
-	explicit View(const IGame& game);
+	View(const IViewModel& game);
 	void update() const override;
 	void setStartTime(clock_t start) override;
 	const clock_t& getStartTime() const override;
 private:
-	void endOfGame() const;
-	const IGame& Model_;
+	const IViewModel& Model_;
 	clock_t startGame_;
 };
 #endif

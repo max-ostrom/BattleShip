@@ -76,7 +76,6 @@ void Player::setField(const int i, const int j)
 	{
 		yourField_[i][j] = '#';
 	}
-	notifyUpdate();
 }
 
 void Player::setEnemyField(const int i, const int j,const IField& p)
@@ -90,7 +89,6 @@ void Player::setEnemyField(const int i, const int j,const IField& p)
 	{
 		enemyField_[i][j] = '#';
 	}
-	notifyUpdate();
 }
 
 std::vector<std::shared_ptr<Ship>>& Player::getShips()

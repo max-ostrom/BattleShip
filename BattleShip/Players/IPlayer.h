@@ -9,7 +9,7 @@
 #include "..\Observable.h"
 
 class IPlayer :
-	public Observable, public IField
+	 public IField
 {
 public:
 	virtual bool isEndOfGame() const = 0;

@@ -22,21 +22,19 @@ ViewModel::~ViewModel()
 void ViewModel::setUserField(const int i, const int j, const char symb)
 {
 	userField_[i][j] = symb;
-	notifyUpdate();
 }
 
 void ViewModel::setComputerField(const int i, const int j, const char symb)
 {
 	computerField_[i][j] = symb;
-	notifyUpdate();
 }
 
-char ViewModel::getUserField(const int i, const int j)
+char ViewModel::getUserField(const int i, const int j) const
 {
 	return userField_[i][j];
 }
 
-char ViewModel::getcomputerField(const int i, const int j)
+char ViewModel::getcomputerField(const int i, const int j) const
 {
 	return computerField_[i][j];
 }
