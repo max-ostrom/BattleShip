@@ -6,6 +6,7 @@
 #include "Observer.h"
 #include "GameModel.h"
 #include "ViewModel.h"
+
 class View final :
 	public Observer, public ITime
 {

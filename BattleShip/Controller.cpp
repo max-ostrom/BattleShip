@@ -1,12 +1,14 @@
-#include "Controller.h"
-#include "View.h"
 #include <chrono>
 #include <thread>
 #include <iostream>
-#include <Windows.h>
-#include <conio.h>
 #include <string>
 #include <algorithm>
+
+#include <Windows.h>
+#include <conio.h>
+
+#include "Controller.h"
+#include "View.h"
 
 using namespace std;
 
@@ -18,8 +20,6 @@ void Controller::userAtack()
 
 	Model_.getUser().setEnemyField(coordAtack[0], coordAtack[1], Model_.getComputer());
 	Model_.getComputer().setField(coordAtack[0], coordAtack[1]);
-
-
 	// Player_ shot
 	if (Model_.getComputer().getField(coordAtack[0], coordAtack[1]) == '#')
 	{
@@ -44,8 +44,7 @@ void Controller::userAtack()
 }
 
 void Controller::computerAtack()
-{
-	
+{	
 	do {
 		coordAtack[0] = rand() % STANDART_FIELD;
 		coordAtack[1] = rand() % STANDART_FIELD;
@@ -88,10 +87,8 @@ void Controller::input()
 	cout << "Enter - pause, any key to atack ship";
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14,16 });
 
-
 	switch (_getch())
 	{
-
 	case VK_RETURN:
 		// enter - pause
 	{

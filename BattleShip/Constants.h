@@ -3,5 +3,4 @@
 
 enum  FildSize{ STANDART_FIELD = 10 };
 
-
 #endif

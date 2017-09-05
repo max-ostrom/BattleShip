@@ -1,6 +1,8 @@
 #pragma once
+
 #include "Command\Command.h"
 #include "Players\PlayerHelper.h"
+
 class FillStandartCellCommand :
 	public Command
 {
@@ -33,10 +35,6 @@ public:
 				}
 			}
 		}
-	}
-
-	virtual ~FillStandartCellCommand()
-	{
 	}
 private:
 	PlayerHelper& PlayerHelper_;

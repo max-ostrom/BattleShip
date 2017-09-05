@@ -3,7 +3,9 @@
 #include<memory>
 
 #include"..\Command\UnionCommand.h"
+
 using namespace std;
+
 PlayerHelper::PlayerHelper(IField& field, shared_ptr<Ship> ship) : Field_(field), Ship_(ship)
 {
 

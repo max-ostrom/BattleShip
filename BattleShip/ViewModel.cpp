@@ -1,7 +1,5 @@
 #include "ViewModel.h"
 
-
-
 ViewModel::ViewModel()
 {
 	for (int i = 0; i < STANDART_FIELD; i++)
@@ -13,7 +11,6 @@ ViewModel::ViewModel()
 		}
 	}
 }
-
 
 ViewModel::~ViewModel()
 {

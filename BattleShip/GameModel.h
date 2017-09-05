@@ -4,7 +4,8 @@
 #include "Players\Player.h"
 #include "ITime.h"
 #include "IGame.h"
-class GameModel :
+
+class GameModel final :
 	 public IGame
 {
 public:

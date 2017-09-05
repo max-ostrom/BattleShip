@@ -1,7 +1,9 @@
 #pragma once
+
 #include "Constants.h"
 #include "IViewModel.h"
-class ViewModel :
+
+class ViewModel final :
 	public IViewModel
 {
 public:

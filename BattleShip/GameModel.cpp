@@ -1,5 +1,3 @@
-
-
 #include "GameModel.h"
 
 IPlayer& GameModel::getUser() 

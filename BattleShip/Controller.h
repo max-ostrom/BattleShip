@@ -5,6 +5,7 @@
 #include "IController.h"
 #include "IViewModel.h"
 #include "View.h"
+
 class Controller final : 
 	public IController, public Observable
 {
