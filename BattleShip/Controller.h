@@ -7,7 +7,7 @@
 #include "View.h"
 
 class Controller final : 
-	public IController, public Observable
+	public IController
 {
 public:
 	// main game loop
@@ -21,7 +21,7 @@ private:
 	bool isKeyPressed(const int& key) const;
 
 	shared_ptr<IViewModel> viewModel_;
-	shared_ptr<View> view_ ;
+
 	IGame& Model_;
 	vector<int> coordAtack = { 0,0 };
 	bool turn = true;

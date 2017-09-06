@@ -174,8 +174,8 @@ void Controller::run()
 }
 Controller::Controller(IGame& model, shared_ptr<IViewModel> viewModel) : Model_(model), viewModel_(viewModel)
 {
-	view_ = make_shared<View>(*viewModel);
-	addObserver(view_);
+	
+	
 	for (int i = 0; i < STANDART_FIELD; i++)
 	{
 		for (int j = 0; j < STANDART_FIELD; j++)

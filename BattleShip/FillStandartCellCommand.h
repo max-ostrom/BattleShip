@@ -7,7 +7,6 @@ class FillStandartCellCommand :
 	public Command
 {
 public:
-
 	FillStandartCellCommand(PlayerHelper& p) : PlayerHelper_(p) {}
 	void execute() override 
 	{
