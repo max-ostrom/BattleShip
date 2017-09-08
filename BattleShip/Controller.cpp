@@ -26,7 +26,7 @@ void Controller::userAtack()
 		for_each(
 			Model_.getComputer().getShips().begin(),
 			Model_.getComputer().getShips().end(),
-			[this](std::shared_ptr<Ship> Ship_) mutable// Lambda expression
+			[&](std::shared_ptr<Ship> Ship_) mutable// Lambda expression
 		{
 			for (int i = 0; i < Ship_->getShipSize(); i++)
 			{
@@ -59,7 +59,7 @@ void Controller::computerAtack()
 			for_each(
 				Model_.getUser().getShips().begin(),
 				Model_.getUser().getShips().end(),
-				[this](std::shared_ptr<Ship> Ship_) mutable// Lambda expression
+				[&](std::shared_ptr<Ship> Ship_) mutable// Lambda expression
 			{
 				for (int i = 0; i < Ship_->getShipSize(); i++)
 				{
