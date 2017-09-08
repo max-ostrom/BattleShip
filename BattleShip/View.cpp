@@ -18,7 +18,7 @@ void View::update() const
 	
 	system("cls");
 	char alf[] = { "ABCDEFGHIJ" };
-	char numbers[12] = { " 0123456789" };
+	char numbers[] = { " 0123456789" };
 
 
 	cout << "Computer ships" << endl << numbers << endl;
@@ -45,11 +45,11 @@ void View::update() const
 		}
 		cout << "|" << endl;
 	}
-
+	const int SECONDS_IN_MIN = 60;
 	cout <<endl<< "Time: "
-		<< static_cast<int>((clock() - getStartTime()) / CLOCKS_PER_SEC) / 60
+		<< static_cast<int>((clock() - getStartTime()) / CLOCKS_PER_SEC) / SECONDS_IN_MIN
 		<< ":"
-		<< static_cast<int>((clock() - getStartTime()) / CLOCKS_PER_SEC) % 60 << endl;
+		<< static_cast<int>((clock() - getStartTime()) / CLOCKS_PER_SEC) % SECONDS_IN_MIN << endl;
 }
 void View::setStartTime(clock_t start)
 {

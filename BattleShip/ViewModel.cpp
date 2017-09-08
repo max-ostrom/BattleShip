@@ -16,22 +16,22 @@ ViewModel::~ViewModel()
 {
 }
 
-void ViewModel::setUserField(const int i, const int j, const char symb)
+void ViewModel::setUserField(const int i_index, const int j_index, const char symb)
 {
-	userField_[i][j] = symb;
+	userField_[i_index][j_index] = symb;
 }
 
-void ViewModel::setComputerField(const int i, const int j, const char symb)
+void ViewModel::setComputerField(const int i_index, const int j_index, const char symb)
 {
-	computerField_[i][j] = symb;
+	computerField_[i_index][j_index] = symb;
 }
 
-char ViewModel::getUserField(const int i, const int j) const
+char ViewModel::getUserField(const int i_index, const int j_index) const
 {
-	return userField_[i][j];
+	return userField_[i_index][j_index];
 }
 
-char ViewModel::getcomputerField(const int i, const int j) const
+char ViewModel::getcomputerField(const int i_index, const int j_index) const
 {
-	return computerField_[i][j];
+	return computerField_[i_index][j_index];
 }
