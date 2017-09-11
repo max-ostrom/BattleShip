@@ -10,8 +10,13 @@ class ViewModel final :
 public:
 	ViewModel();
 	virtual ~ViewModel();
-	void setUserField(const int i_index, const int j_index,const char symb) override;
-	void setComputerField(const int i_index, const int j_index, const char symb) override;
+
+	void setUserField
+	(const int i_index, const int j_index,const char symb) override;
+
+	void setComputerField
+	(const int i_index, const int j_index, const char symb) override;
+
 	char getUserField(const int i_index, const int j_index)const override;
 	char getcomputerField(const int i_index, const int j_index)const override ;
 private:

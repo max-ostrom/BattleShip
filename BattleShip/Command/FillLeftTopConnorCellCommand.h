@@ -15,7 +15,8 @@ public:
 			for (int j = 0; j < 2; j++)
 			{
 				if (PlayerHelper_.getShip()->getX().get()[0] -
-					PlayerHelper_.getShip()->getX().get()[PlayerHelper_.getShip()->getShipSize() - 1] != 0)
+					PlayerHelper_.getShip()->getX()
+					.get()[PlayerHelper_.getShip()->getShipSize() - 1] != 0)
 				{
 					PlayerHelper_.getPlayer().setField(i, j);
 				}

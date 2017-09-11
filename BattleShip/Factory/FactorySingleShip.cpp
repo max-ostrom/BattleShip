@@ -1,6 +1,7 @@
 #include "FactorySingleShip.h"
 
-std::shared_ptr<Ship> FactorySingleShip::createShip(char field[STANDART_FIELD][STANDART_FIELD])
+std::shared_ptr<Ship>
+FactorySingleShip::createShip(char field[STANDART_FIELD][STANDART_FIELD])
 {
 	try
 	{

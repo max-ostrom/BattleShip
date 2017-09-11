@@ -73,7 +73,8 @@ const int& ThreeDeckShip::getShipSize() const
 	return SHIP_SIZE_;
 }
 
-bool ThreeDeckShip::isCellFreeHorizontal(const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const
+bool ThreeDeckShip::isCellFreeHorizontal
+(const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const
 {
 	return field[m][n] == 'X' || field[m][n + 1] == 'X' ||
 		field[m][n + 2] == 'X' || field[m - 1][n - 1] == 'X' ||
@@ -85,7 +86,8 @@ bool ThreeDeckShip::isCellFreeHorizontal(const char field[STANDART_FIELD][STANDA
 		field[m + 1][n + 3] == 'X';
 }
 
-bool ThreeDeckShip::isCellFreeVertical(const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const
+bool ThreeDeckShip::isCellFreeVertical
+(const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const
 {
 	return field[m][n] == 'X' || field[m + 1][n] == 'X' ||
 		field[m + 2][n] == 'X' || field[m - 1][n - 1] == 'X' ||

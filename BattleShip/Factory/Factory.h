@@ -9,7 +9,8 @@
 class IFactory
 {
 public:
-	virtual std::shared_ptr<Ship>  createShip(char field[STANDART_FIELD][STANDART_FIELD]) = 0;
+	virtual std::shared_ptr<Ship>  
+		createShip(char field[STANDART_FIELD][STANDART_FIELD]) = 0;
 	virtual ~IFactory() {};
 };
 #endif

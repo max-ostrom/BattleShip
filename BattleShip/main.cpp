@@ -23,9 +23,12 @@ int main()
 		IPlayer& Computer = Player(Factories);
 		GameModel model(User, Computer);
 
-		shared_ptr<IViewModel> viewModel = make_shared<ViewModel>();
-		shared_ptr<Observer> view = make_shared<View>(*viewModel);
-		shared_ptr<IController> controller = make_shared<Controller>(model, viewModel);
+		shared_ptr<IViewModel> viewModel 
+			= make_shared<ViewModel>();
+		shared_ptr<Observer> view 
+			= make_shared<View>(*viewModel);
+		shared_ptr<IController> controller 
+			= make_shared<Controller>(model, viewModel);
 
 		controller->addObserver(view);
 		controller->notifyUpdate();

@@ -35,7 +35,8 @@ const int& SingleDeckShip::getShipSize() const
 	return SHIP_SIZE_;
 }
 
-bool SingleDeckShip::isCellFreeHorizontal(const char field[STANDART_FIELD][STANDART_FIELD],const int m,const int n) const
+bool SingleDeckShip::isCellFreeHorizontal
+(const char field[STANDART_FIELD][STANDART_FIELD],const int m,const int n) const
 {
 	return field[m][n] == 'X' || field[m][n + 1] == 'X' ||
 		field[m][n - 1] == 'X' || field[m + 1][n] == 'X' ||
@@ -44,7 +45,8 @@ bool SingleDeckShip::isCellFreeHorizontal(const char field[STANDART_FIELD][STAND
 		field[m - 1][n - 1] == 'X';
 }
 
-bool SingleDeckShip::isCellFreeVertical(const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const
+bool SingleDeckShip::isCellFreeVertical
+(const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const
 {
 	return field[m][n] == 'X' || field[m][n + 1] == 'X' ||
 		field[m][n - 1] == 'X' || field[m + 1][n] == 'X' ||

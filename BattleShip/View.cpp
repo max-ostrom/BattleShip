@@ -47,9 +47,11 @@ void View::update() const
 	}
 	const int SECONDS_IN_MIN = 60;
 	cout <<endl<< "Time: "
-		<< static_cast<int>((clock() - getStartTime()) / CLOCKS_PER_SEC) / SECONDS_IN_MIN
+		<< static_cast<int>((clock() - getStartTime()) 
+			/ CLOCKS_PER_SEC) / SECONDS_IN_MIN
 		<< ":"
-		<< static_cast<int>((clock() - getStartTime()) / CLOCKS_PER_SEC) % SECONDS_IN_MIN << endl;
+		<< static_cast<int>((clock() - getStartTime())
+			/ CLOCKS_PER_SEC) % SECONDS_IN_MIN << endl;
 }
 void View::setStartTime(clock_t start)
 {

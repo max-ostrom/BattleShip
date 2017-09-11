@@ -73,7 +73,8 @@ const int& DoubleDeckShip::getShipSize() const
 	return SHIP_SIZE_;
 }
 
-bool DoubleDeckShip::isCellFreeHorizontal(const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const
+bool DoubleDeckShip::isCellFreeHorizontal
+(const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const
 {
 	return field[m][n] == 'X' || field[m][n + 1] == 'X' ||
 		field[m - 1][n - 1] == 'X' || field[m - 1][n] == 'X' ||
@@ -83,7 +84,8 @@ bool DoubleDeckShip::isCellFreeHorizontal(const char field[STANDART_FIELD][STAND
 		field[m + 1][n + 1] == 'X' || field[m + 1][n + 2] == 'X';
 }
 
-bool DoubleDeckShip::isCellFreeVertical(const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const
+bool DoubleDeckShip::isCellFreeVertical
+(const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const
 {
 	return field[m][n] == 'X' || field[m - 1][n - 1] == 'X' ||
 		field[m - 1][n] == 'X' || field[m - 1][n + 1] == 'X' ||

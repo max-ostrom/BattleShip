@@ -23,7 +23,12 @@ protected:
 	std::shared_ptr<int> coordsY_;
 
 private:
-	virtual bool isCellFreeHorizontal(const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const = 0;
-	virtual bool isCellFreeVertical(const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const = 0;
+	virtual bool 
+		isCellFreeHorizontal
+		(const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const = 0;
+
+	virtual bool 
+		isCellFreeVertical
+		(const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const = 0;
 };
 #endif

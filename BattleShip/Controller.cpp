@@ -30,7 +30,8 @@ void Controller::userAtack()
 		{
 			for (int i = 0; i < Ship_->getShipSize(); i++)
 			{
-				if (Ship_->getX().get()[i] == coordAtack[0] && Ship_->getY().get()[i] == coordAtack[1])
+				if (Ship_->getX().get()[i] == coordAtack[0] 
+					&& Ship_->getY().get()[i] == coordAtack[1])
 				{
 					Model_.getComputer().isShipAlive(Ship_);
 				}
@@ -63,7 +64,8 @@ void Controller::computerAtack()
 			{
 				for (int i = 0; i < Ship_->getShipSize(); i++)
 				{
-					if (Ship_->getX().get()[i] == coordAtack[0] && Ship_->getY().get()[i] == coordAtack[1])
+					if (Ship_->getX().get()[i] == coordAtack[0] 
+						&& Ship_->getY().get()[i] == coordAtack[1])
 					{
 						Model_.getUser().isShipAlive(Ship_);
 					}
@@ -115,7 +117,8 @@ void Controller::input()
 			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 14, 17 });
 			cin >> coordAtack[1];
 
-		} while (coordAtack[0]<0 || coordAtack[0]>STANDART_FIELD || coordAtack[1]<0 || coordAtack[1]>STANDART_FIELD);
+		} while (coordAtack[0]<0 || coordAtack[0]>STANDART_FIELD 
+			|| coordAtack[1]<0 || coordAtack[1]>STANDART_FIELD);
 		break;
 	}
 	}
@@ -153,7 +156,8 @@ void Controller::run()
 				for (int j = 0; j < STANDART_FIELD; j++)
 				{
 					if(Model_.getComputer().getField(i, j) != 'X')
-					viewModel_.get()->setUserField(i, j, Model_.getComputer().getField(i, j));
+					viewModel_.get()
+						->setUserField(i, j, Model_.getComputer().getField(i, j));
 				}
 			}
 		}
@@ -165,14 +169,17 @@ void Controller::run()
 			{
 				for (int j = 0; j < STANDART_FIELD; j++)
 				{
-					viewModel_.get()->setComputerField(i, j, Model_.getUser().getField(i, j));
+					viewModel_.get()
+						->setComputerField(i, j, Model_.getUser().getField(i, j));
 				}
 			}
 		}
 		notifyUpdate();
 	}
 }
-Controller::Controller(IGame& model, shared_ptr<IViewModel> viewModel) : Model_(model), viewModel_(viewModel)
+Controller::Controller
+(IGame& model, shared_ptr<IViewModel> viewModel) 
+	: Model_(model), viewModel_(viewModel)
 {
 	for (int i = 0; i < STANDART_FIELD; i++)
 	{

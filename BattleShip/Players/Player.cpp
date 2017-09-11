@@ -28,7 +28,8 @@ bool Player::isShipAlive(shared_ptr<Ship> Ship_)
 
 	for (int i = 0; i < Ship_->getShipSize(); i++)
 	{
-		if ( getField(Ship_->getX().get()[i], Ship_->getY().get()[i]) == '#' && flag)
+		if ( getField(Ship_->getX().get()[i],
+			Ship_->getY().get()[i]) == '#' && flag)
 		{
 			flag = true;
 		}
