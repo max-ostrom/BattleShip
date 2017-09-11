@@ -1,4 +1,5 @@
-#pragma once
+#ifndef IViewModel_H
+#define IViewModel_H
 
 #include "Observable.h"
 
@@ -14,4 +15,4 @@ public:
 	{
 	}
 };
-
+#endif

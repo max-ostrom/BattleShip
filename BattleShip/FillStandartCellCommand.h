@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FillStandartCellCommand_H
+#define FillStandartCellCommand_H
 
 #include "Command\Command.h"
 #include "Players\PlayerHelper.h"
@@ -38,4 +39,4 @@ public:
 private:
 	PlayerHelper& PlayerHelper_;
 };
-
+#endif

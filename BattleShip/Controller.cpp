@@ -174,11 +174,9 @@ void Controller::run()
 }
 Controller::Controller(IGame& model, shared_ptr<IViewModel> viewModel) : Model_(model), viewModel_(viewModel)
 {
-	
-	
 	for (int i = 0; i < STANDART_FIELD; i++)
 	{
-		for (int j = 0; j < STANDART_FIELD; j++)
+	    for (int j = 0; j < STANDART_FIELD; j++)
 		{
 			viewModel_.get()->setComputerField(i, j, Model_.getUser().getField(i, j));
 		}

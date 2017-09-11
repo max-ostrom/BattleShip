@@ -19,9 +19,7 @@ public:
 				for (int j = PlayerHelper_.getShip()->getY().get()[0] - 1;
 					j < PlayerHelper_.getShip()->getY().get()[0] + 2; j++)
 				{
-
 					PlayerHelper_.getPlayer().setField(i, j);
-
 				}
 			}
 		}

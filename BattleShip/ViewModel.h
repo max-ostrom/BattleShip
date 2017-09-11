@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ViewModel_H
+#define ViewModel_H
 
 #include "Constants.h"
 #include "IViewModel.h"
@@ -17,4 +18,4 @@ private:
 	char userField_[STANDART_FIELD][STANDART_FIELD];
 	char computerField_[STANDART_FIELD][STANDART_FIELD];
 };
-
+#endif
