@@ -11,27 +11,27 @@
 #include "PlayerHelper.h"
 // must have class PlayerHelper !!!!
 class Player :
-	 public IPlayer
+    public IPlayer
 {
 public:
-	std::vector<std::shared_ptr<Ship>>& getShips() override;
-	const std::vector<std::shared_ptr<Ship>>& getShips() const override;
-	Player(list<shared_ptr<IFactory>> Factories);
-	virtual ~Player();
-	void setField(const int i, const int j) override;
-	void setEnemyField(const int i, const  int j,const IField& p) override;
-	bool isShipAlive(shared_ptr<Ship> Ship_) override;
-	bool isEndOfGame() const override;
+    std::vector<std::shared_ptr<Ship>>& getShips() override;
+    const std::vector<std::shared_ptr<Ship>>& getShips() const override;
+    Player(list<shared_ptr<IFactory>> Factories);
+    virtual ~Player();
+    void setField(const int i, const int j) override;
+    void setEnemyField(const int i, const  int j, const IField& p) override;
+    bool isShipAlive(shared_ptr<Ship> Ship_) override;
+    bool isEndOfGame() const override;
 
-	char getField(const int i, const int j) const override;
-	char getEnemyField(const int i, const int j) const override;
+    char getField(const int i, const int j) const override;
+    char getEnemyField(const int i, const int j) const override;
 private:
-	std::vector<std::shared_ptr<Ship>> YourShips_;
+    std::vector<std::shared_ptr<Ship>> YourShips_;
 
-	char yourField_[STANDART_FIELD][STANDART_FIELD];
-	char enemyField_[STANDART_FIELD][STANDART_FIELD];
+    char yourField_[STANDART_FIELD][STANDART_FIELD];
+    char enemyField_[STANDART_FIELD][STANDART_FIELD];
 
-	void addShip(shared_ptr<IFactory> factory);
+    void addShip(shared_ptr<IFactory> factory);
 };
 
 #endif

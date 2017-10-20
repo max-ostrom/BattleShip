@@ -11,18 +11,17 @@ using namespace std;
 class PlayerHelper
 {
 public:
-	PlayerHelper(IField& field, shared_ptr<Ship> ship);
-	virtual ~PlayerHelper();
+    PlayerHelper(IField& field, shared_ptr<Ship> ship);
+    virtual ~PlayerHelper();
 
-	void fillCells(Command& command);
-	
-	shared_ptr<Ship> getShip();
-	shared_ptr<Ship> getShip() const;
+    shared_ptr<Ship> getShip();
+    shared_ptr<Ship> getShip() const;
 
-	IField& getPlayer();
-	IField& getPlayer() const;
+    IField& getPlayer();
+    IField& getPlayer() const;
 private:
-	shared_ptr<Ship> Ship_;
-	IField& Field_;
+    vector<shared_ptr<Command>> commands_;
+    shared_ptr<Ship> Ship_;
+    IField& Field_;
 };
 #endif

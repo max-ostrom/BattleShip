@@ -3,14 +3,14 @@
 
 #include "Observable.h"
 class IController :
-	public Observable
+    public Observable
 {
 public:
 
-	virtual void run() = 0;
-	virtual void input() = 0;
-	virtual ~IController()
-	{
-	}
+    virtual void run() = 0;
+    virtual void input() = 0;
+    virtual ~IController()
+    {
+    }
 };
 #endif

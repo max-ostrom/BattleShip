@@ -4,95 +4,96 @@
 
 DoubleDeckShip::DoubleDeckShip(char field[STANDART_FIELD][STANDART_FIELD])
 {
-	coordsX_ = shared_ptr<int>(new int[SHIP_SIZE_]);
-	coordsY_ = shared_ptr<int>(new int[SHIP_SIZE_]);
+    coordsX_ = shared_ptr<int>(new int[SHIP_SIZE_]);
+    coordsY_ = shared_ptr<int>(new int[SHIP_SIZE_]);
 
-	srand(time(0));
-	int k = rand() % 2;
-	
-	switch (k) {
-	
-	
-	case 0://вертикальное расположение корабля
-	{
-		int m = rand() % (STANDART_FIELD - SHIP_SIZE_ + 1);
-		int n = rand() % STANDART_FIELD;
+    srand(time(0));
+
+    size_t k = static_cast<int>(rand()) % 2;
+
+    switch (k) {
 
 
-		while 
-			(isCellFreeVertical(field,m,n)) 
-		{
-			m = rand() % (STANDART_FIELD - SHIP_SIZE_ + 1);
-			n = rand() % STANDART_FIELD;
-		}
+    case 0://вертикальное расположение корабля
+    {
+        int m = static_cast<int>(rand()) % (STANDART_FIELD - SHIP_SIZE_ + 1);
+        int n = static_cast<int>(rand()) % STANDART_FIELD;
+
+
+        while
+            (isCellFreeVertical(field, m, n))
+        {
+            m = static_cast<int>(rand()) % (STANDART_FIELD - SHIP_SIZE_ + 1);
+            n = static_cast<int>(rand()) % STANDART_FIELD;
+        }
 
 
 
-		field[m][n] = 'X';
-		field[m + 1][n] = 'X';
+        field[m][n] = 'X';
+        field[m + 1][n] = 'X';
 
 
-		coordsX_.get()[0] = m;
-		coordsX_.get()[1] = m + 1;
-		coordsY_.get()[0] = n;
-		coordsY_.get()[1] = n;
-		break;
-	}
-	
-	
-	
-	case 1://горизонтальное расположение корабля
-		
-		
-		int m = rand() % STANDART_FIELD;
-		int n = rand() % (STANDART_FIELD - SHIP_SIZE_ + 1);
+        coordsX_.get()[0] = m;
+        coordsX_.get()[1] = m + 1;
+        coordsY_.get()[0] = n;
+        coordsY_.get()[1] = n;
+        break;
+    }
 
 
-		while 
-			(isCellFreeHorizontal(field,m,n)) 
-		{
-			m = rand() % STANDART_FIELD;
-			n = rand() % (STANDART_FIELD - SHIP_SIZE_ + 1);
-		}
+
+    case 1://горизонтальное расположение корабля
 
 
-		field[m][n] = 'X';
-		field[m][n + 1] = 'X';
+        int m = static_cast<int>(rand()) % STANDART_FIELD;
+        int n = static_cast<int>(rand()) % (STANDART_FIELD - SHIP_SIZE_ + 1);
 
 
-		coordsX_.get()[0] = m;
-		coordsX_.get()[1] = m;
-		coordsY_.get()[0] = n;
-		coordsY_.get()[1] = n+1;
-		break;
-	}
+        while
+            (isCellFreeHorizontal(field, m, n))
+        {
+            m = static_cast<int>(rand()) % STANDART_FIELD;
+            n = static_cast<int>(rand()) % (STANDART_FIELD - SHIP_SIZE_ + 1);
+        }
+
+
+        field[m][n] = 'X';
+        field[m][n + 1] = 'X';
+
+
+        coordsX_.get()[0] = m;
+        coordsX_.get()[1] = m;
+        coordsY_.get()[0] = n;
+        coordsY_.get()[1] = n + 1;
+        break;
+    }
 }
 
 const int& DoubleDeckShip::getShipSize() const
 {
-	return SHIP_SIZE_;
+    return SHIP_SIZE_;
 }
 
 bool DoubleDeckShip::isCellFreeHorizontal
 (const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const
 {
-	return field[m][n] == 'X' || field[m][n + 1] == 'X' ||
-		field[m - 1][n - 1] == 'X' || field[m - 1][n] == 'X' ||
-		field[m - 1][n + 1] == 'X' || field[m - 1][n + 2] == 'X' ||
-		field[m][n - 1] == 'X' || field[m][n + 2] == 'X' ||
-		field[m + 1][n - 1] == 'X' || field[m + 1][n] == 'X' ||
-		field[m + 1][n + 1] == 'X' || field[m + 1][n + 2] == 'X';
+    return field[m][n] == 'X' || field[m][n + 1] == 'X' ||
+        field[m - 1][n - 1] == 'X' || field[m - 1][n] == 'X' ||
+        field[m - 1][n + 1] == 'X' || field[m - 1][n + 2] == 'X' ||
+        field[m][n - 1] == 'X' || field[m][n + 2] == 'X' ||
+        field[m + 1][n - 1] == 'X' || field[m + 1][n] == 'X' ||
+        field[m + 1][n + 1] == 'X' || field[m + 1][n + 2] == 'X';
 }
 
 bool DoubleDeckShip::isCellFreeVertical
 (const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const
 {
-	return field[m][n] == 'X' || field[m - 1][n - 1] == 'X' ||
-		field[m - 1][n] == 'X' || field[m - 1][n + 1] == 'X' ||
-		field[m][n - 1] == 'X' || field[m][n + 1] == 'X' ||
-		field[m + 1][n - 1] == 'X' || field[m + 1][n] == 'X' ||
-		field[m + 1][n + 1] == 'X' || field[m + 2][n - 1] == 'X' ||
-		field[m + 2][n] == 'X' || field[m + 2][n + 1] == 'X';
+    return field[m][n] == 'X' || field[m - 1][n - 1] == 'X' ||
+        field[m - 1][n] == 'X' || field[m - 1][n + 1] == 'X' ||
+        field[m][n - 1] == 'X' || field[m][n + 1] == 'X' ||
+        field[m + 1][n - 1] == 'X' || field[m + 1][n] == 'X' ||
+        field[m + 1][n + 1] == 'X' || field[m + 2][n - 1] == 'X' ||
+        field[m + 2][n] == 'X' || field[m + 2][n + 1] == 'X';
 }
 
 

@@ -3,13 +3,13 @@
 
 #include <ctime>
 
-class ITime 
+class ITime
 {
 public:
-	virtual void setStartTime(clock_t start) = 0;
-	virtual const clock_t& getStartTime() const = 0;
-	virtual ~ITime()
-	{
-	}
+    virtual void setStartTime(clock_t start) = 0;
+    virtual const clock_t& getStartTime() const = 0;
+    virtual ~ITime()
+    {
+    }
 };
 #endif

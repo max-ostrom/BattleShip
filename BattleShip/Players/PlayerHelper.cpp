@@ -6,96 +6,54 @@
 
 using namespace std;
 
-PlayerHelper::PlayerHelper(IField& field, shared_ptr<Ship> ship) 
-	: Field_(field), Ship_(ship)
+PlayerHelper::PlayerHelper(IField& field, shared_ptr<Ship> ship)
+    : Field_(field), Ship_(ship)
 {
+    Ship_->destroy();
 
-	Ship_->destroy();
-	//lefttopconnor
-	if (Ship_->getX().get()[0] == 0 && Ship_->getY().get()[0] == 0)
-	{
-		fillCells(FillLeftTopConnorCellCommand(*this));
-	}
+    commands_.push_back(shared_ptr<Command>(new FillLeftTopConnorCellCommand(*this)));
+    commands_.push_back(shared_ptr<Command>(new FillLeftBottomConnorCellCommand(*this)));
+    commands_.push_back(shared_ptr<Command>(new FillRightTopConnorCellCommand(*this)));
+    commands_.push_back(shared_ptr<Command>(new FillRightBottomConnorCellCommand(*this)));
 
-	//leftbottomconnor
-	else if (Ship_->getX().get()[Ship_->getShipSize() - 1] 
-		== STANDART_FIELD - 1 && Ship_->getY().get()[0] == 0)
-	{
-		fillCells(FillLeftBottomConnorCellCommand(*this));
-	}
+    commands_.push_back(shared_ptr<Command>(new FillLeftSideCellCommand(*this)));
+    commands_.push_back(shared_ptr<Command>(new FillRightSideCellCommand(*this)));
+    commands_.push_back(shared_ptr<Command>(new FillBottomSideCellCommand(*this)));
+    commands_.push_back(shared_ptr<Command>(new FillTopSideCellCommand(*this)));
 
-	//righttopconnor
-	else if (Ship_->getX().get()[0] == 0 && Ship_->getY().get()[Ship_->getShipSize() - 1]
-		== STANDART_FIELD - 1)
-	{
-		fillCells(FillRightTopConnorCellCommand(*this));
-	}
+    commands_.push_back(shared_ptr<Command>(new FillStandartCellCommand(*this)));
 
-	//rightbottomconnor
-	else if (Ship_->getX().get()[Ship_->getShipSize() - 1] == STANDART_FIELD - 1
-		&& Ship_->getY().get()[Ship_->getShipSize() - 1] == STANDART_FIELD - 1)
-	{
-		fillCells(FillRightBottomConnorCellCommand(*this));
-	}
-
-	//leftside
-	else if (Ship_->getY().get()[0] == 0)
-	{
-		fillCells(FillLeftSideCellCommand(*this));
-	}
-
-	//rightside
-	else if (Ship_->getY().get()[Ship_->getShipSize() - 1]
-		== STANDART_FIELD - 1)
-	{
-		fillCells(FillRightSideCellCommand(*this));
-	}
-
-	//bottomside
-	else if (Ship_->getX().get()[Ship_->getShipSize() - 1] 
-		== STANDART_FIELD - 1)
-	{
-		fillCells(FillBottomSideCellCommand(*this));
-	}
-
-	//topside
-	else if (Ship_->getX().get()[0] == 0)
-	{
-		fillCells(FillTopSideCellCommand(*this));
-	}
-
-
-	else
-	{
-		fillCells(FillStandartCellCommand(*this));
-	}
-
+    for (shared_ptr<Command> item : commands_)
+    {
+        if (item->tryExecute())
+        {
+            item->execute();
+            break;
+        }
+    }
 }
 
 
-void PlayerHelper::fillCells(Command & command)
-{
-	command.execute();
-}
+
 
 shared_ptr<Ship> PlayerHelper::getShip()
 {
-	return Ship_;
+    return Ship_;
 }
 
 shared_ptr<Ship> PlayerHelper::getShip() const
 {
-	return Ship_;
+    return Ship_;
 }
 
 IField & PlayerHelper::getPlayer()
 {
-	return Field_;
+    return Field_;
 }
 
 IField & PlayerHelper::getPlayer() const
 {
-	return Field_;
+    return Field_;
 }
 
 PlayerHelper::~PlayerHelper()

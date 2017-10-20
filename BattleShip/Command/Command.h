@@ -3,10 +3,11 @@
 
 #include "..\Players\PlayerHelper.h"
 
-class Command 
+class Command
 {
 public:
-	virtual ~Command() {}
-	virtual void execute() = 0;
+    virtual ~Command() {}
+    virtual void execute() = 0;
+    virtual bool tryExecute() = 0;
 };
 #endif

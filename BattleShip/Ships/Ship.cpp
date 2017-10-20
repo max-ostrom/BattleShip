@@ -3,21 +3,21 @@
 
 
 bool Ship::isAlive() const
-{ 
-	return is_Alive_; 
+{
+    return is_Alive_;
 }
 
-void Ship::destroy() 
+void Ship::destroy()
 {
-	is_Alive_ = false; 
+    is_Alive_ = false;
 }
 
 std::shared_ptr<int> Ship::getX() const
-{ 
-	return coordsX_; 
+{
+    return coordsX_;
 }
 
 std::shared_ptr<int> Ship::getY() const
-{ 
-	return coordsY_; 
+{
+    return coordsY_;
 }
