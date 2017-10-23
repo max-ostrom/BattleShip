@@ -1,19 +1,17 @@
-#ifndef FillStandartCellCommand_H
-#define FillStandartCellCommand_H
+#ifndef FillBottomSideCellCommand_H
+#define FillBottomSideCellCommand_H
 
-#include "Command\Command.h"
-#include "Players\PlayerHelper.h"
 
-class FillStandartCellCommand :
-    public Command
+#include "Command.h"
+
+class FillBottomSideCellCommand : public Command
 {
 public:
-    FillStandartCellCommand(PlayerHelper& p) : PlayerHelper_(p) {}
+    FillBottomSideCellCommand(PlayerHelper& p) : PlayerHelper_(p) {}
     void execute() override
     {
         if (PlayerHelper_.getShip()->getX().get()[0]
-            - PlayerHelper_.getShip()->getX().get()[1] != 0
-            )
+            - PlayerHelper_.getShip()->getX().get()[1] != 0)
         {
             for (int i = PlayerHelper_.getShip()->getX().get()[0] - 1;
                 i < PlayerHelper_.getShip()->getX().get()[0]
@@ -34,16 +32,21 @@ public:
             {
                 for (int j = PlayerHelper_.getShip()->getY().get()[0] - 1;
                     j < PlayerHelper_.getShip()->getY().get()[0]
-                    + PlayerHelper_.getShip()->getShipSize() + 1; j++)
+                    + PlayerHelper_.getShip()->getShipSize() + 1;
+                    j++)
                 {
+
                     PlayerHelper_.getPlayer().setField(i, j);
+
                 }
             }
         }
+
     }
     bool tryExecute() override 
     {
-        return true;
+        return PlayerHelper_.getShip()->getX().get()[PlayerHelper_.getShip()->getShipSize() - 1]
+            == STANDART_FIELD - 1;
     }
 private:
     PlayerHelper& PlayerHelper_;

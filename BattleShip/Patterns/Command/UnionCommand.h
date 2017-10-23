@@ -9,6 +9,6 @@
 #include "FillRightSideCellCommand.h"
 #include "FillRightTopConnorCellCommand.h"
 #include "FillTopSideCellCommand.h"
-#include "../FillStandartCellCommand.h"
+#include "FillStandartCellCommand.h"
 
 #endif

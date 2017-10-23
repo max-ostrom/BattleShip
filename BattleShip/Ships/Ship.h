@@ -3,7 +3,7 @@
 
 #include <memory>
 
-#include "../Constants.h"
+#include "../Resource/Constants.h"
 
 class Ship// abstract
 {

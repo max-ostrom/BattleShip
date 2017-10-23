@@ -1,7 +1,7 @@
 #ifndef Factory_H
 #define Factory_H
 
-#include "..\Resource\UnionHeader.h"
+#include "..\..\Resource\UnionHeader.h"
 
 #include <new>
 #include <memory>

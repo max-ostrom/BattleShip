@@ -2,7 +2,7 @@
 
 #include<memory>
 
-#include"..\Command\UnionCommand.h"
+#include"..\Patterns\Command\UnionCommand.h"
 
 using namespace std;
 

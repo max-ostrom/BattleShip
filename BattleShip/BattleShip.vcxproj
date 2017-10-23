@@ -146,14 +146,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Controller.cpp" />
-    <ClCompile Include="Factory\FactoryDoubleShip.cpp" />
-    <ClCompile Include="Factory\FactoryFourShip.cpp" />
-    <ClCompile Include="Factory\FactorySingleShip.cpp" />
-    <ClCompile Include="Factory\FactoryThreeShip.cpp" />
-    <ClCompile Include="GameModel.cpp" />
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Exceptions\CreateShipException.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Observable.cpp" />
+    <ClCompile Include="Patterns\Factory\FactoryDoubleShip.cpp" />
+    <ClCompile Include="Patterns\Factory\FactoryFourShip.cpp" />
+    <ClCompile Include="Patterns\Factory\FactorySingleShip.cpp" />
+    <ClCompile Include="Patterns\Factory\FactoryThreeShip.cpp" />
+    <ClCompile Include="Patterns\MVC\Controller.cpp" />
+    <ClCompile Include="Patterns\MVC\GameModel.cpp" />
+    <ClCompile Include="Patterns\MVC\View.cpp" />
+    <ClCompile Include="Patterns\MVC\ViewModel.cpp" />
+    <ClCompile Include="Patterns\Observer\Observable.cpp" />
     <ClCompile Include="Players\Player.cpp" />
     <ClCompile Include="Players\PlayerHelper.cpp" />
     <ClCompile Include="Resource\Settings.cpp" />
@@ -162,39 +168,40 @@
     <ClCompile Include="Ships\Ship.cpp" />
     <ClCompile Include="Ships\SingleDeckShip.cpp" />
     <ClCompile Include="Ships\ThreeDeckShip.cpp" />
-    <ClCompile Include="View.cpp" />
-    <ClCompile Include="ViewModel.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Command\Command.h" />
-    <ClInclude Include="Command\FillBottomSideCellCommand.h" />
-    <ClInclude Include="Command\FillLeftBottomConnorCellCommand.h" />
-    <ClInclude Include="Command\FillLeftSideCellCommand.h" />
-    <ClInclude Include="Command\FillLeftTopConnorCellCommand.h" />
-    <ClInclude Include="Command\FillRightBottomConnorCellCommand.h" />
-    <ClInclude Include="Command\FillRightSideCellCommand.h" />
-    <ClInclude Include="Command\FillRightTopConnorCellCommand.h" />
-    <ClInclude Include="Command\FillTopSideCellCommand.h" />
-    <ClInclude Include="Command\UnionCommand.h" />
-    <ClInclude Include="Constants.h" />
-    <ClInclude Include="Controller.h" />
-    <ClInclude Include="Factory\Factory.h" />
-    <ClInclude Include="Factory\FactoryDoubleShip.h" />
-    <ClInclude Include="Factory\FactoryFourShip.h" />
-    <ClInclude Include="Factory\FactorySingleShip.h" />
-    <ClInclude Include="Factory\FactoryThreeShip.h" />
-    <ClInclude Include="FillStandartCellCommand.h" />
-    <ClInclude Include="GameModel.h" />
-    <ClInclude Include="IController.h" />
-    <ClInclude Include="IGame.h" />
-    <ClInclude Include="ITime.h" />
-    <ClInclude Include="IViewModel.h" />
-    <ClInclude Include="Observable.h" />
-    <ClInclude Include="Observer.h" />
+    <ClInclude Include="Exceptions\CreateShipException.h" />
+    <ClInclude Include="Patterns\Command\Command.h" />
+    <ClInclude Include="Patterns\Command\FillBottomSideCellCommand.h" />
+    <ClInclude Include="Patterns\Command\FillLeftBottomConnorCellCommand.h" />
+    <ClInclude Include="Patterns\Command\FillLeftSideCellCommand.h" />
+    <ClInclude Include="Patterns\Command\FillLeftTopConnorCellCommand.h" />
+    <ClInclude Include="Patterns\Command\FillRightBottomConnorCellCommand.h" />
+    <ClInclude Include="Patterns\Command\FillRightSideCellCommand.h" />
+    <ClInclude Include="Patterns\Command\FillRightTopConnorCellCommand.h" />
+    <ClInclude Include="Patterns\Command\FillStandartCellCommand.h" />
+    <ClInclude Include="Patterns\Command\FillTopSideCellCommand.h" />
+    <ClInclude Include="Patterns\Command\UnionCommand.h" />
+    <ClInclude Include="Patterns\Factory\Factory.h" />
+    <ClInclude Include="Patterns\Factory\FactoryDoubleShip.h" />
+    <ClInclude Include="Patterns\Factory\FactoryFourShip.h" />
+    <ClInclude Include="Patterns\Factory\FactorySingleShip.h" />
+    <ClInclude Include="Patterns\Factory\FactoryThreeShip.h" />
+    <ClInclude Include="Patterns\MVC\Controller.h" />
+    <ClInclude Include="Patterns\MVC\GameModel.h" />
+    <ClInclude Include="Patterns\MVC\IController.h" />
+    <ClInclude Include="Patterns\MVC\IGame.h" />
+    <ClInclude Include="Patterns\MVC\ITime.h" />
+    <ClInclude Include="Patterns\MVC\IViewModel.h" />
+    <ClInclude Include="Patterns\MVC\View.h" />
+    <ClInclude Include="Patterns\MVC\ViewModel.h" />
+    <ClInclude Include="Patterns\Observer\Observable.h" />
+    <ClInclude Include="Patterns\Observer\Observer.h" />
     <ClInclude Include="Players\IField.h" />
     <ClInclude Include="Players\IPlayer.h" />
     <ClInclude Include="Players\Player.h" />
     <ClInclude Include="Players\PlayerHelper.h" />
+    <ClInclude Include="Resource\Constants.h" />
     <ClInclude Include="Resource\IShipSettings.h" />
     <ClInclude Include="Resource\Settings.h" />
     <ClInclude Include="Resource\UnionFactory.h" />
@@ -204,11 +211,6 @@
     <ClInclude Include="Ships\Ship.h" />
     <ClInclude Include="Ships\SingleDeckShip.h" />
     <ClInclude Include="Ships\ThreeDeckShip.h" />
-    <ClInclude Include="View.h" />
-    <ClInclude Include="ViewModel.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

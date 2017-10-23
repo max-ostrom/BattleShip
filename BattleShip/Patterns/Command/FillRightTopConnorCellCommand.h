@@ -1,26 +1,24 @@
-#ifndef FillLeftSideCellCommand_H
-#define FillLeftSideCellCommand_H
+#ifndef FillRightTopConnorCellCommand_H
+#define FillRightTopConnorCellCommand_H
 
-#include "..\Players\PlayerHelper.h"
 #include "Command.h"
 
-class FillLeftSideCellCommand : public Command
+class FillRightTopConnorCellCommand : public Command
 {
 public:
-    FillLeftSideCellCommand(PlayerHelper& p) : PlayerHelper_(p) {}
+    FillRightTopConnorCellCommand(PlayerHelper& p) : PlayerHelper_(p) {}
     void execute() override
     {
         if (PlayerHelper_.getShip()->getX().get()[0] -
             PlayerHelper_.getShip()->getX()
             .get()[PlayerHelper_.getShip()->getShipSize() - 1] != 0)
         {
-            for (int i = PlayerHelper_.getShip()->getX().get()[0] - 1;
+            for (int i = PlayerHelper_.getShip()->getX().get()[0];
                 i < PlayerHelper_.getShip()->getX().get()[0]
-                + PlayerHelper_.getShip()->getShipSize() + 1;
-                i++)
+                + PlayerHelper_.getShip()->getShipSize() + 1; i++)
             {
-                for (int j = PlayerHelper_.getShip()->getY().get()[0];
-                    j < PlayerHelper_.getShip()->getY().get()[0] + 2; j++)
+                for (int j = PlayerHelper_.getShip()->getY().get()[0] - 1;
+                    j < PlayerHelper_.getShip()->getY().get()[0] + 1; j++)
                 {
 
                     PlayerHelper_.getPlayer().setField(i, j);
@@ -31,7 +29,7 @@ public:
         else
         {
             for (int i = PlayerHelper_.getShip()->getX().get()[0] - 1;
-                i < PlayerHelper_.getShip()->getX().get()[0] + 2; i++)
+                i < PlayerHelper_.getShip()->getX().get()[0]; i++)
             {
                 for (int j = PlayerHelper_.getShip()->getY().get()[0];
                     j < PlayerHelper_.getShip()->getY().get()[0]
@@ -44,11 +42,11 @@ public:
                 }
             }
         }
-
     }
     bool tryExecute() override 
     {
-        return PlayerHelper_.getShip()->getY().get()[0] == 0;
+        return PlayerHelper_.getShip()->getX().get()[0] == 0 && PlayerHelper_.getShip()->getY().get()[PlayerHelper_.getShip()->getShipSize() - 1]
+            == STANDART_FIELD - 1;
     }
 private:
     PlayerHelper& PlayerHelper_;

@@ -1,7 +1,7 @@
 #ifndef ViewModel_H
 #define ViewModel_H
 
-#include "Constants.h"
+#include "../../Resource/Constants.h"
 #include "IViewModel.h"
 
 class ViewModel final :

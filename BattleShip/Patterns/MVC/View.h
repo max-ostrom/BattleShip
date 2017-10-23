@@ -3,7 +3,7 @@
 
 #include <memory>
 
-#include "Observer.h"
+#include "../Observer/Observer.h"
 #include "GameModel.h"
 #include "ViewModel.h"
 

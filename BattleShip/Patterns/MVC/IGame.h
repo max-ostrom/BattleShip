@@ -1,7 +1,7 @@
 #ifndef IGame_H
 #define IGame_H
 
-#include"Players\IPlayer.h"
+#include"../../Players/IPlayer.h"
 
 class IGame
 {

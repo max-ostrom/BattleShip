@@ -4,7 +4,12 @@
 #include <iostream>
 #include <vector>
 
-#include "..\Resource\UnionFactory.h"
+#include "..\Patterns\Factory\Factory.h"
+#include "..\Patterns\Factory\FactoryDoubleShip.h"
+#include "..\Patterns\Factory\FactoryFourShip.h"
+#include "..\Patterns\Factory\FactorySingleShip.h"
+#include "..\Patterns\Factory\FactoryThreeShip.h"
+
 #include "..\Resource\Settings.h"
 #include "..\Resource\UnionHeader.h"
 #include "IPlayer.h"

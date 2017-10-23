@@ -1,7 +1,7 @@
 #ifndef IController_H
 #define IController_H
 
-#include "Observable.h"
+#include "../Observer/Observable.h"
 class IController :
     public Observable
 {

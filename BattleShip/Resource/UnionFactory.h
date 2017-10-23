@@ -1,9 +1,9 @@
 #ifndef UnionFactory_H
 #define UnionFactory_H
 
-#include"..\Factory\FactoryDoubleShip.h"
-#include"..\Factory\FactoryFourShip.h"
-#include"..\Factory\FactorySingleShip.h"
-#include"..\Factory\FactoryThreeShip.h"
+#include"..\..\BattleShip\Patterns\Factory\FactoryDoubleShip.h"
+#include"..\..\BattleShip\Patterns\Factory\FactoryFourShip.h"
+#include"..\..\BattleShip\Patterns\Factory\FactorySingleShip.h"
+#include"..\..\BattleShip\Patterns\Factory\FactoryThreeShip.h"
 
 #endif

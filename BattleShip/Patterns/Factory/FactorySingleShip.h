@@ -1,5 +1,4 @@
-#ifndef FactorySignleShip_H
-#define FactorySingleShip_H
+#pragma once //bad fix, but doesn't work without this
 
 #include"Factory.h"
 
@@ -12,5 +11,3 @@ public:
         createShip(char field[STANDART_FIELD][STANDART_FIELD])override;
     virtual ~FactorySingleShip();
 };
-
-#endif

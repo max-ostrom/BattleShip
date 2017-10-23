@@ -1,219 +1,220 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Exceptions">
+      <UniqueIdentifier>{0cb6454b-bee7-400c-b4c0-fc8efb5a2bf5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    <Filter Include="Ships">
+      <UniqueIdentifier>{405f6d44-1db4-4382-bc9c-48d9e9d6353f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Ships\Factory">
+      <UniqueIdentifier>{076e3d50-dbb5-4b6b-8454-2b20c953e9a1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Factory">
-      <UniqueIdentifier>{f74e6fd6-3808-4164-bc70-ff2e11b80995}</UniqueIdentifier>
+    <Filter Include="Ships\Ships">
+      <UniqueIdentifier>{4b1a5f02-f872-4d77-9354-c2e3e21be051}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Ships">
-      <UniqueIdentifier>{4f21231c-7e82-4e22-a2ad-458c1d8903fe}</UniqueIdentifier>
+    <Filter Include="Patterns">
+      <UniqueIdentifier>{9ecb8121-9a1f-498b-ab53-16fee0cd220c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Ship">
-      <UniqueIdentifier>{301bceda-9064-4f65-a67c-a246b3b44b01}</UniqueIdentifier>
+    <Filter Include="Patterns\Commands">
+      <UniqueIdentifier>{3a935240-de2a-46f3-9771-5229304f6f0f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Factory">
-      <UniqueIdentifier>{5257f257-00dc-4a99-967f-a5043243596c}</UniqueIdentifier>
+    <Filter Include="Patterns\Observer">
+      <UniqueIdentifier>{161e7f2f-5557-464a-912d-247bf0e0e480}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Commands">
-      <UniqueIdentifier>{f4e10058-b473-47b9-a8c9-de2c26a4b841}</UniqueIdentifier>
+    <Filter Include="Patterns\MVC">
+      <UniqueIdentifier>{f522f665-637c-4895-80e6-9eed98049df0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Resource">
-      <UniqueIdentifier>{27536fe8-6e28-485d-8fb2-a65d60c2192b}</UniqueIdentifier>
+    <Filter Include="Settings">
+      <UniqueIdentifier>{6496d24d-6200-411d-a57b-ed58832a8700}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Players">
-      <UniqueIdentifier>{cb5b213c-48b5-4fb7-8058-11f0a02c9991}</UniqueIdentifier>
+    <Filter Include="Players">
+      <UniqueIdentifier>{e8b97015-967c-426f-9569-2f754494fde0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Ships\Ship.cpp">
-      <Filter>Source Files\Ships</Filter>
-    </ClCompile>
-    <ClCompile Include="View.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Observable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Controller.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Exceptions\CreateShipException.cpp">
+      <Filter>Exceptions</Filter>
     </ClCompile>
     <ClCompile Include="Ships\DoubleDeckShip.cpp">
-      <Filter>Source Files\Ships</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Factory\FactoryDoubleShip.cpp">
-      <Filter>Source Files\Factory</Filter>
-    </ClCompile>
-    <ClCompile Include="Factory\FactoryFourShip.cpp">
-      <Filter>Source Files\Factory</Filter>
-    </ClCompile>
-    <ClCompile Include="Factory\FactorySingleShip.cpp">
-      <Filter>Source Files\Factory</Filter>
-    </ClCompile>
-    <ClCompile Include="Factory\FactoryThreeShip.cpp">
-      <Filter>Source Files\Factory</Filter>
+      <Filter>Ships\Ships</Filter>
     </ClCompile>
     <ClCompile Include="Ships\FourDeckShip.cpp">
-      <Filter>Source Files\Ships</Filter>
+      <Filter>Ships\Ships</Filter>
+    </ClCompile>
+    <ClCompile Include="Ships\Ship.cpp">
+      <Filter>Ships\Ships</Filter>
     </ClCompile>
     <ClCompile Include="Ships\SingleDeckShip.cpp">
-      <Filter>Source Files\Ships</Filter>
+      <Filter>Ships\Ships</Filter>
     </ClCompile>
     <ClCompile Include="Ships\ThreeDeckShip.cpp">
-      <Filter>Source Files\Ships</Filter>
+      <Filter>Ships\Ships</Filter>
     </ClCompile>
     <ClCompile Include="Resource\Settings.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Settings</Filter>
     </ClCompile>
-    <ClCompile Include="Players\PlayerHelper.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Patterns\Factory\FactoryDoubleShip.cpp">
+      <Filter>Ships\Factory</Filter>
     </ClCompile>
-    <ClCompile Include="ViewModel.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Patterns\Factory\FactoryFourShip.cpp">
+      <Filter>Ships\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="Patterns\Factory\FactorySingleShip.cpp">
+      <Filter>Ships\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="Patterns\Factory\FactoryThreeShip.cpp">
+      <Filter>Ships\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="Patterns\Observer\Observable.cpp">
+      <Filter>Patterns\Observer</Filter>
+    </ClCompile>
+    <ClCompile Include="Patterns\MVC\Controller.cpp">
+      <Filter>Patterns\MVC</Filter>
+    </ClCompile>
+    <ClCompile Include="Patterns\MVC\GameModel.cpp">
+      <Filter>Patterns\MVC</Filter>
+    </ClCompile>
+    <ClCompile Include="Patterns\MVC\View.cpp">
+      <Filter>Patterns\MVC</Filter>
+    </ClCompile>
+    <ClCompile Include="Patterns\MVC\ViewModel.cpp">
+      <Filter>Patterns\MVC</Filter>
     </ClCompile>
     <ClCompile Include="Players\Player.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Players</Filter>
+    </ClCompile>
+    <ClCompile Include="Players\PlayerHelper.cpp">
+      <Filter>Players</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Ships\Ship.h">
-      <Filter>Header Files\Ship</Filter>
+    <ClInclude Include="Exceptions\CreateShipException.h">
+      <Filter>Exceptions</Filter>
     </ClInclude>
     <ClInclude Include="Ships\DoubleDeckShip.h">
-      <Filter>Header Files\Ship</Filter>
+      <Filter>Ships\Ships</Filter>
     </ClInclude>
     <ClInclude Include="Ships\FourDeckShip.h">
-      <Filter>Header Files\Ship</Filter>
+      <Filter>Ships\Ships</Filter>
+    </ClInclude>
+    <ClInclude Include="Ships\Ship.h">
+      <Filter>Ships\Ships</Filter>
     </ClInclude>
     <ClInclude Include="Ships\SingleDeckShip.h">
-      <Filter>Header Files\Ship</Filter>
+      <Filter>Ships\Ships</Filter>
     </ClInclude>
     <ClInclude Include="Ships\ThreeDeckShip.h">
-      <Filter>Header Files\Ship</Filter>
-    </ClInclude>
-    <ClInclude Include="Factory\FactoryDoubleShip.h">
-      <Filter>Header Files\Factory</Filter>
-    </ClInclude>
-    <ClInclude Include="Factory\FactorySingleShip.h">
-      <Filter>Header Files\Factory</Filter>
-    </ClInclude>
-    <ClInclude Include="Factory\FactoryThreeShip.h">
-      <Filter>Header Files\Factory</Filter>
-    </ClInclude>
-    <ClInclude Include="Observer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Observable.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Controller.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Factory\FactoryFourShip.h">
-      <Filter>Header Files\Factory</Filter>
-    </ClInclude>
-    <ClInclude Include="Factory\Factory.h">
-      <Filter>Header Files\Factory</Filter>
-    </ClInclude>
-    <ClInclude Include="Constants.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="View.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameModel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Command\Command.h">
-      <Filter>Header Files\Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="Command\FillLeftTopConnorCellCommand.h">
-      <Filter>Header Files\Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="Command\FillLeftBottomConnorCellCommand.h">
-      <Filter>Header Files\Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="Command\FillRightTopConnorCellCommand.h">
-      <Filter>Header Files\Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="Command\FillRightBottomConnorCellCommand.h">
-      <Filter>Header Files\Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="Command\FillLeftSideCellCommand.h">
-      <Filter>Header Files\Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="Command\FillBottomSideCellCommand.h">
-      <Filter>Header Files\Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="Command\FillRightSideCellCommand.h">
-      <Filter>Header Files\Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="Command\FillTopSideCellCommand.h">
-      <Filter>Header Files\Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="Command\UnionCommand.h">
-      <Filter>Header Files\Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="IGame.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource\UnionFactory.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource\UnionHeader.h">
-      <Filter>Resource Files</Filter>
+      <Filter>Ships\Ships</Filter>
     </ClInclude>
     <ClInclude Include="Resource\IShipSettings.h">
-      <Filter>Header Files\Resource</Filter>
+      <Filter>Settings</Filter>
     </ClInclude>
     <ClInclude Include="Resource\Settings.h">
-      <Filter>Header Files\Resource</Filter>
+      <Filter>Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource\UnionFactory.h">
+      <Filter>Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource\UnionHeader.h">
+      <Filter>Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Factory\Factory.h">
+      <Filter>Ships\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Factory\FactoryDoubleShip.h">
+      <Filter>Ships\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Factory\FactoryFourShip.h">
+      <Filter>Ships\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Factory\FactoryThreeShip.h">
+      <Filter>Ships\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Observer\Observable.h">
+      <Filter>Patterns\Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Observer\Observer.h">
+      <Filter>Patterns\Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\MVC\Controller.h">
+      <Filter>Patterns\MVC</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\MVC\GameModel.h">
+      <Filter>Patterns\MVC</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\MVC\IController.h">
+      <Filter>Patterns\MVC</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\MVC\IGame.h">
+      <Filter>Patterns\MVC</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\MVC\ITime.h">
+      <Filter>Patterns\MVC</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\MVC\IViewModel.h">
+      <Filter>Patterns\MVC</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\MVC\View.h">
+      <Filter>Patterns\MVC</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\MVC\ViewModel.h">
+      <Filter>Patterns\MVC</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Command\Command.h">
+      <Filter>Patterns\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Command\FillBottomSideCellCommand.h">
+      <Filter>Patterns\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Command\FillLeftBottomConnorCellCommand.h">
+      <Filter>Patterns\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Command\FillLeftSideCellCommand.h">
+      <Filter>Patterns\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Command\FillLeftTopConnorCellCommand.h">
+      <Filter>Patterns\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Command\FillRightBottomConnorCellCommand.h">
+      <Filter>Patterns\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Command\FillRightSideCellCommand.h">
+      <Filter>Patterns\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Command\FillRightTopConnorCellCommand.h">
+      <Filter>Patterns\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Command\FillStandartCellCommand.h">
+      <Filter>Patterns\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Command\FillTopSideCellCommand.h">
+      <Filter>Patterns\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Command\UnionCommand.h">
+      <Filter>Patterns\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource\Constants.h">
+      <Filter>Settings</Filter>
     </ClInclude>
     <ClInclude Include="Players\IField.h">
-      <Filter>Header Files\Players</Filter>
+      <Filter>Players</Filter>
     </ClInclude>
     <ClInclude Include="Players\IPlayer.h">
-      <Filter>Header Files\Players</Filter>
+      <Filter>Players</Filter>
     </ClInclude>
     <ClInclude Include="Players\Player.h">
-      <Filter>Header Files\Players</Filter>
+      <Filter>Players</Filter>
     </ClInclude>
     <ClInclude Include="Players\PlayerHelper.h">
-      <Filter>Header Files\Players</Filter>
+      <Filter>Players</Filter>
     </ClInclude>
-    <ClInclude Include="ITime.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Patterns\Factory\FactorySingleShip.h">
+      <Filter>Ships\Factory</Filter>
     </ClInclude>
-    <ClInclude Include="IController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ViewModel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FillStandartCellCommand.h">
-      <Filter>Header Files\Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="IViewModel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

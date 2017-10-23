@@ -3,7 +3,7 @@
 
 #include <memory>
 
-#include "..\Command\Command.h"
+#include "..\Patterns\Command\Command.h"
 #include "IPlayer.h"
 
 using namespace std;
