@@ -91,6 +91,9 @@
     <ClCompile Include="Players\PlayerHelper.cpp">
       <Filter>Players</Filter>
     </ClCompile>
+    <ClCompile Include="Exceptions\ExecuteCommandException.cpp">
+      <Filter>Exceptions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Exceptions\CreateShipException.h">
@@ -215,6 +218,9 @@
     </ClInclude>
     <ClInclude Include="Patterns\Factory\FactorySingleShip.h">
       <Filter>Ships\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="Exceptions\ExecuteCommandException.h">
+      <Filter>Exceptions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -7,10 +7,9 @@ FactorySingleShip::createShip(char field[STANDART_FIELD][STANDART_FIELD])
     {
         return std::shared_ptr<Ship>(new SingleDeckShip(field));
     }
-    catch (exception& ex)
+    catch (exception)
     {
-        cout << ex.what() << endl;
-        return nullptr;
+        throw CreateShipException("SingleDeck");
     }
 }
 FactorySingleShip::~FactorySingleShip() {}

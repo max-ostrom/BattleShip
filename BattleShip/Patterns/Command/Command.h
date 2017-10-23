@@ -2,7 +2,7 @@
 #define Command_H
 
 #include "../../Players/PlayerHelper.h"
-
+#include "../../../BattleShip/Exceptions/ExecuteCommandException.h"
 class Command
 {
 public:

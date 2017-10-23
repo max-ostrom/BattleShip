@@ -2,7 +2,7 @@
 #define Factory_H
 
 #include "..\..\Resource\UnionHeader.h"
-
+#include "..\..\Exceptions\CreateShipException.h"
 #include <new>
 #include <memory>
 

@@ -7,10 +7,9 @@ FactoryFourShip::createShip(char field[STANDART_FIELD][STANDART_FIELD])
     {
         return std::shared_ptr<Ship>(new FourDeckShip(field));
     }
-    catch (exception& ex)
+    catch (exception)
     {
-        cout << ex.what() << endl;
-        return nullptr;
+        throw CreateShipException("FourDeck");
     }
 }
 FactoryFourShip::~FactoryFourShip() {}

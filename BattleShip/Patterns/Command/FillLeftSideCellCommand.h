@@ -9,6 +9,7 @@ public:
     FillLeftSideCellCommand(PlayerHelper& p) : PlayerHelper_(p) {}
     void execute() override
     {
+        try{
         if (PlayerHelper_.getShip()->getX().get()[0] -
             PlayerHelper_.getShip()->getX()
             .get()[PlayerHelper_.getShip()->getShipSize() - 1] != 0)
@@ -43,7 +44,11 @@ public:
                 }
             }
         }
-
+        }
+        catch (exception)
+        {
+            throw ExecuteCommandException();
+        }
     }
     bool tryExecute() override 
     {
