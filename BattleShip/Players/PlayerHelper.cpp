@@ -9,28 +9,7 @@ using namespace std;
 PlayerHelper::PlayerHelper(IField& field, shared_ptr<Ship> ship)
     : Field_(field), Ship_(ship)
 {
-    Ship_->destroy();
-
-    commands_.push_back(shared_ptr<Command>(new FillLeftTopConnorCellCommand(*this)));
-    commands_.push_back(shared_ptr<Command>(new FillLeftBottomConnorCellCommand(*this)));
-    commands_.push_back(shared_ptr<Command>(new FillRightTopConnorCellCommand(*this)));
-    commands_.push_back(shared_ptr<Command>(new FillRightBottomConnorCellCommand(*this)));
-
-    commands_.push_back(shared_ptr<Command>(new FillLeftSideCellCommand(*this)));
-    commands_.push_back(shared_ptr<Command>(new FillRightSideCellCommand(*this)));
-    commands_.push_back(shared_ptr<Command>(new FillBottomSideCellCommand(*this)));
-    commands_.push_back(shared_ptr<Command>(new FillTopSideCellCommand(*this)));
-
-    commands_.push_back(shared_ptr<Command>(new FillStandartCellCommand(*this)));
-
-    for (shared_ptr<Command> item : commands_)
-    {
-        if (item->tryExecute())
-        {
-            item->execute();
-            break;
-        }
-    }
+    
 }
 
 
@@ -58,4 +37,30 @@ IField & PlayerHelper::getPlayer() const
 
 PlayerHelper::~PlayerHelper()
 {
+}
+
+void PlayerHelper::operator()()
+{
+    Ship_->destroy();
+
+    commands_.push_back(shared_ptr<Command>(new FillLeftTopConnorCellCommand(*this)));
+    commands_.push_back(shared_ptr<Command>(new FillLeftBottomConnorCellCommand(*this)));
+    commands_.push_back(shared_ptr<Command>(new FillRightTopConnorCellCommand(*this)));
+    commands_.push_back(shared_ptr<Command>(new FillRightBottomConnorCellCommand(*this)));
+
+    commands_.push_back(shared_ptr<Command>(new FillLeftSideCellCommand(*this)));
+    commands_.push_back(shared_ptr<Command>(new FillRightSideCellCommand(*this)));
+    commands_.push_back(shared_ptr<Command>(new FillBottomSideCellCommand(*this)));
+    commands_.push_back(shared_ptr<Command>(new FillTopSideCellCommand(*this)));
+
+    commands_.push_back(shared_ptr<Command>(new FillStandartCellCommand(*this)));
+
+    for (shared_ptr<Command> item : commands_)
+    {
+        if (item->tryExecute())
+        {
+            item->execute();
+            break;
+        }
+    }
 }

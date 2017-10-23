@@ -9,6 +9,7 @@ public:
     FillLeftTopConnorCellCommand(PlayerHelper& p) : PlayerHelper_(p) {}
     void execute() override
     {
+        mutex_.lock();
         try {
             for (int i = 0; i < PlayerHelper_.getShip()->getShipSize() + 1; i++)
             {
@@ -31,7 +32,9 @@ public:
         catch (exception)
         {
             throw ExecuteCommandException();
+            mutex_.unlock();
         }
+        mutex_.unlock();
     }
     bool tryExecute() override
     {

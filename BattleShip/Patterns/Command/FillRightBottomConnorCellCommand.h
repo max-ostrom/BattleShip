@@ -9,6 +9,7 @@ public:
     FillRightBottomConnorCellCommand(PlayerHelper& p) : PlayerHelper_(p) {}
     void execute() override
     {
+        mutex_.lock();
         try {
             for (int i = PlayerHelper_.getShip()->getX().get()[0] - 1;
                 i < PlayerHelper_.getShip()->getX().get()[0]
@@ -33,7 +34,9 @@ public:
         catch (exception)
         {
             throw ExecuteCommandException();
+            mutex_.unlock();
         }
+        mutex_.unlock();
 
     }
     bool tryExecute() override 

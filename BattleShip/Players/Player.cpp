@@ -1,6 +1,8 @@
 #include "Player.h"
 #include "..\Resource\UnionFactory.h"
 
+#include <thread>
+
 using namespace std;
 
 bool Player::isEndOfGame() const
@@ -42,7 +44,9 @@ bool Player::isShipAlive(shared_ptr<Ship> Ship_)
 
     if (flag)
     {
-        PlayerHelper(*this, Ship_);
+        PlayerHelper playerHelper(*this, Ship_);
+        thread thrd(playerHelper);
+        thrd.detach();
         return false;
     }
     return true;

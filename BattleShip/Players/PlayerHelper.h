@@ -13,7 +13,7 @@ class PlayerHelper
 public:
     PlayerHelper(IField& field, shared_ptr<Ship> ship);
     virtual ~PlayerHelper();
-
+    void operator()();
     shared_ptr<Ship> getShip();
     shared_ptr<Ship> getShip() const;
 

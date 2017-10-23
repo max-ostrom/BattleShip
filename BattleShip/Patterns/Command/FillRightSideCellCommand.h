@@ -9,6 +9,7 @@ public:
     FillRightSideCellCommand(PlayerHelper& p) : PlayerHelper_(p) {}
     void execute() override
     {
+        mutex_.lock();
         try {
             if (PlayerHelper_.getShip()->getX().get()[0] -
                 PlayerHelper_.getShip()->getX()
@@ -47,7 +48,9 @@ public:
         catch (exception)
         {
             throw ExecuteCommandException();
+            mutex_.unlock();
         }
+        mutex_.unlock();
     }
     bool tryExecute() override {
         return PlayerHelper_.getShip()->getY().get()[PlayerHelper_.getShip()->getShipSize() - 1]
