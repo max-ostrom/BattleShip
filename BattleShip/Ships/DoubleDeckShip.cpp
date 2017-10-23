@@ -14,11 +14,10 @@ DoubleDeckShip::DoubleDeckShip(char field[STANDART_FIELD][STANDART_FIELD])
     switch (k) {
 
 
-    case 0://вертикальное расположение корабля
+    case 0:
     {
         int m = static_cast<int>(rand()) % (STANDART_FIELD - SHIP_SIZE_ + 1);
         int n = static_cast<int>(rand()) % STANDART_FIELD;
-
 
         while
             (isCellFreeVertical(field, m, n))
@@ -27,11 +26,8 @@ DoubleDeckShip::DoubleDeckShip(char field[STANDART_FIELD][STANDART_FIELD])
             n = static_cast<int>(rand()) % STANDART_FIELD;
         }
 
-
-
         field[m][n] = 'X';
         field[m + 1][n] = 'X';
-
 
         coordsX_.get()[0] = m;
         coordsX_.get()[1] = m + 1;
@@ -40,14 +36,10 @@ DoubleDeckShip::DoubleDeckShip(char field[STANDART_FIELD][STANDART_FIELD])
         break;
     }
 
-
-
-    case 1://горизонтальное расположение корабля
-
+    case 1:
 
         int m = static_cast<int>(rand()) % STANDART_FIELD;
         int n = static_cast<int>(rand()) % (STANDART_FIELD - SHIP_SIZE_ + 1);
-
 
         while
             (isCellFreeHorizontal(field, m, n))
@@ -56,10 +48,8 @@ DoubleDeckShip::DoubleDeckShip(char field[STANDART_FIELD][STANDART_FIELD])
             n = static_cast<int>(rand()) % (STANDART_FIELD - SHIP_SIZE_ + 1);
         }
 
-
         field[m][n] = 'X';
         field[m][n + 1] = 'X';
-
 
         coordsX_.get()[0] = m;
         coordsX_.get()[1] = m;
