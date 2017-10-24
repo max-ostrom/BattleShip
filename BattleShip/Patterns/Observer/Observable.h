@@ -3,7 +3,6 @@
 
 #include <list>
 #include <memory>
-#include <algorithm>
 
 #include "Observer.h"
 

@@ -21,7 +21,7 @@ void Controller::userAtack()
     Model_.getUser().setEnemyField(coordAtack[0], coordAtack[1], Model_.getComputer());
     Model_.getComputer().setField(coordAtack[0], coordAtack[1]);
     // Player_ shot
-    if (Model_.getComputer().getField(coordAtack[0], coordAtack[1]) == '#')
+    if (Model_.getComputer().getField(coordAtack[0], coordAtack[1]) == ShipInfo::HITTING)
     {
         for_each(
             Model_.getComputer().getShips().begin(),
@@ -55,7 +55,7 @@ void Controller::computerAtack()
     if (Model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) == ' ')
     {
         Model_.getUser().setField(coordAtack[0], coordAtack[1]);
-        if (Model_.getUser().getField(coordAtack[0], coordAtack[1]) == '#')
+        if (Model_.getUser().getField(coordAtack[0], coordAtack[1]) == ShipInfo::HITTING)
         {
             for_each(
                 Model_.getUser().getShips().begin(),
@@ -155,7 +155,7 @@ void Controller::run()
             {
                 for (int j = 0; j < STANDART_FIELD; j++)
                 {
-                    if (Model_.getComputer().getField(i, j) != 'X')
+                    if (Model_.getComputer().getField(i, j) != ShipInfo::ALIVE_SHIP)
                         viewModel_.get()
                         ->setUserField(i, j, Model_.getComputer().getField(i, j));
                 }
@@ -174,7 +174,7 @@ void Controller::run()
                 }
             }
         }
-        notifyUpdate();
+        //notifyUpdate();
     }
 }
 Controller::Controller

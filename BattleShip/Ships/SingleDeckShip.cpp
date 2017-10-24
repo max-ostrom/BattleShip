@@ -23,7 +23,7 @@ SingleDeckShip::SingleDeckShip(char field[STANDART_FIELD][STANDART_FIELD])
     }
 
 
-    field[m][n] = 'X';
+    field[m][n] = ShipInfo::ALIVE_SHIP;
 
 
     coordsX_.get()[0] = m;
@@ -38,20 +38,20 @@ const int& SingleDeckShip::getShipSize() const
 bool SingleDeckShip::isCellFreeHorizontal
 (const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const
 {
-    return field[m][n] == 'X' || field[m][n + 1] == 'X' ||
-        field[m][n - 1] == 'X' || field[m + 1][n] == 'X' ||
-        field[m - 1][n] == 'X' || field[m + 1][n + 1] == 'X' ||
-        field[m + 1][n - 1] == 'X' || field[m - 1][n + 1] == 'X' ||
-        field[m - 1][n - 1] == 'X';
+    return field[m][n] == ShipInfo::ALIVE_SHIP || field[m][n + 1] == ShipInfo::ALIVE_SHIP ||
+        field[m][n - 1] == ShipInfo::ALIVE_SHIP || field[m + 1][n] == ShipInfo::ALIVE_SHIP ||
+        field[m - 1][n] == ShipInfo::ALIVE_SHIP || field[m + 1][n + 1] == ShipInfo::ALIVE_SHIP ||
+        field[m + 1][n - 1] == ShipInfo::ALIVE_SHIP || field[m - 1][n + 1] == ShipInfo::ALIVE_SHIP ||
+        field[m - 1][n - 1] == ShipInfo::ALIVE_SHIP;
 }
 
 bool SingleDeckShip::isCellFreeVertical
 (const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const
 {
-    return field[m][n] == 'X' || field[m][n + 1] == 'X' ||
-        field[m][n - 1] == 'X' || field[m + 1][n] == 'X' ||
-        field[m - 1][n] == 'X' || field[m + 1][n + 1] == 'X' ||
-        field[m + 1][n - 1] == 'X' || field[m - 1][n + 1] == 'X' ||
-        field[m - 1][n - 1] == 'X';
+    return field[m][n] == ShipInfo::ALIVE_SHIP || field[m][n + 1] == ShipInfo::ALIVE_SHIP ||
+        field[m][n - 1] == ShipInfo::ALIVE_SHIP || field[m + 1][n] == ShipInfo::ALIVE_SHIP ||
+        field[m - 1][n] == ShipInfo::ALIVE_SHIP || field[m + 1][n + 1] == ShipInfo::ALIVE_SHIP ||
+        field[m + 1][n - 1] == ShipInfo::ALIVE_SHIP || field[m - 1][n + 1] == ShipInfo::ALIVE_SHIP ||
+        field[m - 1][n - 1] == ShipInfo::ALIVE_SHIP;
 }
 

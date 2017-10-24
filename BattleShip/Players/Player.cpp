@@ -11,7 +11,7 @@ bool Player::isEndOfGame() const
     {
         for (int j = 0; j < STANDART_FIELD; j++)
         {
-            if (getField(i, j) == 'X')
+            if (getField(i, j) == ShipInfo::ALIVE_SHIP)
                 return false;
 
         }
@@ -31,7 +31,7 @@ bool Player::isShipAlive(shared_ptr<Ship> Ship_)
     for (int i = 0; i < Ship_->getShipSize(); i++)
     {
         if (getField(Ship_->getX().get()[i],
-            Ship_->getY().get()[i]) == '#' && flag)
+            Ship_->getY().get()[i]) == ShipInfo::HITTING && flag)
         {
             flag = true;
         }
@@ -73,26 +73,26 @@ char Player::getEnemyField(const int i, const int j) const
 void Player::setField(const int i, const int j)
 {
 
-    if (yourField_[i][j] == ' ' || yourField_[i][j] == '*')
+    if (yourField_[i][j] == ' ' || yourField_[i][j] == ShipInfo::MIS_HIT)
     {
-        yourField_[i][j] = '*';
+        yourField_[i][j] = ShipInfo::MIS_HIT;
     }
     else
     {
-        yourField_[i][j] = '#';
+        yourField_[i][j] = ShipInfo::HITTING;
     }
 }
 
 void Player::setEnemyField(const int i, const int j, const IField& p)
 {
 
-    if (p.getField(i, j) == ' ' || p.getField(i, j) == '*')
+    if (p.getField(i, j) == ' ' || p.getField(i, j) == ShipInfo::MIS_HIT)
     {
-        enemyField_[i][j] = '*';
+        enemyField_[i][j] = ShipInfo::MIS_HIT;
     }
     else
     {
-        enemyField_[i][j] = '#';
+        enemyField_[i][j] = ShipInfo::HITTING;
     }
 }
 

@@ -25,9 +25,9 @@ ThreeDeckShip::ThreeDeckShip(char field[STANDART_FIELD][STANDART_FIELD])
         }
 
 
-        field[m][n] = 'X';
-        field[m + 1][n] = 'X';
-        field[m + 2][n] = 'X';
+        field[m][n] = ShipInfo::ALIVE_SHIP;
+        field[m + 1][n] = ShipInfo::ALIVE_SHIP;
+        field[m + 2][n] = ShipInfo::ALIVE_SHIP;
 
 
         coordsX_.get()[0] = m;
@@ -51,9 +51,9 @@ ThreeDeckShip::ThreeDeckShip(char field[STANDART_FIELD][STANDART_FIELD])
         }
 
 
-        field[m][n] = 'X';
-        field[m][n + 1] = 'X';
-        field[m][n + 2] = 'X';
+        field[m][n] = ShipInfo::ALIVE_SHIP;
+        field[m][n + 1] = ShipInfo::ALIVE_SHIP;
+        field[m][n + 2] = ShipInfo::ALIVE_SHIP;
 
 
         coordsX_.get()[0] = m;
@@ -76,27 +76,27 @@ const int& ThreeDeckShip::getShipSize() const
 bool ThreeDeckShip::isCellFreeHorizontal
 (const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const
 {
-    return field[m][n] == 'X' || field[m][n + 1] == 'X' ||
-        field[m][n + 2] == 'X' || field[m - 1][n - 1] == 'X' ||
-        field[m - 1][n] == 'X' || field[m - 1][n + 1] == 'X' ||
-        field[m - 1][n + 2] == 'X' || field[m - 1][n + 3] == 'X' ||
-        field[m][n - 1] == 'X' || field[m][n + 3] == 'X' ||
-        field[m + 1][n - 1] == 'X' || field[m + 1][n] == 'X' ||
-        field[m + 1][n + 1] == 'X' || field[m + 1][n + 2] == 'X' ||
-        field[m + 1][n + 3] == 'X';
+    return field[m][n] == ShipInfo::ALIVE_SHIP || field[m][n + 1] == ShipInfo::ALIVE_SHIP ||
+        field[m][n + 2] == ShipInfo::ALIVE_SHIP || field[m - 1][n - 1] == ShipInfo::ALIVE_SHIP ||
+        field[m - 1][n] == ShipInfo::ALIVE_SHIP || field[m - 1][n + 1] == ShipInfo::ALIVE_SHIP ||
+        field[m - 1][n + 2] == ShipInfo::ALIVE_SHIP || field[m - 1][n + 3] == ShipInfo::ALIVE_SHIP ||
+        field[m][n - 1] == ShipInfo::ALIVE_SHIP || field[m][n + 3] == ShipInfo::ALIVE_SHIP ||
+        field[m + 1][n - 1] == ShipInfo::ALIVE_SHIP || field[m + 1][n] == ShipInfo::ALIVE_SHIP ||
+        field[m + 1][n + 1] == ShipInfo::ALIVE_SHIP || field[m + 1][n + 2] == ShipInfo::ALIVE_SHIP ||
+        field[m + 1][n + 3] == ShipInfo::ALIVE_SHIP;
 }
 
 bool ThreeDeckShip::isCellFreeVertical
 (const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const
 {
-    return field[m][n] == 'X' || field[m + 1][n] == 'X' ||
-        field[m + 2][n] == 'X' || field[m - 1][n - 1] == 'X' ||
-        field[m - 1][n] == 'X' || field[m - 1][n + 1] == 'X' ||
-        field[m][n - 1] == 'X' || field[m][n + 1] == 'X' ||
-        field[m + 1][n - 1] == 'X' || field[m + 1][n + 1] == 'X' ||
-        field[m + 2][n - 1] == 'X' || field[m + 2][n + 1] == 'X' ||
-        field[m + 3][n - 1] == 'X' || field[m + 3][n] == 'X' ||
-        field[m + 3][n + 1] == 'X';
+    return field[m][n] == ShipInfo::ALIVE_SHIP || field[m + 1][n] == ShipInfo::ALIVE_SHIP ||
+        field[m + 2][n] == ShipInfo::ALIVE_SHIP || field[m - 1][n - 1] == ShipInfo::ALIVE_SHIP ||
+        field[m - 1][n] == ShipInfo::ALIVE_SHIP || field[m - 1][n + 1] == ShipInfo::ALIVE_SHIP ||
+        field[m][n - 1] == ShipInfo::ALIVE_SHIP || field[m][n + 1] == ShipInfo::ALIVE_SHIP ||
+        field[m + 1][n - 1] == ShipInfo::ALIVE_SHIP || field[m + 1][n + 1] == ShipInfo::ALIVE_SHIP ||
+        field[m + 2][n - 1] == ShipInfo::ALIVE_SHIP || field[m + 2][n + 1] == ShipInfo::ALIVE_SHIP ||
+        field[m + 3][n - 1] == ShipInfo::ALIVE_SHIP || field[m + 3][n] == ShipInfo::ALIVE_SHIP ||
+        field[m + 3][n + 1] == ShipInfo::ALIVE_SHIP;
 }
 
 
