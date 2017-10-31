@@ -9,7 +9,46 @@
 #include <list>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
+static Player createPlayer()
+{
+    std::shared_ptr<IShipSettings>settings = std::make_shared<Settings>();
 
+    std::list<shared_ptr<IFactory>> Factories;
+
+    Factories.push_back(std::make_shared<FactoryFourShip>());
+
+    for (int i = 0; i < settings->getThreeDeckShipCounter(); i++)
+        Factories.push_back(std::make_shared<FactoryThreeShip>());
+
+    for (int i = 0; i < settings->getDoubleDeckShipCounter(); i++)
+        Factories.push_back(std::make_shared<FactoryDoubleShip>());
+
+    for (int i = 0; i < settings->getSingleDeckShipCounter(); i++)
+        Factories.push_back(std::make_shared<FactorySingleShip>());
+
+    Player p(Factories);
+    return p;
+}
+static void throwCreateShipExceptionMethod(void)
+{
+    std::shared_ptr<IShipSettings>settings = std::make_shared<Settings>();
+
+    std::list<shared_ptr<IFactory>> Factories;
+    for (int i = 0; i < 8; i++)
+        Factories.push_back(std::make_shared<FactoryFourShip>());
+
+    for (int i = 0; i < settings->getThreeDeckShipCounter(); i++)
+        Factories.push_back(std::make_shared<FactoryThreeShip>());
+
+    for (int i = 0; i < settings->getDoubleDeckShipCounter(); i++)
+        Factories.push_back(std::make_shared<FactoryDoubleShip>());
+
+    for (int i = 0; i < settings->getSingleDeckShipCounter(); i++)
+        Factories.push_back(std::make_shared<FactorySingleShip>());
+
+    IPlayer& p = Player(Factories);
+
+}
 namespace Tests
 {
 
@@ -17,6 +56,38 @@ namespace Tests
     {
     public:
         TEST_METHOD(testPlayer)
+        {
+
+
+            IPlayer& p = createPlayer();
+            IPlayer& p2 = createPlayer();
+            Assert::AreEqual(static_cast<size_t>(10), p.getShips().size(), L"Amount of Ships is not correct");
+
+            Assert::IsFalse(p == p2, L"Players field are same");
+
+        }
+        TEST_METHOD(testShips)
+        {
+            IPlayer& p = createPlayer();
+            for (size_t i = 0; i < p.getShips().size(); i++)
+            {
+                for (size_t j = 0; j < p.getShips().size(); j++)
+                {
+                    if (i != j)
+                    {
+                        Assert::IsTrue(p.getShips()[i]->getX().get()[0] != p.getShips()[j]->getX().get()[0]
+                            || p.getShips()[i]->getY().get()[0] != p.getShips()[j]->getY().get()[0], L"Ships are on same positions");
+                    }
+                }
+            }
+        }
+        TEST_METHOD(testCreateShipException)
+        {
+           // Assert::IsTrue(false);
+           /* function<void(void)> f = throwCreateShipExceptionMethod;
+            Assert::ExpectException<CreateShipException>(throwCreateShipExceptionMethod);*/
+        }
+        TEST_METHOD(testFillTopRightCornerCell)
         {
             std::shared_ptr<IShipSettings>settings = std::make_shared<Settings>();
 
@@ -33,11 +104,25 @@ namespace Tests
             for (int i = 0; i < settings->getSingleDeckShipCounter(); i++)
                 Factories.push_back(std::make_shared<FactorySingleShip>());
 
-            IPlayer& p = Player(Factories);
-            IPlayer& p2 = Player(Factories);
-            Assert::AreEqual(static_cast<size_t>(10), p.getShips().size(), L"Amount of Ships is not correct");
-
-            Assert::IsFalse(p == p2, L"Players field are same");
+            Player p(Factories);
+            do 
+            {
+                p = Player(Factories);
+            } while (p.getField(0, 0) == ' ');
+            for (auto item : p.getShips())
+            {
+                if (item->getX().get()[0] == 0 && item->getY().get()[0] == 0)
+                {
+                    for (int i = 0; i < item.get()->getShipSize(); i++)
+                    {
+                        p.setField(item->getX().get()[i], item->getY().get()[i]);
+                    }
+                    p.isShipAlive(item);
+                    Assert::AreEqual(false, item->isAlive(),L"Ship are not destroyed");
+                    break;
+                }
+            }
+            Assert::AreEqual(static_cast<char>(ShipInfo::HITTING), (p.getField(0, 0)), L"TopRightCornerCell are not filled");
         }
     };
 }
