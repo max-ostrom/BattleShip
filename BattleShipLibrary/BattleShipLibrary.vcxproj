@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Exceptions\CreateShipException.cpp" />
     <ClCompile Include="Exceptions\ExecuteCommandException.cpp" />
+    <ClCompile Include="Model\GameModel.cpp" />
     <ClCompile Include="Patterns\Factory\FactoryDoubleShip.cpp" />
     <ClCompile Include="Patterns\Factory\FactoryFourShip.cpp" />
     <ClCompile Include="Patterns\Factory\FactorySingleShip.cpp" />
@@ -38,6 +39,9 @@
   <ItemGroup>
     <ClInclude Include="Exceptions\CreateShipException.h" />
     <ClInclude Include="Exceptions\ExecuteCommandException.h" />
+    <ClInclude Include="Model\GameModel.h" />
+    <ClInclude Include="Model\IGame.h" />
+    <ClInclude Include="Model\ITime.h" />
     <ClInclude Include="Patterns\Command\Command.h" />
     <ClInclude Include="Patterns\Command\FillBottomSideCellCommand.h" />
     <ClInclude Include="Patterns\Command\FillLeftBottomConnorCellCommand.h" />

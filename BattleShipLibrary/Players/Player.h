@@ -31,6 +31,7 @@ public:
     char getField(const int i, const int j) const override;
     char getEnemyField(const int i, const int j) const override;
     bool operator==(const IPlayer& p)const override;
+    void fillCellsAroundShip(shared_ptr<Ship> Ship_);
 private:
     std::vector<std::shared_ptr<Ship>> YourShips_;
 

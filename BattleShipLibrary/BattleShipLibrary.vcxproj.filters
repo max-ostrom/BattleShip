@@ -25,6 +25,9 @@
     <Filter Include="Ships">
       <UniqueIdentifier>{643865e7-ea48-4809-a59b-9c35c78aa113}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Model">
+      <UniqueIdentifier>{02521a84-4f52-44e2-8abb-41600a7229d4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Exceptions\CreateShipException.cpp">
@@ -71,6 +74,9 @@
     </ClCompile>
     <ClCompile Include="Ships\ThreeDeckShip.cpp">
       <Filter>Ships</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\GameModel.cpp">
+      <Filter>Model</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +181,15 @@
     </ClInclude>
     <ClInclude Include="Ships\ThreeDeckShip.h">
       <Filter>Ships</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\GameModel.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\IGame.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\ITime.h">
+      <Filter>Model</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

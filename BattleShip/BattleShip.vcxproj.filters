@@ -8,9 +8,6 @@
     <ClCompile Include="MVC\Controller.cpp">
       <Filter>MVC</Filter>
     </ClCompile>
-    <ClCompile Include="MVC\GameModel.cpp">
-      <Filter>MVC</Filter>
-    </ClCompile>
     <ClCompile Include="MVC\View.cpp">
       <Filter>MVC</Filter>
     </ClCompile>
@@ -30,16 +27,7 @@
     <ClInclude Include="MVC\Controller.h">
       <Filter>MVC\inc</Filter>
     </ClInclude>
-    <ClInclude Include="MVC\GameModel.h">
-      <Filter>MVC\inc</Filter>
-    </ClInclude>
     <ClInclude Include="MVC\IController.h">
-      <Filter>MVC\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="MVC\IGame.h">
-      <Filter>MVC\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="MVC\ITime.h">
       <Filter>MVC\inc</Filter>
     </ClInclude>
     <ClInclude Include="MVC\IViewModel.h">

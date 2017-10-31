@@ -152,16 +152,12 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MVC\Controller.cpp" />
-    <ClCompile Include="MVC\GameModel.cpp" />
     <ClCompile Include="MVC\View.cpp" />
     <ClCompile Include="MVC\ViewModel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MVC\Controller.h" />
-    <ClInclude Include="MVC\GameModel.h" />
     <ClInclude Include="MVC\IController.h" />
-    <ClInclude Include="MVC\IGame.h" />
-    <ClInclude Include="MVC\ITime.h" />
     <ClInclude Include="MVC\IViewModel.h" />
     <ClInclude Include="MVC\View.h" />
     <ClInclude Include="MVC\ViewModel.h" />

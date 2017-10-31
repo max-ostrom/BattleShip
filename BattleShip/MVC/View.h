@@ -4,7 +4,7 @@
 #include <memory>
 
 #include "../../BattleShipLibrary/Patterns/Observer/Observable.h"
-#include "GameModel.h"
+#include "../../BattleShipLibrary/Model/GameModel.h"
 #include "ViewModel.h"
 
 class View final :

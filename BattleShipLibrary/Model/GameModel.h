@@ -1,7 +1,7 @@
 #ifndef Game_H
 #define Game_H
 
-#include "../../BattleShipLibrary/Players/Player.h"
+#include "../Players/Player.h"
 #include "ITime.h"
 #include "IGame.h"
 

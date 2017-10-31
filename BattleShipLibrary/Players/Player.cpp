@@ -38,18 +38,17 @@ bool Player::isShipAlive(shared_ptr<Ship> Ship_)
         else
         {
             flag = false;
+            break;
         }
     }
 
 
     if (flag)
     {
-        PlayerHelper playerHelper(*this, Ship_);
-        thread thrd(playerHelper);
-        thrd.detach();
+        fillCellsAroundShip(Ship_);
         return false;
     }
-    return true;
+    return !flag;
 }
 
 char Player::getField(const int i, const int j) const
@@ -81,6 +80,13 @@ bool Player::operator==(const IPlayer & p) const
         }
     }
     return true;
+}
+
+void Player::fillCellsAroundShip(shared_ptr<Ship> Ship_)
+{
+    PlayerHelper playerHelper(*this, Ship_);
+    thread thrd(playerHelper);
+    thrd.detach();
 }
 
 void Player::setField(const int i, const int j)

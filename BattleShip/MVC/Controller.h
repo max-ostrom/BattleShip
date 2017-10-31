@@ -1,10 +1,9 @@
 #ifndef Controller_H
 #define Controller_H
 
-#include "GameModel.h"
+#include "../../BattleShipLibrary/Model/GameModel.h"
 #include "IController.h"
 #include "IViewModel.h"
-#include "View.h"
 
 class Controller final :
     public IController
