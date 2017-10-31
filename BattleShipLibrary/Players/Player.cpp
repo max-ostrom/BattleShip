@@ -70,6 +70,19 @@ char Player::getEnemyField(const int i, const int j) const
         return NULL;
 }
 
+bool Player::operator==(const IPlayer & p) const
+{
+    for (int i = 0; i < STANDART_FIELD; i++)
+    {
+        for (int j = 0; j < STANDART_FIELD; j++)
+        {
+            if (getField(i, j) != p.getField(i, j))
+                return false;
+        }
+    }
+    return true;
+}
+
 void Player::setField(const int i, const int j)
 {
 

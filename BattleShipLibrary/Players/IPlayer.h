@@ -17,5 +17,6 @@ public:
     virtual std::vector<std::shared_ptr<Ship>>& getShips() = 0;
     virtual const std::vector<std::shared_ptr<Ship>>& getShips() const = 0;
     virtual ~IPlayer() {}
+    virtual bool operator==(const IPlayer& p)const =0;
 };
 #endif

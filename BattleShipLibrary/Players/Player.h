@@ -30,6 +30,7 @@ public:
 
     char getField(const int i, const int j) const override;
     char getEnemyField(const int i, const int j) const override;
+    bool operator==(const IPlayer& p)const override;
 private:
     std::vector<std::shared_ptr<Ship>> YourShips_;
 

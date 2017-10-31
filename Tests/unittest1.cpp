@@ -33,11 +33,11 @@ namespace Tests
             for (int i = 0; i < settings->getSingleDeckShipCounter(); i++)
                 Factories.push_back(std::make_shared<FactorySingleShip>());
 
-            std::shared_ptr<IPlayer> p = std::make_shared<Player>(Factories);
+            IPlayer& p = Player(Factories);
+            IPlayer& p2 = Player(Factories);
+            Assert::AreEqual(static_cast<size_t>(10), p.getShips().size(), L"Amount of Ships is not correct");
 
-            Assert::AreEqual(static_cast<size_t>(10), p->getShips().size(), L"Amount of Ships is not correct");
-
-
+            Assert::IsFalse(p == p2, L"Players field are same");
         }
     };
 }
