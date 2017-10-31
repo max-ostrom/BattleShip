@@ -7,6 +7,7 @@ enum  FildSize
 };
 enum  ShipInfo 
 {
+    EMPTY_CELL = 32,
     MIS_HIT = 42,
     HITTING = 35,
     ALIVE_SHIP = 88

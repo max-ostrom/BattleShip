@@ -86,7 +86,7 @@ bool Player::operator==(const IPlayer & p) const
 void Player::setField(const int i, const int j)
 {
 
-    if (yourField_[i][j] == ' ' || yourField_[i][j] == ShipInfo::MIS_HIT)
+    if (yourField_[i][j] == ShipInfo::EMPTY_CELL || yourField_[i][j] == ShipInfo::MIS_HIT)
     {
         yourField_[i][j] = ShipInfo::MIS_HIT;
     }
@@ -99,7 +99,7 @@ void Player::setField(const int i, const int j)
 void Player::setEnemyField(const int i, const int j, const IField& p)
 {
 
-    if (p.getField(i, j) == ' ' || p.getField(i, j) == ShipInfo::MIS_HIT)
+    if (p.getField(i, j) == ShipInfo::EMPTY_CELL || p.getField(i, j) == ShipInfo::MIS_HIT)
     {
         enemyField_[i][j] = ShipInfo::MIS_HIT;
     }
@@ -125,8 +125,8 @@ Player::Player(list<shared_ptr<IFactory>> Factories)
     {
         for (int j = 0; j < STANDART_FIELD; j++)
         {
-            enemyField_[i][j] = ' ';
-            yourField_[i][j] = ' ';
+            enemyField_[i][j] = ShipInfo::EMPTY_CELL;
+            yourField_[i][j] = ShipInfo::EMPTY_CELL;
         }
     }
     try {

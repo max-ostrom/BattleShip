@@ -6,8 +6,8 @@ ViewModel::ViewModel()
     {
         for (int j = 0; j < STANDART_FIELD; j++)
         {
-            userField_[i][j] = ' ';
-            computerField_[i][j] = ' ';
+            userField_[i][j] = ShipInfo::EMPTY_CELL;
+            computerField_[i][j] = ShipInfo::EMPTY_CELL;
         }
     }
 }

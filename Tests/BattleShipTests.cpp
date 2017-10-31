@@ -29,22 +29,13 @@ static Player createPlayer()
     Player p(Factories);
     return p;
 }
-static void throwCreateShipExceptionMethod(void)
+static void throwCreateShipExceptionMethod()
 {
     std::shared_ptr<IShipSettings>settings = std::make_shared<Settings>();
 
     std::list<shared_ptr<IFactory>> Factories;
-    for (int i = 0; i < 8; i++)
+    for (int i = 0; i < 100; i++)
         Factories.push_back(std::make_shared<FactoryFourShip>());
-
-    for (int i = 0; i < settings->getThreeDeckShipCounter(); i++)
-        Factories.push_back(std::make_shared<FactoryThreeShip>());
-
-    for (int i = 0; i < settings->getDoubleDeckShipCounter(); i++)
-        Factories.push_back(std::make_shared<FactoryDoubleShip>());
-
-    for (int i = 0; i < settings->getSingleDeckShipCounter(); i++)
-        Factories.push_back(std::make_shared<FactorySingleShip>());
 
     IPlayer& p = Player(Factories);
 
@@ -57,14 +48,11 @@ namespace Tests
     public:
         TEST_METHOD(testPlayer)
         {
-
-
             IPlayer& p = createPlayer();
             IPlayer& p2 = createPlayer();
             Assert::AreEqual(static_cast<size_t>(10), p.getShips().size(), L"Amount of Ships is not correct");
 
             Assert::IsFalse(p == p2, L"Players field are same");
-
         }
         TEST_METHOD(testShips)
         {
@@ -83,8 +71,8 @@ namespace Tests
         }
         TEST_METHOD(testCreateShipException)
         {
-           // Assert::IsTrue(false);
-           /* function<void(void)> f = throwCreateShipExceptionMethod;
+            Assert::IsTrue(false);
+            /*function<void(void)> f = throwCreateShipExceptionMethod;
             Assert::ExpectException<CreateShipException>(throwCreateShipExceptionMethod);*/
         }
         TEST_METHOD(testFillTopRightCornerCell)
@@ -108,21 +96,25 @@ namespace Tests
             do 
             {
                 p = Player(Factories);
-            } while (p.getField(0, 0) == ' ');
+            } while (p.getField(0, 0) == ShipInfo::EMPTY_CELL);
             for (auto item : p.getShips())
             {
-                if (item->getX().get()[0] == 0 && item->getY().get()[0] == 0)
+                if (item->getX().get()[0] == 0 && item->getY().get()[0] == 0) // find ship which are on position [0,0]
                 {
                     for (int i = 0; i < item.get()->getShipSize(); i++)
                     {
-                        p.setField(item->getX().get()[i], item->getY().get()[i]);
+                        p.setField(item->getX().get()[i], item->getY().get()[i]); // fill Ships Cells
                     }
-                    p.isShipAlive(item);
+                    p.isShipAlive(item); // fill Cells around ship and destroy ship
                     Assert::AreEqual(false, item->isAlive(),L"Ship are not destroyed");
                     break;
                 }
             }
-            Assert::AreEqual(static_cast<char>(ShipInfo::HITTING), (p.getField(0, 0)), L"TopRightCornerCell are not filled");
+            Assert::AreEqual(static_cast<char>(ShipInfo::HITTING)
+                ,(p.getField(0, 0)), L"TopRightCornerCell are not filled");
+
+            Assert::AreEqual(static_cast<char>(ShipInfo::MIS_HIT)
+                , (p.getField(1, 1)), L"TopRightCornerCell are not filled");
         }
     };
 }

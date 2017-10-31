@@ -49,10 +49,10 @@ void Controller::computerAtack()
     do {
         coordAtack[0] = static_cast<int>(rand()) % STANDART_FIELD;
         coordAtack[1] = static_cast<int>(rand()) % STANDART_FIELD;
-    } while (Model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) != ' ');
+    } while (Model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) != ShipInfo::EMPTY_CELL);
     notifyUpdate();
 
-    if (Model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) == ' ')
+    if (Model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) == ShipInfo::EMPTY_CELL)
     {
         Model_.getUser().setField(coordAtack[0], coordAtack[1]);
         if (Model_.getUser().getField(coordAtack[0], coordAtack[1]) == ShipInfo::HITTING)
@@ -139,7 +139,7 @@ void Controller::run()
             {
                 for (int j = 0; j < STANDART_FIELD; j++)
                 {
-                    viewModel_.get()->setUserField(i, j, ' ');
+                    viewModel_.get()->setUserField(i, j, ShipInfo::EMPTY_CELL);
                     viewModel_.get()->setComputerField(i, j, Model_.getComputer().getField(i, j));
                 }
             }
