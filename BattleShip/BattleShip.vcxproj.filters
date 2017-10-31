@@ -4,238 +4,52 @@
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Exceptions">
-      <UniqueIdentifier>{0cb6454b-bee7-400c-b4c0-fc8efb5a2bf5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ships">
-      <UniqueIdentifier>{405f6d44-1db4-4382-bc9c-48d9e9d6353f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ships\Factory">
-      <UniqueIdentifier>{076e3d50-dbb5-4b6b-8454-2b20c953e9a1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ships\Ships">
-      <UniqueIdentifier>{4b1a5f02-f872-4d77-9354-c2e3e21be051}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Patterns">
-      <UniqueIdentifier>{9ecb8121-9a1f-498b-ab53-16fee0cd220c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Patterns\Commands">
-      <UniqueIdentifier>{3a935240-de2a-46f3-9771-5229304f6f0f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Patterns\Observer">
-      <UniqueIdentifier>{161e7f2f-5557-464a-912d-247bf0e0e480}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Patterns\MVC">
-      <UniqueIdentifier>{f522f665-637c-4895-80e6-9eed98049df0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Settings">
-      <UniqueIdentifier>{6496d24d-6200-411d-a57b-ed58832a8700}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Players">
-      <UniqueIdentifier>{e8b97015-967c-426f-9569-2f754494fde0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ships\Ships\Headers">
-      <UniqueIdentifier>{c137ef46-54f8-4291-8b83-793021dcca17}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ships\Factory\Headers">
-      <UniqueIdentifier>{7e59c9f0-22e9-4676-96d2-69c3e27e7500}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Players\Headers">
-      <UniqueIdentifier>{f77fff85-490b-457f-9cfe-9531445a4433}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Exceptions\Headers">
-      <UniqueIdentifier>{e5b99c4a-9c6e-461b-a1ac-2f37aa467775}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Patterns\MVC\Headers">
-      <UniqueIdentifier>{f0ffffef-f6a2-442b-9daa-31a48209b69d}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Exceptions\CreateShipException.cpp">
-      <Filter>Exceptions</Filter>
-    </ClCompile>
-    <ClCompile Include="Ships\DoubleDeckShip.cpp">
-      <Filter>Ships\Ships</Filter>
-    </ClCompile>
-    <ClCompile Include="Ships\FourDeckShip.cpp">
-      <Filter>Ships\Ships</Filter>
-    </ClCompile>
-    <ClCompile Include="Ships\Ship.cpp">
-      <Filter>Ships\Ships</Filter>
-    </ClCompile>
-    <ClCompile Include="Ships\SingleDeckShip.cpp">
-      <Filter>Ships\Ships</Filter>
-    </ClCompile>
-    <ClCompile Include="Ships\ThreeDeckShip.cpp">
-      <Filter>Ships\Ships</Filter>
-    </ClCompile>
-    <ClCompile Include="Resource\Settings.cpp">
-      <Filter>Settings</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Patterns\Factory\FactoryDoubleShip.cpp">
-      <Filter>Ships\Factory</Filter>
+    <ClCompile Include="MVC\Controller.cpp">
+      <Filter>MVC</Filter>
     </ClCompile>
-    <ClCompile Include="Patterns\Factory\FactoryFourShip.cpp">
-      <Filter>Ships\Factory</Filter>
+    <ClCompile Include="MVC\GameModel.cpp">
+      <Filter>MVC</Filter>
     </ClCompile>
-    <ClCompile Include="Patterns\Factory\FactorySingleShip.cpp">
-      <Filter>Ships\Factory</Filter>
+    <ClCompile Include="MVC\View.cpp">
+      <Filter>MVC</Filter>
     </ClCompile>
-    <ClCompile Include="Patterns\Factory\FactoryThreeShip.cpp">
-      <Filter>Ships\Factory</Filter>
-    </ClCompile>
-    <ClCompile Include="Patterns\Observer\Observable.cpp">
-      <Filter>Patterns\Observer</Filter>
-    </ClCompile>
-    <ClCompile Include="Patterns\MVC\Controller.cpp">
-      <Filter>Patterns\MVC</Filter>
-    </ClCompile>
-    <ClCompile Include="Patterns\MVC\GameModel.cpp">
-      <Filter>Patterns\MVC</Filter>
-    </ClCompile>
-    <ClCompile Include="Patterns\MVC\View.cpp">
-      <Filter>Patterns\MVC</Filter>
-    </ClCompile>
-    <ClCompile Include="Patterns\MVC\ViewModel.cpp">
-      <Filter>Patterns\MVC</Filter>
-    </ClCompile>
-    <ClCompile Include="Players\Player.cpp">
-      <Filter>Players</Filter>
-    </ClCompile>
-    <ClCompile Include="Players\PlayerHelper.cpp">
-      <Filter>Players</Filter>
-    </ClCompile>
-    <ClCompile Include="Exceptions\ExecuteCommandException.cpp">
-      <Filter>Exceptions</Filter>
+    <ClCompile Include="MVC\ViewModel.cpp">
+      <Filter>MVC</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Resource\IShipSettings.h">
-      <Filter>Settings</Filter>
+    <Filter Include="MVC">
+      <UniqueIdentifier>{22323ca6-619e-42ff-a94a-e9e1c2761522}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MVC\inc">
+      <UniqueIdentifier>{d8a3b24c-eb84-4a07-8596-dd2a76a87180}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MVC\Controller.h">
+      <Filter>MVC\inc</Filter>
     </ClInclude>
-    <ClInclude Include="Resource\Settings.h">
-      <Filter>Settings</Filter>
+    <ClInclude Include="MVC\GameModel.h">
+      <Filter>MVC\inc</Filter>
     </ClInclude>
-    <ClInclude Include="Resource\UnionFactory.h">
-      <Filter>Settings</Filter>
+    <ClInclude Include="MVC\IController.h">
+      <Filter>MVC\inc</Filter>
     </ClInclude>
-    <ClInclude Include="Resource\UnionHeader.h">
-      <Filter>Settings</Filter>
+    <ClInclude Include="MVC\IGame.h">
+      <Filter>MVC\inc</Filter>
     </ClInclude>
-    <ClInclude Include="Patterns\Observer\Observable.h">
-      <Filter>Patterns\Observer</Filter>
+    <ClInclude Include="MVC\ITime.h">
+      <Filter>MVC\inc</Filter>
     </ClInclude>
-    <ClInclude Include="Patterns\Observer\Observer.h">
-      <Filter>Patterns\Observer</Filter>
+    <ClInclude Include="MVC\IViewModel.h">
+      <Filter>MVC\inc</Filter>
     </ClInclude>
-    <ClInclude Include="Patterns\Command\Command.h">
-      <Filter>Patterns\Commands</Filter>
+    <ClInclude Include="MVC\View.h">
+      <Filter>MVC\inc</Filter>
     </ClInclude>
-    <ClInclude Include="Patterns\Command\FillBottomSideCellCommand.h">
-      <Filter>Patterns\Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\Command\FillLeftBottomConnorCellCommand.h">
-      <Filter>Patterns\Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\Command\FillLeftSideCellCommand.h">
-      <Filter>Patterns\Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\Command\FillLeftTopConnorCellCommand.h">
-      <Filter>Patterns\Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\Command\FillRightBottomConnorCellCommand.h">
-      <Filter>Patterns\Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\Command\FillRightSideCellCommand.h">
-      <Filter>Patterns\Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\Command\FillRightTopConnorCellCommand.h">
-      <Filter>Patterns\Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\Command\FillStandartCellCommand.h">
-      <Filter>Patterns\Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\Command\FillTopSideCellCommand.h">
-      <Filter>Patterns\Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\Command\UnionCommand.h">
-      <Filter>Patterns\Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource\Constants.h">
-      <Filter>Settings</Filter>
-    </ClInclude>
-    <ClInclude Include="Ships\DoubleDeckShip.h">
-      <Filter>Ships\Ships\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Ships\FourDeckShip.h">
-      <Filter>Ships\Ships\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Ships\Ship.h">
-      <Filter>Ships\Ships\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Ships\SingleDeckShip.h">
-      <Filter>Ships\Ships\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Ships\ThreeDeckShip.h">
-      <Filter>Ships\Ships\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\Factory\Factory.h">
-      <Filter>Ships\Factory\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\Factory\FactoryDoubleShip.h">
-      <Filter>Ships\Factory\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\Factory\FactoryFourShip.h">
-      <Filter>Ships\Factory\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\Factory\FactorySingleShip.h">
-      <Filter>Ships\Factory\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\Factory\FactoryThreeShip.h">
-      <Filter>Ships\Factory\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Players\IPlayer.h">
-      <Filter>Players\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Players\IField.h">
-      <Filter>Players\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Players\PlayerHelper.h">
-      <Filter>Players\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Players\Player.h">
-      <Filter>Players\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Exceptions\CreateShipException.h">
-      <Filter>Exceptions\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Exceptions\ExecuteCommandException.h">
-      <Filter>Exceptions\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\MVC\Controller.h">
-      <Filter>Patterns\MVC\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\MVC\GameModel.h">
-      <Filter>Patterns\MVC\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\MVC\IGame.h">
-      <Filter>Patterns\MVC\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\MVC\IController.h">
-      <Filter>Patterns\MVC\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\MVC\ITime.h">
-      <Filter>Patterns\MVC\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\MVC\IViewModel.h">
-      <Filter>Patterns\MVC\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\MVC\View.h">
-      <Filter>Patterns\MVC\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\MVC\ViewModel.h">
-      <Filter>Patterns\MVC\Headers</Filter>
+    <ClInclude Include="MVC\ViewModel.h">
+      <Filter>MVC\inc</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

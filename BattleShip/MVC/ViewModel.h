@@ -1,7 +1,7 @@
 #ifndef ViewModel_H
 #define ViewModel_H
 
-#include "../../Resource/Constants.h"
+#include "../../BattleShipLibrary/Resource/Constants.h"
 #include "IViewModel.h"
 
 class ViewModel final :

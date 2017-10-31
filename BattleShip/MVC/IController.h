@@ -1,7 +1,7 @@
 #ifndef IController_H
 #define IController_H
 
-#include "../Observer/Observable.h"
+#include "../../BattleShipLibrary/Patterns/Observer/Observable.h"
 class IController :
     public Observable
 {

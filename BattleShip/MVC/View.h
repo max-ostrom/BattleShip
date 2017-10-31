@@ -3,7 +3,7 @@
 
 #include <memory>
 
-#include "../Observer/Observer.h"
+#include "../../BattleShipLibrary/Patterns/Observer/Observable.h"
 #include "GameModel.h"
 #include "ViewModel.h"
 

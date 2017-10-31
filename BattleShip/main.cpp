@@ -1,6 +1,6 @@
-#include "../BattleShip/Patterns/MVC/Controller.h"
-#include "../BattleShip/Patterns/MVC/View.h"
-#include "../BattleShip/Patterns/MVC/ViewModel.h"
+#include "../BattleShip/MVC/Controller.h"
+#include "../BattleShip/MVC/View.h"
+#include "../BattleShip/MVC/ViewModel.h"
 int main()
 {
     try

@@ -6,7 +6,7 @@
 
 #include "..\Ships\Ship.h"
 #include "IField.h"
-#include "..\..\BattleShip\Patterns\Observer\Observable.h"
+#include "..\..\BattleShipLibrary\Patterns\Observer\Observable.h"
 
 class IPlayer :
     public IField

@@ -1,7 +1,7 @@
 #ifndef IViewModel_H
 #define IViewModel_H
 
-#include "../Observer/Observable.h"
+#include "../../BattleShipLibrary/Patterns/Observer/Observable.h"
 
 class IViewModel
 

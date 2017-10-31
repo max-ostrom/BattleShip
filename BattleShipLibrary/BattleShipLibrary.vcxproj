@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -18,34 +18,88 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Exceptions\CreateShipException.cpp" />
+    <ClCompile Include="Exceptions\ExecuteCommandException.cpp" />
+    <ClCompile Include="Patterns\Factory\FactoryDoubleShip.cpp" />
+    <ClCompile Include="Patterns\Factory\FactoryFourShip.cpp" />
+    <ClCompile Include="Patterns\Factory\FactorySingleShip.cpp" />
+    <ClCompile Include="Patterns\Factory\FactoryThreeShip.cpp" />
+    <ClCompile Include="Patterns\Observer\Observable.cpp" />
+    <ClCompile Include="Players\Player.cpp" />
+    <ClCompile Include="Players\PlayerHelper.cpp" />
+    <ClCompile Include="Resource\Settings.cpp" />
+    <ClCompile Include="Ships\DoubleDeckShip.cpp" />
+    <ClCompile Include="Ships\FourDeckShip.cpp" />
+    <ClCompile Include="Ships\Ship.cpp" />
+    <ClCompile Include="Ships\SingleDeckShip.cpp" />
+    <ClCompile Include="Ships\ThreeDeckShip.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Exceptions\CreateShipException.h" />
+    <ClInclude Include="Exceptions\ExecuteCommandException.h" />
+    <ClInclude Include="Patterns\Command\Command.h" />
+    <ClInclude Include="Patterns\Command\FillBottomSideCellCommand.h" />
+    <ClInclude Include="Patterns\Command\FillLeftBottomConnorCellCommand.h" />
+    <ClInclude Include="Patterns\Command\FillLeftSideCellCommand.h" />
+    <ClInclude Include="Patterns\Command\FillLeftTopConnorCellCommand.h" />
+    <ClInclude Include="Patterns\Command\FillRightBottomConnorCellCommand.h" />
+    <ClInclude Include="Patterns\Command\FillRightSideCellCommand.h" />
+    <ClInclude Include="Patterns\Command\FillRightTopConnorCellCommand.h" />
+    <ClInclude Include="Patterns\Command\FillStandartCellCommand.h" />
+    <ClInclude Include="Patterns\Command\FillTopSideCellCommand.h" />
+    <ClInclude Include="Patterns\Command\UnionCommand.h" />
+    <ClInclude Include="Patterns\Factory\Factory.h" />
+    <ClInclude Include="Patterns\Factory\FactoryDoubleShip.h" />
+    <ClInclude Include="Patterns\Factory\FactoryFourShip.h" />
+    <ClInclude Include="Patterns\Factory\FactorySingleShip.h" />
+    <ClInclude Include="Patterns\Factory\FactoryThreeShip.h" />
+    <ClInclude Include="Patterns\Observer\Observable.h" />
+    <ClInclude Include="Patterns\Observer\Observer.h" />
+    <ClInclude Include="Players\IField.h" />
+    <ClInclude Include="Players\IPlayer.h" />
+    <ClInclude Include="Players\Player.h" />
+    <ClInclude Include="Players\PlayerHelper.h" />
+    <ClInclude Include="Resource\Constants.h" />
+    <ClInclude Include="Resource\IShipSettings.h" />
+    <ClInclude Include="Resource\Settings.h" />
+    <ClInclude Include="Resource\UnionFactory.h" />
+    <ClInclude Include="Resource\UnionHeader.h" />
+    <ClInclude Include="Ships\DoubleDeckShip.h" />
+    <ClInclude Include="Ships\FourDeckShip.h" />
+    <ClInclude Include="Ships\Ship.h" />
+    <ClInclude Include="Ships\SingleDeckShip.h" />
+    <ClInclude Include="Ships\ThreeDeckShip.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A5226F78-188F-4CDC-AE88-17592AD9BD6E}</ProjectGuid>
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{CAE12E79-FFE4-4E1F-8587-FDEEA0795A69}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>BattleShip</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <RootNamespace>BattleShipLibrary</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -87,11 +141,11 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -101,27 +155,27 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
       <PrecompiledHeader>
       </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -129,47 +183,22 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
       <PrecompiledHeader>
       </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="MVC\Controller.cpp" />
-    <ClCompile Include="MVC\GameModel.cpp" />
-    <ClCompile Include="MVC\View.cpp" />
-    <ClCompile Include="MVC\ViewModel.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="MVC\Controller.h" />
-    <ClInclude Include="MVC\GameModel.h" />
-    <ClInclude Include="MVC\IController.h" />
-    <ClInclude Include="MVC\IGame.h" />
-    <ClInclude Include="MVC\ITime.h" />
-    <ClInclude Include="MVC\IViewModel.h" />
-    <ClInclude Include="MVC\View.h" />
-    <ClInclude Include="MVC\ViewModel.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BattleShipLibrary\BattleShipLibrary.vcxproj">
-      <Project>{cae12e79-ffe4-4e1f-8587-fdeea0795a69}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
