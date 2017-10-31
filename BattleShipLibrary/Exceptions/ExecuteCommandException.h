@@ -1,10 +1,12 @@
 #pragma once
 #include <iostream>
-class ExecuteCommandException :
-    public std::exception
+namespace BattleShip
 {
-public:
-    char const* what() const override;
+    class ExecuteCommandException :
+        public std::exception
+    {
+    public:
+        char const* what() const override;
 
-};
-
+    };
+}

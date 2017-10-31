@@ -1,15 +1,17 @@
 #include "FactoryDoubleShip.h"
-
-std::shared_ptr<Ship>
-FactoryDoubleShip::createShip(char field[STANDART_FIELD][STANDART_FIELD])
+namespace BattleShip
 {
-    try
+    std::shared_ptr<Ship>
+        FactoryDoubleShip::createShip(char field[STANDART_FIELD][STANDART_FIELD])
     {
-        return std::shared_ptr<Ship>(new DoubleDeckShip(field));
+        try
+        {
+            return std::shared_ptr<Ship>(new DoubleDeckShip(field));
+        }
+        catch (exception)
+        {
+            throw BattleShip::CreateShipException("DoubleDeck");
+        }
     }
-    catch (exception)
-    {
-        throw CreateShipException("DoubleDeck");
-    }
+    FactoryDoubleShip::~FactoryDoubleShip() {}
 }
-FactoryDoubleShip::~FactoryDoubleShip() {}

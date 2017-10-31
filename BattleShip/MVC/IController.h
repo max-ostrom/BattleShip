@@ -2,15 +2,18 @@
 #define IController_H
 
 #include "../../BattleShipLibrary/Patterns/Observer/Observable.h"
-class IController :
-    public Observable
+namespace BattleShip
 {
-public:
-
-    virtual void run() = 0;
-    virtual void input() = 0;
-    virtual ~IController()
+    class IController :
+        public Observable
     {
-    }
-};
+    public:
+
+        virtual void run() = 0;
+        virtual void input() = 0;
+        virtual ~IController()
+        {
+        }
+    };
+}
 #endif

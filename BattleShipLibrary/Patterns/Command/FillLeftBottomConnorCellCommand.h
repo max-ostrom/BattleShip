@@ -3,65 +3,67 @@
 
 
 #include "Command.h"
-
-class FillLeftBottomConnorCellCommand : public Command
+namespace BattleShip
 {
-public:
-    FillLeftBottomConnorCellCommand(PlayerHelper& p) : PlayerHelper_(p) {}
-    void execute() override
+    class FillLeftBottomConnorCellCommand : public Command
     {
-        mutex_.lock();
-        try 
+    public:
+        FillLeftBottomConnorCellCommand(PlayerHelper& p) : PlayerHelper_(p) {}
+        void execute() override
         {
-            if (PlayerHelper_.getShip()->getX().get()[0] -
-                PlayerHelper_.getShip()->getX()
-                .get()[PlayerHelper_.getShip()->getShipSize() - 1] != 0)
+            mutex_.lock();
+            try
             {
-                for (int i = PlayerHelper_.getShip()->getX().get()[0] - 1;
-                    i < PlayerHelper_.getShip()->getX().get()[0]
-                    + PlayerHelper_.getShip()->getShipSize() + 1;
-                    i++)
+                if (PlayerHelper_.getShip()->getX().get()[0] -
+                    PlayerHelper_.getShip()->getX()
+                    .get()[PlayerHelper_.getShip()->getShipSize() - 1] != 0)
                 {
-                    for (int j = PlayerHelper_.getShip()->getY().get()[0];
-                        j < PlayerHelper_.getShip()->getY().get()[0] + 2; j++)
+                    for (int i = PlayerHelper_.getShip()->getX().get()[0] - 1;
+                        i < PlayerHelper_.getShip()->getX().get()[0]
+                        + PlayerHelper_.getShip()->getShipSize() + 1;
+                        i++)
                     {
+                        for (int j = PlayerHelper_.getShip()->getY().get()[0];
+                            j < PlayerHelper_.getShip()->getY().get()[0] + 2; j++)
+                        {
 
-                        PlayerHelper_.getPlayer().setField(i, j);
+                            PlayerHelper_.getPlayer().setField(i, j);
 
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = PlayerHelper_.getShip()->getX().get()[0];
+                        i < PlayerHelper_.getShip()->getX().get()[0] + 2; i++)
+                    {
+                        for (int j = PlayerHelper_.getShip()->getY().get()[0] - 1;
+                            j < PlayerHelper_.getShip()->getY().get()[0]
+                            + PlayerHelper_.getShip()->getShipSize();
+                            j++)
+                        {
+
+                            PlayerHelper_.getPlayer().setField(i, j);
+
+                        }
                     }
                 }
             }
-            else
+            catch (exception)
             {
-                for (int i = PlayerHelper_.getShip()->getX().get()[0];
-                    i < PlayerHelper_.getShip()->getX().get()[0] + 2; i++)
-                {
-                    for (int j = PlayerHelper_.getShip()->getY().get()[0] - 1;
-                        j < PlayerHelper_.getShip()->getY().get()[0]
-                        + PlayerHelper_.getShip()->getShipSize();
-                        j++)
-                    {
-
-                        PlayerHelper_.getPlayer().setField(i, j);
-
-                    }
-                }
+                throw BattleShip::ExecuteCommandException();
+                mutex_.unlock();
             }
-        }
-        catch (exception)
-        {
-            throw ExecuteCommandException();
             mutex_.unlock();
         }
-        mutex_.unlock();
-    }
-    bool tryExecute() override
-    {
-        return PlayerHelper_.getShip()->getX().get()[PlayerHelper_.getShip()->getShipSize() - 1]
-            == STANDART_FIELD - 1 && PlayerHelper_.getShip()->getY().get()[0] == 0;
-    }
+        bool tryExecute() override
+        {
+            return PlayerHelper_.getShip()->getX().get()[PlayerHelper_.getShip()->getShipSize() - 1]
+                == STANDART_FIELD - 1 && PlayerHelper_.getShip()->getY().get()[0] == 0;
+        }
 
-private:
-    PlayerHelper& PlayerHelper_;
-};
+    private:
+        PlayerHelper& PlayerHelper_;
+    };
+}
 #endif

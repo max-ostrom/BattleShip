@@ -1,6 +1,7 @@
 #include "../BattleShip/MVC/Controller.h"
 #include "../BattleShip/MVC/View.h"
 #include "../BattleShip/MVC/ViewModel.h"
+using namespace BattleShip;
 int main()
 {
     try

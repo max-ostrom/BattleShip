@@ -1,11 +1,14 @@
 #include <iostream>
 #include <string>
-class CreateShipException : 
-    public std::exception
+namespace BattleShip
 {
-private:
-    std::string shipType_;
-public:
-    CreateShipException(const std::string ShipType);
-    char const* what() const override;
-};
+    class CreateShipException :
+        public std::exception
+    {
+    private:
+        std::string shipType_;
+    public:
+        CreateShipException(const std::string ShipType);
+        char const* what() const override;
+    };
+}

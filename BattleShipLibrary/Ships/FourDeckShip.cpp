@@ -1,117 +1,118 @@
 #include "FourDeckShip.h"
 
-
-
-FourDeckShip::FourDeckShip(char field[STANDART_FIELD][STANDART_FIELD])
+namespace BattleShip
 {
-    coordsX_ = shared_ptr<int>(new int[SHIP_SIZE_]);
-    coordsY_ = shared_ptr<int>(new int[SHIP_SIZE_]);
 
-
-    int l = static_cast<int>(rand()) % 2;
-
-
-    switch (l) {
-
-    case 0://vertical
+    FourDeckShip::FourDeckShip(char field[STANDART_FIELD][STANDART_FIELD])
     {
-        int m = static_cast<int>(rand()) % (STANDART_FIELD - SHIP_SIZE_ + 1);
-        int n = static_cast<int>(rand()) % STANDART_FIELD;
+        coordsX_ = shared_ptr<int>(new int[SHIP_SIZE_]);
+        coordsY_ = shared_ptr<int>(new int[SHIP_SIZE_]);
 
 
-        while (isCellFreeVertical(field, m, n))
+        int l = static_cast<int>(rand()) % 2;
+
+
+        switch (l) {
+
+        case 0://vertical
         {
-            m = static_cast<int>(rand()) % (STANDART_FIELD - SHIP_SIZE_ + 1);
-            n = static_cast<int>(rand()) % STANDART_FIELD;
-        }
+            int m = static_cast<int>(rand()) % (STANDART_FIELD - SHIP_SIZE_ + 1);
+            int n = static_cast<int>(rand()) % STANDART_FIELD;
 
 
-        field[m][n] = ShipInfo::ALIVE_SHIP;
-        field[m + 1][n] = ShipInfo::ALIVE_SHIP;
-        field[m + 2][n] = ShipInfo::ALIVE_SHIP;
-        field[m + 3][n] = ShipInfo::ALIVE_SHIP;
+            while (isCellFreeVertical(field, m, n))
+            {
+                m = static_cast<int>(rand()) % (STANDART_FIELD - SHIP_SIZE_ + 1);
+                n = static_cast<int>(rand()) % STANDART_FIELD;
+            }
 
 
-        coordsX_.get()[0] = m;
-        coordsX_.get()[1] = m + 1;
-        coordsX_.get()[2] = m + 2;
-        coordsX_.get()[3] = m + 3;
+            field[m][n] = ShipInfo::ALIVE_SHIP;
+            field[m + 1][n] = ShipInfo::ALIVE_SHIP;
+            field[m + 2][n] = ShipInfo::ALIVE_SHIP;
+            field[m + 3][n] = ShipInfo::ALIVE_SHIP;
 
 
-        coordsY_.get()[0] = n;
-        coordsY_.get()[1] = n;
-        coordsY_.get()[2] = n;
-        coordsY_.get()[3] = n;
-        break; }
+            coordsX_.get()[0] = m;
+            coordsX_.get()[1] = m + 1;
+            coordsX_.get()[2] = m + 2;
+            coordsX_.get()[3] = m + 3;
 
 
-    case 1://horizontal
+            coordsY_.get()[0] = n;
+            coordsY_.get()[1] = n;
+            coordsY_.get()[2] = n;
+            coordsY_.get()[3] = n;
+            break; }
 
 
-        int m = static_cast<int>(rand()) % STANDART_FIELD;
-        int n = static_cast<int>(rand()) % (STANDART_FIELD - SHIP_SIZE_ + 1);
+        case 1://horizontal
 
 
-        while (isCellFreeHorizontal(field, m, n))
-        {
-            m = static_cast<int>(rand()) % STANDART_FIELD;
-            n = static_cast<int>(rand()) % (STANDART_FIELD - SHIP_SIZE_ + 1);
-        }
+            int m = static_cast<int>(rand()) % STANDART_FIELD;
+            int n = static_cast<int>(rand()) % (STANDART_FIELD - SHIP_SIZE_ + 1);
 
 
-        field[m][n] = ShipInfo::ALIVE_SHIP;
-        field[m][n + 1] = ShipInfo::ALIVE_SHIP;
-        field[m][n + 2] = ShipInfo::ALIVE_SHIP;
-        field[m][n + 3] = ShipInfo::ALIVE_SHIP;
+            while (isCellFreeHorizontal(field, m, n))
+            {
+                m = static_cast<int>(rand()) % STANDART_FIELD;
+                n = static_cast<int>(rand()) % (STANDART_FIELD - SHIP_SIZE_ + 1);
+            }
 
 
-        coordsX_.get()[0] = m;
-        coordsX_.get()[1] = m;
-        coordsX_.get()[2] = m;
-        coordsX_.get()[3] = m;
+            field[m][n] = ShipInfo::ALIVE_SHIP;
+            field[m][n + 1] = ShipInfo::ALIVE_SHIP;
+            field[m][n + 2] = ShipInfo::ALIVE_SHIP;
+            field[m][n + 3] = ShipInfo::ALIVE_SHIP;
 
 
-        coordsY_.get()[0] = n;
-        coordsY_.get()[1] = n + 1;
-        coordsY_.get()[2] = n + 2;
-        coordsY_.get()[3] = n + 3;
-        break;
-    }//switch
+            coordsX_.get()[0] = m;
+            coordsX_.get()[1] = m;
+            coordsX_.get()[2] = m;
+            coordsX_.get()[3] = m;
+
+
+            coordsY_.get()[0] = n;
+            coordsY_.get()[1] = n + 1;
+            coordsY_.get()[2] = n + 2;
+            coordsY_.get()[3] = n + 3;
+            break;
+        }//switch
+    }
+
+    const int& FourDeckShip::getShipSize() const
+    {
+        return SHIP_SIZE_;
+    }
+
+    bool FourDeckShip::isCellFreeHorizontal
+    (const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const
+    {
+        return field[m][n] == ShipInfo::ALIVE_SHIP || field[m][n + 1] == ShipInfo::ALIVE_SHIP ||
+            field[m][n + 2] == ShipInfo::ALIVE_SHIP || field[m][n + 3] == ShipInfo::ALIVE_SHIP ||
+            field[m - 1][n - 1] == ShipInfo::ALIVE_SHIP || field[m - 1][n] == ShipInfo::ALIVE_SHIP ||
+            field[m - 1][n + 1] == ShipInfo::ALIVE_SHIP || field[m - 1][n + 2] == ShipInfo::ALIVE_SHIP ||
+            field[m - 1][n + 3] == ShipInfo::ALIVE_SHIP || field[m - 1][n + 4] == ShipInfo::ALIVE_SHIP ||
+            field[m][n - 1] == ShipInfo::ALIVE_SHIP || field[m][n + 4] == ShipInfo::ALIVE_SHIP ||
+            field[m + 1][n - 1] == ShipInfo::ALIVE_SHIP || field[m + 1][n] == ShipInfo::ALIVE_SHIP ||
+            field[m + 1][n + 1] == ShipInfo::ALIVE_SHIP || field[m + 1][n + 2] == ShipInfo::ALIVE_SHIP ||
+            field[m + 1][n + 3] == ShipInfo::ALIVE_SHIP || field[m + 1][n + 4] == ShipInfo::ALIVE_SHIP;
+    }
+
+    bool FourDeckShip::isCellFreeVertical
+    (const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const
+    {
+        return field[m][n] == ShipInfo::ALIVE_SHIP || field[m + 1][n] == ShipInfo::ALIVE_SHIP ||
+            field[m + 2][n] == ShipInfo::ALIVE_SHIP || field[m + 3][n] == ShipInfo::ALIVE_SHIP ||
+            field[m - 1][n - 1] == ShipInfo::ALIVE_SHIP || field[m - 1][n] == ShipInfo::ALIVE_SHIP ||
+            field[m - 1][n + 1] == ShipInfo::ALIVE_SHIP || field[m][n - 1] == ShipInfo::ALIVE_SHIP ||
+            field[m][n + 1] == ShipInfo::ALIVE_SHIP || field[m + 1][n - 1] == ShipInfo::ALIVE_SHIP ||
+            field[m + 1][n + 1] == ShipInfo::ALIVE_SHIP || field[m + 2][n - 1] == ShipInfo::ALIVE_SHIP ||
+            field[m + 2][n + 1] == ShipInfo::ALIVE_SHIP || field[m + 3][n - 1] == ShipInfo::ALIVE_SHIP ||
+            field[m + 3][n + 1] == ShipInfo::ALIVE_SHIP || field[m + 4][n - 1] == ShipInfo::ALIVE_SHIP ||
+            field[m + 4][n] == ShipInfo::ALIVE_SHIP || field[m + 4][n + 1] == ShipInfo::ALIVE_SHIP;
+    }
+
+
 }
-
-const int& FourDeckShip::getShipSize() const
-{
-    return SHIP_SIZE_;
-}
-
-bool FourDeckShip::isCellFreeHorizontal
-(const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const
-{
-    return field[m][n] == ShipInfo::ALIVE_SHIP || field[m][n + 1] == ShipInfo::ALIVE_SHIP ||
-        field[m][n + 2] == ShipInfo::ALIVE_SHIP || field[m][n + 3] == ShipInfo::ALIVE_SHIP ||
-        field[m - 1][n - 1] == ShipInfo::ALIVE_SHIP || field[m - 1][n] == ShipInfo::ALIVE_SHIP ||
-        field[m - 1][n + 1] == ShipInfo::ALIVE_SHIP || field[m - 1][n + 2] == ShipInfo::ALIVE_SHIP ||
-        field[m - 1][n + 3] == ShipInfo::ALIVE_SHIP || field[m - 1][n + 4] == ShipInfo::ALIVE_SHIP ||
-        field[m][n - 1] == ShipInfo::ALIVE_SHIP || field[m][n + 4] == ShipInfo::ALIVE_SHIP ||
-        field[m + 1][n - 1] == ShipInfo::ALIVE_SHIP || field[m + 1][n] == ShipInfo::ALIVE_SHIP ||
-        field[m + 1][n + 1] == ShipInfo::ALIVE_SHIP || field[m + 1][n + 2] == ShipInfo::ALIVE_SHIP ||
-        field[m + 1][n + 3] == ShipInfo::ALIVE_SHIP || field[m + 1][n + 4] == ShipInfo::ALIVE_SHIP;
-}
-
-bool FourDeckShip::isCellFreeVertical
-(const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n) const
-{
-    return field[m][n] == ShipInfo::ALIVE_SHIP || field[m + 1][n] == ShipInfo::ALIVE_SHIP ||
-        field[m + 2][n] == ShipInfo::ALIVE_SHIP || field[m + 3][n] == ShipInfo::ALIVE_SHIP ||
-        field[m - 1][n - 1] == ShipInfo::ALIVE_SHIP || field[m - 1][n] == ShipInfo::ALIVE_SHIP ||
-        field[m - 1][n + 1] == ShipInfo::ALIVE_SHIP || field[m][n - 1] == ShipInfo::ALIVE_SHIP ||
-        field[m][n + 1] == ShipInfo::ALIVE_SHIP || field[m + 1][n - 1] == ShipInfo::ALIVE_SHIP ||
-        field[m + 1][n + 1] == ShipInfo::ALIVE_SHIP || field[m + 2][n - 1] == ShipInfo::ALIVE_SHIP ||
-        field[m + 2][n + 1] == ShipInfo::ALIVE_SHIP || field[m + 3][n - 1] == ShipInfo::ALIVE_SHIP ||
-        field[m + 3][n + 1] == ShipInfo::ALIVE_SHIP || field[m + 4][n - 1] == ShipInfo::ALIVE_SHIP ||
-        field[m + 4][n] == ShipInfo::ALIVE_SHIP || field[m + 4][n + 1] == ShipInfo::ALIVE_SHIP;
-}
-
-
-
 

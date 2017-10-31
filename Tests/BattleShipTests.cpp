@@ -9,6 +9,7 @@
 #include <list>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
+using namespace BattleShip;
 static Player createPlayer()
 {
     std::shared_ptr<IShipSettings>settings = std::make_shared<Settings>();

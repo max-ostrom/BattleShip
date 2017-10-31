@@ -5,13 +5,15 @@
 #include <memory>
 
 #include "Observer.h"
-
-class Observable
+namespace BattleShip
 {
-public:
-    void addObserver(std::shared_ptr<Observer> observer);
-    void notifyUpdate() const;
-private:
-    std::list<std::shared_ptr<Observer>> observers_;
-};
+    class Observable
+    {
+    public:
+        void addObserver(std::shared_ptr<Observer> observer);
+        void notifyUpdate() const;
+    private:
+        std::list<std::shared_ptr<Observer>> observers_;
+    };
+}
 #endif

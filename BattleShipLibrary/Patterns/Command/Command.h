@@ -5,13 +5,16 @@
 #include "../../../BattleShipLibrary/Exceptions/ExecuteCommandException.h"
 
 #include <mutex>
-class Command
+namespace BattleShip
 {
-protected:
-    std::mutex mutex_;
-public:
-    virtual ~Command() {}
-    virtual void execute() = 0;
-    virtual bool tryExecute() = 0;
-};
+    class Command
+    {
+    protected:
+        std::mutex mutex_;
+    public:
+        virtual ~Command() {}
+        virtual void execute() = 0;
+        virtual bool tryExecute() = 0;
+    };
+}
 #endif

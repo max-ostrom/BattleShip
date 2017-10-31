@@ -1,10 +1,9 @@
 #include "ExecuteCommandException.h"
 
-
-
-
-
-char const * ExecuteCommandException::what() const
+namespace BattleShip
 {
-    return "Can not execute command";
+    char const * ExecuteCommandException::what() const
+    {
+        return "Can not execute command";
+    }
 }

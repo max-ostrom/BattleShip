@@ -2,21 +2,23 @@
 #include <iostream>
 
 #include "Observable.h"
-
-void Observable::addObserver(std::shared_ptr<Observer> observer)
+namespace BattleShip
 {
-    if (observer.get() == nullptr)
+    void Observable::addObserver(std::shared_ptr<Observer> observer)
     {
-        throw std::exception();
+        if (observer.get() == nullptr)
+        {
+            throw std::exception();
+        }
+        observers_.push_back(observer);
     }
-    observers_.push_back(observer);
-}
-void Observable::notifyUpdate() const
-{
-    // Lambda expression
-    std::for_each(observers_.begin(), observers_.end(),
-        [](const std::shared_ptr<Observer> item)
+    void Observable::notifyUpdate() const
     {
-       item->update();
-    });
+        // Lambda expression
+        std::for_each(observers_.begin(), observers_.end(),
+            [](const std::shared_ptr<Observer> item)
+        {
+            item->update();
+        });
+    }
 }

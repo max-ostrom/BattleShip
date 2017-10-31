@@ -5,25 +5,26 @@
 
 #include <ctime>
 #include <iostream>
-
-using namespace std;
-
-class SingleDeckShip :
-    public Ship
+namespace BattleShip
 {
-public:
-    SingleDeckShip(char field[STANDART_FIELD][STANDART_FIELD]);
-    virtual const int& getShipSize()const override;
-private:
-    virtual bool
-        isCellFreeHorizontal
-        (const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n)const override;
+    using namespace std;
 
-    virtual bool
-        isCellFreeVertical
-        (const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n)const override;
+    class SingleDeckShip :
+        public Ship
+    {
+    public:
+        SingleDeckShip(char field[STANDART_FIELD][STANDART_FIELD]);
+        virtual const int& getShipSize()const override;
+    private:
+        virtual bool
+            isCellFreeHorizontal
+            (const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n)const override;
 
-    const int SHIP_SIZE_ = 1;
-};
+        virtual bool
+            isCellFreeVertical
+            (const char field[STANDART_FIELD][STANDART_FIELD], const int m, const int n)const override;
 
+        const int SHIP_SIZE_ = 1;
+    };
+}
 #endif

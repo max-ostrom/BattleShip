@@ -2,158 +2,160 @@
 #include "..\Resource\UnionFactory.h"
 
 #include <thread>
-
-using namespace std;
-
-bool Player::isEndOfGame() const
+namespace BattleShip
 {
-    for (int i = 0; i < STANDART_FIELD; i++)
-    {
-        for (int j = 0; j < STANDART_FIELD; j++)
-        {
-            if (getField(i, j) == ShipInfo::ALIVE_SHIP)
-                return false;
+    using namespace std;
 
+    bool Player::isEndOfGame() const
+    {
+        for (int i = 0; i < STANDART_FIELD; i++)
+        {
+            for (int j = 0; j < STANDART_FIELD; j++)
+            {
+                if (getField(i, j) == ShipInfo::ALIVE_SHIP)
+                    return false;
+
+            }
         }
+        return true;
     }
-    return true;
-}
 
-bool Player::isShipAlive(shared_ptr<Ship> Ship_)
-{
-    if (Ship_ == nullptr)
+    bool Player::isShipAlive(shared_ptr<Ship> Ship_)
     {
-        throw exception();
-    }
-    bool flag = true;
-
-
-    for (int i = 0; i < Ship_->getShipSize(); i++)
-    {
-        if (getField(Ship_->getX().get()[i],
-            Ship_->getY().get()[i]) == ShipInfo::HITTING && flag)
+        if (Ship_ == nullptr)
         {
-            flag = true;
+            throw exception();
+        }
+        bool flag = true;
+
+
+        for (int i = 0; i < Ship_->getShipSize(); i++)
+        {
+            if (getField(Ship_->getX().get()[i],
+                Ship_->getY().get()[i]) == ShipInfo::HITTING && flag)
+            {
+                flag = true;
+            }
+            else
+            {
+                flag = false;
+                break;
+            }
+        }
+
+
+        if (flag)
+        {
+            fillCellsAroundShip(Ship_);
+            return false;
+        }
+        return !flag;
+    }
+
+    char Player::getField(const int i, const int j) const
+    {
+        if (i >= 0 && i < STANDART_FIELD && j >= 0 && j < STANDART_FIELD)
+            return yourField_[i][j];
+
+        else
+            return NULL;
+    }
+
+    char Player::getEnemyField(const int i, const int j) const
+    {
+        if (i >= 0 && i < STANDART_FIELD + 1 && j >= 0 && j < STANDART_FIELD + 1)
+            return enemyField_[i][j];
+
+        else
+            return NULL;
+    }
+
+    bool Player::operator==(const IPlayer & p) const
+    {
+        for (int i = 0; i < STANDART_FIELD; i++)
+        {
+            for (int j = 0; j < STANDART_FIELD; j++)
+            {
+                if (getField(i, j) != p.getField(i, j))
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    void Player::fillCellsAroundShip(shared_ptr<Ship> Ship_)
+    {
+        PlayerHelper playerHelper(*this, Ship_);
+        thread thrd(playerHelper);
+        thrd.detach();
+    }
+
+    void Player::setField(const int i, const int j)
+    {
+
+        if (yourField_[i][j] == ShipInfo::EMPTY_CELL || yourField_[i][j] == ShipInfo::MIS_HIT)
+        {
+            yourField_[i][j] = ShipInfo::MIS_HIT;
         }
         else
         {
-            flag = false;
-            break;
+            yourField_[i][j] = ShipInfo::HITTING;
         }
     }
 
-
-    if (flag)
+    void Player::setEnemyField(const int i, const int j, const IField& p)
     {
-        fillCellsAroundShip(Ship_);
-        return false;
-    }
-    return !flag;
-}
 
-char Player::getField(const int i, const int j) const
-{
-    if (i >= 0 && i < STANDART_FIELD && j >= 0 && j < STANDART_FIELD)
-        return yourField_[i][j];
-
-    else
-        return NULL;
-}
-
-char Player::getEnemyField(const int i, const int j) const
-{
-    if (i >= 0 && i < STANDART_FIELD + 1 && j >= 0 && j < STANDART_FIELD + 1)
-        return enemyField_[i][j];
-
-    else
-        return NULL;
-}
-
-bool Player::operator==(const IPlayer & p) const
-{
-    for (int i = 0; i < STANDART_FIELD; i++)
-    {
-        for (int j = 0; j < STANDART_FIELD; j++)
+        if (p.getField(i, j) == ShipInfo::EMPTY_CELL || p.getField(i, j) == ShipInfo::MIS_HIT)
         {
-            if (getField(i, j) != p.getField(i, j))
-                return false;
+            enemyField_[i][j] = ShipInfo::MIS_HIT;
         }
-    }
-    return true;
-}
-
-void Player::fillCellsAroundShip(shared_ptr<Ship> Ship_)
-{
-    PlayerHelper playerHelper(*this, Ship_);
-    thread thrd(playerHelper);
-    thrd.detach();
-}
-
-void Player::setField(const int i, const int j)
-{
-
-    if (yourField_[i][j] == ShipInfo::EMPTY_CELL || yourField_[i][j] == ShipInfo::MIS_HIT)
-    {
-        yourField_[i][j] = ShipInfo::MIS_HIT;
-    }
-    else
-    {
-        yourField_[i][j] = ShipInfo::HITTING;
-    }
-}
-
-void Player::setEnemyField(const int i, const int j, const IField& p)
-{
-
-    if (p.getField(i, j) == ShipInfo::EMPTY_CELL || p.getField(i, j) == ShipInfo::MIS_HIT)
-    {
-        enemyField_[i][j] = ShipInfo::MIS_HIT;
-    }
-    else
-    {
-        enemyField_[i][j] = ShipInfo::HITTING;
-    }
-}
-
-std::vector<std::shared_ptr<Ship>>& Player::getShips()
-{
-    return YourShips_;
-}
-
-const std::vector<std::shared_ptr<Ship>>& Player::getShips() const
-{
-    return YourShips_;
-}
-
-Player::Player(list<shared_ptr<IFactory>> Factories)
-{
-    for (int i = 0; i < STANDART_FIELD; i++)
-    {
-        for (int j = 0; j < STANDART_FIELD; j++)
+        else
         {
-            enemyField_[i][j] = ShipInfo::EMPTY_CELL;
-            yourField_[i][j] = ShipInfo::EMPTY_CELL;
+            enemyField_[i][j] = ShipInfo::HITTING;
         }
     }
-    try {
-        for (shared_ptr<IFactory> item : Factories)
-        {
-            addShip(item);
-        }
-    }
-    catch (exception& ex)
+
+    std::vector<std::shared_ptr<Ship>>& Player::getShips()
     {
-        cout << ex.what() << endl;
+        return YourShips_;
     }
+
+    const std::vector<std::shared_ptr<Ship>>& Player::getShips() const
+    {
+        return YourShips_;
+    }
+
+    Player::Player(list<shared_ptr<IFactory>> Factories)
+    {
+        for (int i = 0; i < STANDART_FIELD; i++)
+        {
+            for (int j = 0; j < STANDART_FIELD; j++)
+            {
+                enemyField_[i][j] = ShipInfo::EMPTY_CELL;
+                yourField_[i][j] = ShipInfo::EMPTY_CELL;
+            }
+        }
+        try {
+            for (shared_ptr<IFactory> item : Factories)
+            {
+                addShip(item);
+            }
+        }
+        catch (exception& ex)
+        {
+            cout << ex.what() << endl;
+        }
+    }
+
+    void Player::addShip(shared_ptr<IFactory> factory)
+    {
+        YourShips_.push_back(factory->createShip(yourField_));
+    }
+
+    Player::~Player()
+    {
+
+    }
+
 }
-
-void Player::addShip(shared_ptr<IFactory> factory)
-{
-    YourShips_.push_back(factory->createShip(yourField_));
-}
-
-Player::~Player()
-{
-
-}
-
