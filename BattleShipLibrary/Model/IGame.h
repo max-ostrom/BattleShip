@@ -7,10 +7,10 @@ namespace BattleShip
     class IGame
     {
     public:
-        virtual IPlayer& getUser() = 0;
-        virtual IPlayer& getComputer() = 0;
-        virtual const IPlayer& getUser() const = 0;
-        virtual const IPlayer& getComputer() const = 0;
+        virtual shared_ptr<IPlayer> getUser() = 0;
+        virtual shared_ptr<IPlayer> getComputer() = 0;
+        virtual const shared_ptr<IPlayer> getUser() const = 0;
+        virtual const shared_ptr<IPlayer> getComputer() const = 0;
         virtual ~IGame()
         {
         }

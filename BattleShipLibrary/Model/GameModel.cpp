@@ -1,23 +1,23 @@
 #include "GameModel.h"
 namespace BattleShip
 {
-    IPlayer& GameModel::getUser()
+    shared_ptr<IPlayer> GameModel::getUser()
     {
         return You_;
     }
-    IPlayer& GameModel::getComputer()
+    shared_ptr<IPlayer> GameModel::getComputer()
     {
         return Computer_;
     }
-    const IPlayer & GameModel::getUser() const
+    const shared_ptr<IPlayer> GameModel::getUser() const
     {
         return You_;
     }
-    const IPlayer & GameModel::getComputer() const
+    const shared_ptr<IPlayer> GameModel::getComputer() const
     {
         return Computer_;
     }
-    GameModel::GameModel(IPlayer& you, IPlayer& computer)
+    GameModel::GameModel(shared_ptr<IPlayer> you, shared_ptr<IPlayer> computer)
         : You_(you), Computer_(computer)
     {
 

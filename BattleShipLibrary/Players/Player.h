@@ -26,7 +26,7 @@ namespace BattleShip
         Player(list<shared_ptr<IFactory>> Factories);
         virtual ~Player();
         void setField(const int i, const int j) override;
-        void setEnemyField(const int i, const  int j, const IField& p) override;
+        void setEnemyField(const int i, const  int j, IField* p) override;
         bool isShipAlive(shared_ptr<Ship> Ship_) override;
         bool isEndOfGame() const override;
 

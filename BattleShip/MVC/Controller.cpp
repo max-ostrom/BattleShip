@@ -18,14 +18,14 @@ namespace BattleShip
 
         notifyUpdate();
 
-        Model_.getUser().setEnemyField(coordAtack[0], coordAtack[1], Model_.getComputer());
-        Model_.getComputer().setField(coordAtack[0], coordAtack[1]);
+        Model_.getUser()->setEnemyField(coordAtack[0], coordAtack[1], Model_.getComputer().get());
+        Model_.getComputer()->setField(coordAtack[0], coordAtack[1]);
         // Player_ shot
-        if (Model_.getComputer().getField(coordAtack[0], coordAtack[1]) == ShipInfo::HITTING)
+        if (Model_.getComputer()->getField(coordAtack[0], coordAtack[1]) == ShipInfo::HITTING)
         {
             for_each(
-                Model_.getComputer().getShips().begin(),
-                Model_.getComputer().getShips().end(),
+                Model_.getComputer()->getShips().begin(),
+                Model_.getComputer()->getShips().end(),
                 [&](std::shared_ptr<Ship> Ship_) mutable// Lambda expression
             {
                 for (int i = 0; i < Ship_->getShipSize(); i++)
@@ -33,7 +33,7 @@ namespace BattleShip
                     if (Ship_->getX().get()[i] == coordAtack[0]
                         && Ship_->getY().get()[i] == coordAtack[1])
                     {
-                        Model_.getComputer().isShipAlive(Ship_);
+                        Model_.getComputer()->isShipAlive(Ship_);
                     }
                 }
             });
@@ -49,17 +49,17 @@ namespace BattleShip
         do {
             coordAtack[0] = static_cast<int>(rand()) % STANDART_FIELD;
             coordAtack[1] = static_cast<int>(rand()) % STANDART_FIELD;
-        } while (Model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) != ShipInfo::EMPTY_CELL);
+        } while (Model_.getUser()->getEnemyField(coordAtack[0], coordAtack[1]) != ShipInfo::EMPTY_CELL);
         notifyUpdate();
 
-        if (Model_.getUser().getEnemyField(coordAtack[0], coordAtack[1]) == ShipInfo::EMPTY_CELL)
+        if (Model_.getUser()->getEnemyField(coordAtack[0], coordAtack[1]) == ShipInfo::EMPTY_CELL)
         {
-            Model_.getUser().setField(coordAtack[0], coordAtack[1]);
-            if (Model_.getUser().getField(coordAtack[0], coordAtack[1]) == ShipInfo::HITTING)
+            Model_.getUser()->setField(coordAtack[0], coordAtack[1]);
+            if (Model_.getUser()->getField(coordAtack[0], coordAtack[1]) == ShipInfo::HITTING)
             {
                 for_each(
-                    Model_.getUser().getShips().begin(),
-                    Model_.getUser().getShips().end(),
+                    Model_.getUser()->getShips().begin(),
+                    Model_.getUser()->getShips().end(),
                     [&](std::shared_ptr<Ship> Ship_) mutable// Lambda expression
                 {
                     for (int i = 0; i < Ship_->getShipSize(); i++)
@@ -67,7 +67,7 @@ namespace BattleShip
                         if (Ship_->getX().get()[i] == coordAtack[0]
                             && Ship_->getY().get()[i] == coordAtack[1])
                         {
-                            Model_.getUser().isShipAlive(Ship_);
+                            Model_.getUser()->isShipAlive(Ship_);
                         }
                     }
                 });
@@ -131,16 +131,16 @@ namespace BattleShip
     }
     void Controller::run()
     {
-        while (!Model_.getUser().isEndOfGame() && !Model_.getComputer().isEndOfGame())
+        while (!Model_.getUser()->isEndOfGame() && !Model_.getComputer()->isEndOfGame())
         {
-            if (Model_.getUser().isEndOfGame() || Model_.getComputer().isEndOfGame())
+            if (Model_.getUser()->isEndOfGame() || Model_.getComputer()->isEndOfGame())
             {
                 for (int i = 0; i < STANDART_FIELD; i++)
                 {
                     for (int j = 0; j < STANDART_FIELD; j++)
                     {
                         viewModel_.get()->setUserField(i, j, ShipInfo::EMPTY_CELL);
-                        viewModel_.get()->setComputerField(i, j, Model_.getComputer().getField(i, j));
+                        viewModel_.get()->setComputerField(i, j, Model_.getComputer()->getField(i, j));
                     }
                 }
                 notifyUpdate();
@@ -155,9 +155,9 @@ namespace BattleShip
                 {
                     for (int j = 0; j < STANDART_FIELD; j++)
                     {
-                        if (Model_.getComputer().getField(i, j) != ShipInfo::ALIVE_SHIP)
+                        if (Model_.getComputer()->getField(i, j) != ShipInfo::ALIVE_SHIP)
                             viewModel_.get()
-                            ->setUserField(i, j, Model_.getComputer().getField(i, j));
+                            ->setUserField(i, j, Model_.getComputer()->getField(i, j));
                     }
                 }
             }
@@ -170,7 +170,7 @@ namespace BattleShip
                     for (int j = 0; j < STANDART_FIELD; j++)
                     {
                         viewModel_.get()
-                            ->setComputerField(i, j, Model_.getUser().getField(i, j));
+                            ->setComputerField(i, j, Model_.getUser()->getField(i, j));
                     }
                 }
             }
@@ -186,7 +186,7 @@ namespace BattleShip
         {
             for (int j = 0; j < STANDART_FIELD; j++)
             {
-                viewModel_.get()->setComputerField(i, j, Model_.getUser().getField(i, j));
+                viewModel_.get()->setComputerField(i, j, Model_.getUser()->getField(i, j));
             }
         }notifyUpdate();
     }

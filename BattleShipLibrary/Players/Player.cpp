@@ -103,10 +103,10 @@ namespace BattleShip
         }
     }
 
-    void Player::setEnemyField(const int i, const int j, const IField& p)
+    void Player::setEnemyField(const int i, const int j, IField* p)
     {
 
-        if (p.getField(i, j) == ShipInfo::EMPTY_CELL || p.getField(i, j) == ShipInfo::MIS_HIT)
+        if (p->getField(i, j) == ShipInfo::EMPTY_CELL || p->getField(i, j) == ShipInfo::MIS_HIT)
         {
             enemyField_[i][j] = ShipInfo::MIS_HIT;
         }

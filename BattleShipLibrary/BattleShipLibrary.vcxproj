@@ -27,6 +27,7 @@
     <ClCompile Include="Patterns\Factory\FactorySingleShip.cpp" />
     <ClCompile Include="Patterns\Factory\FactoryThreeShip.cpp" />
     <ClCompile Include="Patterns\Observer\Observable.cpp" />
+    <ClCompile Include="PlayerBuilder.cpp" />
     <ClCompile Include="Players\Player.cpp" />
     <ClCompile Include="Players\PlayerHelper.cpp" />
     <ClCompile Include="Resource\Settings.cpp" />
@@ -37,8 +38,10 @@
     <ClCompile Include="Ships\ThreeDeckShip.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Director.h" />
     <ClInclude Include="Exceptions\CreateShipException.h" />
     <ClInclude Include="Exceptions\ExecuteCommandException.h" />
+    <ClInclude Include="IBuilder.h" />
     <ClInclude Include="Model\GameModel.h" />
     <ClInclude Include="Model\IGame.h" />
     <ClInclude Include="Model\ITime.h" />
@@ -60,6 +63,7 @@
     <ClInclude Include="Patterns\Factory\FactoryThreeShip.h" />
     <ClInclude Include="Patterns\Observer\Observable.h" />
     <ClInclude Include="Patterns\Observer\Observer.h" />
+    <ClInclude Include="PlayerBuilder.h" />
     <ClInclude Include="Players\IField.h" />
     <ClInclude Include="Players\IPlayer.h" />
     <ClInclude Include="Players\Player.h" />

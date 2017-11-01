@@ -10,14 +10,14 @@ namespace BattleShip
         public IGame
     {
     public:
-        IPlayer& getUser() override;
-        IPlayer& getComputer() override;
-        const IPlayer& getUser() const override;
-        const IPlayer& getComputer() const override;
-        GameModel(IPlayer& you, IPlayer& computer);
+        shared_ptr<IPlayer> getUser() override;
+        shared_ptr<IPlayer> getComputer() override;
+        const shared_ptr<IPlayer> getUser() const override;
+        const shared_ptr<IPlayer> getComputer() const override;
+        GameModel(shared_ptr<IPlayer> you, shared_ptr<IPlayer> computer);
     private:
-        IPlayer& You_;
-        IPlayer& Computer_;
+        shared_ptr<IPlayer> You_;
+        shared_ptr<IPlayer> Computer_;
     };
 }
 #endif

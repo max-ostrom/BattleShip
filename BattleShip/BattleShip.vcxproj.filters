@@ -6,13 +6,13 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MVC\Controller.cpp">
-      <Filter>MVC</Filter>
+      <Filter>MVC\source</Filter>
     </ClCompile>
     <ClCompile Include="MVC\View.cpp">
-      <Filter>MVC</Filter>
+      <Filter>MVC\source</Filter>
     </ClCompile>
     <ClCompile Include="MVC\ViewModel.cpp">
-      <Filter>MVC</Filter>
+      <Filter>MVC\source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -21,6 +21,9 @@
     </Filter>
     <Filter Include="MVC\inc">
       <UniqueIdentifier>{d8a3b24c-eb84-4a07-8596-dd2a76a87180}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MVC\source">
+      <UniqueIdentifier>{cdc42a02-7a4f-4132-ba44-6dd8f484541d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

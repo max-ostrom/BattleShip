@@ -28,85 +28,91 @@
     <Filter Include="Model">
       <UniqueIdentifier>{02521a84-4f52-44e2-8abb-41600a7229d4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Exceptions\headers">
+      <UniqueIdentifier>{0c5ea4b6-14e4-4c7a-9f66-1e86d0146170}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\headers">
+      <UniqueIdentifier>{e806dee6-c1c3-448c-bc9b-6aee131930e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Patterns\Factory\headers">
+      <UniqueIdentifier>{51d5e680-0b56-40cc-931a-5daa5c6ff808}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Patterns\Observer\headers">
+      <UniqueIdentifier>{abb63dab-ec42-42eb-8275-d466b8850f70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Players\headers">
+      <UniqueIdentifier>{e1dd4989-914e-4435-ba07-1371f784e096}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ships\headers">
+      <UniqueIdentifier>{48ddf9e5-7c24-45fd-b602-ae61b73411ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ships\source">
+      <UniqueIdentifier>{95a12758-dc83-4475-bcbf-0d40d7cdd3e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Players\source">
+      <UniqueIdentifier>{9daa81a6-71e4-4d34-84a5-5fbb6e1d95eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Patterns\Factory\source">
+      <UniqueIdentifier>{e6be8c60-75ac-4d4a-930b-989a7760adc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Exceptions\source">
+      <UniqueIdentifier>{1a448c7a-89a6-4d53-a30b-116267f35050}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Exceptions\CreateShipException.cpp">
-      <Filter>Exceptions</Filter>
-    </ClCompile>
-    <ClCompile Include="Exceptions\ExecuteCommandException.cpp">
-      <Filter>Exceptions</Filter>
-    </ClCompile>
     <ClCompile Include="Patterns\Observer\Observable.cpp">
       <Filter>Patterns\Observer</Filter>
-    </ClCompile>
-    <ClCompile Include="Patterns\Factory\FactoryDoubleShip.cpp">
-      <Filter>Patterns\Factory</Filter>
-    </ClCompile>
-    <ClCompile Include="Patterns\Factory\FactoryFourShip.cpp">
-      <Filter>Patterns\Factory</Filter>
-    </ClCompile>
-    <ClCompile Include="Patterns\Factory\FactorySingleShip.cpp">
-      <Filter>Patterns\Factory</Filter>
-    </ClCompile>
-    <ClCompile Include="Patterns\Factory\FactoryThreeShip.cpp">
-      <Filter>Patterns\Factory</Filter>
-    </ClCompile>
-    <ClCompile Include="Players\Player.cpp">
-      <Filter>Players</Filter>
-    </ClCompile>
-    <ClCompile Include="Players\PlayerHelper.cpp">
-      <Filter>Players</Filter>
     </ClCompile>
     <ClCompile Include="Resource\Settings.cpp">
       <Filter>Resource</Filter>
     </ClCompile>
-    <ClCompile Include="Ships\DoubleDeckShip.cpp">
-      <Filter>Ships</Filter>
-    </ClCompile>
-    <ClCompile Include="Ships\FourDeckShip.cpp">
-      <Filter>Ships</Filter>
-    </ClCompile>
-    <ClCompile Include="Ships\Ship.cpp">
-      <Filter>Ships</Filter>
-    </ClCompile>
-    <ClCompile Include="Ships\SingleDeckShip.cpp">
-      <Filter>Ships</Filter>
-    </ClCompile>
-    <ClCompile Include="Ships\ThreeDeckShip.cpp">
-      <Filter>Ships</Filter>
-    </ClCompile>
     <ClCompile Include="Model\GameModel.cpp">
       <Filter>Model</Filter>
     </ClCompile>
+    <ClCompile Include="Ships\DoubleDeckShip.cpp">
+      <Filter>Ships\source</Filter>
+    </ClCompile>
+    <ClCompile Include="Ships\FourDeckShip.cpp">
+      <Filter>Ships\source</Filter>
+    </ClCompile>
+    <ClCompile Include="Ships\Ship.cpp">
+      <Filter>Ships\source</Filter>
+    </ClCompile>
+    <ClCompile Include="Ships\SingleDeckShip.cpp">
+      <Filter>Ships\source</Filter>
+    </ClCompile>
+    <ClCompile Include="Ships\ThreeDeckShip.cpp">
+      <Filter>Ships\source</Filter>
+    </ClCompile>
+    <ClCompile Include="Players\Player.cpp">
+      <Filter>Players\source</Filter>
+    </ClCompile>
+    <ClCompile Include="Players\PlayerHelper.cpp">
+      <Filter>Players\source</Filter>
+    </ClCompile>
+    <ClCompile Include="Patterns\Factory\FactoryDoubleShip.cpp">
+      <Filter>Patterns\Factory\source</Filter>
+    </ClCompile>
+    <ClCompile Include="Patterns\Factory\FactoryFourShip.cpp">
+      <Filter>Patterns\Factory\source</Filter>
+    </ClCompile>
+    <ClCompile Include="Patterns\Factory\FactorySingleShip.cpp">
+      <Filter>Patterns\Factory\source</Filter>
+    </ClCompile>
+    <ClCompile Include="Patterns\Factory\FactoryThreeShip.cpp">
+      <Filter>Patterns\Factory\source</Filter>
+    </ClCompile>
+    <ClCompile Include="Exceptions\CreateShipException.cpp">
+      <Filter>Exceptions\source</Filter>
+    </ClCompile>
+    <ClCompile Include="Exceptions\ExecuteCommandException.cpp">
+      <Filter>Exceptions\source</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerBuilder.cpp">
+      <Filter>Players\source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Exceptions\CreateShipException.h">
-      <Filter>Exceptions</Filter>
-    </ClInclude>
-    <ClInclude Include="Exceptions\ExecuteCommandException.h">
-      <Filter>Exceptions</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\Observer\Observable.h">
-      <Filter>Patterns\Observer</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\Observer\Observer.h">
-      <Filter>Patterns\Observer</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\Factory\Factory.h">
-      <Filter>Patterns\Factory</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\Factory\FactoryDoubleShip.h">
-      <Filter>Patterns\Factory</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\Factory\FactoryFourShip.h">
-      <Filter>Patterns\Factory</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\Factory\FactorySingleShip.h">
-      <Filter>Patterns\Factory</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns\Factory\FactoryThreeShip.h">
-      <Filter>Patterns\Factory</Filter>
-    </ClInclude>
     <ClInclude Include="Patterns\Command\Command.h">
       <Filter>Patterns\Commands</Filter>
     </ClInclude>
@@ -140,18 +146,6 @@
     <ClInclude Include="Patterns\Command\UnionCommand.h">
       <Filter>Patterns\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="Players\IField.h">
-      <Filter>Players</Filter>
-    </ClInclude>
-    <ClInclude Include="Players\IPlayer.h">
-      <Filter>Players</Filter>
-    </ClInclude>
-    <ClInclude Include="Players\Player.h">
-      <Filter>Players</Filter>
-    </ClInclude>
-    <ClInclude Include="Players\PlayerHelper.h">
-      <Filter>Players</Filter>
-    </ClInclude>
     <ClInclude Include="Resource\Constants.h">
       <Filter>Resource</Filter>
     </ClInclude>
@@ -167,29 +161,77 @@
     <ClInclude Include="Resource\UnionHeader.h">
       <Filter>Resource</Filter>
     </ClInclude>
-    <ClInclude Include="Ships\DoubleDeckShip.h">
-      <Filter>Ships</Filter>
+    <ClInclude Include="Exceptions\CreateShipException.h">
+      <Filter>Exceptions\headers</Filter>
     </ClInclude>
-    <ClInclude Include="Ships\FourDeckShip.h">
-      <Filter>Ships</Filter>
-    </ClInclude>
-    <ClInclude Include="Ships\Ship.h">
-      <Filter>Ships</Filter>
-    </ClInclude>
-    <ClInclude Include="Ships\SingleDeckShip.h">
-      <Filter>Ships</Filter>
-    </ClInclude>
-    <ClInclude Include="Ships\ThreeDeckShip.h">
-      <Filter>Ships</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\GameModel.h">
-      <Filter>Model</Filter>
+    <ClInclude Include="Exceptions\ExecuteCommandException.h">
+      <Filter>Exceptions\headers</Filter>
     </ClInclude>
     <ClInclude Include="Model\IGame.h">
-      <Filter>Model</Filter>
+      <Filter>Model\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\GameModel.h">
+      <Filter>Model\headers</Filter>
     </ClInclude>
     <ClInclude Include="Model\ITime.h">
-      <Filter>Model</Filter>
+      <Filter>Model\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Factory\Factory.h">
+      <Filter>Patterns\Factory\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Factory\FactoryDoubleShip.h">
+      <Filter>Patterns\Factory\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Factory\FactoryFourShip.h">
+      <Filter>Patterns\Factory\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Factory\FactorySingleShip.h">
+      <Filter>Patterns\Factory\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Factory\FactoryThreeShip.h">
+      <Filter>Patterns\Factory\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Observer\Observable.h">
+      <Filter>Patterns\Observer\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Observer\Observer.h">
+      <Filter>Patterns\Observer\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Players\IField.h">
+      <Filter>Players\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Players\IPlayer.h">
+      <Filter>Players\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Players\Player.h">
+      <Filter>Players\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Players\PlayerHelper.h">
+      <Filter>Players\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Ships\DoubleDeckShip.h">
+      <Filter>Ships\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Ships\FourDeckShip.h">
+      <Filter>Ships\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Ships\Ship.h">
+      <Filter>Ships\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Ships\SingleDeckShip.h">
+      <Filter>Ships\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Ships\ThreeDeckShip.h">
+      <Filter>Ships\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Director.h">
+      <Filter>Players\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="IBuilder.h">
+      <Filter>Players\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerBuilder.h">
+      <Filter>Players\headers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
