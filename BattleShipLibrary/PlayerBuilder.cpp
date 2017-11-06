@@ -11,17 +11,24 @@ namespace BattleShip
     }
     void PlayerBuilder::setFactories()
     {
-        Factories.clear();
-        Factories.push_back(make_shared<FactoryFourShip>());
+		try {
+			Factories.clear();
+			Factories.push_back(make_shared<FactoryFourShip>());
 
-        for (int i = 0; i < settings->getThreeDeckShipCounter(); i++)
-            Factories.push_back(make_shared<FactoryThreeShip>());
+			for (int i = 0; i < settings->getThreeDeckShipCounter(); i++)
+				Factories.push_back(make_shared<FactoryThreeShip>());
 
-        for (int i = 0; i < settings->getDoubleDeckShipCounter(); i++)
-            Factories.push_back(make_shared<FactoryDoubleShip>());
+			for (int i = 0; i < settings->getDoubleDeckShipCounter(); i++)
+				Factories.push_back(make_shared<FactoryDoubleShip>());
 
-        for (int i = 0; i < settings->getSingleDeckShipCounter(); i++)
-            Factories.push_back(make_shared<FactorySingleShip>());
+			for (int i = 0; i < settings->getSingleDeckShipCounter(); i++)
+				Factories.push_back(make_shared<FactorySingleShip>());
+		}
+		catch (exception& ex)
+		{
+			ex = exception("Settings are empty");
+			throw;
+		}
     }
     shared_ptr<IPlayer> PlayerBuilder::biuld()
     {
